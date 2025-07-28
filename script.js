@@ -66,9 +66,11 @@ class Entity {
   }
 
   getHtml(x, y) {
-    return `<div id="${this.name}" class="game_object ${this.name}" style="top: ${
-      y * 25
-    }px; left: ${x * 25}px" data-x="${x}" data-y="${y}"></div>`;
+    return `<div id="${this.name}" class="game_object ${
+      this.name
+    }" style="top: ${y * 25}px; left: ${
+      x * 25
+    }px" data-x="${x}" data-y="${y}"></div>`;
   }
 
   spawnOnMap() {
@@ -102,26 +104,46 @@ class Entity {
       field.toggleOccupied(value);
     }
   }
-}
 
-class Enemy extends Entity {
-  constructor(mapElement, fields, x = 0, y = 0) {
-    super(mapElement, fields, "enemy", x, y);
-  }
-
-  getPlayerPosition() {
-    const playerElement = document.getElementById("player");
-    if (playerElement) {
+  getElementPosition(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
       return {
-        x: parseInt(playerElement.dataset.x, 10),
-        y: parseInt(playerElement.dataset.y, 10),
+        x: parseInt(element.dataset.x, 10),
+        y: parseInt(element.dataset.y, 10),
       };
     }
     return null;
   }
 
+  attackElement(elementId) {
+    const elementPosition = this.getElementPosition(elementId);
+    if (!elementPosition) return;
+
+    if (
+      (elementPosition.x === this.x &&
+        (elementPosition.y === this.y - 1 || elementPosition.y === this.y + 1)) ||
+      (elementPosition.y === this.y &&
+        (elementPosition.x === this.x - 1 || elementPosition.x === this.x + 1))
+    ) {
+      const evt = new Event(`${this.name}Attack`, {
+        detail: {
+          value: 5,
+        },
+      });
+      document.dispatchEvent(evt);
+    }
+  }
+}
+
+class Enemy extends Entity {
+  constructor(mapElement, fields, x = 0, y = 0) {
+    super(mapElement, fields, "enemy", x, y);
+    this.toggleFieldOccupied(this.x, this.y, false);
+  }
+
   goNearPlayer() {
-    const playerPosition = this.getPlayerPosition();
+    const playerPosition = this.getElementPosition("player");
     if (!playerPosition) return;
 
     let newPosition = { x: this.x, y: this.y };
@@ -140,34 +162,17 @@ class Enemy extends Entity {
       newPosition.x === playerPosition.x &&
       newPosition.y === playerPosition.y
     ) {
-      this.attackPlayer();
+      this.attackElement("player");
       return;
     }
 
     if (this.checkIsFieldAvailable(newPosition.x, newPosition.y)) {
+      this.toggleFieldOccupied(this.x, this.y, false);
       this.x = newPosition.x;
       this.y = newPosition.y;
-      this.changePosition();
-    }
-  }
+      this.toggleFieldOccupied(newPosition.x, newPosition.y, true);
 
-  attackPlayer() {
-    console.log("Enemy is attacking the player!");
-    if (
-      (this.getPlayerPosition.x === this.x &&
-        (this.getPlayerPosition.y === this.y - 1 ||
-          this.getPlayerPosition.y === this.y + 1)) ||
-      (this.getPlayerPosition.y === this.y &&
-        (this.getPlayerPosition.x === this.x - 1 ||
-          this.getPlayerPosition.x === this.x + 1))
-    ) {
-      console.log("dupa");
-      const evt = new Event("enemyAttack", {
-        detail: {
-          value: 5,
-        },
-      });
-      document.dispatchEvent(evt);
+      this.changePosition();
     }
   }
 }
@@ -176,13 +181,18 @@ class Player extends Entity {
   constructor(mapElement, fields, x = 0, y = 0) {
     super(mapElement, fields, "player", x, y);
     this.addMoveListener();
+    this.toggleFieldOccupied(this.x, this.y, true);
   }
 
   addMoveListener() {
     document.addEventListener("keydown", (event) => {
       const key = event.key;
       let newPosition = { x: this.x, y: this.y };
-
+      let wait = false;
+      const enemyPosition = this.getElementPosition("enemy");
+      if (!enemyPosition) {
+        return;
+      }
       switch (key) {
         case "ArrowUp":
           newPosition.y = newPosition.y - 1;
@@ -196,14 +206,30 @@ class Player extends Entity {
         case "ArrowRight":
           newPosition.x = newPosition.x + 1;
           break;
+        case " ":
+          wait = true;
+          break;
         default:
           return; // Exit if not an arrow key
       }
 
+      if (wait) {
+        return; // Do not move if space is pressed
+      }
+
+      if (
+        (enemyPosition.x = newPosition.x && enemyPosition.y === newPosition.y)
+      ) {
+        this.attackElement("enemy");
+        return;
+      }
+
       if (this.checkIsFieldAvailable(newPosition.x, newPosition.y)) {
+        this.toggleFieldOccupied(this.x, this.y, false);
         this.x = newPosition.x;
         this.y = newPosition.y;
         this.changePosition();
+        this.toggleFieldOccupied(newPosition.x, newPosition.y, true);
 
         const evt = new Event("playerMoved", {
           detail: {
@@ -239,6 +265,10 @@ class GameLoop {
 
     document.addEventListener("enemyAttack", () => {
       console.log("player was attacked");
+    });
+
+    document.addEventListener("playerAttack", () => {
+      console.log("enemy was attacked");
     });
   }
 
