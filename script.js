@@ -77,11 +77,11 @@ class Entity {
   }
 
   takeDamage(value) {
+    this.hp -= value;
     if (this.hp <= 0) {
       this.die();
       return;
     }
-    this.hp -= value;
     this.resetPosition();
   }
 
@@ -89,6 +89,10 @@ class Entity {
     this.hp = 0;
     this.removeFromMap();
     GameEventEmitter.emit("died", this, { type: this.type });
+  }
+
+  isAlive() {
+    return this.hp > 0;
   }
 
   getHtml(x, y) {
@@ -322,7 +326,7 @@ class GameEventListener {
 
   handleAttack(targetEntity, sender, value) {
     targetEntity.takeDamage(value);
-    if (sender.type === "player") {
+    if (sender.type === "player" && targetEntity.type === "enemy") {
       targetEntity.chargePlayer();
     }
   }
@@ -337,9 +341,9 @@ class GameEventListener {
     const { type, sender, target, value } = eventDetail;
     const targetType = target.type;
     const targetId = target.id;
-    const affectedEntities = this.entities.filter(
-      (entity) => entity.type === targetType || entity.id === targetId
-    );
+    const affectedEntities = this.entities
+      .filter((entity) => entity.type === targetType || entity.id === targetId)
+      .filter((entity) => entity.isAlive());
 
     affectedEntities.forEach((entity) => {
       switch (type) {
@@ -408,16 +412,12 @@ class Game {
 
       const player = new Player(mapElement, map.getFields(), 1, 1);
 
-      console.log("player: ", player);
-
       if (!player) {
         console.error("Player not created");
         return;
       }
 
       const enemy = new Enemy(mapElement, map.getFields(), 5, 5);
-
-      console.log("enemy: ", enemy);
 
       if (!enemy) {
         console.error("Enemy not created");
@@ -435,8 +435,10 @@ class Game {
       // console.log("Game loop initialized:", gameLoop);
 
       console.log("Game initialized");
+      console.log("//////////////");
     } else {
       console.error("Root element not found");
+      console.error(":( :( :( :( :( :( :( :( :(");
     }
   }
 }
