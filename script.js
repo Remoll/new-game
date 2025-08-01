@@ -57,16 +57,23 @@ class Map {
 }
 
 class Entity {
-  constructor(mapElement, fields, name = "entity", x = 0, y = 0) {
+  constructor(mapElement, fields, type = "entity", x = 0, y = 0) {
     this.mapElement = mapElement;
     this.fields = fields;
-    this.name = name;
+    this.type = type;
+    this.id = this.generateId(type);
     this.x = x;
     this.y = y;
     this.hp = 100;
     this.speed = 1;
 
     this.spawnOnMap();
+  }
+
+  generateId(type) {
+    const timestamp = Date.now();
+    const randomPart = Math.floor(Math.random() * 1000);
+    return `${type}-${timestamp}-${randomPart}`;
   }
 
   takeDamage(value) {
@@ -81,13 +88,13 @@ class Entity {
   die() {
     this.hp = 0;
     this.removeFromMap();
-    GameEventEmitter.emit("died", this, this.name);
+    GameEventEmitter.emit("died", this, { type: this.type });
   }
 
   getHtml(x, y) {
-    return `<div id="${this.name}" class="game_object ${
-      this.name
-    }" style="top: ${y * 25}px; left: ${x * 25}px" data-x="${x}" data-y="${y}">
+    return `<div id="${this.id}" class="game_object ${this.type}" style="top: ${
+      y * 25
+    }px; left: ${x * 25}px" data-x="${x}" data-y="${y}">
     
       <span class="hp_bar">${this.hp}</span>
     </div>`;
@@ -102,15 +109,15 @@ class Entity {
       this.mapElement.innerHTML += entity;
     }
 
-    this.toggleFieldOccupied(this.x, this.y, true);
+    this.setIsOccupied(this.x, this.y, true);
   }
 
   removeFromMap() {
-    const existingEntity = document.getElementById(this.name);
+    const existingEntity = document.getElementById(this.id);
     if (existingEntity) {
       existingEntity.remove();
     }
-    this.toggleFieldOccupied(this.x, this.y, false);
+    this.setIsOccupied(this.x, this.y, false);
   }
 
   resetPosition() {
@@ -125,15 +132,15 @@ class Entity {
     });
   }
 
-  toggleFieldOccupied(x, y, value = true) {
+  setIsOccupied(x, y, value) {
     const field = this.fields.find((field) => field.x === x && field.y === y);
     if (field) {
       field.toggleOccupied(value, this);
     }
   }
 
-  getElementPosition(elementId) {
-    const element = document.getElementById(elementId);
+  getPlayerPosition() {
+    const element = document.getElementsByClassName("player")[0];
     if (element) {
       return {
         x: parseInt(element.dataset.x, 10),
@@ -144,8 +151,7 @@ class Entity {
   }
 
   attackElement(element) {
-    console.log("enter attackElement: ", element);
-    GameEventEmitter.emit("attack", this, element.name, 10);
+    GameEventEmitter.emit("attack", this, { id: element.id }, 10);
   }
 
   getElementOccupiedField(x, y) {
@@ -160,7 +166,6 @@ class Entity {
     const newY = axis === "y" ? this.y + direction : this.y;
 
     const elementOccupiedField = this.getElementOccupiedField(newX, newY);
-    console.log("elementOccupiedField: ", elementOccupiedField);
     if (elementOccupiedField) {
       this.attackElement(elementOccupiedField);
       return;
@@ -172,13 +177,18 @@ class Entity {
 
     this[axis] += direction;
     this.resetPosition();
-    this.toggleFieldOccupied(initialX, initialY, false);
-    this.toggleFieldOccupied(this.x, this.y, true);
+    this.setIsOccupied(initialX, initialY, false);
+    this.setIsOccupied(newX, newY, true);
 
-    GameEventEmitter.emit("moved", this, "enemy", {
-      x: this.x,
-      y: this.y,
-    });
+    GameEventEmitter.emit(
+      "moved",
+      this,
+      { type: "enemy" },
+      {
+        x: this.x,
+        y: this.y,
+      }
+    );
   }
 
   moveLeft() {
@@ -196,31 +206,33 @@ class Entity {
 }
 
 class Enemy extends Entity {
-  constructor(mapElement, fields, x = 0, y = 0) {
+  constructor(mapElement, fields, x, y) {
     super(mapElement, fields, "enemy", x, y);
   }
 
-  goNearPlayer() {
+  chargePlayer() {
     if (this.hp <= 0) {
       return;
     }
-    const playerPosition = this.getElementPosition("player");
+    const playerPosition = this.getPlayerPosition();
     if (!playerPosition) return;
+    const { x: playerX, y: playerY } = playerPosition || {};
+    if (!playerX || !playerY) return;
 
-    if (this.x < playerPosition.x) {
+    if (this.x < playerX) {
       this.moveRight();
-    } else if (this.x > playerPosition.x) {
+    } else if (this.x > playerX) {
       this.moveLeft();
-    } else if (this.y < playerPosition.y) {
+    } else if (this.y < playerY) {
       this.moveDown();
-    } else if (this.y > playerPosition.y) {
+    } else if (this.y > playerY) {
       this.moveUp();
     }
   }
 }
 
 class Player extends Entity {
-  constructor(mapElement, fields, x = 0, y = 0) {
+  constructor(mapElement, fields, x, y) {
     super(mapElement, fields, "player", x, y);
     this.hp = 200;
     this.resetPosition();
@@ -253,7 +265,7 @@ class Player extends Entity {
 }
 
 class Wall extends Entity {
-  constructor(mapElement, fields, x = 0, y = 0) {
+  constructor(mapElement, fields, x, y) {
     super(mapElement, fields, "wall", x, y);
   }
 }
@@ -282,12 +294,12 @@ class Wall extends Entity {
 // }
 
 class GameEventEmitter {
-  static emit(type, sender, targetId, value) {
+  static emit(type, sender, target, value) {
     const evt = new CustomEvent(type, {
       detail: {
         type,
         sender,
-        targetId,
+        target,
         value,
       },
     });
@@ -295,47 +307,48 @@ class GameEventEmitter {
   }
 }
 
+// interface GameEvent {
+//   type: "attack",
+//   sender: player,
+//   target: { type: "enemy", id: "enemy-123" },
+//   value: 5,
+// }
+
 class GameEventListener {
   constructor(entities) {
     this.entities = entities;
     this.listenToEvents();
   }
 
-  // interface GameEvent {
-  //   type: "attack",
-  //   sender: player,
-  //   targetId: "enemy",
-  //   value: 5,
-  // }
-
   handleAttack(targetEntity, sender, value) {
     targetEntity.takeDamage(value);
-    if (sender.name === "player") {
-      targetEntity.goNearPlayer();
+    if (sender.type === "player") {
+      targetEntity.chargePlayer();
     }
   }
 
   handleMove(enemy, sender) {
-    if (sender.name === "player") {
-      enemy.goNearPlayer();
+    if (sender.type === "player") {
+      enemy.chargePlayer();
     }
   }
 
   affectTarget(eventDetail) {
-    const { type, sender, targetId, value } = eventDetail;
-
-    const entitiesOfType = this.entities.filter(
-      (entity) => entity.name === targetId
+    const { type, sender, target, value } = eventDetail;
+    const targetType = target.type;
+    const targetId = target.id;
+    const affectedEntities = this.entities.filter(
+      (entity) => entity.type === targetType || entity.id === targetId
     );
 
-    entitiesOfType.forEach((entity) => {
+    affectedEntities.forEach((entity) => {
       switch (type) {
         case "attack":
-          this.handleAttack(entity, sender, value);
+          this.handleAttack(entity, sender, value, eventDetail);
           break;
 
         case "moved":
-          this.handleMove(entity, sender);
+          this.handleMove(entity, sender, value, eventDetail);
           break;
 
         default:
