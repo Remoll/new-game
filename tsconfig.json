@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "module": "esnext",
     "target": "es6",
-    "strict": true,
-    "esModuleInterop": true
+    "rootDir": "src",
+    "baseUrl": "src",
+    "paths": {
+      "@classes/*": ["classes/*"],
+      "@types/*": ["types/*"]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }
