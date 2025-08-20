@@ -165,6 +165,15 @@ class Entity implements IEntity {
   moveDown() {
     this.move("y", 1);
   }
+
+  wait() {
+    GameEventEmitter.emit(
+      "wait",
+      this,
+      { type: "enemy" },
+      {}
+    );
+  }
 }
 
 export default Entity;

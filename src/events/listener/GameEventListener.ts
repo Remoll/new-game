@@ -12,7 +12,7 @@ class GameEventListener implements IGameEventListener {
     this.listenToEvents();
   }
 
-  playerMoved(value) {
+  playerMakeTurn(value) {
     this.gameLoop.addEntityAction(value)
     this.gameLoop.collectActions()
     this.gameLoop.executeTurn()
@@ -25,13 +25,15 @@ class GameEventListener implements IGameEventListener {
 
   handleMove() { }
 
+  handleWait() { }
+
   affectTarget(eventDetail) {
     const { type, sender, target, value } = eventDetail;
 
     if (!target) {
       switch (type) {
-        case "playermoved":
-          this.playerMoved(value);
+        case "playermaketurn":
+          this.playerMakeTurn(value);
           break;
 
         default:
@@ -53,6 +55,9 @@ class GameEventListener implements IGameEventListener {
           break;
 
         case "moved":
+          this.handleWait();
+          break;
+        case "wait":
           this.handleMove();
           break;
 
@@ -71,7 +76,11 @@ class GameEventListener implements IGameEventListener {
       this.affectTarget(event.detail);
     });
 
-    document.addEventListener("playermoved", (event) => {
+    document.addEventListener("wait", (event) => {
+      this.affectTarget(event.detail);
+    });
+
+    document.addEventListener("playermaketurn", (event) => {
       this.affectTarget(event.detail);
     });
   }
