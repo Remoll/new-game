@@ -10,8 +10,9 @@ class Entity implements IEntity {
   x: number;
   y: number;
   hp: number;
+  isPasive: boolean;
 
-  constructor(mapElement, fields, type = "entity", x = 0, y = 0) {
+  constructor(mapElement, fields, type = "entity", x = 0, y = 0, isPasive = false) {
     this.mapElement = mapElement;
     this.fields = fields;
     this.type = type;
@@ -19,6 +20,7 @@ class Entity implements IEntity {
     this.x = x;
     this.y = y;
     this.hp = 100;
+    this.isPasive = isPasive;
 
     this.spawnOnMap();
   }
@@ -30,6 +32,10 @@ class Entity implements IEntity {
   }
 
   takeDamage(value) {
+    if (this.isPasive) {
+      console.log("Entity is immune to damage")
+      return;
+    }
     this.hp -= value;
     if (this.hp <= 0) {
       this.die();
@@ -52,7 +58,7 @@ class Entity implements IEntity {
     return `<div id="${this.id}" class="game_object ${this.type}" style="top: ${y * 25
       }px; left: ${x * 25}px" data-x="${x}" data-y="${y}">
     
-      <span class="hp_bar">${this.hp}</span>
+      ${!this.isPasive ? '<span class="hp_bar">' + this.hp + '</span>' : ''}
     </div>`;
   }
 
