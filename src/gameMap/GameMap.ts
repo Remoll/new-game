@@ -1,7 +1,7 @@
-import { IMap } from "./types";
+import { IGameMap } from "./types";
 import Field from "./field/Field";
 
-class Map implements IMap {
+class GameMap implements IGameMap {
   fields: Field[];
   constructor() {
     this.fields = this.generateFields();
@@ -34,4 +34,4 @@ class Map implements IMap {
   }
 }
 
-export default Map;
+export default GameMap;

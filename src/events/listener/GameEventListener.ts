@@ -33,6 +33,9 @@ class GameEventListener implements IGameEventListener {
     if (!target) {
       switch (type) {
         case "playermaketurn":
+          if (sender.hp < 1) {
+            return;
+          }
           this.playerMakeTurn(value);
           break;
 

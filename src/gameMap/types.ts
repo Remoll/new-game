@@ -1,7 +1,7 @@
 import { IField } from "./field/types";
 
-interface IMap {
+interface IGameMap {
   fields: IField[];
 }
 
-export { IMap };
+export { IGameMap };

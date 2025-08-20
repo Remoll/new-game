@@ -3,7 +3,7 @@ import Player from "entity/player/Player";
 import Wall from "entity/wall/Wall";
 import GameEventListener from "events/listener/GameEventListener";
 import IGame from "./types";
-import Map from "../map/Map";
+import GameMap from "../gameMap/GameMap";
 import GameLoop from "gameLoop/GameLoop";
 
 class Game implements IGame {
@@ -15,7 +15,7 @@ class Game implements IGame {
 
   initGame() {
     if (this.root) {
-      const map = new Map();
+      const map = new GameMap();
 
       const htmlMap = map.generateHTMLMap();
 
@@ -26,7 +26,7 @@ class Game implements IGame {
       const mapElement = document.getElementById("map");
 
       if (!mapElement) {
-        console.error("Map element not found");
+        console.error("GameMap element not found");
         return;
       }
 
@@ -51,15 +51,15 @@ class Game implements IGame {
 
       const enemy = new Enemy(mapElement, map.getFields(), 5, 5);
       const enemy1 = new Enemy(mapElement, map.getFields(), 20, 2);
+      const enemy2 = new Enemy(mapElement, map.getFields(), 25, 15);
 
-
-      if (!enemy || !enemy1) {
+      if (!enemy || !enemy1 || !enemy2) {
         console.error("Enemy not created");
         return;
       }
 
 
-      const entities = [player, enemy, enemy1, ...walls];
+      const entities = [player, enemy, enemy1, enemy2, ...walls];
 
       const gameLoop = new GameLoop(entities)
 

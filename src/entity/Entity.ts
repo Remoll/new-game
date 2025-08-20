@@ -1,5 +1,5 @@
 import { IEntity } from "./types";
-import Field from "../map/field/Field";
+import Field from "../gameMap/field/Field";
 import GameEventEmitter from "../events/emiter/GameEventEmitter";
 
 class Entity implements IEntity {
