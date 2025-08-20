@@ -4,6 +4,7 @@ import Wall from "entity/wall/Wall";
 import GameEventListener from "events/listener/GameEventListener";
 import IGame from "./types";
 import Map from "../map/Map";
+import GameLoop from "gameLoop/GameLoop";
 
 class Game implements IGame {
   root: HTMLElement | null;
@@ -49,27 +50,26 @@ class Game implements IGame {
       }
 
       const enemy = new Enemy(mapElement, map.getFields(), 5, 5);
+      const enemy1 = new Enemy(mapElement, map.getFields(), 20, 2);
 
-      if (!enemy) {
+
+      if (!enemy || !enemy1) {
         console.error("Enemy not created");
         return;
       }
 
-      const entities = [player, enemy, ...walls];
 
-      const gameEventListener = new GameEventListener(entities);
+      const entities = [player, enemy, enemy1, ...walls];
+
+      const gameLoop = new GameLoop(entities)
+
+      const gameEventListener = new GameEventListener(entities, gameLoop);
 
       console.log("Event listener initialized:", gameEventListener);
 
-      // const gameLoop = new GameLoop(map, entities);
-
-      // console.log("Game loop initialized:", gameLoop);
-
-      console.log("Game initialized");
-      console.log("//////////////");
+      console.log("Game initialized !!!");
     } else {
       console.error("Root element not found");
-      console.error(":( :( :( :( :( :( :( :( :(");
     }
   }
 }

@@ -1,29 +1,45 @@
 import Entity from "entity/Entity";
 import { IGameEventListener } from "./types";
+import GameLoop from "gameLoop/GameLoop";
 
 class GameEventListener implements IGameEventListener {
   entities: Entity[];
+  gameLoop: GameLoop;
 
-  constructor(entities) {
+  constructor(entities, gameLoop) {
     this.entities = entities;
+    this.gameLoop = gameLoop;
     this.listenToEvents();
   }
 
-  handleAttack(targetEntity, sender, value) {
-    targetEntity.takeDamage(value);
-    if (sender.type === "player" && targetEntity.type === "enemy") {
-      targetEntity.chargePlayer();
-    }
+  playerMoved(value) {
+    this.gameLoop.addEntityAction(value)
+    this.gameLoop.collectActions()
+    this.gameLoop.executeTurn()
+    this.gameLoop.resetEntitiesActions()
   }
 
-  handleMove(enemy, sender) {
-    if (sender.type === "player") {
-      enemy.chargePlayer();
-    }
+  handleAttack(targetEntity, value) {
+    targetEntity.takeDamage(value);
   }
+
+  handleMove() { }
 
   affectTarget(eventDetail) {
     const { type, sender, target, value } = eventDetail;
+
+    if (!target) {
+      switch (type) {
+        case "playermoved":
+          this.playerMoved(value);
+          break;
+
+        default:
+          break;
+      }
+      return
+    }
+
     const targetType = target.type;
     const targetId = target.id;
     const affectedEntities = this.entities
@@ -33,11 +49,11 @@ class GameEventListener implements IGameEventListener {
     affectedEntities.forEach((entity) => {
       switch (type) {
         case "attack":
-          this.handleAttack(entity, sender, value);
+          this.handleAttack(entity, value);
           break;
 
         case "moved":
-          this.handleMove(entity, sender);
+          this.handleMove();
           break;
 
         default:
@@ -52,6 +68,10 @@ class GameEventListener implements IGameEventListener {
     });
 
     document.addEventListener("moved", (event) => {
+      this.affectTarget(event.detail);
+    });
+
+    document.addEventListener("playermoved", (event) => {
       this.affectTarget(event.detail);
     });
   }

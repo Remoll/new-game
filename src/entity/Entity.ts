@@ -10,7 +10,6 @@ class Entity implements IEntity {
   x: number;
   y: number;
   hp: number;
-  speed: number;
 
   constructor(mapElement, fields, type = "entity", x = 0, y = 0) {
     this.mapElement = mapElement;
@@ -20,7 +19,6 @@ class Entity implements IEntity {
     this.x = x;
     this.y = y;
     this.hp = 100;
-    this.speed = 1;
 
     this.spawnOnMap();
   }
@@ -51,9 +49,8 @@ class Entity implements IEntity {
   }
 
   getHtml(x, y) {
-    return `<div id="${this.id}" class="game_object ${this.type}" style="top: ${
-      y * 25
-    }px; left: ${x * 25}px" data-x="${x}" data-y="${y}">
+    return `<div id="${this.id}" class="game_object ${this.type}" style="top: ${y * 25
+      }px; left: ${x * 25}px" data-x="${x}" data-y="${y}">
     
       <span class="hp_bar">${this.hp}</span>
     </div>`;
@@ -151,16 +148,16 @@ class Entity implements IEntity {
   }
 
   moveLeft() {
-    this.move("x", -this.speed);
+    this.move("x", -1);
   }
   moveRight() {
-    this.move("x", this.speed);
+    this.move("x", 1);
   }
   moveUp() {
-    this.move("y", -this.speed);
+    this.move("y", -1);
   }
   moveDown() {
-    this.move("y", this.speed);
+    this.move("y", 1);
   }
 }
 

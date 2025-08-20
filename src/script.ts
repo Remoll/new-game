@@ -9,26 +9,3 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Root element not found");
   }
 });
-
-// class GameLoop {
-//   constructor(map, entities) {
-//     this.map = map;
-//     this.entities = entities;
-
-//     document.addEventListener("enemyattack", () => {
-//       console.log("player was attacked");
-//     });
-
-//     document.addEventListener("playerattack", () => {
-//       console.log("enemy was attacked");
-//     });
-//   }
-
-//   getPlayer() {
-//     return this.entities.find((entity) => entity.name === "player");
-//   }
-
-//   getEnemy() {
-//     return this.entities.find((entity) => entity.name === "enemy");
-//   }
-// }
