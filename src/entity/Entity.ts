@@ -174,6 +174,91 @@ class Entity implements IEntity {
       {}
     );
   }
+
+  findShortestPath(targetX, targetY) {
+    // quick checks
+    const startKey = `${this.x},${this.y}`;
+    const targetKey = `${targetX},${targetY}`;
+
+    // build a lookup for fields by "x,y"
+    const fieldMap = new Map();
+    this.fields.forEach((f) => fieldMap.set(`${f.x},${f.y}`, f));
+
+    if (!fieldMap.has(targetKey)) {
+      // target is off-map
+      return null;
+    }
+
+    if (startKey === targetKey) {
+      return []; // already at player
+    }
+
+    const queue = [startKey];
+    const visited = new Set([startKey]);
+    const parent = new Map();
+
+    const directions = [
+      [1, 0], // right
+      [-1, 0], // left
+      [0, 1], // down
+      [0, -1], // up
+    ];
+
+    while (queue.length > 0) {
+      const key = queue.shift();
+      const [cx, cy] = key.split(",").map(Number);
+
+      for (const [dx, dy] of directions) {
+        const nx = cx + dx;
+        const ny = cy + dy;
+        const nKey = `${nx},${ny}`;
+
+        if (visited.has(nKey)) continue;
+        if (!fieldMap.has(nKey)) continue; // out of map
+
+        const field = fieldMap.get(nKey);
+
+        // If the neighbor is occupied and it's NOT the player's cell, skip it.
+        // (We allow stepping into the player's cell even if it's occupied by the player.)
+        if (field.occupied && !(nx === targetX && ny === targetY)) {
+          continue;
+        }
+
+        visited.add(nKey);
+        parent.set(nKey, key);
+
+        // Found player — reconstruct path
+        if (nKey === targetKey) {
+          const path = [];
+          let cur = nKey;
+          while (cur && cur !== startKey) {
+            const [px, py] = cur.split(",").map(Number);
+            path.push([px, py]);
+            cur = parent.get(cur);
+          }
+          path.reverse();
+          return path; // array of [x,y] steps (first step is the next move)
+        }
+
+        queue.push(nKey);
+      }
+    }
+
+    // no path
+    return null;
+  }
+
+  moveToDirectionFromCoordinates(nextX, nextY) {
+    if (nextX > this.x) {
+      this.moveRight();
+    } else if (nextX < this.x) {
+      this.moveLeft();
+    } else if (nextY > this.y) {
+      this.moveDown();
+    } else if (nextY < this.y) {
+      this.moveUp();
+    }
+  }
 }
 
 export default Entity;
