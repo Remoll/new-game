@@ -2,10 +2,9 @@ import Entity from "entity/Entity";
 import GameEventEmitter from "events/emiter/GameEventEmitter";
 
 class Player extends Entity {
-  constructor(mapElement, fields, x, y) {
-    super(mapElement, fields, "player", x, y);
+  constructor(fields, x, y) {
+    super(fields, "player", x, y);
     this.hp = 200;
-    this.resetPosition();
     this.addMoveListener();
   }
 
@@ -36,7 +35,7 @@ class Player extends Entity {
           GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.wait() })
           return;
         default:
-          return; // Exit if not an arrow key
+          return;
       }
     });
   }

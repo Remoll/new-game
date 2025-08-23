@@ -27,13 +27,15 @@ class GameEventListener implements IGameEventListener {
 
   handleWait() { }
 
+  handleDied() { }
+
   affectTarget(eventDetail) {
     const { type, sender, target, value } = eventDetail;
 
     if (!target) {
       switch (type) {
         case "playermaketurn":
-          if (sender.hp < 1) {
+          if (!sender.isAlive()) {
             return;
           }
           this.playerMakeTurn(value);
@@ -60,8 +62,13 @@ class GameEventListener implements IGameEventListener {
         case "moved":
           this.handleWait();
           break;
+
         case "wait":
           this.handleMove();
+          break;
+
+        case "died":
+          this.handleDied();
           break;
 
         default:
@@ -84,6 +91,10 @@ class GameEventListener implements IGameEventListener {
     });
 
     document.addEventListener("playermaketurn", (event) => {
+      this.affectTarget(event.detail);
+    });
+
+    document.addEventListener("died", (event) => {
       this.affectTarget(event.detail);
     });
   }

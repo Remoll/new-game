@@ -1,12 +1,12 @@
 import Entity from "../Entity";
 
 class Enemy extends Entity {
-  constructor(mapElement, fields, x, y) {
-    super(mapElement, fields, "enemy", x, y);
+  constructor(fields, x, y) {
+    super(fields, "enemy", x, y);
   }
 
   chargePlayer() {
-    if (this.hp <= 0) {
+    if (!this.isAlive) {
       console.log("Enemy is dead and cant move")
       return;
     }

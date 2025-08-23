@@ -3,7 +3,6 @@ import Field from "../gameMap/field/Field";
 import GameEventEmitter from "../events/emiter/GameEventEmitter";
 
 class Entity implements IEntity {
-  mapElement: HTMLElement | null;
   fields: Field[];
   type: string;
   id: string;
@@ -12,8 +11,7 @@ class Entity implements IEntity {
   hp: number;
   isPasive: boolean;
 
-  constructor(mapElement, fields, type = "entity", x = 0, y = 0, isPasive = false) {
-    this.mapElement = mapElement;
+  constructor(fields, type = "entity", x = 0, y = 0, isPasive = false) {
     this.fields = fields;
     this.type = type;
     this.id = this.generateId(type);
@@ -21,8 +19,6 @@ class Entity implements IEntity {
     this.y = y;
     this.hp = 100;
     this.isPasive = isPasive;
-
-    this.spawnOnMap();
   }
 
   generateId(type) {
@@ -41,12 +37,11 @@ class Entity implements IEntity {
       this.die();
       return;
     }
-    this.resetPosition();
   }
 
   die() {
     this.hp = 0;
-    this.removeFromMap();
+    this.setIsOccupied(this.x, this.y, false);
     GameEventEmitter.emit("died", this, { type: this.type });
   }
 
@@ -54,37 +49,16 @@ class Entity implements IEntity {
     return this.hp > 0;
   }
 
-  getHtml(x, y) {
-    return `<div id="${this.id}" class="game_object ${this.type}" style="top: ${y * 25
-      }px; left: ${x * 25}px" data-x="${x}" data-y="${y}">
-    
-      ${!this.isPasive ? '<span class="hp_bar">' + this.hp + '</span>' : ''}
-    </div>`;
-  }
+  addToCanvas(ctx) {
+    ctx.fillStyle = "#ff0000ff";
+    ctx.fillRect(this.x * 50, this.y * 50, 50, 50);  // x, y, width, height
 
-  spawnOnMap() {
-    const entity = this.getHtml(this.x, this.y);
-
-    const isFieldAvailable = this.checkIsFieldAvailable(this.x, this.y);
-
-    if (this.mapElement && isFieldAvailable) {
-      this.mapElement.innerHTML += entity;
+    if (!this.isPasive) {
+      ctx.fillStyle = "#c3ff00ff";
+      ctx.fillText(this.hp, this.x * 50, this.y * 50);
     }
 
     this.setIsOccupied(this.x, this.y, true);
-  }
-
-  removeFromMap() {
-    const existingEntity = document.getElementById(this.id);
-    if (existingEntity) {
-      existingEntity.remove();
-    }
-    this.setIsOccupied(this.x, this.y, false);
-  }
-
-  resetPosition() {
-    this.removeFromMap();
-    this.spawnOnMap();
   }
 
   checkIsFieldAvailable(x, y) {
@@ -102,14 +76,17 @@ class Entity implements IEntity {
   }
 
   getPlayerPosition() {
-    const element = document.getElementsByClassName("player")[0];
-    if (element) {
-      return {
-        x: parseInt(element.dataset.x, 10),
-        y: parseInt(element.dataset.y, 10),
-      };
+    const fieldWithPlayer = this.fields.find((field) => field.occupiedBy?.type === "player")
+
+    if (!fieldWithPlayer) {
+      console.log("fieldWithPlayer not found")
+      return null;
     }
-    return null;
+
+    return {
+      x: fieldWithPlayer.x,
+      y: fieldWithPlayer.y,
+    };
   }
 
   attackElement(element) {
@@ -138,7 +115,6 @@ class Entity implements IEntity {
     }
 
     this[axis] += direction;
-    this.resetPosition();
     this.setIsOccupied(initialX, initialY, false);
     this.setIsOccupied(newX, newY, true);
 

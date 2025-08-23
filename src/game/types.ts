@@ -1,5 +1,5 @@
 interface IGame {
-  root: HTMLElement | null;
+  ctx: HTMLElement | null;
 
   initGame(): void;
 }

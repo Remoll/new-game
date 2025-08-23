@@ -8,29 +8,38 @@ class GameMap implements IGameMap {
   }
 
   generateFields() {
-    const map = [];
-    const xLength = 50;
-    const yLength = 20;
-    for (let i = 0; i < xLength; i++) {
-      for (let j = 0; j < yLength; j++) {
-        map.push(new Field(i, j));
+    const gameMapWidth = 20;
+    const gameMapHight = 20;
+
+    const fields = [];
+
+    for (let fieldX = 0; fieldX < gameMapWidth; fieldX++) {
+      for (let fieldY = 0; fieldY < gameMapHight; fieldY++) {
+
+        fields.push(new Field(fieldX, fieldY));
+
       }
     }
-    return map;
+
+    return fields;
   }
 
   getFields() {
     return this.fields;
   }
 
-  generateHTMLMap() {
-    const htmlMap = this.fields
-      .map((field) => {
-        return field.getHtml();
-      })
-      .join("");
+  addToCanvas(ctx) {
+    const floorColors = ['#0a81e9ff', '#818bd8ff', '#0a6be9ff']
+    let index = 0;
 
-    return htmlMap;
+    this.fields
+      .map((field) => {
+        ctx.fillStyle = floorColors[index];
+
+        ctx.fillRect(field.x * 50, field.y * 50, 50, 50);  // x, y, width, height
+
+        index = index === 0 ? 1 : index === 1 ? 2 : index === 2 ? 0 : null;
+      })
   }
 }
 
