@@ -78,23 +78,23 @@ class GameEventListener implements IGameEventListener {
   }
 
   listenToEvents() {
-    document.addEventListener("attack", (event) => {
+    document.addEventListener("attack", (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
 
-    document.addEventListener("moved", (event) => {
+    document.addEventListener("moved", (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
 
-    document.addEventListener("wait", (event) => {
+    document.addEventListener("wait", (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
 
-    document.addEventListener("playermaketurn", (event) => {
+    document.addEventListener("playermaketurn", (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
 
-    document.addEventListener("died", (event) => {
+    document.addEventListener("died", (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
   }
