@@ -17,18 +17,18 @@ class Player extends Entity {
       const key = event.key;
       switch (key) {
         case "ArrowUp":
-          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.moveUp() })
+          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.takeActionUp() })
           break;
         case "ArrowDown":
-          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.moveDown() })
+          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.takeActionDown() })
 
           break;
         case "ArrowLeft":
-          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.moveLeft() })
+          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.takeActionLeft() })
 
           break;
         case "ArrowRight":
-          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.moveRight() })
+          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.takeActionRight() })
 
           break;
         case " ":

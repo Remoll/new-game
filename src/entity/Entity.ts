@@ -10,8 +10,9 @@ class Entity implements IEntity {
   y: number;
   hp: number;
   isPasive: boolean;
+  canOccupiedFields: boolean;
 
-  constructor(fields, type = "entity", x = 0, y = 0, isPasive = false) {
+  constructor(fields, type = "entity", x = 0, y = 0, isPasive = false, canOccupiedFields = true) {
     this.fields = fields;
     this.type = type;
     this.id = this.generateId(type);
@@ -19,6 +20,17 @@ class Entity implements IEntity {
     this.y = y;
     this.hp = 100;
     this.isPasive = isPasive;
+    this.canOccupiedFields = canOccupiedFields;
+  }
+
+  setCanOccupiedFields(value) {
+    this.canOccupiedFields = value;
+
+    const field = this.getOccupiedField(this.x, this.y);
+
+    if (!field.isOccupied && value) {
+      field.setOccupied(value)
+    }
   }
 
   generateId(type) {
@@ -64,19 +76,36 @@ class Entity implements IEntity {
   checkIsFieldAvailable(x, y) {
     return this.fields.some((field) => {
       const fieldPosition = field.getPosition();
-      return fieldPosition.x === x && fieldPosition.y === y && !field.occupied;
+      return fieldPosition.x === x && fieldPosition.y === y && !field.isOccupied;
     });
   }
 
+  getOccupiedField(x, y) {
+    return this.fields.find((field) => field.x === x && field.y === y);
+  }
+
   setIsOccupied(x, y, value) {
-    const field = this.fields.find((field) => field.x === x && field.y === y);
+    const field = this.getOccupiedField(x, y);
     if (field) {
-      field.toggleOccupied(value, this);
+      field.setOccupied(this.canOccupiedFields && value);
+
+      if (value) {
+        field.addEntityToOccupiedBy(this);
+      } else {
+        field.removeEntityFromOccupiedBy(this);
+      }
     }
   }
 
   getPlayerPosition() {
-    const fieldWithPlayer = this.fields.find((field) => field.occupiedBy?.type === "player")
+    const fieldWithPlayer = this.fields.find((field) => {
+      if (!field.entitiesOnField || field.entitiesOnField.length < 1) {
+        return null;
+      }
+      return field.entitiesOnField?.some((entity) => {
+        return entity.type === "player"
+      })
+    })
 
     if (!fieldWithPlayer) {
       console.log("fieldWithPlayer not found")
@@ -93,28 +122,45 @@ class Entity implements IEntity {
     GameEventEmitter.emit("attack", this, { id: element.id }, 10);
   }
 
-  getElementOccupiedField(x, y) {
+  getElementsOccupiedField(x, y) {
     const field = this.fields.find((field) => field.x === x && field.y === y);
-    return field && field.occupiedBy;
+    return field && field.entitiesOnField;
   }
 
-  move(axis, direction) {
+  getElementToAttackFromCoordinates(x, y): Entity | null {
+    const elementsOccupiedField = this.getElementsOccupiedField(x, y);
+
+    if (!elementsOccupiedField) {
+      return null;
+    }
+
+    const elementsThatCanOccupiedFields = elementsOccupiedField.filter((entity) => entity.canOccupiedFields)
+
+    if (!elementsThatCanOccupiedFields) {
+      return null;
+    }
+
+    if (elementsThatCanOccupiedFields.length === 0) {
+      return null;
+    }
+
+    if (elementsThatCanOccupiedFields.length > 1) {
+      console.error("more than one element from elementsThatCanOccupiedFields, need exact one")
+      return null;
+    }
+
+    const elementToAttack = elementsThatCanOccupiedFields[0];
+
+    return elementToAttack || null;
+  }
+
+  move(newX, newY) {
     const initialX = this.x;
     const initialY = this.y;
-    const newX = axis === "x" ? this.x + direction : this.x;
-    const newY = axis === "y" ? this.y + direction : this.y;
 
-    const elementOccupiedField = this.getElementOccupiedField(newX, newY);
-    if (elementOccupiedField) {
-      this.attackElement(elementOccupiedField);
-      return;
-    }
+    this.x = newX;
+    this.y = newY;
 
-    if (!this.checkIsFieldAvailable(newX, newY)) {
-      return;
-    }
-
-    this[axis] += direction;
     this.setIsOccupied(initialX, initialY, false);
     this.setIsOccupied(newX, newY, true);
 
@@ -129,17 +175,36 @@ class Entity implements IEntity {
     );
   }
 
-  moveLeft() {
-    this.move("x", -1);
+  takeAction(axis, direction) {
+    const newX = axis === "x" ? this.x + direction : this.x;
+    const newY = axis === "y" ? this.y + direction : this.y;
+
+    const elementToAttack = this.getElementToAttackFromCoordinates(newX, newY);
+
+    if (elementToAttack) {
+      this.attackElement(elementToAttack);
+      return;
+    }
+
+    if (!this.checkIsFieldAvailable(newX, newY)) {
+      console.log("fieldOccupied, can't move")
+      return;
+    }
+
+    this.move(newX, newY);
   }
-  moveRight() {
-    this.move("x", 1);
+
+  takeActionLeft() {
+    this.takeAction("x", -1);
   }
-  moveUp() {
-    this.move("y", -1);
+  takeActionRight() {
+    this.takeAction("x", 1);
   }
-  moveDown() {
-    this.move("y", 1);
+  takeActionUp() {
+    this.takeAction("y", -1);
+  }
+  takeActionDown() {
+    this.takeAction("y", 1);
   }
 
   wait() {
@@ -196,7 +261,7 @@ class Entity implements IEntity {
 
         // If the neighbor is occupied and it's NOT the player's cell, skip it.
         // (We allow stepping into the player's cell even if it's occupied by the player.)
-        if (field.occupied && !(nx === targetX && ny === targetY)) {
+        if (field.isOccupied && !(nx === targetX && ny === targetY)) {
           continue;
         }
 
@@ -224,15 +289,15 @@ class Entity implements IEntity {
     return null;
   }
 
-  moveToDirectionFromCoordinates(nextX, nextY) {
+  takeActionToDirectionFromCoordinates(nextX, nextY) {
     if (nextX > this.x) {
-      this.moveRight();
+      this.takeActionRight();
     } else if (nextX < this.x) {
-      this.moveLeft();
+      this.takeActionLeft();
     } else if (nextY > this.y) {
-      this.moveDown();
+      this.takeActionDown();
     } else if (nextY < this.y) {
-      this.moveUp();
+      this.takeActionUp();
     }
   }
 }

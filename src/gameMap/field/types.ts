@@ -3,8 +3,8 @@ import { IEntity } from "../../entity/types";
 interface IField {
   x: Number;
   y: Number;
-  occupied: boolean;
-  occupiedBy: IEntity | null;
+  isOccupied: boolean;
+  entitiesOnField: IEntity[];
 }
 
 export { IField };

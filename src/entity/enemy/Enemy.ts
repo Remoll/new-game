@@ -33,7 +33,7 @@ class Enemy extends Entity {
 
     const [nextX, nextY] = path[0];
 
-    this.moveToDirectionFromCoordinates(nextX, nextY)
+    this.takeActionToDirectionFromCoordinates(nextX, nextY)
   }
 }
 
