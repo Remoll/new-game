@@ -20,7 +20,7 @@ class Enemy extends Entity {
 
     const { x: playerX, y: playerY } = playerPosition || {};
 
-    if (!playerX || !playerY) return;
+    if (playerX < 0 || playerY < 0) return;
 
     const path = this.findShortestPath(playerX, playerY);
 
