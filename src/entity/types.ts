@@ -1,3 +1,8 @@
-interface IEntity {}
+enum Direction {
+    UP = "up",
+    DOWN = "down",
+    LEFT = "left",
+    RIGHT = "right",
+}
 
-export { IEntity };
+export { Direction };

@@ -1,28 +1,24 @@
-import { IField } from "./types";
 import Entity from "../../entity/Entity";
 
-class Field implements IField {
-  x: number;
-  y: number;
-  isOccupied: boolean;
-  entitiesOnField: Entity[];
+class Field {
+  private x: number;
+  private y: number;
+  private entitiesOnField: Entity[] = [];
 
   constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
-    this.isOccupied = false;
-    this.entitiesOnField = [];
   }
 
   getPosition(): { x: number; y: number } {
     return { x: this.x, y: this.y };
   }
 
-  setOccupied(value: boolean) {
-    this.isOccupied = value;
+  getIsOccupied() {
+    return this.entitiesOnField.some((entity) => entity.getCanOccupiedFields());
   }
 
-  addEntityToOccupiedBy(entityToAdd: Entity) {
+  addEntityToField(entityToAdd: Entity) {
     const doesEntityExistInOccupiedBy = this.entitiesOnField.some((entity) => entity.id === entityToAdd.id)
     if (doesEntityExistInOccupiedBy) {
       return;
@@ -30,10 +26,33 @@ class Field implements IField {
 
     this.entitiesOnField.push(entityToAdd);
   }
-  removeEntityFromOccupiedBy(entityToRemove: Entity) {
+
+  removeEntityFromField(entityToRemove: Entity) {
     this.entitiesOnField = this.entitiesOnField.filter((entity) => entity.id !== entityToRemove.id)
   }
 
+  getEntitiesFromField(): Entity[] {
+    return this.entitiesOnField;
+  }
+
+  getEntityThatOccupiedField(): Entity | null {
+    if (this.entitiesOnField.length < 1) {
+      return null;
+    }
+
+    const entitiesThatCanOccupiedFields = this.entitiesOnField.filter((entity) => entity.getCanOccupiedFields())
+
+    if (entitiesThatCanOccupiedFields.length < 1) {
+      return null;
+    }
+
+    if (entitiesThatCanOccupiedFields.length > 1) {
+      console.error("more than one entity from entitiesThatCanOccupiedFields, need exact one")
+      return null;
+    }
+
+    return entitiesThatCanOccupiedFields[0];
+  }
 }
 
 export default Field;

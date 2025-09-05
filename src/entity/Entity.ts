@@ -1,8 +1,8 @@
 import { emitAttack, emitDead, emitMove, emitWait } from "events/emiter/emittedActions";
-import { IEntity } from "./types";
 import Field from "../gameMap/field/Field";
+import { Direction } from "./types";
 
-class Entity implements IEntity {
+class Entity {
   fields: Field[];
   type: string;
   id: string;
@@ -10,9 +10,10 @@ class Entity implements IEntity {
   y: number;
   hp: number;
   isPasive: boolean;
-  canOccupiedFields: boolean;
+  private canOccupiedFields: boolean;
+  private isInteractive: boolean;
 
-  constructor(fields, type = "entity", x = 0, y = 0, isPasive = false, canOccupiedFields = true) {
+  constructor(fields, type = "entity", x = 0, y = 0, isPasive = false, canOccupiedFields = true, isInteractive = false) {
     this.fields = fields;
     this.type = type;
     this.id = this.generateId(type);
@@ -21,22 +22,30 @@ class Entity implements IEntity {
     this.hp = 100;
     this.isPasive = isPasive;
     this.canOccupiedFields = canOccupiedFields;
+    this.isInteractive = isInteractive;
+  }
+
+  getCanOccupiedFields() {
+    return this.canOccupiedFields;
   }
 
   setCanOccupiedFields(value) {
     this.canOccupiedFields = value;
-
-    const field = this.getOccupiedField(this.x, this.y);
-
-    if (!field.isOccupied && value) {
-      field.setOccupied(value)
-    }
   }
 
   generateId(type) {
     const timestamp = Date.now();
     const randomPart = Math.floor(Math.random() * 1000);
     return `${type}-${timestamp}-${randomPart}`;
+  }
+
+  getCurrentField(): Field | null {
+    const field = this.getFieldFromCoordinates(this.x, this.y);
+    if (!field) {
+      console.error("Field not found for entity at coordinates:", this.x, this.y);
+      return null;
+    }
+    return field;
   }
 
   takeDamage(value) {
@@ -53,7 +62,14 @@ class Entity implements IEntity {
 
   die() {
     this.hp = 0;
-    this.setIsOccupied(this.x, this.y, false);
+    const field = this.getCurrentField();
+
+    if (field) {
+      field.removeEntityFromField(this);
+    } else {
+      console.log("No field found for entity on die");
+    }
+
     emitDead(this, { type: this.type });
   }
 
@@ -70,39 +86,31 @@ class Entity implements IEntity {
       ctx.fillText(this.hp, this.x * 50, this.y * 50);
     }
 
-    this.setIsOccupied(this.x, this.y, true);
+    const field = this.getCurrentField();
+    field.addEntityToField(this);
   }
 
   checkIsFieldAvailable(x, y) {
-    return this.fields.some((field) => {
-      const fieldPosition = field.getPosition();
-      return fieldPosition.x === x && fieldPosition.y === y && !field.isOccupied;
-    });
-  }
-
-  getOccupiedField(x, y) {
-    return this.fields.find((field) => field.x === x && field.y === y);
-  }
-
-  setIsOccupied(x, y, value) {
-    const field = this.getOccupiedField(x, y);
-    if (field) {
-      field.setOccupied(this.canOccupiedFields && value);
-
-      if (value) {
-        field.addEntityToOccupiedBy(this);
-      } else {
-        field.removeEntityFromOccupiedBy(this);
-      }
+    const field = this.getFieldFromCoordinates(x, y);
+    if (!field) {
+      console.log("No field from coordinates");
+      return false;
     }
+
+    return !field.getIsOccupied();
+  }
+
+  getFieldFromCoordinates(x: number, y: number): Field | undefined {
+    return this.fields.find((field) => {
+      const { x: fieldX, y: fieldY } = field.getPosition();
+      return fieldX === x && fieldY === y
+    });
   }
 
   getPlayerPosition() {
     const fieldWithPlayer = this.fields.find((field) => {
-      if (!field.entitiesOnField || field.entitiesOnField.length < 1) {
-        return null;
-      }
-      return field.entitiesOnField?.some((entity) => {
+      const entitieFromField = field.getEntitiesFromField();
+      return entitieFromField.some((entity) => {
         return entity.type === "player"
       })
     })
@@ -112,69 +120,49 @@ class Entity implements IEntity {
       return null;
     }
 
-    return {
-      x: fieldWithPlayer.x,
-      y: fieldWithPlayer.y,
-    };
+    return fieldWithPlayer.getPosition()
   }
 
-  attackElement(element) {
-    emitAttack(this, { id: element.id }, 10)
+  attackEntity(entity: Entity) {
+    emitAttack(this, { id: entity.id }, 10)
   }
 
-  getElementsOccupiedField(x, y) {
-    const field = this.fields.find((field) => field.x === x && field.y === y);
-    return field && field.entitiesOnField;
-  }
-
-  getElementToAttackFromCoordinates(x, y): Entity | null {
-    const elementsOccupiedField = this.getElementsOccupiedField(x, y);
-
-    if (!elementsOccupiedField) {
-      return null;
-    }
-
-    const elementsThatCanOccupiedFields = elementsOccupiedField.filter((entity) => entity.canOccupiedFields)
-
-    if (!elementsThatCanOccupiedFields) {
-      return null;
-    }
-
-    if (elementsThatCanOccupiedFields.length === 0) {
-      return null;
-    }
-
-    if (elementsThatCanOccupiedFields.length > 1) {
-      console.error("more than one element from elementsThatCanOccupiedFields, need exact one")
-      return null;
-    }
-
-    const elementToAttack = elementsThatCanOccupiedFields[0];
-
-    return elementToAttack || null;
-  }
-
-  move(newX, newY) {
+  move(newX: number, newY: number) {
     const initialX = this.x;
     const initialY = this.y;
 
     this.x = newX;
     this.y = newY;
 
-    this.setIsOccupied(initialX, initialY, false);
-    this.setIsOccupied(newX, newY, true);
+    const oldField = this.getFieldFromCoordinates(initialX, initialY);
+    oldField.removeEntityFromField(this);
+
+    const newField = this.getCurrentField();
+    newField.addEntityToField(this);
 
     emitMove(this, { type: "enemy" })
   }
 
-  takeAction(axis, direction) {
-    const newX = axis === "x" ? this.x + direction : this.x;
-    const newY = axis === "y" ? this.y + direction : this.y;
+  findNewCoorinatedFromDirection(direction: Direction) {
+    const newX = direction === Direction.LEFT ? this.x - 1 : direction === Direction.RIGHT ? this.x + 1 : this.x;
+    const newY = direction === Direction.UP ? this.y - 1 : direction === Direction.DOWN ? this.y + 1 : this.y;
 
-    const elementToAttack = this.getElementToAttackFromCoordinates(newX, newY);
+    return { newX, newY };
+  }
 
-    if (elementToAttack) {
-      this.attackElement(elementToAttack);
+  takeAction(direction: Direction) {
+    const { newX, newY } = this.findNewCoorinatedFromDirection(direction);
+
+    let entityToAttack: Entity | undefined = undefined;
+
+    const field = this.getFieldFromCoordinates(newX, newY);
+
+    if (field) {
+      entityToAttack = field.getEntityThatOccupiedField();
+    }
+
+    if (entityToAttack) {
+      this.attackEntity(entityToAttack);
       return;
     }
 
@@ -184,19 +172,6 @@ class Entity implements IEntity {
     }
 
     this.move(newX, newY);
-  }
-
-  takeActionLeft() {
-    this.takeAction("x", -1);
-  }
-  takeActionRight() {
-    this.takeAction("x", 1);
-  }
-  takeActionUp() {
-    this.takeAction("y", -1);
-  }
-  takeActionDown() {
-    this.takeAction("y", 1);
   }
 
   wait() {
@@ -210,7 +185,10 @@ class Entity implements IEntity {
 
     // build a lookup for fields by "x,y"
     const fieldMap = new Map();
-    this.fields.forEach((f) => fieldMap.set(`${f.x},${f.y}`, f));
+    this.fields.forEach((field) => {
+      const { x: fieldX, y: fieldY } = field.getPosition()
+      return fieldMap.set(`${fieldX},${fieldY}`, field)
+    });
 
     if (!fieldMap.has(targetKey)) {
       // target is off-map
@@ -248,7 +226,7 @@ class Entity implements IEntity {
 
         // If the neighbor is occupied and it's NOT the player's cell, skip it.
         // (We allow stepping into the player's cell even if it's occupied by the player.)
-        if (field.isOccupied && !(nx === targetX && ny === targetY)) {
+        if (field.getIsOccupied() && !(nx === targetX && ny === targetY)) {
           continue;
         }
 
@@ -277,15 +255,27 @@ class Entity implements IEntity {
   }
 
   takeActionToDirectionFromCoordinates(nextX, nextY) {
+    let direction: Direction;
+
     if (nextX > this.x) {
-      this.takeActionRight();
+      direction = Direction.RIGHT;
     } else if (nextX < this.x) {
-      this.takeActionLeft();
+      direction = Direction.LEFT;
     } else if (nextY > this.y) {
-      this.takeActionDown();
+      direction = Direction.DOWN;
     } else if (nextY < this.y) {
-      this.takeActionUp();
+      direction = Direction.UP;
     }
+
+    this.takeAction(direction);
+  }
+
+  handleInteract() {
+    return;
+  }
+
+  getIsInteractive() {
+    return this.isInteractive;
   }
 }
 

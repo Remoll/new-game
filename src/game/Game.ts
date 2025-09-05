@@ -17,7 +17,7 @@ class Game implements IGame {
     if (this.ctx) {
       const gameMap = new GameMap();
 
-      const buildingCoordinates = { topLeft: { x: 3, y: 3 }, bottomRight: { x: 16, y: 16 }, door: { x: 15, y: 16, isClosed: false } }
+      const buildingCoordinates = { topLeft: { x: 3, y: 3 }, bottomRight: { x: 16, y: 16 }, door: { x: 15, y: 16, isClosed: true } }
 
       const building = new Building(gameMap.getFields(), buildingCoordinates);
 
