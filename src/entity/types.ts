@@ -5,4 +5,11 @@ enum Direction {
     RIGHT = "right",
 }
 
-export { Direction };
+interface EntityAttributes {
+    hp?: number;
+    isPasive?: boolean;
+    canOccupiedFields?: boolean;
+    isInteractive?: boolean;
+}
+
+export { EntityAttributes, Direction };

@@ -19,7 +19,7 @@ class Field {
   }
 
   addEntityToField(entityToAdd: Entity) {
-    const doesEntityExistInOccupiedBy = this.entitiesOnField.some((entity) => entity.id === entityToAdd.id)
+    const doesEntityExistInOccupiedBy = this.entitiesOnField.some((entity) => entity.getId() === entityToAdd.getId())
     if (doesEntityExistInOccupiedBy) {
       return;
     }
@@ -28,7 +28,7 @@ class Field {
   }
 
   removeEntityFromField(entityToRemove: Entity) {
-    this.entitiesOnField = this.entitiesOnField.filter((entity) => entity.id !== entityToRemove.id)
+    this.entitiesOnField = this.entitiesOnField.filter((entity) => entity.getId() !== entityToRemove.getId())
   }
 
   getEntitiesFromField(): Entity[] {

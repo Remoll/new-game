@@ -1,5 +1,4 @@
 import Entity from "entity/Entity";
-import { GameEvent } from "events/types";
 
 interface IEntitiesActions {
     entityId: string;

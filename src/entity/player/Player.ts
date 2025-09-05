@@ -6,8 +6,7 @@ class Player extends Entity {
   private isInteract: boolean = false;
 
   constructor(fields, x, y) {
-    super(fields, "player", x, y);
-    this.hp = 200;
+    super(fields, "player", x, y, { hp: 200 });
     this.addMoveListener();
   }
 

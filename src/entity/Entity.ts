@@ -1,45 +1,60 @@
 import { emitAttack, emitDead, emitMove, emitWait } from "events/emiter/emittedActions";
 import Field from "../gameMap/field/Field";
-import { Direction } from "./types";
+import { Direction, EntityAttributes } from "./types";
 
 class Entity {
-  fields: Field[];
-  type: string;
-  id: string;
-  x: number;
-  y: number;
-  hp: number;
-  isPasive: boolean;
+  private fields: Field[];
+  private type: string;
+  private id: string;
+  private x: number;
+  private y: number;
+  private hp: number;
+  private isPasive: boolean;
   private canOccupiedFields: boolean;
   private isInteractive: boolean;
 
-  constructor(fields, type = "entity", x = 0, y = 0, isPasive = false, canOccupiedFields = true, isInteractive = false) {
+  constructor(fields, type = "entity", x = 0, y = 0, attributes: EntityAttributes = { hp: 100, isPasive: false, canOccupiedFields: true, isInteractive: false }) {
     this.fields = fields;
     this.type = type;
     this.id = this.generateId(type);
     this.x = x;
     this.y = y;
-    this.hp = 100;
-    this.isPasive = isPasive;
-    this.canOccupiedFields = canOccupiedFields;
-    this.isInteractive = isInteractive;
+
+    const { hp, isPasive, canOccupiedFields, isInteractive } = attributes;
+
+    this.hp = hp === undefined ? 100 : hp;
+    this.isPasive = isPasive === undefined ? false : isPasive;
+    this.canOccupiedFields = canOccupiedFields === undefined ? true : canOccupiedFields;
+    this.isInteractive = isInteractive === undefined ? false : isInteractive;
+  }
+
+  getPosition(): { x: number; y: number } {
+    return { x: this.x, y: this.y };
+  }
+
+  getId() {
+    return this.id;
+  }
+
+  getType() {
+    return this.type;
   }
 
   getCanOccupiedFields() {
     return this.canOccupiedFields;
   }
 
-  setCanOccupiedFields(value) {
+  protected setCanOccupiedFields(value) {
     this.canOccupiedFields = value;
   }
 
-  generateId(type) {
+  private generateId(type) {
     const timestamp = Date.now();
     const randomPart = Math.floor(Math.random() * 1000);
     return `${type}-${timestamp}-${randomPart}`;
   }
 
-  getCurrentField(): Field | null {
+  protected getCurrentField(): Field | null {
     const field = this.getFieldFromCoordinates(this.x, this.y);
     if (!field) {
       console.error("Field not found for entity at coordinates:", this.x, this.y);
@@ -60,7 +75,7 @@ class Entity {
     }
   }
 
-  die() {
+  private die() {
     this.hp = 0;
     const field = this.getCurrentField();
 
@@ -90,7 +105,7 @@ class Entity {
     field.addEntityToField(this);
   }
 
-  checkIsFieldAvailable(x, y) {
+  private checkIsFieldAvailable(x: number, y: number): boolean {
     const field = this.getFieldFromCoordinates(x, y);
     if (!field) {
       console.log("No field from coordinates");
@@ -100,14 +115,14 @@ class Entity {
     return !field.getIsOccupied();
   }
 
-  getFieldFromCoordinates(x: number, y: number): Field | undefined {
+  protected getFieldFromCoordinates(x: number, y: number): Field | undefined {
     return this.fields.find((field) => {
       const { x: fieldX, y: fieldY } = field.getPosition();
       return fieldX === x && fieldY === y
     });
   }
 
-  getPlayerPosition() {
+  protected getPlayerPosition() {
     const fieldWithPlayer = this.fields.find((field) => {
       const entitieFromField = field.getEntitiesFromField();
       return entitieFromField.some((entity) => {
@@ -123,11 +138,11 @@ class Entity {
     return fieldWithPlayer.getPosition()
   }
 
-  attackEntity(entity: Entity) {
+  private attackEntity(entity: Entity) {
     emitAttack(this, { id: entity.id }, 10)
   }
 
-  move(newX: number, newY: number) {
+  protected move(newX: number, newY: number) {
     const initialX = this.x;
     const initialY = this.y;
 
@@ -143,14 +158,14 @@ class Entity {
     emitMove(this, { type: "enemy" })
   }
 
-  findNewCoorinatedFromDirection(direction: Direction) {
+  protected findNewCoorinatedFromDirection(direction: Direction) {
     const newX = direction === Direction.LEFT ? this.x - 1 : direction === Direction.RIGHT ? this.x + 1 : this.x;
     const newY = direction === Direction.UP ? this.y - 1 : direction === Direction.DOWN ? this.y + 1 : this.y;
 
     return { newX, newY };
   }
 
-  takeAction(direction: Direction) {
+  protected takeAction(direction: Direction) {
     const { newX, newY } = this.findNewCoorinatedFromDirection(direction);
 
     let entityToAttack: Entity | undefined = undefined;
@@ -174,11 +189,11 @@ class Entity {
     this.move(newX, newY);
   }
 
-  wait() {
+  protected wait() {
     emitWait(this, { type: "enemy" })
   }
 
-  findShortestPath(targetX, targetY) {
+  protected findShortestPath(targetX, targetY) {
     // quick checks
     const startKey = `${this.x},${this.y}`;
     const targetKey = `${targetX},${targetY}`;
@@ -254,7 +269,7 @@ class Entity {
     return null;
   }
 
-  takeActionToDirectionFromCoordinates(nextX, nextY) {
+  protected takeActionToDirectionFromCoordinates(nextX, nextY) {
     let direction: Direction;
 
     if (nextX > this.x) {

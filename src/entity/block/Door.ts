@@ -1,8 +1,8 @@
 import Entity from "../Entity";
 
 class Door extends Entity {
-	constructor(fields, x, y, _, isClosed = true, isInteractive = true) {
-		super(fields, "door", x, y, true, isClosed, isInteractive);
+	constructor(fields, x, y, isClosed = true) {
+		super(fields, "door", x, y, { isPasive: true, canOccupiedFields: isClosed === undefined ? true : isClosed, isInteractive: true });
 	}
 
 	handleInteract() {
@@ -19,11 +19,13 @@ class Door extends Entity {
 	addToCanvas(ctx) {
 		ctx.fillStyle = "#000000";
 
+		const { x, y } = this.getPosition();
+
 		if (this.getCanOccupiedFields()) {
-			ctx.fillRect(this.x * 50, this.y * 50, 50, 50);  // x, y, width, height
+			ctx.fillRect(x * 50, y * 50, 50, 50);  // x, y, width, height
 		} else {
-			ctx.fillRect(this.x * 50, this.y * 50, 10, 50);  // x, y, width, height
-			ctx.fillRect(this.x * 50 + 40, this.y * 50, 10, 50);  // x, y, width, height
+			ctx.fillRect(x * 50, y * 50, 10, 50);  // x, y, width, height
+			ctx.fillRect(x * 50 + 40, y * 50, 10, 50);  // x, y, width, height
 		}
 
 		const field = this.getCurrentField();

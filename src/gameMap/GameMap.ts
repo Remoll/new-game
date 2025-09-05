@@ -1,7 +1,6 @@
-import { IGameMap } from "./types";
 import Field from "./field/Field";
 
-class GameMap implements IGameMap {
+class GameMap {
   fields: Field[];
   constructor() {
     this.fields = this.generateFields();
@@ -36,7 +35,9 @@ class GameMap implements IGameMap {
       .map((field) => {
         ctx.fillStyle = floorColors[index];
 
-        ctx.fillRect(field.x * 50, field.y * 50, 50, 50);  // x, y, width, height
+        const { x: fieldX, y: fieldY } = field.getPosition();
+
+        ctx.fillRect(fieldX * 50, fieldY * 50, 50, 50);  // x, y, width, height
 
         index = index === 0 ? 1 : index === 1 ? 2 : index === 2 ? 0 : null;
       })

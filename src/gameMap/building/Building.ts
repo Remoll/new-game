@@ -1,6 +1,6 @@
 import Field from "gameMap/field/Field";
-import Block from "./Block";
-import Door from "./Door";
+import Block from "../../entity/block/Block";
+import Door from "../../entity/block/Door";
 
 class Building {
     blocks: Block[];
@@ -34,7 +34,7 @@ class Building {
 
         if (this.isDoor(x, y)) {
             const isDoorClosed = this.coordinates.door.isClosed
-            newField = new Door(this.fields, x, y, true, isDoorClosed);
+            newField = new Door(this.fields, x, y, isDoorClosed);
         } else {
             newField = new Block(this.fields, x, y);
         }

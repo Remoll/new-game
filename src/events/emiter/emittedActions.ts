@@ -3,14 +3,12 @@ import Entity from "entity/Entity";
 import GameEventEmitter from "./GameEventEmitter";
 
 const emitMove = (sender: Entity, target: TargetType) => {
+	const { x, y } = sender.getPosition();
 	GameEventEmitter.emit(
 		GameEventType.MOVED,
 		sender,
 		target,
-		{
-			x: sender.x,
-			y: sender.y,
-		}
+		{ x, y }
 	);
 }
 
@@ -31,7 +29,7 @@ const emitWait = (sender: Entity, target: TargetType) => {
 }
 
 const emitPlayerMakeTurn = (sender: Entity, action: () => unknown) => {
-	GameEventEmitter.emit(GameEventType.PLAYER_MAKE_TURN, sender, null, { entityType: sender.type, entityId: sender.id, action })
+	GameEventEmitter.emit(GameEventType.PLAYER_MAKE_TURN, sender, null, { entityType: sender.getType(), entityId: sender.getId(), action })
 }
 
 export { emitMove, emitDead, emitAttack, emitWait, emitPlayerMakeTurn };

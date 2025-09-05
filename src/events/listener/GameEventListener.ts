@@ -49,13 +49,13 @@ class GameEventListener {
     const targetType = target.type;
     const targetId = target.id;
     const affectedEntities = this.entities
-      .filter((entity) => entity.type === targetType || entity.id === targetId)
+      .filter((entity) => entity.getType() === targetType || entity.getId() === targetId)
       .filter((entity) => entity.isAlive());
 
     affectedEntities.forEach((entity) => {
       switch (type) {
         case GameEventType.ATTACK:
-          if ( typeof value !== 'number') {
+          if (typeof value !== 'number') {
             console.error('Attack event value must be a number');
             return;
           }

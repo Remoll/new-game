@@ -39,8 +39,8 @@ class GameLoop implements IGameLoop {
 
 	collectActions() {
 		this.entities.forEach((entity) => {
-			if (entity.type === "enemy" && entity instanceof Enemy && entity.isAlive()) {
-				this.addEntityAction({ entityType: entity.type, entityId: entity.id, action: () => entity.chargePlayer() });
+			if (entity.getType() === "enemy" && entity instanceof Enemy && entity.isAlive()) {
+				this.addEntityAction({ entityType: entity.getType(), entityId: entity.getId(), action: () => entity.chargePlayer() });
 			}
 		})
 	}

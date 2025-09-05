@@ -4,7 +4,7 @@ import GameEventListener from "events/listener/GameEventListener";
 import IGame from "./types";
 import GameMap from "../gameMap/GameMap";
 import GameLoop from "gameLoop/GameLoop";
-import Building from "entity/block/Building";
+import Building from "gameMap/building/Building";
 
 class Game implements IGame {
   ctx: HTMLElement | null;
