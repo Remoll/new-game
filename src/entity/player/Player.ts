@@ -1,5 +1,5 @@
 import Entity from "entity/Entity";
-import GameEventEmitter from "events/emiter/GameEventEmitter";
+import { emitPlayerMakeTurn } from "events/emiter/emittedActions";
 
 class Player extends Entity {
   constructor(fields, x, y) {
@@ -17,22 +17,19 @@ class Player extends Entity {
       const key = event.key;
       switch (key) {
         case "ArrowUp":
-          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.takeActionUp() })
+          emitPlayerMakeTurn(this, () => this.takeActionUp())
           break;
         case "ArrowDown":
-          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.takeActionDown() })
-
+          emitPlayerMakeTurn(this, () => this.takeActionDown())
           break;
         case "ArrowLeft":
-          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.takeActionLeft() })
-
+          emitPlayerMakeTurn(this, () => this.takeActionLeft())
           break;
         case "ArrowRight":
-          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.takeActionRight() })
-
+          emitPlayerMakeTurn(this, () => this.takeActionRight())
           break;
         case " ":
-          GameEventEmitter.emit("playermaketurn", this, null, { entityType: this.type, entityId: this.id, action: () => this.wait() })
+          emitPlayerMakeTurn(this, () => this.wait())
           return;
         default:
           return;

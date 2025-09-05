@@ -1,12 +1,12 @@
+import { GameEvent, GameEventType } from "events/types";
 import Entity from "entity/Entity";
-import { IGameEventListener } from "./types";
 import GameLoop from "gameLoop/GameLoop";
 
-class GameEventListener implements IGameEventListener {
+class GameEventListener {
   entities: Entity[];
   gameLoop: GameLoop;
 
-  constructor(entities, gameLoop) {
+  constructor(entities: Entity[], gameLoop: GameLoop) {
     this.entities = entities;
     this.gameLoop = gameLoop;
     this.listenToEvents();
@@ -19,7 +19,7 @@ class GameEventListener implements IGameEventListener {
     this.gameLoop.resetEntitiesActions()
   }
 
-  handleAttack(targetEntity, value) {
+  handleAttack(targetEntity: Entity, value: number) {
     targetEntity.takeDamage(value);
   }
 
@@ -29,22 +29,21 @@ class GameEventListener implements IGameEventListener {
 
   handleDied() { }
 
-  affectTarget(eventDetail) {
+  affectTarget(eventDetail: GameEvent) {
     const { type, sender, target, value } = eventDetail;
 
     if (!target) {
       switch (type) {
-        case "playermaketurn":
+        case GameEventType.PLAYER_MAKE_TURN:
           if (!sender.isAlive()) {
             return;
           }
           this.playerMakeTurn(value);
-          break;
+          return;
 
         default:
-          break;
+          return;
       }
-      return
     }
 
     const targetType = target.type;
@@ -55,46 +54,50 @@ class GameEventListener implements IGameEventListener {
 
     affectedEntities.forEach((entity) => {
       switch (type) {
-        case "attack":
+        case GameEventType.ATTACK:
+          if ( typeof value !== 'number') {
+            console.error('Attack event value must be a number');
+            return;
+          }
           this.handleAttack(entity, value);
-          break;
+          return;
 
-        case "moved":
+        case GameEventType.MOVED:
           this.handleWait();
-          break;
+          return;
 
-        case "wait":
+        case GameEventType.WAIT:
           this.handleMove();
-          break;
+          return;
 
-        case "died":
+        case GameEventType.DIED:
           this.handleDied();
-          break;
+          return;
 
         default:
-          break;
+          return;
       }
     });
   }
 
   listenToEvents() {
-    document.addEventListener("attack", (event: CustomEvent) => {
+    document.addEventListener(GameEventType.ATTACK, (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
 
-    document.addEventListener("moved", (event: CustomEvent) => {
+    document.addEventListener(GameEventType.MOVED, (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
 
-    document.addEventListener("wait", (event: CustomEvent) => {
+    document.addEventListener(GameEventType.WAIT, (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
 
-    document.addEventListener("playermaketurn", (event: CustomEvent) => {
+    document.addEventListener(GameEventType.PLAYER_MAKE_TURN, (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
 
-    document.addEventListener("died", (event: CustomEvent) => {
+    document.addEventListener(GameEventType.DIED, (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
   }

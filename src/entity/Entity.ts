@@ -1,6 +1,6 @@
+import { emitAttack, emitDead, emitMove, emitWait } from "events/emiter/emittedActions";
 import { IEntity } from "./types";
 import Field from "../gameMap/field/Field";
-import GameEventEmitter from "../events/emiter/GameEventEmitter";
 
 class Entity implements IEntity {
   fields: Field[];
@@ -54,7 +54,7 @@ class Entity implements IEntity {
   die() {
     this.hp = 0;
     this.setIsOccupied(this.x, this.y, false);
-    GameEventEmitter.emit("died", this, { type: this.type });
+    emitDead(this, { type: this.type });
   }
 
   isAlive() {
@@ -119,7 +119,7 @@ class Entity implements IEntity {
   }
 
   attackElement(element) {
-    GameEventEmitter.emit("attack", this, { id: element.id }, 10);
+    emitAttack(this, { id: element.id }, 10)
   }
 
   getElementsOccupiedField(x, y) {
@@ -164,15 +164,7 @@ class Entity implements IEntity {
     this.setIsOccupied(initialX, initialY, false);
     this.setIsOccupied(newX, newY, true);
 
-    GameEventEmitter.emit(
-      "moved",
-      this,
-      { type: "enemy" },
-      {
-        x: this.x,
-        y: this.y,
-      }
-    );
+    emitMove(this, { type: "enemy" })
   }
 
   takeAction(axis, direction) {
@@ -208,12 +200,7 @@ class Entity implements IEntity {
   }
 
   wait() {
-    GameEventEmitter.emit(
-      "wait",
-      this,
-      { type: "enemy" },
-      {}
-    );
+    emitWait(this, { type: "enemy" })
   }
 
   findShortestPath(targetX, targetY) {
