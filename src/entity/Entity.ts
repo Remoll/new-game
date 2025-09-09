@@ -1,6 +1,7 @@
 import { emitAttack, emitDead, emitMove, emitWait } from "events/emiter/emittedActions";
 import Field from "../gameMap/field/Field";
-import { Direction, EntityAttributes } from "./types";
+import { Direction, DispositionToFactions, EntityAttributes, Faction } from "./types";
+import { TargetType } from "events/types";
 
 class Entity {
   private fields: Field[];
@@ -12,20 +13,24 @@ class Entity {
   private isPasive: boolean;
   private canOccupiedFields: boolean;
   private isInteractive: boolean;
+  private dispositionToFactions: DispositionToFactions | null;
+  private faction: Faction | null;
 
-  constructor(fields, type = "entity", x = 0, y = 0, attributes: EntityAttributes = { hp: 100, isPasive: false, canOccupiedFields: true, isInteractive: false }) {
+  constructor(fields, type = "entity", x = 0, y = 0, attributes: EntityAttributes = { hp: 100, isPasive: false, canOccupiedFields: true, isInteractive: false, dispositionToFactions: {}, faction: null }) {
     this.fields = fields;
     this.type = type;
     this.id = this.generateId(type);
     this.x = x;
     this.y = y;
 
-    const { hp, isPasive, canOccupiedFields, isInteractive } = attributes;
+    const { hp, isPasive, canOccupiedFields, isInteractive, dispositionToFactions, faction } = attributes;
 
     this.hp = hp === undefined ? 100 : hp;
     this.isPasive = isPasive === undefined ? false : isPasive;
     this.canOccupiedFields = canOccupiedFields === undefined ? true : canOccupiedFields;
     this.isInteractive = isInteractive === undefined ? false : isInteractive;
+    this.dispositionToFactions = dispositionToFactions === null ? {} : dispositionToFactions;
+    this.faction = faction === undefined ? null : faction;
   }
 
   getPosition(): { x: number; y: number } {
@@ -42,6 +47,14 @@ class Entity {
 
   getCanOccupiedFields() {
     return this.canOccupiedFields;
+  }
+
+  getDispositionToFactions() {
+    return this.dispositionToFactions;
+  }
+
+  getFaction() {
+    return this.faction;
   }
 
   protected setCanOccupiedFields(value) {
@@ -291,6 +304,35 @@ class Entity {
 
   getIsInteractive() {
     return this.isInteractive;
+  }
+
+  findNearestEntity(target: TargetType | Faction[]): Entity | null {
+    let nearestEntity: Entity | null = null;
+    let minDistance = Infinity;
+
+    this.fields.forEach((field) => {
+      const entities = field.getEntitiesFromField();
+
+      entities.forEach((entity) => {
+        if (entity.getId() === this.getId()) return;
+
+        const isEntityInSelectedFaction = Array.isArray(target) && target.some((faction) => entity.getFaction() === faction);
+        const isEntityTypeInTarget = "type" in target && target.type && entity.getType() === target.type;
+        const isEntityIdInTarget = "id" in target && target.id && entity.getId() === target.id;
+
+        if (isEntityInSelectedFaction || isEntityTypeInTarget || isEntityIdInTarget) {
+          const { x: entityX, y: entityY } = entity.getPosition();
+          const distance = Math.abs(this.x - entityX) + Math.abs(this.y - entityY); // Manhattan distance
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            nearestEntity = entity;
+          }
+        }
+      });
+    });
+
+    return nearestEntity;
   }
 }
 

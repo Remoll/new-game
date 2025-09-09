@@ -1,12 +1,12 @@
 import Entity from "entity/Entity";
-import { Direction } from "entity/types";
+import { Direction, Faction } from "entity/types";
 import { emitPlayerMakeTurn } from "events/emiter/emittedActions";
 
 class Player extends Entity {
   private isInteract: boolean = false;
 
   constructor(fields, x, y) {
-    super(fields, "player", x, y, { hp: 200 });
+    super(fields, "player", x, y, { hp: 200, faction: Faction.PLAYER });
     this.addMoveListener();
   }
 

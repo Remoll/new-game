@@ -1,28 +1,34 @@
+import { TargetType } from "events/types";
 import Entity from "../Entity";
+import { Disposition, Faction } from "entity/types";
 
 class Enemy extends Entity {
   constructor(fields, x, y) {
-    super(fields, "enemy", x, y);
+    super(fields, "enemy", x, y, { dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER] }, faction: Faction.ENEMY });
   }
 
-  chargePlayer() {
+  findAndCharge(target: TargetType | Faction[]) {
+    const nearestEntity = this.findNearestEntity(target);
+
+    if (!nearestEntity) {
+      console.log("No nearestEntity found");
+      return;
+    }
+
+    this.chargeEntity(nearestEntity)
+  }
+
+  chargeEntity(entity: Entity) {
     if (!this.isAlive) {
-      console.log("Enemy is dead and cant move")
+      console.log("Entity is dead and can't take action")
       return;
     }
 
-    const playerPosition = this.getPlayerPosition();
+    const { x: entityX, y: entityY } = entity.getPosition();
 
-    if (!playerPosition) {
-      console.log("Player position not found")
-      return;
-    }
+    if (entityX < 0 || entityY < 0) return;
 
-    const { x: playerX, y: playerY } = playerPosition || {};
-
-    if (playerX < 0 || playerY < 0) return;
-
-    const path = this.findShortestPath(playerX, playerY);
+    const path = this.findShortestPath(entityX, entityY);
 
     // path === null -> unreachable
     // path === [] -> already on player
@@ -34,6 +40,17 @@ class Enemy extends Entity {
     const [nextX, nextY] = path[0];
 
     this.takeActionToDirectionFromCoordinates(nextX, nextY)
+  }
+
+  takeTurn() {
+    const hostileFactions = this.getDispositionToFactions()?.[Disposition.HOSTILE];
+
+    if (!hostileFactions) {
+      console.log("No hostile factions defined for this entity. Can't take turn.");
+      return;
+    }
+
+    this.findAndCharge(hostileFactions)
   }
 }
 
