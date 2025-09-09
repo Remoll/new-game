@@ -1,22 +1,21 @@
-import Entity from "entity/Entity";
-import { Direction, Faction } from "entity/types";
-import { emitPlayerMakeTurn } from "events/emiter/emittedActions";
-import Field from "gameMap/field/Field";
+import { Direction, EntityAttributes } from "gameObject/types";
+import { emitPlayerMakeTurn } from "gameEvents/emiter/emittedActions";
+import Entity from "../Entity";
 
 class Player extends Entity {
   private isInteracting: boolean = false;
 
-  constructor(fields: Field[], x: number, y: number) {
-    super(fields, "player", x, y, { hp: 200, faction: Faction.PLAYER });
+  constructor(attributes: EntityAttributes) {
+    super(attributes);
     this.addMoveListener();
   }
 
-  private setIsInteract(isInteracting: boolean) {
+  private setIsInteracting(isInteracting: boolean) {
     this.isInteracting = isInteracting;
   }
 
   private takeInteraction(direction: Direction) {
-    this.setIsInteract(false);
+    this.setIsInteracting(false);
 
     const { newX, newY } = this.findNewCoordinatesFromDirection(direction);
 
@@ -27,17 +26,17 @@ class Player extends Entity {
       return;
     }
 
-    const entitiesFromField = field.getEntitiesFromField();
+    const gameObjectsFromField = field.getGameObjectsFromField();
 
-    const interactiveEntities = entitiesFromField.filter((entity) => entity.getIsInteractive());
+    const interactiveGameObjects = gameObjectsFromField.filter((gameObject) => gameObject.getIsInteractive());
 
-    if (interactiveEntities.length === 1) {
-      interactiveEntities[0].handleInteract();
+    if (interactiveGameObjects.length === 1) {
+      interactiveGameObjects[0].handleInteract();
       return;
     }
 
-    if (interactiveEntities.length > 1) {
-      // TODO: add popup with choice which entity to interact
+    if (interactiveGameObjects.length > 1) {
+      // TODO: add popup with choice which GameObject to interact
       return;
     }
 
@@ -80,7 +79,7 @@ class Player extends Entity {
           emitPlayerMakeTurn(this, () => this.wait())
           return;
         case "e":
-          this.setIsInteract(!this.isInteracting);
+          this.setIsInteracting(!this.isInteracting);
           return;
         default:
           return;

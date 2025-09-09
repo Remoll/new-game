@@ -1,13 +1,14 @@
-import { GameEvent, GameEventType } from "events/types";
-import Entity from "entity/Entity";
+import { GameEvent, GameEventType } from "gameEvents/types";
+import GameObject from "gameObject/GameObject";
 import GameLoop from "gameLoop/GameLoop";
+import Entity from "gameObject/entity/Entity";
 
 class GameEventListener {
-  private entities: Entity[];
+  private gameObjects: GameObject[];
   private gameLoop: GameLoop;
 
-  constructor(entities: Entity[], gameLoop: GameLoop) {
-    this.entities = entities;
+  constructor(gameObjects: GameObject[], gameLoop: GameLoop) {
+    this.gameObjects = gameObjects;
     this.gameLoop = gameLoop;
     this.listenToEvents();
   }
@@ -35,7 +36,7 @@ class GameEventListener {
     if (!target) {
       switch (type) {
         case GameEventType.PLAYER_MAKE_TURN:
-          if (!sender.isAlive()) {
+          if (sender instanceof Entity && !sender.isAlive()) {
             return;
           }
           this.playerMakeTurn(value);
@@ -48,18 +49,22 @@ class GameEventListener {
 
     const targetType = target.type;
     const targetId = target.id;
-    const affectedEntities = this.entities
-      .filter((entity) => entity.getType() === targetType || entity.getId() === targetId)
-      .filter((entity) => entity.isAlive());
+    const affectedGameObjects = this.gameObjects
+      .filter((gameObject) => gameObject.getType() === targetType || gameObject.getId() === targetId)
+      .filter((gameObject) => gameObject instanceof Entity && gameObject.isAlive());
 
-    affectedEntities.forEach((entity) => {
+    affectedGameObjects.forEach((gameObject) => {
       switch (type) {
         case GameEventType.ATTACK:
+          if (gameObject instanceof Entity === false) {
+            console.error('Target gameObject is not an instance of Entity');
+            return;
+          }
           if (typeof value !== 'number') {
             console.error('Attack event value must be a number');
             return;
           }
-          this.handleAttack(entity, value);
+          this.handleAttack(gameObject, value);
           return;
 
         case GameEventType.MOVED:

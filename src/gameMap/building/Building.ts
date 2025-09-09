@@ -1,7 +1,7 @@
 import Field from "gameMap/field/Field";
-import Block from "../../entity/block/Block";
-import Door from "../../entity/block/Door";
 import { BuildingCoordinates } from "./types";
+import Block from "gameObject/block/Block";
+import Door from "gameObject/block/Door";
 
 class Building {
 	private blocks: (Block | Door)[];
@@ -31,9 +31,9 @@ class Building {
 
 		if (this.isDoor(x, y)) {
 			const isDoorClosed = this.coordinates.door.isClosed
-			newField = new Door(this.fields, x, y, isDoorClosed);
+			newField = new Door({ fields: this.fields, type: "door", x, y, canOccupiedFields: true, isInteractive: true }, isDoorClosed);
 		} else {
-			newField = new Block(this.fields, x, y);
+			newField = new Block({ fields: this.fields, type: "block", x, y, canOccupiedFields: true, isInteractive: false });
 		}
 
 		return newField;

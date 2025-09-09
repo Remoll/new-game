@@ -1,23 +1,21 @@
-import Entity from "entity/Entity";
+import GameObject from "gameObject/GameObject";
 import GameMap from "gameMap/GameMap";
 
 class CanvasHandler {
-	private entities: Entity[];
+	private gameObjects: GameObject[];
 	private gameMap: GameMap;
 	private ctx: CanvasRenderingContext2D;
 
-	constructor(ctx: CanvasRenderingContext2D, entities: Entity[], gameMap: GameMap) {
+	constructor(ctx: CanvasRenderingContext2D, gameObjects: GameObject[], gameMap: GameMap) {
 		this.ctx = ctx;
-		this.entities = entities;
+		this.gameObjects = gameObjects;
 		this.gameMap = gameMap;
 	}
 
 	renderGameState() {
 		this.gameMap.addToCanvas(this.ctx);
-		this.entities.forEach((entity) => {
-			if (entity.isAlive()) {
-				entity.addToCanvas(this.ctx)
-			}
+		this.gameObjects.forEach((gameObject) => {
+			gameObject.addToCanvas(this.ctx)
 		})
 	}
 

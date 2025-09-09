@@ -1,9 +1,9 @@
-import Entity from "../../entity/Entity";
+import GameObject from "../../gameObject/GameObject";
 
 class Field {
   private x: number;
   private y: number;
-  private entitiesOnField: Entity[] = [];
+  private gameObjectsOnField: GameObject[] = [];
 
   constructor(x: number, y: number) {
     this.x = x;
@@ -15,43 +15,43 @@ class Field {
   }
 
   getIsOccupied() {
-    return this.entitiesOnField.some((entity) => entity.getCanOccupiedFields());
+    return this.gameObjectsOnField.some((gameObject) => gameObject.getCanOccupiedFields());
   }
 
-  addEntityToField(entityToAdd: Entity) {
-    const doesEntityExistInOccupiedBy = this.entitiesOnField.some((entity) => entity.getId() === entityToAdd.getId())
-    if (doesEntityExistInOccupiedBy) {
+  addGameObjectToField(gameObjectToAdd: GameObject) {
+    const doesGameObjectExistInOccupiedBy = this.gameObjectsOnField.some((gameObject) => gameObject.getId() === gameObjectToAdd.getId())
+    if (doesGameObjectExistInOccupiedBy) {
       return;
     }
 
-    this.entitiesOnField.push(entityToAdd);
+    this.gameObjectsOnField.push(gameObjectToAdd);
   }
 
-  removeEntityFromField(entityToRemove: Entity) {
-    this.entitiesOnField = this.entitiesOnField.filter((entity) => entity.getId() !== entityToRemove.getId())
+  removeGameObjectFromField(gameObjectToRemove: GameObject) {
+    this.gameObjectsOnField = this.gameObjectsOnField.filter((gameObject) => gameObject.getId() !== gameObjectToRemove.getId())
   }
 
-  getEntitiesFromField(): Entity[] {
-    return this.entitiesOnField;
+  getGameObjectsFromField(): GameObject[] {
+    return this.gameObjectsOnField;
   }
 
-  getEntityThatOccupiedField(): Entity | null {
-    if (this.entitiesOnField.length < 1) {
+  getGameObjectThatOccupiedField(): GameObject | null {
+    if (this.gameObjectsOnField.length < 1) {
       return null;
     }
 
-    const entitiesThatCanOccupiedFields = this.entitiesOnField.filter((entity) => entity.getCanOccupiedFields())
+    const gameObjectsThatCanOccupiedFields = this.gameObjectsOnField.filter((gameObject) => gameObject.getCanOccupiedFields())
 
-    if (entitiesThatCanOccupiedFields.length < 1) {
+    if (gameObjectsThatCanOccupiedFields.length < 1) {
       return null;
     }
 
-    if (entitiesThatCanOccupiedFields.length > 1) {
-      console.error("more than one entity from entitiesThatCanOccupiedFields, need exact one")
+    if (gameObjectsThatCanOccupiedFields.length > 1) {
+      console.error("more than one game object from gameObjectsThatCanOccupiedFields, need exact one")
       return null;
     }
 
-    return entitiesThatCanOccupiedFields[0];
+    return gameObjectsThatCanOccupiedFields[0];
   }
 }
 

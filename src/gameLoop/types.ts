@@ -1,6 +1,7 @@
+import { GameObjectSelector } from "gameEvents/types";
+
 interface EntitiesActions {
-	entityId: string;
-	entityType: string;
+	performer: GameObjectSelector;
 	action: (...args: unknown[]) => unknown;
 }
 

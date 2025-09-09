@@ -1,17 +1,17 @@
-import Field from "gameMap/field/Field";
-import Entity from "../Entity";
+import GameObject from "../GameObject";
+import { GameObjectAttributes } from "gameObject/types";
 
-class Door extends Entity {
-	constructor(fields: Field[], x: number, y: number, isClosed = true) {
-		super(fields, "door", x, y, { isPasive: true, canOccupiedFields: isClosed === undefined ? true : isClosed, isInteractive: true });
+class Door extends GameObject {
+	constructor(attributes: GameObjectAttributes, isClosed = true) {
+		super({ ...attributes, canOccupiedFields: isClosed });
 	}
 
 	handleInteract() {
 		const currentField = this.getCurrentField();
-		const entityThatOccupiedField = currentField.getEntityThatOccupiedField();
+		const gameObjectThatOccupiedField = currentField.getGameObjectThatOccupiedField();
 		const isDoorOpen = !this.getCanOccupiedFields();
-		if (isDoorOpen && entityThatOccupiedField) {
-			console.log("Can't close door, some entity in on the field")
+		if (isDoorOpen && gameObjectThatOccupiedField) {
+			console.log("Can't close door, some game object in on the field")
 			return;
 		}
 		this.setCanOccupiedFields(!this.getCanOccupiedFields())
@@ -30,7 +30,7 @@ class Door extends Entity {
 		}
 
 		const field = this.getCurrentField();
-		field.addEntityToField(this);
+		field.addGameObjectToField(this);
 	}
 }
 

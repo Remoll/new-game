@@ -1,8 +1,8 @@
-import { GameEventType, TargetType } from "events/types";
-import Entity from "entity/Entity";
+import { GameEventType, GameObjectSelector } from "gameEvents/types";
+import GameObject from "gameObject/GameObject";
 
 class GameEventEmitter {
-  static emit(type: GameEventType, sender: Entity, target: TargetType, value: unknown = null) {
+  static emit(type: GameEventType, sender: GameObject, target: GameObjectSelector, value: unknown = null) {
     const evt = new CustomEvent(type, {
       detail: {
         type,
