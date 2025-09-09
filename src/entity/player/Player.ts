@@ -1,23 +1,24 @@
 import Entity from "entity/Entity";
 import { Direction, Faction } from "entity/types";
 import { emitPlayerMakeTurn } from "events/emiter/emittedActions";
+import Field from "gameMap/field/Field";
 
 class Player extends Entity {
-  private isInteract: boolean = false;
+  private isInteracting: boolean = false;
 
-  constructor(fields, x, y) {
+  constructor(fields: Field[], x: number, y: number) {
     super(fields, "player", x, y, { hp: 200, faction: Faction.PLAYER });
     this.addMoveListener();
   }
 
-  setIsInteract(isInteract: boolean) {
-    this.isInteract = isInteract;
+  private setIsInteract(isInteracting: boolean) {
+    this.isInteracting = isInteracting;
   }
 
-  takeInteraction(direction: Direction) {
+  private takeInteraction(direction: Direction) {
     this.setIsInteract(false);
 
-    const { newX, newY } = this.findNewCoorinatedFromDirection(direction);
+    const { newX, newY } = this.findNewCoordinatesFromDirection(direction);
 
     const field = this.getFieldFromCoordinates(newX, newY);
 
@@ -43,33 +44,33 @@ class Player extends Entity {
     console.log("No interactive entities on field");
   }
 
-  addMoveListener() {
+  private addMoveListener() {
     document.addEventListener("keydown", (event) => {
       const key = event.key;
       switch (key) {
         case "w":
-          if (this.isInteract) {
+          if (this.isInteracting) {
             emitPlayerMakeTurn(this, () => this.takeInteraction(Direction.UP))
             return;
           }
           emitPlayerMakeTurn(this, () => this.takeAction(Direction.UP))
           return;
         case "s":
-          if (this.isInteract) {
+          if (this.isInteracting) {
             emitPlayerMakeTurn(this, () => this.takeInteraction(Direction.DOWN))
             return;
           }
           emitPlayerMakeTurn(this, () => this.takeAction(Direction.DOWN))
           return;
         case "a":
-          if (this.isInteract) {
+          if (this.isInteracting) {
             emitPlayerMakeTurn(this, () => this.takeInteraction(Direction.LEFT))
             return;
           }
           emitPlayerMakeTurn(this, () => this.takeAction(Direction.LEFT))
           return;
         case "d":
-          if (this.isInteract) {
+          if (this.isInteracting) {
             emitPlayerMakeTurn(this, () => this.takeInteraction(Direction.RIGHT))
             return;
           }
@@ -79,7 +80,7 @@ class Player extends Entity {
           emitPlayerMakeTurn(this, () => this.wait())
           return;
         case "e":
-          this.setIsInteract(!this.isInteract);
+          this.setIsInteract(!this.isInteracting);
           return;
         default:
           return;

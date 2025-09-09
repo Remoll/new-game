@@ -1,13 +1,14 @@
 import { TargetType } from "events/types";
 import Entity from "../Entity";
 import { Disposition, Faction } from "entity/types";
+import Field from "gameMap/field/Field";
 
 class Enemy extends Entity {
-  constructor(fields, x, y) {
+  constructor(fields: Field[], x: number, y: number) {
     super(fields, "enemy", x, y, { dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER] }, faction: Faction.ENEMY });
   }
 
-  findAndCharge(target: TargetType | Faction[]) {
+  private findAndCharge(target: TargetType | Faction[]) {
     const nearestEntity = this.findNearestEntity(target);
 
     if (!nearestEntity) {
@@ -18,7 +19,7 @@ class Enemy extends Entity {
     this.chargeEntity(nearestEntity)
   }
 
-  chargeEntity(entity: Entity) {
+  private chargeEntity(entity: Entity) {
     if (!this.isAlive) {
       console.log("Entity is dead and can't take action")
       return;

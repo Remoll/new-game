@@ -3,8 +3,8 @@ import Entity from "entity/Entity";
 import GameLoop from "gameLoop/GameLoop";
 
 class GameEventListener {
-  entities: Entity[];
-  gameLoop: GameLoop;
+  private entities: Entity[];
+  private gameLoop: GameLoop;
 
   constructor(entities: Entity[], gameLoop: GameLoop) {
     this.entities = entities;
@@ -12,24 +12,24 @@ class GameEventListener {
     this.listenToEvents();
   }
 
-  playerMakeTurn(value) {
+  private playerMakeTurn(value) {
     this.gameLoop.addEntityAction(value)
     this.gameLoop.collectActions()
     this.gameLoop.executeTurn()
     this.gameLoop.resetEntitiesActions()
   }
 
-  handleAttack(targetEntity: Entity, value: number) {
+  private handleAttack(targetEntity: Entity, value: number) {
     targetEntity.takeDamage(value);
   }
 
-  handleMove() { }
+  private handleMove() { }
 
-  handleWait() { }
+  private handleWait() { }
 
-  handleDied() { }
+  private handleDied() { }
 
-  affectTarget(eventDetail: GameEvent) {
+  private affectTarget(eventDetail: GameEvent) {
     const { type, sender, target, value } = eventDetail;
 
     if (!target) {
@@ -80,7 +80,7 @@ class GameEventListener {
     });
   }
 
-  listenToEvents() {
+  private listenToEvents() {
     document.addEventListener(GameEventType.ATTACK, (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });

@@ -1,7 +1,7 @@
 import Game from "game/Game";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement | null;
   if (!canvas) {
     console.error("Canvas element not found");
     return;

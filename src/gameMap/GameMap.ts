@@ -1,12 +1,13 @@
 import Field from "./field/Field";
 
 class GameMap {
-  fields: Field[];
+  private fields: Field[];
+
   constructor() {
     this.fields = this.generateFields();
   }
 
-  generateFields() {
+  private generateFields() {
     const gameMapWidth = 20;
     const gameMapHight = 20;
 
@@ -27,7 +28,7 @@ class GameMap {
     return this.fields;
   }
 
-  addToCanvas(ctx) {
+  addToCanvas(ctx: CanvasRenderingContext2D) {
     const floorColors = ['#0a81e9ff', '#818bd8ff', '#0a6be9ff']
     let index = 0;
 

@@ -1,7 +1,8 @@
+import Field from "gameMap/field/Field";
 import Entity from "../Entity";
 
 class Door extends Entity {
-	constructor(fields, x, y, isClosed = true) {
+	constructor(fields: Field[], x: number, y: number, isClosed = true) {
 		super(fields, "door", x, y, { isPasive: true, canOccupiedFields: isClosed === undefined ? true : isClosed, isInteractive: true });
 	}
 
@@ -16,7 +17,7 @@ class Door extends Entity {
 		this.setCanOccupiedFields(!this.getCanOccupiedFields())
 	}
 
-	addToCanvas(ctx) {
+	addToCanvas(ctx: CanvasRenderingContext2D) {
 		ctx.fillStyle = "#000000";
 
 		const { x, y } = this.getPosition();

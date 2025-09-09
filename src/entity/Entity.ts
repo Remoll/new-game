@@ -16,7 +16,7 @@ class Entity {
   private dispositionToFactions: DispositionToFactions | null;
   private faction: Faction | null;
 
-  constructor(fields, type = "entity", x = 0, y = 0, attributes: EntityAttributes = { hp: 100, isPasive: false, canOccupiedFields: true, isInteractive: false, dispositionToFactions: {}, faction: null }) {
+  constructor(fields: Field[], type = "entity", x = 0, y = 0, attributes: EntityAttributes = { hp: 100, isPasive: false, canOccupiedFields: true, isInteractive: false, dispositionToFactions: {}, faction: null }) {
     this.fields = fields;
     this.type = type;
     this.id = this.generateId(type);
@@ -57,11 +57,11 @@ class Entity {
     return this.faction;
   }
 
-  protected setCanOccupiedFields(value) {
+  protected setCanOccupiedFields(value: boolean) {
     this.canOccupiedFields = value;
   }
 
-  private generateId(type) {
+  private generateId(type: string) {
     const timestamp = Date.now();
     const randomPart = Math.floor(Math.random() * 1000);
     return `${type}-${timestamp}-${randomPart}`;
@@ -76,7 +76,7 @@ class Entity {
     return field;
   }
 
-  takeDamage(value) {
+  takeDamage(value: number) {
     if (this.isPasive) {
       console.log("Entity is immune to damage")
       return;
@@ -105,13 +105,13 @@ class Entity {
     return this.hp > 0;
   }
 
-  addToCanvas(ctx) {
+  addToCanvas(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "#ff0000ff";
     ctx.fillRect(this.x * 50, this.y * 50, 50, 50);  // x, y, width, height
 
     if (!this.isPasive) {
       ctx.fillStyle = "#c3ff00ff";
-      ctx.fillText(this.hp, this.x * 50, this.y * 50);
+      ctx.fillText(`${this.hp}`, this.x * 50, this.y * 50);
     }
 
     const field = this.getCurrentField();
@@ -135,22 +135,6 @@ class Entity {
     });
   }
 
-  protected getPlayerPosition() {
-    const fieldWithPlayer = this.fields.find((field) => {
-      const entitieFromField = field.getEntitiesFromField();
-      return entitieFromField.some((entity) => {
-        return entity.type === "player"
-      })
-    })
-
-    if (!fieldWithPlayer) {
-      console.log("fieldWithPlayer not found")
-      return null;
-    }
-
-    return fieldWithPlayer.getPosition()
-  }
-
   private attackEntity(entity: Entity) {
     emitAttack(this, { id: entity.id }, 10)
   }
@@ -171,7 +155,7 @@ class Entity {
     emitMove(this, { type: "enemy" })
   }
 
-  protected findNewCoorinatedFromDirection(direction: Direction) {
+  protected findNewCoordinatesFromDirection(direction: Direction) {
     const newX = direction === Direction.LEFT ? this.x - 1 : direction === Direction.RIGHT ? this.x + 1 : this.x;
     const newY = direction === Direction.UP ? this.y - 1 : direction === Direction.DOWN ? this.y + 1 : this.y;
 
@@ -179,7 +163,7 @@ class Entity {
   }
 
   protected takeAction(direction: Direction) {
-    const { newX, newY } = this.findNewCoorinatedFromDirection(direction);
+    const { newX, newY } = this.findNewCoordinatesFromDirection(direction);
 
     let entityToAttack: Entity | undefined = undefined;
 
@@ -282,7 +266,7 @@ class Entity {
     return null;
   }
 
-  protected takeActionToDirectionFromCoordinates(nextX, nextY) {
+  protected takeActionToDirectionFromCoordinates(nextX: number, nextY: number) {
     let direction: Direction;
 
     if (nextX > this.x) {

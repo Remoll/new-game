@@ -1,17 +1,17 @@
 import Entity from "entity/Entity";
-import { IEntitiesActions, IGameLoop } from "./types";
+import { EntitiesActions } from "./types";
 import Enemy from "entity/enemy/Enemy";
 import GameMap from "gameMap/GameMap";
 import CanvasHandler from "canvasHandler/CanvasHandler";
 
-class GameLoop implements IGameLoop {
-	entitiesActions: IEntitiesActions[] = [];
-	entities: Entity[];
-	gameMap: GameMap;
-	canvasHandler: CanvasHandler;
-	ctx;
+class GameLoop {
+	private entitiesActions: EntitiesActions[] = [];
+	private entities: Entity[];
+	private gameMap: GameMap;
+	private canvasHandler: CanvasHandler;
+	private ctx: CanvasRenderingContext2D;
 
-	constructor(entities: Entity[], gameMap: GameMap, ctx) {
+	constructor(entities: Entity[], gameMap: GameMap, ctx: CanvasRenderingContext2D) {
 		this.entities = entities;
 		this.gameMap = gameMap;
 		this.ctx = ctx;
@@ -19,7 +19,7 @@ class GameLoop implements IGameLoop {
 		this.canvasHandler.renderGameState();
 	}
 
-	rerenderGameState() {
+	private refreshGameState() {
 		this.canvasHandler.clearCanvas()
 		this.canvasHandler.renderGameState();
 	}
@@ -34,7 +34,7 @@ class GameLoop implements IGameLoop {
 		// Player second
 		const playerAction = this.entitiesActions.filter((entity) => entity.entityType === "player")[0]
 		playerAction.action();
-		this.rerenderGameState();
+		this.refreshGameState();
 	}
 
 	collectActions() {
@@ -45,7 +45,7 @@ class GameLoop implements IGameLoop {
 		})
 	}
 
-	addEntityAction(newAction: IEntitiesActions) {
+	addEntityAction(newAction: EntitiesActions) {
 		this.entitiesActions.push(newAction);
 	};
 

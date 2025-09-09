@@ -1,19 +1,19 @@
 import Enemy from "entity/enemy/Enemy";
 import Player from "entity/player/Player";
 import GameEventListener from "events/listener/GameEventListener";
-import IGame from "./types";
 import GameMap from "../gameMap/GameMap";
 import GameLoop from "gameLoop/GameLoop";
 import Building from "gameMap/building/Building";
 
-class Game implements IGame {
-  ctx: HTMLElement | null;
-  constructor(ctx) {
-    this.ctx = ctx || document.getElementById("canvas");
+class Game {
+  private ctx: CanvasRenderingContext2D;
+
+  constructor(ctx: CanvasRenderingContext2D) {
+    this.ctx = ctx;
     this.initGame();
   }
 
-  initGame() {
+  private initGame() {
     if (this.ctx) {
       const gameMap = new GameMap();
 

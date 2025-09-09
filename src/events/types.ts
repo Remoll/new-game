@@ -1,16 +1,16 @@
 import Entity from "entity/Entity";
 
 enum GameEventType {
-    MOVED = "moved",
-    ATTACK = "attack",
-    WAIT = "wait",
-    DIED = "died",
-    PLAYER_MAKE_TURN = "playermaketurn",
+  MOVED = "moved",
+  ATTACK = "attack",
+  WAIT = "wait",
+  DIED = "died",
+  PLAYER_MAKE_TURN = "playermaketurn",
 }
 
 interface TargetType {
-    type?: string;
-    id?: string;
+  type?: string;
+  id?: string;
 }
 
 interface GameEvent {
