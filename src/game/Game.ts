@@ -44,9 +44,10 @@ class Game {
         return;
       }
 
-      const item = new Item({ fields: gameMap.getFields(), type: "item", x: 19, y: 19, canOccupiedFields: true, isInteractive: true });
+      const item1 = new Item({ fields: gameMap.getFields(), type: "item", x: 1, y: 2, canOccupiedFields: true, isInteractive: true });
+      const item2 = new Item({ fields: gameMap.getFields(), type: "item", x: 19, y: 19, canOccupiedFields: true, isInteractive: true });
 
-      const gameObjects = [player, ...npcs, ...blocks, item];
+      const gameObjects = [player, ...npcs, ...blocks, item1, item2];
 
       const gameLoop = new GameLoop(gameObjects, gameMap, this.ctx)
 

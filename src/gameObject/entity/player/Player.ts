@@ -1,9 +1,11 @@
 import { Direction, EntityAttributes } from "gameObject/types";
 import { emitPlayerMakeTurn } from "gameEvents/emiter/emittedActions";
 import Entity from "../Entity";
+import Inventory from "ui/inventory/Inventory";
 
 class Player extends Entity {
   private isInteracting: boolean = false;
+  private inventory: Inventory = new Inventory();
 
   constructor(attributes: EntityAttributes) {
     super(attributes);
@@ -80,6 +82,9 @@ class Player extends Entity {
           return;
         case "e":
           this.setIsInteracting(!this.isInteracting);
+          return;
+        case "i":
+          this.inventory.toggle(this.getItems())
           return;
         default:
           return;
