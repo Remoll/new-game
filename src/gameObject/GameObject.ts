@@ -1,4 +1,5 @@
 import Field from "../gameMap/field/Field";
+import Item from "./item/Item";
 import { GameObjectAttributes } from "./types";
 
 class GameObject {
@@ -9,7 +10,7 @@ class GameObject {
   protected y: number;
   protected canOccupiedFields: boolean;
   protected isInteractive: boolean;
-
+  protected items: Item[] = [];
 
   constructor(attributes: GameObjectAttributes) {
     const { fields, type, x, y, canOccupiedFields, isInteractive } = attributes;
@@ -38,6 +39,18 @@ class GameObject {
 
   getCanOccupiedFields() {
     return this.canOccupiedFields;
+  }
+
+  getItems(): Item[] {
+    return this.items;
+  }
+
+  addItem(item: Item): void {
+    this.items.push(item);
+  }
+
+  removeItem(item: Item): void {
+    this.items = this.items.filter((itemInInventory) => itemInInventory.getId() !== item.getId());
   }
 
   protected setCanOccupiedFields(value: boolean) {
@@ -74,7 +87,7 @@ class GameObject {
     });
   }
 
-  handleInteract() {
+  handleInteract(gameObject?: GameObject) {
     return;
   }
 

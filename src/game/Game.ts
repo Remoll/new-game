@@ -5,6 +5,7 @@ import Building from "gameMap/building/Building";
 import Player from "gameObject/entity/player/Player";
 import { Disposition, Faction } from "gameObject/types";
 import Npc from "gameObject/entity/npc/Npc";
+import Item from "gameObject/item/Item";
 
 class Game {
   private ctx: CanvasRenderingContext2D;
@@ -43,7 +44,9 @@ class Game {
         return;
       }
 
-      const gameObjects = [player, ...npcs, ...blocks];
+      const item = new Item({ fields: gameMap.getFields(), type: "item", x: 19, y: 19, canOccupiedFields: true, isInteractive: true });
+
+      const gameObjects = [player, ...npcs, ...blocks, item];
 
       const gameLoop = new GameLoop(gameObjects, gameMap, this.ctx)
 

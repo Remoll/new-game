@@ -31,7 +31,7 @@ class Player extends Entity {
     const interactiveGameObjects = gameObjectsFromField.filter((gameObject) => gameObject.getIsInteractive());
 
     if (interactiveGameObjects.length === 1) {
-      interactiveGameObjects[0].handleInteract();
+      interactiveGameObjects[0].handleInteract(this);
       return;
     }
 
