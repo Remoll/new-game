@@ -1,0 +1,49 @@
+#container {
+    position: relative;
+    width: 1000px;
+    height: 1050px;
+}
+
+#canvas {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#ui {
+    z-index: 2;
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    display: none;
+}
+
+#bar {
+    z-index: 3;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#bar .hotkey {
+    position: absolute;
+    background-color: antiquewhite;
+    top: 0;
+    height: 100%;
+    width: 10%;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+#bar .hotkey span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}

@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
   <title>ROGAL TACTICAL</title>
 </head>
+
 <body>
-  <canvas id="canvas" width="1000" height="1000" style="z-index: 1; position: absolute; top: 0; left: 0;"></canvas>
-  <div id="ui" style="z-index: 2; width: 1000px; height: 1000px; position: absolute; top: 0; left: 0; background-color: gray; display: none;"></div>
+  <div id="container">
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+
+    <div id="ui"></div>
+
+    <div id="bar">
+      <div id="hotkey-1" class="hotkey" style="left: 0%">
+        <span>1</span>
+        <div></div>
+      </div>
+      <div id="hotkey-2" class="hotkey" style="left: 10%">
+        <span>2</span>
+        <div></div>
+      </div>
+      <div id="hotkey-3" class="hotkey" style="left: 20%">
+        <span>3</span>
+        <div></div>
+      </div>
+      <div id="hotkey-4" class="hotkey" style="left: 30%">
+        <span>4</span>
+        <div></div>
+      </div>
+      <div id="hotkey-5" class="hotkey" style="left: 40%">
+        <span>5</span>
+        <div></div>
+      </div>
+      <div id="hotkey-6" class="hotkey" style="left: 50%">
+        <span>6</span>
+        <div></div>
+      </div>
+      <div id="hotkey-7" class="hotkey" style="left: 60%">
+        <span>7</span>
+        <div></div>
+      </div>
+      <div id="hotkey-8" class="hotkey" style="left: 70%">
+        <span>8</span>
+        <div></div>
+      </div>
+      <div id="hotkey-9" class="hotkey" style="left: 80%">
+        <span>9</span>
+        <div></div>
+      </div>
+      <div id="hotkey-0" class="hotkey" style="left: 90%">
+        <span>0</span>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
   <script type="module" src="./script.ts"></script>
 </body>
+
 </html>

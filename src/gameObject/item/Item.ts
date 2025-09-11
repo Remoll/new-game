@@ -1,5 +1,5 @@
 import GameObject from "../GameObject";
-import { GameObjectAttributes } from "gameObject/types";
+import { Direction, GameObjectAttributes } from "gameObject/types";
 
 class Item extends GameObject {
     private equippedBy: GameObject | null = null;
@@ -32,6 +32,10 @@ class Item extends GameObject {
         this.getCurrentField().removeGameObjectFromField(this);
         this.x = null;
         this.y = null;
+    }
+
+    use(direction: Direction) {
+        console.log("item was used: ", direction)
     }
 }
 
