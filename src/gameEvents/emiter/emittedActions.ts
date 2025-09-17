@@ -1,6 +1,6 @@
-import { GameEventType, GameObjectSelector } from "gameEvents/types";
-import GameObject from "gameObject/GameObject";
-import GameEventEmitter from "./GameEventEmitter";
+import { GameEventType, GameObjectSelector } from "@/gameEvents/types";
+import GameObject from "@/gameObject/GameObject";
+import GameEventEmitter from "@/gameEvents/emiter/GameEventEmitter";
 
 const emitMove = (sender: GameObject, target: GameObjectSelector) => {
 	const { x, y } = sender.getPosition();

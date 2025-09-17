@@ -1,11 +1,11 @@
-import GameEventListener from "gameEvents/listener/GameEventListener";
-import GameMap from "../gameMap/GameMap";
-import GameLoop from "gameLoop/GameLoop";
-import Building from "gameMap/building/Building";
-import Player from "gameObject/entity/player/Player";
-import { Disposition, Faction } from "gameObject/types";
-import Npc from "gameObject/entity/npc/Npc";
-import ReanimatePotion from "gameObject/item/reanimatePotion/ReanimatePotion";
+import GameEventListener from "@/gameEvents/listener/GameEventListener";
+import GameMap from "@/gameMap/GameMap";
+import GameLoop from "@/gameLoop/GameLoop";
+import Building from "@/gameMap/building/Building";
+import Player from "@/gameObject/entity/player/Player";
+import { Disposition, Faction } from "@/gameObject/types";
+import Npc from "@/gameObject/entity/npc/Npc";
+import ReanimatePotion from "@/gameObject/item/reanimatePotion/ReanimatePotion";
 
 class Game {
   private ctx: CanvasRenderingContext2D;
@@ -32,7 +32,7 @@ class Game {
         return;
       }
 
-      const enemiesCoordinates = [{ x: 5, y: 5 }, { x: 10, y: 5 }, { x: 11, y: 6 }, { x: 18, y: 18 }]
+      const enemiesCoordinates = [{ x: 5, y: 5 }, { x: 7, y: 7 }, { x: 10, y: 5 }, { x: 11, y: 6 }, { x: 18, y: 18 }]
 
       const npcs = enemiesCoordinates.map((coordinates) => {
         const { x, y } = coordinates;

@@ -1,7 +1,7 @@
-import { Direction, DispositionToFactions, EntityAttributes, Faction } from "gameObject/types";
-import { emitAttack, emitDead, emitMove, emitWait } from "gameEvents/emiter/emittedActions";
-import { GameObjectSelector } from "gameEvents/types";
-import GameObject from "gameObject/GameObject";
+import { Direction, DispositionToFactions, EntityAttributes, Faction } from "@/gameObject/types";
+import { emitAttack, emitDead, emitMove, emitWait } from "@/gameEvents/emiter/emittedActions";
+import { GameObjectSelector } from "@/gameEvents/types";
+import GameObject from "@/gameObject/GameObject";
 
 class Entity extends GameObject {
     private hp: number;
@@ -17,6 +17,10 @@ class Entity extends GameObject {
         this.hp = hp;
         this.faction = faction;
         this.dispositionToFactions = dispositionToFactions;
+    }
+
+    getHp(): number {
+        return this.hp;
     }
 
     getFaction() {

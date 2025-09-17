@@ -1,8 +1,8 @@
-import GameObject from "gameObject/GameObject";
+import GameObject from "@/gameObject/GameObject";
 import { EntitiesActions } from "./types";
-import GameMap from "gameMap/GameMap";
-import CanvasHandler from "canvasHandler/CanvasHandler";
-import Npc from "gameObject/entity/npc/Npc";
+import GameMap from "@/gameMap/GameMap";
+import CanvasHandler from "@/canvasHandler/CanvasHandler";
+import Npc from "@/gameObject/entity/npc/Npc";
 
 class GameLoop {
 	private entitiesActions: EntitiesActions[] = [];

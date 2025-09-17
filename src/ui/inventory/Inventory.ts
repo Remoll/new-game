@@ -1,4 +1,4 @@
-import Item from "gameObject/item/Item";
+import Item from "@/gameObject/item/Item";
 
 class Inventory {
     private isOpen: boolean = false;

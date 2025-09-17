@@ -1,4 +1,4 @@
-import Field from "gameMap/field/Field";
+import Field from "@/gameMap/field/Field";
 
 enum Direction {
 	UP = "up",

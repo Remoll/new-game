@@ -1,5 +1,5 @@
-import GameObject from "gameObject/GameObject";
-import { Faction } from "gameObject/types";
+import GameObject from "@/gameObject/GameObject";
+import { Faction } from "@/gameObject/types";
 
 enum GameEventType {
   MOVED = "moved",

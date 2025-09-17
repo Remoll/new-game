@@ -1,5 +1,5 @@
-import { GameEventType, GameObjectSelector } from "gameEvents/types";
-import GameObject from "gameObject/GameObject";
+import { GameEventType, GameObjectSelector } from "@/gameEvents/types";
+import GameObject from "@/gameObject/GameObject";
 
 class GameEventEmitter {
   static emit(type: GameEventType, sender: GameObject, target: GameObjectSelector, value: unknown = null) {

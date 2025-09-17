@@ -1,4 +1,4 @@
-import { GameObjectSelector } from "gameEvents/types";
+import { GameObjectSelector } from "@/gameEvents/types";
 
 interface EntitiesActions {
 	performer: GameObjectSelector;

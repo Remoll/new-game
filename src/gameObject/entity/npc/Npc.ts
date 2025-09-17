@@ -1,7 +1,7 @@
-import { GameObjectSelector } from "gameEvents/types";
-import { Disposition, EntityAttributes } from "gameObject/types";
-import Entity from "../Entity";
-import GameObject from "gameObject/GameObject";
+import { GameObjectSelector } from "@/gameEvents/types";
+import { Disposition, EntityAttributes } from "@/gameObject/types";
+import Entity from "@/gameObject/entity/Entity";
+import GameObject from "@/gameObject/GameObject";
 
 class Npc extends Entity {
   constructor(attributes: EntityAttributes) {

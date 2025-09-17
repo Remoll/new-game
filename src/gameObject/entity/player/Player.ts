@@ -1,8 +1,8 @@
-import { Direction, EntityAttributes } from "gameObject/types";
-import { emitPlayerMakeTurn } from "gameEvents/emiter/emittedActions";
-import Entity from "../Entity";
-import Inventory from "ui/inventory/Inventory";
-import Item from "gameObject/item/Item";
+import { Direction, EntityAttributes } from "@/gameObject/types";
+import { emitPlayerMakeTurn } from "@/gameEvents/emiter/emittedActions";
+import Entity from "@/gameObject/entity/Entity";
+import Inventory from "@/ui/inventory/Inventory";
+import Item from "@/gameObject/item/Item";
 
 class Player extends Entity {
   private isInteracting: boolean = false;

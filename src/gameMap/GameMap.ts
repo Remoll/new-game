@@ -1,4 +1,4 @@
-import Field from "./field/Field";
+import Field from "@/gameMap/field/Field";
 
 class GameMap {
   private fields: Field[];

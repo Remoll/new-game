@@ -1,5 +1,5 @@
-import GameObject from "gameObject/GameObject";
-import GameMap from "gameMap/GameMap";
+import GameObject from "@/gameObject/GameObject";
+import GameMap from "@/gameMap/GameMap";
 
 class CanvasHandler {
 	private gameObjects: GameObject[];

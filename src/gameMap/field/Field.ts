@@ -1,4 +1,4 @@
-import GameObject from "../../gameObject/GameObject";
+import GameObject from "@/gameObject/GameObject";
 
 class Field {
   private x: number;

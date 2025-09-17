@@ -1,5 +1,5 @@
-import GameObject from "../GameObject";
-import { GameObjectAttributes } from "gameObject/types";
+import GameObject from "@/gameObject/GameObject";
+import { GameObjectAttributes } from "@/gameObject/types";
 
 class Door extends GameObject {
 	constructor(attributes: GameObjectAttributes, isClosed = true) {

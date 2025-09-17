@@ -1,7 +1,7 @@
-import { GameEvent, GameEventType } from "gameEvents/types";
-import GameObject from "gameObject/GameObject";
-import GameLoop from "gameLoop/GameLoop";
-import Entity from "gameObject/entity/Entity";
+import { GameEvent, GameEventType } from "@/gameEvents/types";
+import GameObject from "@/gameObject/GameObject";
+import GameLoop from "@/gameLoop/GameLoop";
+import Entity from "@/gameObject/entity/Entity";
 
 class GameEventListener {
   private gameObjects: GameObject[];

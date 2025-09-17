@@ -1,13 +1,9 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "es6",
-    "rootDir": "src",
-    "baseUrl": "src",
+    "esModuleInterop": true,
+    "baseUrl": ".",
     "paths": {
-      "@classes/*": ["classes/*"],
-      "@types/*": ["types/*"]
+      "@/*": ["src/*"]
     }
-  },
-  "include": ["src"]
+  }
 }

@@ -1,5 +1,5 @@
-import Field from "../gameMap/field/Field";
-import Item from "./item/Item";
+import Field from "@/gameMap/field/Field";
+import Item from "@/gameObject/item/Item";
 import { Direction, GameObjectAttributes } from "./types";
 
 class GameObject {

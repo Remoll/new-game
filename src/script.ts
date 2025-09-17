@@ -1,4 +1,4 @@
-import Game from "game/Game";
+import Game from "@/game/Game"
 
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("canvas") as HTMLCanvasElement | null;
@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!ctx) {
     console.error("Root element not found");
+    return;
   }
 
   ctx.font = "24px Arial";

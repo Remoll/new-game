@@ -1,6 +1,6 @@
-import Entity from "gameObject/entity/Entity";
-import GameObject from "../GameObject";
-import { Direction, GameObjectAttributes } from "gameObject/types";
+import Entity from "@/gameObject/entity/Entity";
+import GameObject from "@/gameObject/GameObject";
+import { Direction, GameObjectAttributes } from "@/gameObject/types";
 
 class Item extends GameObject {
     private equippedBy: GameObject | null = null;

@@ -1,7 +1,7 @@
-import Field from "gameMap/field/Field";
+import Field from "@/gameMap/field/Field";
 import { BuildingCoordinates } from "./types";
-import Block from "gameObject/block/Block";
-import Door from "gameObject/block/Door";
+import Block from "@/gameObject/block/Block";
+import Door from "@/gameObject/block/Door";
 
 class Building {
 	private blocks: (Block | Door)[];

@@ -1,9 +1,6 @@
 # Node modules
 node_modules/
 
-# Parcel cache
-.parcel-cache/
-
 # Dist folder (output)
 dist/
 
