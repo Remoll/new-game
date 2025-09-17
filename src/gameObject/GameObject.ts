@@ -1,6 +1,6 @@
 import Field from "../gameMap/field/Field";
 import Item from "./item/Item";
-import { GameObjectAttributes } from "./types";
+import { Direction, GameObjectAttributes } from "./types";
 
 class GameObject {
   protected fields: Field[];
@@ -49,11 +49,11 @@ class GameObject {
     this.items.push(item);
   }
 
-  removeItem(item: Item): void {
+  removeItemFromInventory(item: Item): void {
     this.items = this.items.filter((itemInInventory) => itemInInventory.getId() !== item.getId());
   }
 
-  protected setCanOccupiedFields(value: boolean) {
+  setCanOccupiedFields(value: boolean) {
     this.canOccupiedFields = value;
   }
 
@@ -93,6 +93,13 @@ class GameObject {
 
   getIsInteractive() {
     return this.isInteractive;
+  }
+
+  findNewCoordinatesFromDirection(direction: Direction) {
+    const newX = direction === Direction.LEFT ? this.x - 1 : direction === Direction.RIGHT ? this.x + 1 : this.x;
+    const newY = direction === Direction.UP ? this.y - 1 : direction === Direction.DOWN ? this.y + 1 : this.y;
+
+    return { newX, newY };
   }
 }
 

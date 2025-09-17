@@ -15,7 +15,12 @@ class Player extends Entity {
     this.addMoveListener();
   }
 
+  getInventory(): Inventory {
+    return this.inventory;
+  }
+
   private setIsInteracting(isInteracting: boolean) {
+    this.isUsingItem = false;
     this.isInteracting = isInteracting;
   }
 
@@ -50,18 +55,73 @@ class Player extends Entity {
 
   useItem(direction: Direction) {
     this.isUsingItem = false;
-    this.itemToUse.use(direction);
+    this.itemToUse.use(direction, this);
   }
 
   setIsUsingItem(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0) {
     this.itemToUse = this.inventory.getItemFromHotkey(key);
+    this.isInteracting = false;
+    if (!this.itemToUse) {
+      console.log("no item for hotkey ", key)
+      this.isUsingItem = false;
+      return;
+    }
     this.isUsingItem = true;
+  }
+
+  removeItemFromInventory(item: Item): void {
+    this.inventory.removeItemFromHotkey(item)
+    this.items = this.items.filter((itemInInventory) => itemInInventory.getId() !== item.getId());
   }
 
   private addMoveListener() {
     document.addEventListener("keydown", (event) => {
       const key = event.key;
-      if (!this.inventory.getIsOpen()) {
+      if (this.inventory.getIsOpen()) {
+        switch (key) {
+          case "a":
+            this.inventory.selectPrev();
+            return;
+          case "d":
+            this.inventory.selectNext();
+            return;
+          case "1":
+            this.inventory.setHotkey(1);
+            return;
+          case "2":
+            this.inventory.setHotkey(2);
+            return;
+          case "3":
+            this.inventory.setHotkey(3);
+            return;
+          case "4":
+            this.inventory.setHotkey(4);
+            return;
+          case "5":
+            this.inventory.setHotkey(5);
+            return;
+          case "6":
+            this.inventory.setHotkey(6);
+            return;
+          case "7":
+            this.inventory.setHotkey(7);
+            return;
+          case "8":
+            this.inventory.setHotkey(8);
+            return;
+          case "9":
+            this.inventory.setHotkey(9);
+            return;
+          case "0":
+            this.inventory.setHotkey(0);
+            return;
+          case "q":
+            this.inventory.toggle(this.getItems())
+            return;
+          default:
+            return;
+        }
+      } else {
         switch (key) {
           case "w":
             if (this.isInteracting) {
@@ -113,8 +173,10 @@ class Player extends Entity {
           case "e":
             this.setIsInteracting(!this.isInteracting);
             return;
-          case "i":
+          case "q":
             this.inventory.toggle(this.getItems())
+            this.isInteracting = false;
+            this.isUsingItem = false;
             return;
           case "1":
             this.setIsUsingItem(1);
@@ -145,50 +207,6 @@ class Player extends Entity {
             return;
           case "0":
             this.setIsUsingItem(0);
-            return;
-          default:
-            return;
-        }
-      } else {
-        switch (key) {
-          case "a":
-            this.inventory.selectPrev();
-            return;
-          case "d":
-            this.inventory.selectNext();
-            return;
-          case "1":
-            this.inventory.setHotkey(1);
-            return;
-          case "2":
-            this.inventory.setHotkey(2);
-            return;
-          case "3":
-            this.inventory.setHotkey(3);
-            return;
-          case "4":
-            this.inventory.setHotkey(4);
-            return;
-          case "5":
-            this.inventory.setHotkey(5);
-            return;
-          case "6":
-            this.inventory.setHotkey(6);
-            return;
-          case "7":
-            this.inventory.setHotkey(7);
-            return;
-          case "8":
-            this.inventory.setHotkey(8);
-            return;
-          case "9":
-            this.inventory.setHotkey(9);
-            return;
-          case "0":
-            this.inventory.setHotkey(0);
-            return;
-          case "i":
-            this.inventory.toggle(this.getItems())
             return;
           default:
             return;

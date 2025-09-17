@@ -5,7 +5,7 @@ import Building from "gameMap/building/Building";
 import Player from "gameObject/entity/player/Player";
 import { Disposition, Faction } from "gameObject/types";
 import Npc from "gameObject/entity/npc/Npc";
-import Item from "gameObject/item/Item";
+import ReanimatePotion from "gameObject/item/reanimatePotion/ReanimatePotion";
 
 class Game {
   private ctx: CanvasRenderingContext2D;
@@ -25,14 +25,14 @@ class Game {
 
       const blocks = building.getBlocks();
 
-      const player = new Player({ fields: gameMap.getFields(), type: "player", x: 1, y: 1, faction: Faction.PLAYER, hp: 200, dispositionToFactions: {}, canOccupiedFields: true, isInteractive: false });
+      const player = new Player({ fields: gameMap.getFields(), type: "player", x: 1, y: 1, faction: Faction.PLAYER, hp: 200, dispositionToFactions: {[Disposition.HOSTILE]: [Faction.ENEMY]}, canOccupiedFields: true, isInteractive: false });
 
       if (!player) {
         console.error("Player not created");
         return;
       }
 
-      const enemiesCoordinates = [{ x: 5, y: 5 }, { x: 10, y: 5 }, { x: 18, y: 18 }]
+      const enemiesCoordinates = [{ x: 5, y: 5 }, { x: 10, y: 5 }, { x: 11, y: 6 }, { x: 18, y: 18 }]
 
       const npcs = enemiesCoordinates.map((coordinates) => {
         const { x, y } = coordinates;
@@ -44,10 +44,9 @@ class Game {
         return;
       }
 
-      const item1 = new Item({ fields: gameMap.getFields(), type: "item", x: 1, y: 2, canOccupiedFields: true, isInteractive: true });
-      const item2 = new Item({ fields: gameMap.getFields(), type: "item", x: 19, y: 19, canOccupiedFields: true, isInteractive: true });
+      const reanimatePotion = new ReanimatePotion({ fields: gameMap.getFields(), type: "reanimatePotion", x: 1, y: 2, canOccupiedFields: true, isInteractive: true });
 
-      const gameObjects = [player, ...npcs, ...blocks, item1, item2];
+      const gameObjects = [player, ...npcs, ...blocks, reanimatePotion];
 
       const gameLoop = new GameLoop(gameObjects, gameMap, this.ctx)
 

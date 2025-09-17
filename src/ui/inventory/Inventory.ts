@@ -11,11 +11,10 @@ class Inventory {
         this.uiContainer = document.getElementById("ui");
     }
 
-    private getHtml(items: Item[]): HTMLElement {
-        this.items = items;
+    private getHtml(): HTMLElement {
         const container = document.createElement("div");
 
-        items.forEach((item, index) => {
+        this.items.forEach((item, index) => {
             const p = document.createElement("p");
             if (index === 0) {
                 p.style.border = "1px solid black";
@@ -23,7 +22,7 @@ class Inventory {
             p.id = `item-${index}`
 
             const span = document.createElement("span");
-            span.textContent = item.getId();
+            span.textContent = item.getType();
             p.appendChild(span);
 
             container.appendChild(p);
@@ -33,7 +32,8 @@ class Inventory {
     }
 
     private open(items: Item[]): void {
-        const html = this.getHtml(items);
+        this.items = items;
+        const html = this.getHtml();
         this.selectedItemIndex = 0;
         this.uiContainer.appendChild(html);
         this.uiContainer.style.display = "block"
@@ -97,6 +97,11 @@ class Inventory {
     setHotkey(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0) {
         const selectedItem = this.items[this.selectedItemIndex];
 
+        if (!selectedItem) {
+            console.log("no item to bind to hotkey")
+            return;
+        }
+
         const itemExistInHotkeyIndex = this.itemsFromHotkeys.findIndex((item) => item && item.getId() === selectedItem.getId())
 
         if (itemExistInHotkeyIndex > -1) {
@@ -108,11 +113,22 @@ class Inventory {
         this.itemsFromHotkeys[key] = selectedItem;
 
         const hotkeyElement = document.querySelector(`#hotkey-${key} div`);
-        hotkeyElement.textContent = selectedItem.getId();
+        hotkeyElement.textContent = selectedItem.getType();
     }
 
     getItemFromHotkey(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0) {
         return this.itemsFromHotkeys[key];
+    }
+
+    removeItemFromHotkey(itemToRemove: Item) {
+        const itemIndex = this.itemsFromHotkeys.findIndex((itemFromHotkey) => itemFromHotkey?.getId() === itemToRemove.getId());
+        if (itemIndex === -1) {
+            console.log("no item index in hotkey to remove")
+            return;
+        }
+        this.itemsFromHotkeys[itemIndex] = undefined;
+        const hotkeyElement = document.querySelector(`#hotkey-${itemIndex} div`);
+        hotkeyElement.textContent = '';
     }
 }
 

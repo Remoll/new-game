@@ -7,6 +7,7 @@ class Entity extends GameObject {
     private hp: number;
     private faction: Faction;
     private dispositionToFactions: DispositionToFactions;
+    private isReanimate: boolean = false;
 
     constructor(attributes: EntityAttributes) {
         const { hp, faction, dispositionToFactions, ...gameObjectAttributes } = attributes;
@@ -87,13 +88,6 @@ class Entity extends GameObject {
         newField.addGameObjectToField(this);
 
         emitMove(this, { type: "enemy" })
-    }
-
-    protected findNewCoordinatesFromDirection(direction: Direction) {
-        const newX = direction === Direction.LEFT ? this.x - 1 : direction === Direction.RIGHT ? this.x + 1 : this.x;
-        const newY = direction === Direction.UP ? this.y - 1 : direction === Direction.DOWN ? this.y + 1 : this.y;
-
-        return { newX, newY };
     }
 
     protected takeAction(direction: Direction) {
@@ -216,14 +210,14 @@ class Entity extends GameObject {
         this.takeAction(direction);
     }
 
-    findNearestGameObject(target: GameObjectSelector): GameObject | null {
+    findNearestGameObject(target: GameObjectSelector, checkIsAlive: boolean = false): GameObject | null {
         let nearestGameObject: GameObject | null = null;
         let minDistance = Infinity;
 
         this.fields.forEach((field) => {
-            const entities = field.getGameObjectsFromField();
+            const gameObjects = field.getGameObjectsFromField();
 
-            entities.forEach((gameObject) => {
+            gameObjects.forEach((gameObject) => {
                 if (gameObject.getId() === this.getId()) return;
 
                 const isGameObjectInSelectedFaction = "factions" in target && target.factions.some((faction) => {
@@ -235,7 +229,7 @@ class Entity extends GameObject {
                 const isGameObjectTypeInTarget = "type" in target && target.type && gameObject.getType() === target.type;
                 const isGameObjectIdInTarget = "id" in target && target.id && gameObject.getId() === target.id;
 
-                if (isGameObjectInSelectedFaction || isGameObjectTypeInTarget || isGameObjectIdInTarget) {
+                if ((!checkIsAlive || (gameObject instanceof Entity && gameObject.isAlive())) && (isGameObjectInSelectedFaction || isGameObjectTypeInTarget || isGameObjectIdInTarget)) {
                     const { x: gameObjectX, y: gameObjectY } = gameObject.getPosition();
                     const distance = Math.abs(this.x - gameObjectX) + Math.abs(this.y - gameObjectY); // Manhattan distance
 
@@ -250,6 +244,21 @@ class Entity extends GameObject {
         return nearestGameObject;
     }
 
+    setFaction(faction: Faction): void {
+        this.faction = faction;
+    }
+
+    setDispositionToFactions(factions: DispositionToFactions): void {
+        this.dispositionToFactions = factions;
+    }
+
+    setHp(hp: number): void {
+        this.hp = hp;
+    }
+
+    setIsReanimate(isReanimate: boolean): void {
+        this.isReanimate = isReanimate;
+    }
 }
 
 export default Entity;

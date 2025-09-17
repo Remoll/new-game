@@ -1,11 +1,17 @@
+import Entity from "gameObject/entity/Entity";
 import GameObject from "../GameObject";
 import { Direction, GameObjectAttributes } from "gameObject/types";
 
 class Item extends GameObject {
     private equippedBy: GameObject | null = null;
+    protected isConsumables: boolean = false;
 
     constructor(attributes: GameObjectAttributes) {
         super(attributes);
+    }
+
+    getEquippedBy(): GameObject {
+        return this.equippedBy;
     }
 
     addToCanvas(ctx: CanvasRenderingContext2D): void {
@@ -19,7 +25,7 @@ class Item extends GameObject {
         ctx.fillRect(x * 50, y * 50, 50, 50);  // x, y, width, height
 
         ctx.fillStyle = "#0f100aff";
-        ctx.fillText("Item", x * 50, y * 50);
+        ctx.fillText(this.getType(), x * 50, y * 50);
 
         const field = this.getCurrentField();
         field.addGameObjectToField(this);
@@ -34,8 +40,26 @@ class Item extends GameObject {
         this.y = null;
     }
 
-    use(direction: Direction) {
-        console.log("item was used: ", direction)
+    protected executeEffect(direction: Direction, userEntity: Entity) {
+        // implement in subclasses
+    }
+
+    deleteItemFromWorld() {
+        if (this.equippedBy) {
+            this.equippedBy.removeItemFromInventory(this)
+        }
+
+        // TODO: remove item instance
+    }
+
+    use(direction: Direction, userEntity: Entity) {
+        // TODO: check there is valid target or display info about itom lost
+
+        this.executeEffect(direction, userEntity);
+
+        if (this.isConsumables) {
+            this.deleteItemFromWorld();
+        }
     }
 }
 

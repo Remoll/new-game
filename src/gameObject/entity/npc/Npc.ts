@@ -9,7 +9,7 @@ class Npc extends Entity {
   }
 
   private findAndCharge(target: GameObjectSelector) {
-    const nearestGameObject = this.findNearestGameObject(target);
+    const nearestGameObject = this.findNearestGameObject(target, true);
 
     if (!nearestGameObject) {
       console.log("nearestGameObject not found");
@@ -20,7 +20,7 @@ class Npc extends Entity {
   }
 
   private chargeGameObject(gameObject: GameObject) {
-    if (!this.isAlive) {
+    if (!this.isAlive()) {
       console.log("Entity is dead and can't take action")
       return;
     }
