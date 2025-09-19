@@ -2,19 +2,20 @@ import Field from "@/gameMap/field/Field";
 
 class GameMap {
   private fields: Field[];
+  private gameMapWidth: number;
+  private gameMapHight: number;
 
-  constructor() {
+  constructor(gameMapWidth, gameMapHight) {
+    this.gameMapWidth = gameMapWidth;
+    this.gameMapHight = gameMapHight;
     this.fields = this.generateFields();
   }
 
   private generateFields() {
-    const gameMapWidth = 20;
-    const gameMapHight = 20;
-
     const fields = [];
 
-    for (let fieldX = 0; fieldX < gameMapWidth; fieldX++) {
-      for (let fieldY = 0; fieldY < gameMapHight; fieldY++) {
+    for (let fieldX = 0; fieldX < this.gameMapWidth; fieldX++) {
+      for (let fieldY = 0; fieldY < this.gameMapHight; fieldY++) {
 
         fields.push(new Field(fieldX, fieldY));
 

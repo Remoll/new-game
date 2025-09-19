@@ -17,7 +17,7 @@ class Game {
 
   private initGame() {
     if (this.ctx) {
-      const gameMap = new GameMap();
+      const gameMap = new GameMap(20, 20);
 
       const buildingCoordinates = { topLeft: { x: 3, y: 3 }, bottomRight: { x: 16, y: 16 }, door: { coordinates: { x: 15, y: 16 }, isClosed: true } }
 
