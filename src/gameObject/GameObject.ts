@@ -1,6 +1,7 @@
 import Field from "@/gameMap/field/Field";
 import Item from "@/gameObject/item/Item";
 import { Direction, GameObjectAttributes } from "./types";
+import { Coordinates } from "@/types";
 
 class GameObject {
   protected fields: Field[];
@@ -88,6 +89,7 @@ class GameObject {
   }
 
   handleInteract(gameObject?: GameObject) {
+    // implement in subclasses
     return;
   }
 
@@ -95,11 +97,11 @@ class GameObject {
     return this.isInteractive;
   }
 
-  findNewCoordinatesFromDirection(direction: Direction) {
+  findNewCoordinatesFromDirection(direction: Direction): Coordinates {
     const newX = direction === Direction.LEFT ? this.x - 1 : direction === Direction.RIGHT ? this.x + 1 : this.x;
     const newY = direction === Direction.UP ? this.y - 1 : direction === Direction.DOWN ? this.y + 1 : this.y;
 
-    return { newX, newY };
+    return { x: newX, y: newY };
   }
 }
 

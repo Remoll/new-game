@@ -27,7 +27,7 @@ class Player extends Entity {
   private takeInteraction(direction: Direction) {
     this.setIsInteracting(false);
 
-    const { newX, newY } = this.findNewCoordinatesFromDirection(direction);
+    const { x: newX, y: newY } = this.findNewCoordinatesFromDirection(direction);
 
     const field = this.getFieldFromCoordinates(newX, newY);
 

@@ -10,7 +10,7 @@ class ReanimatePotion extends Item {
     }
 
     executeEffect(direction: Direction, userEntity: Entity): void {
-        const { newX, newY } = userEntity.findNewCoordinatesFromDirection(direction);
+        const { x: newX, y: newY } = userEntity.findNewCoordinatesFromDirection(direction);
         const field = this.getFieldFromCoordinates(newX, newY);
         const gameObjectsFromField = field.getGameObjectsFromField();
         const targetEntity = gameObjectsFromField.find((gameObject) => gameObject instanceof Entity && !gameObject.isAlive())

@@ -95,7 +95,7 @@ class Entity extends GameObject {
     }
 
     protected takeAction(direction: Direction) {
-        const { newX, newY } = this.findNewCoordinatesFromDirection(direction);
+        const { x: newX, y: newY } = this.findNewCoordinatesFromDirection(direction);
 
         let entityToAttack: GameObject | undefined = undefined;
 

@@ -2,6 +2,7 @@ import Field from "@/gameMap/field/Field";
 import { BuildingCoordinates } from "./types";
 import Block from "@/gameObject/block/Block";
 import Door from "@/gameObject/block/Door";
+import { Coordinates } from "@/types";
 
 class Building {
 	private blocks: (Block | Door)[];
@@ -19,7 +20,7 @@ class Building {
 			return false;
 		}
 
-		const { x: doorX, y: doorY } = this.coordinates.door;
+		const { x: doorX, y: doorY } = this.coordinates.door.coordinates;
 
 		if (doorX === x && doorY === y) {
 			return true;
@@ -43,7 +44,7 @@ class Building {
 		const start = this.coordinates.topLeft;
 		const end = this.coordinates.bottomRight;
 
-		const fieldsCoordinates: { x: number, y: number }[] = [];
+		const fieldsCoordinates: Coordinates[] = [];
 
 		for (let fieldX = start.x; fieldX <= end.x; fieldX++) {
 			const isVericalWall = fieldX === start.x || fieldX === end.x;

@@ -19,13 +19,13 @@ class Game {
     if (this.ctx) {
       const gameMap = new GameMap();
 
-      const buildingCoordinates = { topLeft: { x: 3, y: 3 }, bottomRight: { x: 16, y: 16 }, door: { x: 15, y: 16, isClosed: true } }
+      const buildingCoordinates = { topLeft: { x: 3, y: 3 }, bottomRight: { x: 16, y: 16 }, door: { coordinates: { x: 15, y: 16 }, isClosed: true } }
 
       const building = new Building(gameMap.getFields(), buildingCoordinates);
 
       const blocks = building.getBlocks();
 
-      const player = new Player({ fields: gameMap.getFields(), type: "player", x: 1, y: 1, faction: Faction.PLAYER, hp: 200, dispositionToFactions: {[Disposition.HOSTILE]: [Faction.ENEMY]}, canOccupiedFields: true, isInteractive: false });
+      const player = new Player({ fields: gameMap.getFields(), type: "player", x: 1, y: 1, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY] }, canOccupiedFields: true, isInteractive: false });
 
       if (!player) {
         console.error("Player not created");

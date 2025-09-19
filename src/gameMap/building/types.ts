@@ -1,7 +1,9 @@
+import { Coordinates } from "@/types";
+
 interface BuildingCoordinates {
-	topLeft: { x: number, y: number },
-	bottomRight: { x: number, y: number }
-	door: { isClosed: boolean, x: number, y: number } | null;
+	topLeft: Coordinates,
+	bottomRight: Coordinates
+	door: { isClosed: boolean, coordinates: Coordinates } | null;
 }
 
 export type { BuildingCoordinates };
