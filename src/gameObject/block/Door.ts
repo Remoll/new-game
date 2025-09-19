@@ -28,9 +28,6 @@ class Door extends GameObject {
 			ctx.fillRect(x * 50, y * 50, 10, 50);  // x, y, width, height
 			ctx.fillRect(x * 50 + 40, y * 50, 10, 50);  // x, y, width, height
 		}
-
-		const field = this.getCurrentField();
-		field.addGameObjectToField(this);
 	}
 }
 

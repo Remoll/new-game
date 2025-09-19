@@ -24,6 +24,9 @@ class GameObject {
     this.isInteractive = isInteractive;
 
     this.id = this.generateId(type);
+
+    const initialField = this.getCurrentField();
+    initialField.addGameObjectToField(this);
   }
 
   getPosition(): { x: number; y: number } {
@@ -76,9 +79,6 @@ class GameObject {
   addToCanvas(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "#ff0000ff";
     ctx.fillRect(this.x * 50, this.y * 50, 50, 50);  // x, y, width, height
-
-    const field = this.getCurrentField();
-    field.addGameObjectToField(this);
   }
 
   protected getFieldFromCoordinates(x: number, y: number): Field | undefined {

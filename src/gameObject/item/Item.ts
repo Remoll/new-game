@@ -26,9 +26,6 @@ class Item extends GameObject {
 
         ctx.fillStyle = "#0f100aff";
         ctx.fillText(this.getType(), x * 50, y * 50);
-
-        const field = this.getCurrentField();
-        field.addGameObjectToField(this);
     }
 
     handleInteract(gameObject: GameObject): void {

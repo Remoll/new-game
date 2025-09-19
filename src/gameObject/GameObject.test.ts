@@ -1,9 +1,12 @@
 import { describe, expect, test } from 'vitest'
 import GameObject from './GameObject'
 import { Direction, GameObjectAttributes } from './types'
+import Field from '@/gameMap/field/Field'
+
+const fields = [new Field(0, 0)];
 
 const ganeObjectAttributes: GameObjectAttributes = {
-    fields: [],
+    fields,
     type: "gameObject",
     x: 0,
     y: 0,

@@ -58,9 +58,6 @@ class Entity extends GameObject {
             ctx.fillStyle = "#c3ff00ff";
             ctx.fillText(`${this.hp}`, x * 50, y * 50);
         }
-
-        const field = this.getCurrentField();
-        field.addGameObjectToField(this);
     }
 
     // TODO: check if it's needed
@@ -122,7 +119,7 @@ class Entity extends GameObject {
         emitWait(this, { type: "enemy" })
     }
 
-    protected findShortestPath(targetX, targetY) {
+    findShortestPath(targetX: number, targetY: number) {
         // quick checks
         const startKey = `${this.x},${this.y}`;
         const targetKey = `${targetX},${targetY}`;
