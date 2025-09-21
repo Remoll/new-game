@@ -3,6 +3,7 @@ import { BuildingCoordinates } from "./types";
 import Block from "@/gameObject/block/Block";
 import Door from "@/gameObject/block/Door";
 import { Coordinates } from "@/types";
+import { ImageKey } from "@/imageManager/types";
 
 class Building {
 	private blocks: (Block | Door)[];
@@ -32,9 +33,9 @@ class Building {
 
 		if (this.isDoor(x, y)) {
 			const isDoorClosed = this.coordinates.door.isClosed
-			newField = new Door({ fields: this.fields, type: "door", x, y, canOccupiedFields: true, isInteractive: true }, isDoorClosed);
+			newField = new Door({ fields: this.fields, type: "door", x, y, imagesKeys: { default: ImageKey.DOOR_CLOSED, dead: ImageKey.DOOR_OPEN }, canOccupiedFields: true, isInteractive: true }, isDoorClosed);
 		} else {
-			newField = new Block({ fields: this.fields, type: "block", x, y, canOccupiedFields: true, isInteractive: false });
+			newField = new Block({ fields: this.fields, type: "block", x, y, imagesKeys: { default: ImageKey.BLOCK, dead: ImageKey.BLOCK }, canOccupiedFields: true, isInteractive: false });
 		}
 
 		return newField;

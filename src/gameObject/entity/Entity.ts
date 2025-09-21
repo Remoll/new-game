@@ -2,7 +2,7 @@ import { Direction, DispositionToFactions, EntityAttributes, Faction } from "@/g
 import { emitAttack, emitDead, emitMove, emitWait } from "@/gameEvents/emiter/emittedActions";
 import { GameObjectSelector } from "@/gameEvents/types";
 import GameObject from "@/gameObject/GameObject";
-import Field from "@/gameMap/field/Field";
+import ImageManager from "@/imageManager/ImageManager";
 
 class Entity extends GameObject {
     private hp: number;
@@ -49,15 +49,14 @@ class Entity extends GameObject {
         return this.hp > 0;
     }
 
-    addToCanvas(ctx: CanvasRenderingContext2D) {
+    async addToCanvas(ctx: CanvasRenderingContext2D) {
         const { x, y } = this.getPosition();
 
-        ctx.fillStyle = this.isAlive() ? "#ff0000ff" : "#444444";
-        ctx.fillRect(x * 50, y * 50, 50, 50);  // x, y, width, height
+        ctx.drawImage(ImageManager.instance.getImage(this.isAlive() ? this.getImagesKeys().default : this.getImagesKeys().dead), x * 50, y * 50)
 
         if (this.isAlive()) {
             ctx.fillStyle = "#c3ff00ff";
-            ctx.fillText(`${this.hp}`, x * 50, y * 50);
+            ctx.fillText(`${this.getHp()}`, x * 50, y * 50);
         }
     }
 

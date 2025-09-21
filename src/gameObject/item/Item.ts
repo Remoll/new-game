@@ -2,6 +2,7 @@ import Entity from "@/gameObject/entity/Entity";
 import GameObject from "@/gameObject/GameObject";
 import { Direction, GameObjectAttributes } from "@/gameObject/types";
 import Player from "../entity/player/Player";
+import ImageManager from "@/imageManager/ImageManager";
 
 class Item extends GameObject {
     private equippedBy: GameObject | null = null;
@@ -22,11 +23,7 @@ class Item extends GameObject {
 
         const { x, y } = this.getPosition();
 
-        ctx.fillStyle = "#b6b314ff";
-        ctx.fillRect(x * 50, y * 50, 50, 50);  // x, y, width, height
-
-        ctx.fillStyle = "#0f100aff";
-        ctx.fillText(this.getType(), x * 50, y * 50);
+        ctx.drawImage(ImageManager.instance.getImage(this.getImagesKeys().default), x * 50, y * 50)
     }
 
     handleInteract(gameObject: GameObject): void {

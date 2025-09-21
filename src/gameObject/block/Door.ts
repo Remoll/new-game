@@ -1,5 +1,6 @@
 import GameObject from "@/gameObject/GameObject";
 import { GameObjectAttributes } from "@/gameObject/types";
+import ImageManager from "@/imageManager/ImageManager";
 
 class Door extends GameObject {
 	constructor(attributes: GameObjectAttributes, isClosed = true) {
@@ -18,16 +19,8 @@ class Door extends GameObject {
 	}
 
 	addToCanvas(ctx: CanvasRenderingContext2D) {
-		ctx.fillStyle = "#000000";
-
 		const { x, y } = this.getPosition();
-
-		if (this.getCanOccupiedFields()) {
-			ctx.fillRect(x * 50, y * 50, 50, 50);  // x, y, width, height
-		} else {
-			ctx.fillRect(x * 50, y * 50, 10, 50);  // x, y, width, height
-			ctx.fillRect(x * 50 + 40, y * 50, 10, 50);  // x, y, width, height
-		}
+		ctx.drawImage(ImageManager.instance.getImage(this.getCanOccupiedFields() ? this.getImagesKeys().default : this.getImagesKeys().dead), x * 50, y * 50)
 	}
 }
 

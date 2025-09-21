@@ -1,4 +1,5 @@
 import Field from "@/gameMap/field/Field";
+import ImageManager from "@/imageManager/ImageManager";
 
 class GameMap {
   private fields: Field[];
@@ -30,16 +31,13 @@ class GameMap {
   }
 
   addToCanvas(ctx: CanvasRenderingContext2D) {
-    const floorColors = ['#0a81e9ff', '#818bd8ff', '#0a6be9ff']
     let index = 0;
 
     this.fields
       .map((field) => {
-        ctx.fillStyle = floorColors[index];
-
         const { x: fieldX, y: fieldY } = field.getPosition();
 
-        ctx.fillRect(fieldX * 50, fieldY * 50, 50, 50);  // x, y, width, height
+        ctx.drawImage(ImageManager.instance.getImage("floor"), fieldX * 50, fieldY * 50)
 
         index = index === 0 ? 1 : index === 1 ? 2 : index === 2 ? 0 : null;
       })

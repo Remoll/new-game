@@ -28,6 +28,7 @@ describe('findShortestPath', () => {
             y: 1,
             canOccupiedFields: true,
             isInteractive: false,
+            imagesKeys: { default: null, dead: null }
         }
 
         new Block(blockAttributes)
@@ -42,6 +43,7 @@ describe('findShortestPath', () => {
             hp: 1,
             faction: Faction.NEUTRAL,
             dispositionToFactions: {},
+            imagesKeys: { default: null, dead: null }
         }
 
         entity = new Entity(entityAttributes);
@@ -53,6 +55,7 @@ describe('findShortestPath', () => {
             y: targetCoordinates.y,
             canOccupiedFields: true,
             isInteractive: false,
+            imagesKeys: { default: null, dead: null }
         }
 
         new GameObject(targetGameObjectAttributes);
@@ -67,6 +70,7 @@ describe('findShortestPath', () => {
             y: 1,
             canOccupiedFields: true,
             isInteractive: false,
+            imagesKeys: { default: null, dead: null }
         }
 
         new Block(blockAttributes)
@@ -85,6 +89,7 @@ describe('findShortestPath', () => {
             y: 1,
             canOccupiedFields: true,
             isInteractive: false,
+            imagesKeys: { default: null, dead: null }
         }
 
         new Block(blockAttributes)
@@ -99,6 +104,7 @@ describe('findShortestPath', () => {
             hp: 1,
             faction: Faction.NEUTRAL,
             dispositionToFactions: {},
+            imagesKeys: { default: null, dead: null }
         }
 
         new Entity(blockingEntityAttributes)
@@ -120,6 +126,7 @@ describe('findShortestPath', () => {
             hp: 1,
             faction: Faction.NEUTRAL,
             dispositionToFactions: {},
+            imagesKeys: { default: null, dead: null }
         }
 
         new Entity(blockingEntityAttributes)

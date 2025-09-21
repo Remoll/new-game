@@ -1,6 +1,7 @@
 import Game from "@/game/Game"
+import ImageManager from "./imageManager/ImageManager";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const canvas = document.getElementById("canvas") as HTMLCanvasElement | null;
   if (!canvas) {
     console.error("Canvas element not found");
@@ -12,6 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Root element not found");
     return;
   }
+
+  await ImageManager.instance.preloadImages();
+
+  console.log("Images loaded")
 
   ctx.font = "24px Arial";
 

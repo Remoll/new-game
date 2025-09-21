@@ -1,7 +1,8 @@
 import Field from "@/gameMap/field/Field";
 import Item from "@/gameObject/item/Item";
-import { Direction, GameObjectAttributes } from "./types";
+import { Direction, GameObjectAttributes, GameObjectImagesKeys } from "./types";
 import { Coordinates } from "@/types";
+import ImageManager from "@/imageManager/ImageManager";
 
 class GameObject {
   protected fields: Field[];
@@ -12,14 +13,16 @@ class GameObject {
   protected canOccupiedFields: boolean;
   protected isInteractive: boolean;
   protected items: Item[] = [];
+  private imagesKeys: GameObjectImagesKeys;
 
   constructor(attributes: GameObjectAttributes) {
-    const { fields, type, x, y, canOccupiedFields, isInteractive } = attributes;
+    const { fields, type, x, y, canOccupiedFields, isInteractive, imagesKeys } = attributes;
 
     this.fields = fields;
     this.type = type;
     this.x = x;
     this.y = y;
+    this.imagesKeys = imagesKeys;
     this.canOccupiedFields = canOccupiedFields;
     this.isInteractive = isInteractive;
 
@@ -27,6 +30,10 @@ class GameObject {
 
     const initialField = this.getCurrentField();
     initialField.addGameObjectToField(this);
+  }
+
+  getImagesKeys(): GameObjectImagesKeys {
+    return this.imagesKeys;
   }
 
   getPosition(): { x: number; y: number } {
@@ -77,8 +84,9 @@ class GameObject {
   }
 
   addToCanvas(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = "#ff0000ff";
-    ctx.fillRect(this.x * 50, this.y * 50, 50, 50);  // x, y, width, height
+    const { x, y } = this.getPosition();
+    ctx.drawImage(ImageManager.instance.getImage(this.getImagesKeys().default), x * 50, y * 50)
+
   }
 
   protected getFieldFromCoordinates(x: number, y: number): Field | undefined {

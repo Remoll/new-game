@@ -1,4 +1,5 @@
 import Field from "@/gameMap/field/Field";
+import { ImageKey } from "@/imageManager/types";
 
 enum Direction {
 	UP = "up",
@@ -25,11 +26,17 @@ interface DispositionToFactions {
 	[Disposition.FRIENDLY]?: Faction[];
 }
 
+interface GameObjectImagesKeys {
+	default: ImageKey;
+	dead: ImageKey;
+}
+
 interface GameObjectAttributes {
 	fields: Field[];
 	type: string;
 	x: number;
 	y: number;
+	imagesKeys: GameObjectImagesKeys;
 	canOccupiedFields: boolean;
 	isInteractive: boolean;
 }
@@ -40,4 +47,4 @@ interface EntityAttributes extends GameObjectAttributes {
 	dispositionToFactions: DispositionToFactions;
 }
 
-export { GameObjectAttributes, EntityAttributes, Direction, Disposition, Faction, DispositionToFactions };
+export { GameObjectAttributes, EntityAttributes, Direction, Disposition, Faction, DispositionToFactions, GameObjectImagesKeys };
