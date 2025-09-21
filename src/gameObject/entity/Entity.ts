@@ -5,6 +5,7 @@ import GameObject from "@/gameObject/GameObject";
 import ImageManager from "@/imageManager/ImageManager";
 
 class Entity extends GameObject {
+    private initialHp: number;
     private hp: number;
     private faction: Faction;
     private dispositionToFactions: DispositionToFactions;
@@ -15,9 +16,14 @@ class Entity extends GameObject {
 
         super(gameObjectAttributes);
 
+        this.initialHp = hp;
         this.hp = hp;
         this.faction = faction;
         this.dispositionToFactions = dispositionToFactions;
+    }
+
+    getInitialHp(): number {
+        return this.initialHp;
     }
 
     getHp(): number {
