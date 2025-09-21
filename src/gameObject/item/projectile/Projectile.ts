@@ -7,7 +7,7 @@ class Projectile extends Item {
         super(attributes);
     }
 
-    executeEffect(targetCoordinates: Coordinates): void {
+    executeEffect(userCoordinates: Coordinates, targetCoordinates: Coordinates): void {
         
     }
 }

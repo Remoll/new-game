@@ -261,7 +261,7 @@ class Player extends Entity {
           const targetX = Math.floor(pos.x / 50);
           const targetY = Math.floor(pos.y / 50);
 
-          emitPlayerMakeTurn(this, () => this.useItem({ x: targetX, y: targetY }))
+          emitPlayerMakeTurn(this, () => this.useItem({ x: this.x, y: this.y }, { x: targetX, y: targetY }))
         }
       }
     })
