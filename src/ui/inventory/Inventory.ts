@@ -94,8 +94,8 @@ class Inventory {
         this.setSelectedItem(oldItemIndex, newItemIndex);
     }
 
-    setHotkey(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0) {
-        const selectedItem = this.items[this.selectedItemIndex];
+    setHotkey(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0, newItem?: Item) {
+        const selectedItem = newItem || this.items[this.selectedItemIndex];
 
         if (!selectedItem) {
             console.log("no item to bind to hotkey")

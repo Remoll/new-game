@@ -1,6 +1,7 @@
 import Entity from "@/gameObject/entity/Entity";
 import GameObject from "@/gameObject/GameObject";
 import { Direction, GameObjectAttributes } from "@/gameObject/types";
+import Player from "../entity/player/Player";
 
 class Item extends GameObject {
     private equippedBy: GameObject | null = null;
@@ -31,6 +32,14 @@ class Item extends GameObject {
     handleInteract(gameObject: GameObject): void {
         gameObject.addItem(this);
         this.equippedBy = gameObject;
+        if (gameObject instanceof Player) {
+            const playerInventory = gameObject.getInventory();
+            const inventorySlots: (1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0)[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+            const firstEmptySlot: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 = inventorySlots.find((slot) => {
+                return !playerInventory.getItemFromHotkey(slot)
+            })
+            playerInventory.setHotkey(firstEmptySlot, this);
+        }
         this.setCanOccupiedFields(false);
         this.getCurrentField().removeGameObjectFromField(this);
         this.x = null;
