@@ -1,9 +1,9 @@
 import { Direction, GameObjectAttributes } from "@/gameObject/types";
-import Item from "@/gameObject/item/Item";
 import Entity from "@/gameObject/entity/Entity";
 import Reanimate from "@/effect/reanimate/Reanimate";
+import Touchable from "../Touchable";
 
-class ReanimatePotion extends Item {
+class ReanimatePotion extends Touchable {
     constructor(attributes: GameObjectAttributes) {
         super(attributes);
         this.isConsumables = true;

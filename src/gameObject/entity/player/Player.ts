@@ -3,10 +3,14 @@ import { emitPlayerMakeTurn } from "@/gameEvents/emiter/emittedActions";
 import Entity from "@/gameObject/entity/Entity";
 import Inventory from "@/ui/inventory/Inventory";
 import Item from "@/gameObject/item/Item";
+import Field from "@/gameMap/field/Field";
+import Touchable from "@/gameObject/item/touchable/Touchable";
+import Projectile from "@/gameObject/item/projectile/Projectile";
 
 class Player extends Entity {
   private isInteracting: boolean = false;
-  private isUsingItem: boolean = false;
+  private isUsingItemTouchable: boolean = false;
+  private isUsingItemProjectable: boolean = false;
   private itemToUse: Item | null = null;
   private inventory: Inventory = new Inventory();
 
@@ -15,19 +19,26 @@ class Player extends Entity {
     this.addMoveListener();
   }
 
+  private resetInteraction(): void {
+    this.isInteracting = false;
+    this.isUsingItemTouchable = false;
+    this.isUsingItemProjectable = false;
+  }
+
   getInventory(): Inventory {
     return this.inventory;
   }
 
   private setIsInteracting(isInteracting: boolean) {
-    this.isUsingItem = false;
+    this.resetInteraction();
+
     this.isInteracting = isInteracting;
   }
 
   private takeInteraction(direction?: Direction) {
-    this.setIsInteracting(false);
+    this.resetInteraction();
 
-    let field;
+    let field: Field;
 
     if (direction) {
       const { x: newX, y: newY } = this.findNewCoordinatesFromDirection(direction);
@@ -58,20 +69,26 @@ class Player extends Entity {
     console.log("No interactive entities on field");
   }
 
-  useItem(direction: Direction) {
-    this.isUsingItem = false;
-    this.itemToUse.use(direction, this);
+  useItem(...args: unknown[]) {
+    this.resetInteraction();
+    this.itemToUse.use(...args);
   }
 
-  setIsUsingItem(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0) {
+  initUsingItem(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0) {
+    this.resetInteraction();
+
     this.itemToUse = this.inventory.getItemFromHotkey(key);
-    this.isInteracting = false;
+
     if (!this.itemToUse) {
-      console.log("no item for hotkey ", key)
-      this.isUsingItem = false;
+      console.log("no item for hotkey ", key);
       return;
     }
-    this.isUsingItem = true;
+
+    if (this.itemToUse instanceof Touchable) {
+      this.isUsingItemTouchable = true;
+    } else if (this.itemToUse instanceof Projectile) {
+      this.isUsingItemProjectable = true;
+    }
   }
 
   removeItemFromInventory(item: Item): void {
@@ -133,10 +150,11 @@ class Player extends Entity {
               emitPlayerMakeTurn(this, () => this.takeInteraction(Direction.UP))
               return;
             }
-            if (this.isUsingItem) {
-              emitPlayerMakeTurn(this, () => this.useItem(Direction.UP))
+            if (this.isUsingItemTouchable) {
+              emitPlayerMakeTurn(this, () => this.useItem(Direction.UP, this))
               return;
             }
+            this.resetInteraction();
             emitPlayerMakeTurn(this, () => this.takeAction(Direction.UP))
             return;
           case "s":
@@ -144,10 +162,11 @@ class Player extends Entity {
               emitPlayerMakeTurn(this, () => this.takeInteraction(Direction.DOWN))
               return;
             }
-            if (this.isUsingItem) {
-              emitPlayerMakeTurn(this, () => this.useItem(Direction.DOWN))
+            if (this.isUsingItemTouchable) {
+              emitPlayerMakeTurn(this, () => this.useItem(Direction.DOWN, this))
               return;
             }
+            this.resetInteraction();
             emitPlayerMakeTurn(this, () => this.takeAction(Direction.DOWN))
             return;
           case "a":
@@ -155,10 +174,11 @@ class Player extends Entity {
               emitPlayerMakeTurn(this, () => this.takeInteraction(Direction.LEFT))
               return;
             }
-            if (this.isUsingItem) {
-              emitPlayerMakeTurn(this, () => this.useItem(Direction.LEFT))
+            if (this.isUsingItemTouchable) {
+              emitPlayerMakeTurn(this, () => this.useItem(Direction.LEFT, this))
               return;
             }
+            this.resetInteraction();
             emitPlayerMakeTurn(this, () => this.takeAction(Direction.LEFT))
             return;
           case "d":
@@ -166,10 +186,11 @@ class Player extends Entity {
               emitPlayerMakeTurn(this, () => this.takeInteraction(Direction.RIGHT))
               return;
             }
-            if (this.isUsingItem) {
-              emitPlayerMakeTurn(this, () => this.useItem(Direction.RIGHT))
+            if (this.isUsingItemTouchable) {
+              emitPlayerMakeTurn(this, () => this.useItem(Direction.RIGHT, this))
               return;
             }
+            this.resetInteraction();
             emitPlayerMakeTurn(this, () => this.takeAction(Direction.RIGHT))
             return;
           case " ":
@@ -177,6 +198,7 @@ class Player extends Entity {
               emitPlayerMakeTurn(this, () => this.takeInteraction())
               return;
             }
+            this.resetInteraction();
             emitPlayerMakeTurn(this, () => this.wait())
             return;
           case "e":
@@ -185,43 +207,64 @@ class Player extends Entity {
           case "q":
             this.inventory.toggle(this.getItems())
             this.isInteracting = false;
-            this.isUsingItem = false;
+            this.isUsingItemTouchable = false;
             return;
           case "1":
-            this.setIsUsingItem(1);
+            this.initUsingItem(1);
             return;
           case "2":
-            this.setIsUsingItem(2);
+            this.initUsingItem(2);
             return;
           case "3":
-            this.setIsUsingItem(3);
+            this.initUsingItem(3);
             return;
           case "4":
-            this.setIsUsingItem(4);
+            this.initUsingItem(4);
             return;
           case "5":
-            this.setIsUsingItem(5);
+            this.initUsingItem(5);
             return;
           case "6":
-            this.setIsUsingItem(6);
+            this.initUsingItem(6);
             return;
           case "7":
-            this.setIsUsingItem(7);
+            this.initUsingItem(7);
             return;
           case "8":
-            this.setIsUsingItem(8);
+            this.initUsingItem(8);
             return;
           case "9":
-            this.setIsUsingItem(9);
+            this.initUsingItem(9);
             return;
           case "0":
-            this.setIsUsingItem(0);
+            this.initUsingItem(0);
             return;
           default:
             return;
         }
       }
     });
+
+    document.addEventListener("click", (event: PointerEvent) => {
+      if (this.isUsingItemProjectable) {
+        const getMousePos = (canvas: HTMLCanvasElement) => {
+          const { left, top } = canvas.getBoundingClientRect();
+          return {
+            x: event.clientX - left,
+            y: event.clientY - top
+          };
+        }
+
+        if ((event.target as HTMLElement).id === "canvas") {
+          const pos = getMousePos(event.target as HTMLCanvasElement);
+
+          const targetX = Math.floor(pos.x / 50);
+          const targetY = Math.floor(pos.y / 50);
+
+          emitPlayerMakeTurn(this, () => this.useItem({ x: targetX, y: targetY }))
+        }
+      }
+    })
   }
 }
 

@@ -1,6 +1,5 @@
-import Entity from "@/gameObject/entity/Entity";
 import GameObject from "@/gameObject/GameObject";
-import { Direction, GameObjectAttributes } from "@/gameObject/types";
+import { GameObjectAttributes } from "@/gameObject/types";
 import Player from "../entity/player/Player";
 import ImageManager from "@/imageManager/ImageManager";
 
@@ -43,7 +42,7 @@ class Item extends GameObject {
         this.y = null;
     }
 
-    protected executeEffect(direction: Direction, userEntity: Entity) {
+    protected executeEffect(...args: unknown[]) {
         // implement in subclasses
     }
 
@@ -55,10 +54,10 @@ class Item extends GameObject {
         // TODO: remove item instance
     }
 
-    use(direction: Direction, userEntity: Entity) {
+    use(...args: unknown[]) {
         // TODO: check there is valid target or display info about itom lost
 
-        this.executeEffect(direction, userEntity);
+        this.executeEffect(...args);
 
         if (this.isConsumables) {
             this.deleteItemFromWorld();

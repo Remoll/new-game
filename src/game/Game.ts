@@ -5,8 +5,9 @@ import Building from "@/gameMap/building/Building";
 import Player from "@/gameObject/entity/player/Player";
 import { Disposition, Faction } from "@/gameObject/types";
 import Npc from "@/gameObject/entity/npc/Npc";
-import ReanimatePotion from "@/gameObject/item/reanimatePotion/ReanimatePotion";
+import ReanimatePotion from "@/gameObject/item/touchable/reanimatePotion/ReanimatePotion";
 import { ImageKey } from "@/imageManager/types";
+import FireBallScroll from "@/gameObject/item/projectile/fireBallScroll/FireBallScroll";
 
 class Game {
   private ctx: CanvasRenderingContext2D;
@@ -47,7 +48,9 @@ class Game {
 
       const reanimatePotion = new ReanimatePotion({ fields: gameMap.getFields(), type: "reanimatePotion", x: 1, y: 2, imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION }, canOccupiedFields: false, isInteractive: true });
 
-      const gameObjects = [player, ...npcs, ...blocks, reanimatePotion];
+      const fireBallScroll = new FireBallScroll({ fields: gameMap.getFields(), type: "fireBallScroll", x: 2, y: 1, imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION }, canOccupiedFields: false, isInteractive: true });
+
+      const gameObjects = [player, ...npcs, ...blocks, reanimatePotion, fireBallScroll];
 
       const gameLoop = new GameLoop(gameObjects, gameMap, this.ctx)
 
