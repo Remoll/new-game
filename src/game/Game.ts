@@ -25,7 +25,7 @@ class Game {
 
       const blocks = building.getBlocks();
 
-      const player = new Player({ fields: gameMap.getFields(), type: "player", x: 1, y: 1, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY] }, canOccupiedFields: true, isInteractive: false });
+      const player = new Player({ fields: gameMap.getFields(), type: "player", x: 1, y: 1, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
 
       if (!player) {
         console.error("Player not created");
@@ -36,7 +36,7 @@ class Game {
 
       const npcs = enemiesCoordinates.map((coordinates) => {
         const { x, y } = coordinates;
-        return new Npc({ fields: gameMap.getFields(), type: "enemy", x, y, faction: Faction.ENEMY, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER] }, canOccupiedFields: true, isInteractive: false })
+        return new Npc({ fields: gameMap.getFields(), type: "enemy", x, y, faction: Faction.ENEMY, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER], [Disposition.FRIENDLY]: [Faction.ENEMY], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false })
       })
 
       if (npcs.some((npc) => !npc)) {

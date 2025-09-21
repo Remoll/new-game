@@ -2,6 +2,7 @@ import { Direction, DispositionToFactions, EntityAttributes, Faction } from "@/g
 import { emitAttack, emitDead, emitMove, emitWait } from "@/gameEvents/emiter/emittedActions";
 import { GameObjectSelector } from "@/gameEvents/types";
 import GameObject from "@/gameObject/GameObject";
+import Field from "@/gameMap/field/Field";
 
 class Entity extends GameObject {
     private hp: number;
@@ -120,79 +121,66 @@ class Entity extends GameObject {
     }
 
     findShortestPath(targetX: number, targetY: number) {
-        // quick checks
-        const startKey = `${this.x},${this.y}`;
-        const targetKey = `${targetX},${targetY}`;
-
-        // build a lookup for fields by "x,y"
-        const fieldMap = new Map();
-        this.fields.forEach((field) => {
-            const { x: fieldX, y: fieldY } = field.getPosition()
-            return fieldMap.set(`${fieldX},${fieldY}`, field)
-        });
-
-        if (!fieldMap.has(targetKey)) {
-            // target is off-map
-            return null;
-        }
-
-        if (startKey === targetKey) {
-            return []; // already at player
-        }
-
-        const queue = [startKey];
-        const visited = new Set([startKey]);
-        const parent = new Map();
-
-        const directions = [
-            [1, 0], // right
-            [-1, 0], // left
-            [0, 1], // down
-            [0, -1], // up
-        ];
-
-        while (queue.length > 0) {
-            const key = queue.shift();
-            const [cx, cy] = key.split(",").map(Number);
-
-            for (const [dx, dy] of directions) {
-                const nx = cx + dx;
-                const ny = cy + dy;
-                const nKey = `${nx},${ny}`;
-
-                if (visited.has(nKey)) continue;
-                if (!fieldMap.has(nKey)) continue; // out of map
-
-                const field = fieldMap.get(nKey);
-
-                // If the neighbor is occupied and it's NOT the player's cell, skip it.
-                // (We allow stepping into the player's cell even if it's occupied by the player.)
-                if (field.getIsOccupied() && !(nx === targetX && ny === targetY)) {
-                    continue;
-                }
-
-                visited.add(nKey);
-                parent.set(nKey, key);
-
-                // Found player — reconstruct path
-                if (nKey === targetKey) {
-                    const path = [];
-                    let cur = nKey;
-                    while (cur && cur !== startKey) {
-                        const [px, py] = cur.split(",").map(Number);
-                        path.push([px, py]);
-                        cur = parent.get(cur);
-                    }
-                    path.reverse();
-                    return path; // array of [x,y] steps (first step is the next move)
-                }
-
-                queue.push(nKey);
+        // Helper to check if field is available for movement
+        const isFieldAvailable = (x: number, y: number, ignoreEntities = false): boolean => {
+            if (targetX === x && targetY === y) {
+                return true;
             }
-        }
+            const field = this.getFieldFromCoordinates(x, y);
+            if (!field) return false;
+            if (field.getIsOccupied()) {
+                const obj = field.getGameObjectThatOccupiedField();
+                if (obj && obj instanceof Entity) {
+                    // If ignoring entities, allow passing through them
+                    return ignoreEntities;
+                }
+                // Block/building blocks path
+                return false;
+            }
+            return true;
+        };
 
-        // no path
-        return null;
+        // BFS function
+        const bfs = (ignoreEntities: boolean): number[][] | null => {
+            const start = { x: this.x, y: this.y };
+            const queue: Array<{ x: number, y: number, path: number[][] }> = [
+                { x: start.x, y: start.y, path: [] }
+            ];
+            const visited = new Set<string>();
+            const directions = [
+                { dx: 1, dy: 0 },
+                { dx: -1, dy: 0 },
+                { dx: 0, dy: 1 },
+                { dx: 0, dy: -1 }
+            ];
+
+            while (queue.length > 0) {
+                const { x, y, path } = queue.shift()!;
+                const key = `${x},${y}`;
+                if (visited.has(key)) continue;
+                visited.add(key);
+
+                if (x === targetX && y === targetY) {
+                    return path;
+                }
+
+                for (const { dx, dy } of directions) {
+                    const nx = x + dx;
+                    const ny = y + dy;
+                    const nkey = `${nx},${ny}`;
+                    if (visited.has(nkey)) continue;
+                    if (!isFieldAvailable(nx, ny, ignoreEntities)) continue;
+                    queue.push({ x: nx, y: ny, path: [...path, [nx, ny]] });
+                }
+            }
+            return null;
+        };
+
+        // First, try to find a path avoiding entities
+        const pathAvoidingEntities = bfs(false);
+        if (pathAvoidingEntities) return pathAvoidingEntities;
+        // If not found, try again allowing movement through entities
+        return bfs(true);
     }
 
     protected takeActionToDirectionFromCoordinates(nextX: number, nextY: number) {

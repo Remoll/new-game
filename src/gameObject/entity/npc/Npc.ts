@@ -40,6 +40,20 @@ class Npc extends Entity {
 
     const [nextX, nextY] = path[0];
 
+    const nextField = this.getFieldFromCoordinates(nextX, nextY);
+
+    if (!nextField) {
+      console.log("no nextField from provided coordinates");
+      return;
+    }
+
+    const gameObjectThatOccupiedField = nextField.getGameObjectThatOccupiedField();
+
+    if (gameObjectThatOccupiedField && gameObjectThatOccupiedField instanceof Entity && this.getDispositionToFactions()?.[Disposition.FRIENDLY].some((faction) => faction === gameObjectThatOccupiedField.getFaction())) {
+      console.log("Entity will not attack thier own faction member")
+      return;
+    }
+
     this.takeActionToDirectionFromCoordinates(nextX, nextY)
   }
 
