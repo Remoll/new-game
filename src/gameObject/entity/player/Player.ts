@@ -24,12 +24,17 @@ class Player extends Entity {
     this.isInteracting = isInteracting;
   }
 
-  private takeInteraction(direction: Direction) {
+  private takeInteraction(direction?: Direction) {
     this.setIsInteracting(false);
 
-    const { x: newX, y: newY } = this.findNewCoordinatesFromDirection(direction);
+    let field;
 
-    const field = this.getFieldFromCoordinates(newX, newY);
+    if (direction) {
+      const { x: newX, y: newY } = this.findNewCoordinatesFromDirection(direction);
+      field = this.getFieldFromCoordinates(newX, newY);
+    } else {
+      field = this.getCurrentField();
+    }
 
     if (!field) {
       console.log("No field from coordinates");
@@ -168,6 +173,10 @@ class Player extends Entity {
             emitPlayerMakeTurn(this, () => this.takeAction(Direction.RIGHT))
             return;
           case " ":
+            if (this.isInteracting) {
+              emitPlayerMakeTurn(this, () => this.takeInteraction())
+              return;
+            }
             emitPlayerMakeTurn(this, () => this.wait())
             return;
           case "e":

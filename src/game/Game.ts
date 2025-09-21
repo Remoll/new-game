@@ -44,7 +44,7 @@ class Game {
         return;
       }
 
-      const reanimatePotion = new ReanimatePotion({ fields: gameMap.getFields(), type: "reanimatePotion", x: 1, y: 2, canOccupiedFields: true, isInteractive: true });
+      const reanimatePotion = new ReanimatePotion({ fields: gameMap.getFields(), type: "reanimatePotion", x: 1, y: 2, canOccupiedFields: false, isInteractive: true });
 
       const gameObjects = [player, ...npcs, ...blocks, reanimatePotion];
 
