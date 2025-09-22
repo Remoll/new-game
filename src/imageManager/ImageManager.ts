@@ -1,24 +1,31 @@
+import { ImageKey, ImageMap } from "./types";
+
 import playerImage from "@/imageManager/images/playerImage.png";
+import playerDeadImage from "@/imageManager/images/playerDeadImage.png";
 import enemyImage from "@/imageManager/images/enemyImage.png";
+import enemyDeadImage from "@/imageManager/images/enemyDeadImage.png";
 import potionImage from "@/imageManager/images/potionImage.png";
-import deadEnemyImage from "@/imageManager/images/deadEnemyImage.png";
 import floorImage from "@/imageManager/images/floorImage.png";
 import blockImage from "@/imageManager/images/blockImage.png";
 import doorClosedImage from "@/imageManager/images/doorClosedImage.png";
 import doorOpenImage from "@/imageManager/images/doorOpenImage.png";
-import { ImageKey, ImageMap } from "./types";
+import scrollImage from "@/imageManager/images/scrollImage.png";
+import fireOrbImage from "@/imageManager/images/fireOrbImage.png";
 
 class ImageManager {
     private static _instance: ImageManager;
     private images: ImageMap = {
         [ImageKey.PLAYER]: undefined,
+        [ImageKey.PLAYER_DEAD]: undefined,
         [ImageKey.ENEMY]: undefined,
         [ImageKey.POTION]: undefined,
-        [ImageKey.DEAD_ENEMY]: undefined,
+        [ImageKey.ENEMY_DEAD]: undefined,
         [ImageKey.FLOOR]: undefined,
         [ImageKey.BLOCK]: undefined,
         [ImageKey.DOOR_CLOSED]: undefined,
-        [ImageKey.DOOR_OPEN]: undefined
+        [ImageKey.DOOR_OPEN]: undefined,
+        [ImageKey.SCROLL]: undefined,
+        [ImageKey.FIRE_ORB]: undefined,
     };
 
     private constructor() { }
@@ -44,17 +51,20 @@ class ImageManager {
     }
 
     preloadImages = async (): Promise<void> => {
-        const [player, enemy, potion, deadEnemy, floor, block, doorClosed, doorOpen] = await Promise.all([
+        const [player, playerDead, enemy, enemyDead, potion, floor, block, doorClosed, doorOpen, scroll, fireOrb] = await Promise.all([
             this.imageLoader(playerImage),
+            this.imageLoader(playerDeadImage),
             this.imageLoader(enemyImage),
+            this.imageLoader(enemyDeadImage),
             this.imageLoader(potionImage),
-            this.imageLoader(deadEnemyImage),
             this.imageLoader(floorImage),
             this.imageLoader(blockImage),
             this.imageLoader(doorClosedImage),
             this.imageLoader(doorOpenImage),
+            this.imageLoader(scrollImage),
+            this.imageLoader(fireOrbImage),
         ])
-        this.setImages({ player, enemy, potion, deadEnemy, floor, block, doorClosed, doorOpen });
+        this.setImages({ player, playerDead, enemy, enemyDead, potion, floor, block, doorClosed, doorOpen, scroll, fireOrb });
     }
 
     getImage(key: string): HTMLImageElement | undefined {

@@ -27,7 +27,7 @@ class Game {
 
       const blocks = building.getBlocks();
 
-      const player = new Player({ fields: gameMap.getFields(), type: "player", x: 1, y: 1, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
+      const player = new Player({ fields: gameMap.getFields(), type: "player", x: 1, y: 1, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
 
       if (!player) {
         console.error("Player not created");
@@ -38,7 +38,7 @@ class Game {
 
       const npcs = enemiesCoordinates.map((coordinates) => {
         const { x, y } = coordinates;
-        return new Npc({ fields: gameMap.getFields(), type: "enemy", x, y, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.DEAD_ENEMY }, faction: Faction.ENEMY, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER], [Disposition.FRIENDLY]: [Faction.ENEMY], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false })
+        return new Npc({ fields: gameMap.getFields(), type: "enemy", x, y, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD }, faction: Faction.ENEMY, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER], [Disposition.FRIENDLY]: [Faction.ENEMY], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false })
       })
 
       if (npcs.some((npc) => !npc)) {
@@ -48,7 +48,7 @@ class Game {
 
       const reanimatePotion = new ReanimatePotion({ fields: gameMap.getFields(), type: "reanimatePotion", x: 1, y: 2, imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION }, canOccupiedFields: false, isInteractive: true });
 
-      const fireBallScroll = new FireBallScroll({ fields: gameMap.getFields(), type: "fireBallScroll", x: 2, y: 1, imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION }, canOccupiedFields: false, isInteractive: true });
+      const fireBallScroll = new FireBallScroll({ fields: gameMap.getFields(), type: "fireBallScroll", x: 2, y: 1, imagesKeys: { default: ImageKey.SCROLL, dead: ImageKey.SCROLL }, canOccupiedFields: false, isInteractive: true });
 
       const gameObjects = [player, ...npcs, ...blocks, reanimatePotion, fireBallScroll];
 

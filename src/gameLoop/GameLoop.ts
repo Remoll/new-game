@@ -3,6 +3,8 @@ import { EntitiesActions } from "./types";
 import GameMap from "@/gameMap/GameMap";
 import CanvasHandler from "@/canvasHandler/CanvasHandler";
 import Npc from "@/gameObject/entity/npc/Npc";
+import { Coordinates } from "@/types";
+import ImageManager from "@/imageManager/ImageManager";
 
 class GameLoop {
 	private entitiesActions: EntitiesActions[] = [];
@@ -24,16 +26,33 @@ class GameLoop {
 		this.canvasHandler.renderGameState();
 	}
 
-	executeTurn() {
+	async animateEffect(value: { imageKey: string, effectPath: [number, number][] }) {
+		const nextCoordinates = value.effectPath.shift();
+
+		const [x, y] = nextCoordinates;
+
+		this.refreshGameState();
+		this.ctx.drawImage(ImageManager.instance.getImage(value.imageKey), x * 50, y * 50)
+
+		if (value.effectPath.length > 0) {
+			await new Promise(resolve => setTimeout(resolve, 20));
+			return this.animateEffect({ imageKey: value.imageKey, effectPath: value.effectPath });
+		} else {
+			this.refreshGameState();
+		}
+
+	}
+
+	async executeTurn() {
 		// Npcs first
 		const npcsActions = this.entitiesActions.filter((entityAction) => entityAction.performer.type !== "player")
-		npcsActions.forEach((action) => {
-			action.action();
+		npcsActions.forEach(async (action) => {
+			await action.action();
 		})
 
 		// Player second
 		const playerAction = this.entitiesActions.filter((entityAction) => entityAction.performer.type === "player")[0]
-		playerAction.action();
+		await playerAction.action();
 		this.refreshGameState();
 	}
 

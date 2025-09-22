@@ -7,6 +7,7 @@ enum GameEventType {
   WAIT = "wait",
   DIED = "died",
   PLAYER_MAKE_TURN = "playermaketurn",
+  ANIMATE_EFFECT = "animateeffect",
 }
 
 interface GameObjectSelector {

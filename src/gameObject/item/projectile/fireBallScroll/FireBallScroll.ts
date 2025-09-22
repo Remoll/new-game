@@ -2,6 +2,8 @@ import { GameObjectAttributes } from "@/gameObject/types";
 import Projectile from "../Projectile";
 import { Coordinates } from "@/types";
 import Entity from "@/gameObject/entity/Entity";
+import { emitAnimateEffect } from "@/gameEvents/emiter/emittedActions";
+import { ImageKey } from "@/imageManager/types";
 
 class FireBallScroll extends Projectile {
     constructor(attributes: GameObjectAttributes) {
@@ -64,7 +66,7 @@ class FireBallScroll extends Projectile {
         return { clear: true, checked };
     };
 
-    executeEffect(userCoordinates: Coordinates, targetCoordinates: Coordinates): void {
+    executeEffect(userCoordinates: Coordinates, targetCoordinates: Coordinates): Promise<void> {
         const { x: targetX, y: targetY } = targetCoordinates;
         const { x: userX, y: userY } = userCoordinates;
 
@@ -74,10 +76,17 @@ class FireBallScroll extends Projectile {
             { excludeStart: true, includeEnd: false }
         );
 
+        const effectPath: [number, number][] = [[userX, userY], ...result.checked];
+
         if (!result.clear) {
             console.log("No clean path");
+            emitAnimateEffect(this, { imageKey: ImageKey.FIRE_ORB, effectPath });
             return;
         }
+
+        effectPath.push([targetX, targetY]);
+        emitAnimateEffect(this, { imageKey: ImageKey.FIRE_ORB, effectPath });
+
 
         const field = this.getFieldFromCoordinates(targetX, targetY);
         const gameObjectThatOccupiedField = field.getGameObjectThatOccupiedField();

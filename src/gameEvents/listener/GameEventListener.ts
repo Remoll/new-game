@@ -42,6 +42,10 @@ class GameEventListener {
           this.playerMakeTurn(value);
           return;
 
+        case GameEventType.ANIMATE_EFFECT:
+          this.gameLoop.animateEffect(value);
+          return;
+
         default:
           return;
       }
@@ -103,6 +107,10 @@ class GameEventListener {
     });
 
     document.addEventListener(GameEventType.DIED, (event: CustomEvent) => {
+      this.affectTarget(event.detail);
+    });
+
+    document.addEventListener(GameEventType.ANIMATE_EFFECT, (event: CustomEvent) => {
       this.affectTarget(event.detail);
     });
   }

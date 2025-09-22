@@ -1,12 +1,15 @@
 enum ImageKey {
     PLAYER = "player",
+    PLAYER_DEAD = "playerDead",
     ENEMY = "enemy",
+    ENEMY_DEAD = "enemyDead",
     POTION = "potion",
-    DEAD_ENEMY = "deadEnemy",
     FLOOR = "floor",
     BLOCK = "block",
     DOOR_CLOSED = "doorClosed",
-    DOOR_OPEN = "doorOpen"
+    DOOR_OPEN = "doorOpen",
+    SCROLL = "scroll",
+    FIRE_ORB = "fireOrb",
 }
 
 type ImageMap = {
