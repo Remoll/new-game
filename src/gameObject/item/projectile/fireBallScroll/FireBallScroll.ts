@@ -66,7 +66,7 @@ class FireBallScroll extends Projectile {
         return { clear: true, checked };
     };
 
-    executeEffect(userCoordinates: Coordinates, targetCoordinates: Coordinates): Promise<void> {
+    executeEffect(userCoordinates: Coordinates, targetCoordinates: Coordinates): void {
         const { x: targetX, y: targetY } = targetCoordinates;
         const { x: userX, y: userY } = userCoordinates;
 
@@ -78,17 +78,16 @@ class FireBallScroll extends Projectile {
 
         const effectPath: [number, number][] = [[userX, userY], ...result.checked];
 
-        if (!result.clear) {
-            console.log("No clean path");
-            emitAnimateEffect(this, { imageKey: ImageKey.FIRE_ORB, effectPath });
-            return;
+        if (result.clear) {
+            effectPath.push([targetX, targetY]);
         }
 
-        effectPath.push([targetX, targetY]);
         emitAnimateEffect(this, { imageKey: ImageKey.FIRE_ORB, effectPath });
 
+        const pathLastStep = effectPath[effectPath.length - 1];
+        const colisionCoordinates: Coordinates = { x: pathLastStep[0], y: pathLastStep[1] }
 
-        const field = this.getFieldFromCoordinates(targetX, targetY);
+        const field = this.getFieldFromCoordinates(colisionCoordinates.x, colisionCoordinates.y);
         const gameObjectThatOccupiedField = field.getGameObjectThatOccupiedField();
         if (gameObjectThatOccupiedField instanceof Entity) {
             gameObjectThatOccupiedField.takeDamage(50);
