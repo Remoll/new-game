@@ -7,6 +7,7 @@ enum GameEventType {
   WAIT = "wait",
   DIED = "died",
   PLAYER_MAKE_TURN = "playermaketurn",
+  PLAYER_ENDS_TURN = "playerendsturn",
   ANIMATE_EFFECT = "animateeffect",
 }
 

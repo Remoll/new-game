@@ -11,13 +11,11 @@ class GameEventListener {
     this.gameObjects = gameObjects;
     this.gameLoop = gameLoop;
     this.listenToEvents();
+    this.gameLoop.executeTurn()
   }
 
   private playerMakeTurn(value) {
-    this.gameLoop.addEntityAction(value)
-    this.gameLoop.collectActions()
-    this.gameLoop.executeTurn()
-    this.gameLoop.resetEntitiesActions()
+    this.gameLoop.playerStartTurn(value);
   }
 
   private handleAttack(targetEntity: Entity, value: number) {

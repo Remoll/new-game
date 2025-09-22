@@ -3,11 +3,13 @@ import { EntitiesActions } from "./types";
 import GameMap from "@/gameMap/GameMap";
 import CanvasHandler from "@/canvasHandler/CanvasHandler";
 import Npc from "@/gameObject/entity/npc/Npc";
-import { Coordinates } from "@/types";
 import ImageManager from "@/imageManager/ImageManager";
+import Entity from "@/gameObject/entity/Entity";
+import Player from "@/gameObject/entity/player/Player";
+import { GameEventType } from "@/gameEvents/types";
+import { emitPlayerEndsTurn } from "@/gameEvents/emiter/emittedActions";
 
 class GameLoop {
-	private entitiesActions: EntitiesActions[] = [];
 	private gameObjects: GameObject[];
 	private gameMap: GameMap;
 	private canvasHandler: CanvasHandler;
@@ -43,34 +45,46 @@ class GameLoop {
 
 	}
 
-	async executeTurn() {
-		// Npcs first
-		const npcsActions = this.entitiesActions.filter((entityAction) => entityAction.performer.type !== "player")
-		npcsActions.forEach(async (action) => {
-			await action.action();
-		})
-
-		// Player second
-		const playerAction = this.entitiesActions.filter((entityAction) => entityAction.performer.type === "player")[0]
-		await playerAction.action();
-		this.refreshGameState();
+	async playerStartTurn(newAction: EntitiesActions) {
+		// TODO: extend it to npcs, wait for all effect animations using events and async await
+		await newAction.action();
+		emitPlayerEndsTurn();
 	}
 
-	collectActions() {
-		this.gameObjects.forEach((gameObject) => {
-			if (gameObject instanceof Npc && gameObject.getType() !== "player" && gameObject.isAlive()) {
-				this.addEntityAction({ performer: { type: gameObject.getType(), id: gameObject.getId() }, action: () => gameObject.takeTurn() });
+	executeTurn() {
+		const aliveEntities: Entity[] = this.gameObjects.filter((gameObject) => {
+			return gameObject instanceof Entity && gameObject.isAlive();
+		}) as Entity[];
+
+		const playerIndex = aliveEntities.findIndex((entity) => entity instanceof Player);
+
+		if (playerIndex === -1) {
+			throw new Error("No Player in gameLoop");
+		}
+
+		const beforePlayer: Npc[] = aliveEntities.slice(0, playerIndex) as Npc[];
+		// const player: Player = aliveEntities[playerIndex] as Player;
+		const afterPlayer: Npc[] = aliveEntities.slice(playerIndex + 1) as Npc[];
+
+		const executeNpcsMoves = (npcs: Npc[]) => {
+			for (let index = 0; index <= npcs.length - 1; index++) {
+				npcs[index].takeTurn();
+				this.refreshGameState();
 			}
-		})
+		}
+
+		executeNpcsMoves(beforePlayer);
+
+		const continueTurnAfterPlayer = () => {
+			this.refreshGameState();
+			document.removeEventListener(GameEventType.PLAYER_ENDS_TURN, continueTurnAfterPlayer)
+			executeNpcsMoves(afterPlayer)
+
+			this.executeTurn();
+		}
+
+		document.addEventListener(GameEventType.PLAYER_ENDS_TURN, continueTurnAfterPlayer)
 	}
-
-	addEntityAction(newAction: EntitiesActions) {
-		this.entitiesActions.push(newAction);
-	};
-
-	resetEntitiesActions() {
-		this.entitiesActions = [];
-	};
 };
 
 export default GameLoop;

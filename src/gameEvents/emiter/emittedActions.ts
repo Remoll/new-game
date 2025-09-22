@@ -1,7 +1,6 @@
 import { GameEventType, GameObjectSelector } from "@/gameEvents/types";
 import GameObject from "@/gameObject/GameObject";
 import GameEventEmitter from "@/gameEvents/emiter/GameEventEmitter";
-import { Coordinates } from "@/types";
 
 const emitMove = (sender: GameObject, target: GameObjectSelector) => {
 	const { x, y } = sender.getPosition();
@@ -34,8 +33,12 @@ const emitPlayerMakeTurn = (sender: GameObject, action: () => unknown) => {
 	GameEventEmitter.emit(GameEventType.PLAYER_MAKE_TURN, sender, null, { performer: playerSelector, action })
 }
 
+const emitPlayerEndsTurn = () => {
+	GameEventEmitter.emit(GameEventType.PLAYER_ENDS_TURN, null, null, null)
+}
+
 const emitAnimateEffect = (sender: GameObject, value: { imageKey: string, effectPath: [number, number][] }) => {
 	GameEventEmitter.emit(GameEventType.ANIMATE_EFFECT, sender, null, value)
 }
 
-export { emitMove, emitDead, emitAttack, emitWait, emitPlayerMakeTurn, emitAnimateEffect };
+export { emitMove, emitDead, emitAttack, emitWait, emitPlayerMakeTurn, emitAnimateEffect, emitPlayerEndsTurn };
