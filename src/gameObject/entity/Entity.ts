@@ -3,6 +3,7 @@ import { emitAttack, emitDead, emitMove, emitWait } from "@/gameEvents/emiter/em
 import { GameObjectSelector } from "@/gameEvents/types";
 import GameObject from "@/gameObject/GameObject";
 import ImageManager from "@/imageManager/ImageManager";
+import { Coordinates } from "@/types";
 
 class Entity extends GameObject {
     private initialHp: number;
@@ -55,14 +56,14 @@ class Entity extends GameObject {
         return this.hp > 0;
     }
 
-    async addToCanvas(ctx: CanvasRenderingContext2D) {
+    async addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number) {
         const { x, y } = this.getPosition();
 
-        ctx.drawImage(ImageManager.instance.getImage(this.isAlive() ? this.getImagesKeys().default : this.getImagesKeys().dead), x * 50, y * 50)
+        ctx.drawImage(ImageManager.instance.getImage(this.isAlive() ? this.getImagesKeys().default : this.getImagesKeys().dead), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize)
 
         if (this.isAlive()) {
             ctx.fillStyle = "#c3ff00ff";
-            ctx.fillText(`${this.getHp()}`, x * 50, y * 50);
+            ctx.fillText(`${this.getHp()}`, (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize);
         }
     }
 

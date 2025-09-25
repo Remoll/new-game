@@ -4,6 +4,7 @@ import { Coordinates } from "@/types";
 import Entity from "@/gameObject/entity/Entity";
 import { emitAnimateEffect } from "@/gameEvents/emiter/emittedActions";
 import { ImageKey } from "@/imageManager/types";
+import GameState from "@/game/GameState";
 
 class FireBallScroll extends Projectile {
     constructor(attributes: GameObjectAttributes) {
@@ -67,6 +68,7 @@ class FireBallScroll extends Projectile {
     };
 
     executeEffect(userCoordinates: Coordinates, targetCoordinates: Coordinates): void {
+        // TODO: move effect to Effect class
         const { x: targetX, y: targetY } = targetCoordinates;
         const { x: userX, y: userY } = userCoordinates;
 
@@ -82,13 +84,16 @@ class FireBallScroll extends Projectile {
             effectPath.push([targetX, targetY]);
         }
 
-        emitAnimateEffect(this, { imageKey: ImageKey.FIRE_ORB, effectPath });
+        const playerAndCenterDifference = GameState.getPlayerAndCenterDifference();
+
+        const convertedPathForAnimation: [number, number][] = effectPath.map((step) => [step[0] - playerAndCenterDifference.x, step[1] - playerAndCenterDifference.y]);
+        emitAnimateEffect(this, { imageKey: ImageKey.FIRE_ORB, effectPath: convertedPathForAnimation });
 
         const pathLastStep = effectPath[effectPath.length - 1];
         const colisionCoordinates: Coordinates = { x: pathLastStep[0], y: pathLastStep[1] }
 
         const field = this.getFieldFromCoordinates(colisionCoordinates.x, colisionCoordinates.y);
-        const gameObjectThatOccupiedField = field.getGameObjectThatOccupiedField();
+        const gameObjectThatOccupiedField = field?.getGameObjectThatOccupiedField();
         if (gameObjectThatOccupiedField instanceof Entity) {
             gameObjectThatOccupiedField.takeDamage(50);
         }

@@ -1,4 +1,6 @@
 import GameObject from "@/gameObject/GameObject";
+import ImageManager from "@/imageManager/ImageManager";
+import { Coordinates } from "@/types";
 
 class Field {
   private x: number;
@@ -52,6 +54,10 @@ class Field {
     }
 
     return gameObjectsThatCanOccupiedFields[0];
+  }
+
+  addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number) {
+    ctx.drawImage(ImageManager.instance.getImage("floor"), (this.x - fieldShift.x) * fieldSize, (this.y - fieldShift.y) * fieldSize)
   }
 }
 

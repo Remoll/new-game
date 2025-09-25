@@ -2,6 +2,8 @@ import GameObject from "@/gameObject/GameObject";
 import { GameObjectAttributes } from "@/gameObject/types";
 import Player from "../entity/player/Player";
 import ImageManager from "@/imageManager/ImageManager";
+import { Coordinates } from "@/types";
+import { InventorySlot } from "@/ui/inventory/types";
 
 class Item extends GameObject {
     private equippedBy: GameObject | null = null;
@@ -15,14 +17,14 @@ class Item extends GameObject {
         return this.equippedBy;
     }
 
-    addToCanvas(ctx: CanvasRenderingContext2D): void {
+    addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number): void {
         if (this.equippedBy) {
             return;
         }
 
         const { x, y } = this.getPosition();
 
-        ctx.drawImage(ImageManager.instance.getImage(this.getImagesKeys().default), x * 50, y * 50)
+        ctx.drawImage(ImageManager.instance.getImage(this.getImagesKeys().default), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize)
     }
 
     handleInteract(gameObject: GameObject): void {
@@ -30,8 +32,8 @@ class Item extends GameObject {
         this.equippedBy = gameObject;
         if (gameObject instanceof Player) {
             const playerInventory = gameObject.getInventory();
-            const inventorySlots: (1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0)[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-            const firstEmptySlot: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 = inventorySlots.find((slot) => {
+            const inventorySlots: InventorySlot[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+            const firstEmptySlot: InventorySlot = inventorySlots.find((slot) => {
                 return !playerInventory.getItemFromHotkey(slot)
             })
             playerInventory.setHotkey(firstEmptySlot, this);

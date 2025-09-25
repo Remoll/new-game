@@ -83,9 +83,9 @@ class GameObject {
     return field;
   }
 
-  addToCanvas(ctx: CanvasRenderingContext2D) {
+  addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number) {
     const { x, y } = this.getPosition();
-    ctx.drawImage(ImageManager.instance.getImage(this.getImagesKeys().default), x * 50, y * 50)
+    ctx.drawImage(ImageManager.instance.getImage(this.getImagesKeys().default), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize)
 
   }
 

@@ -1,4 +1,5 @@
 import Item from "@/gameObject/item/Item";
+import { InventorySlot } from "./types";
 
 class Inventory {
     private isOpen: boolean = false;
@@ -54,7 +55,7 @@ class Inventory {
         }
     }
 
-    getIsOpen() {
+    getIsOpen(): boolean {
         return this.isOpen;
     }
 
@@ -94,7 +95,7 @@ class Inventory {
         this.setSelectedItem(oldItemIndex, newItemIndex);
     }
 
-    setHotkey(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0, newItem?: Item) {
+    setHotkey(key: InventorySlot, newItem?: Item) {
         const selectedItem = newItem || this.items[this.selectedItemIndex];
 
         if (!selectedItem) {
@@ -116,7 +117,7 @@ class Inventory {
         hotkeyElement.textContent = selectedItem.getType();
     }
 
-    getItemFromHotkey(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0) {
+    getItemFromHotkey(key: InventorySlot): Item {
         return this.itemsFromHotkeys[key];
     }
 

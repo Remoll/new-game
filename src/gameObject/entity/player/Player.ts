@@ -6,6 +6,9 @@ import Item from "@/gameObject/item/Item";
 import Field from "@/gameMap/field/Field";
 import Touchable from "@/gameObject/item/touchable/Touchable";
 import Projectile from "@/gameObject/item/projectile/Projectile";
+import GameState from "@/game/GameState";
+import { Coordinates } from "@/types";
+import { InventorySlot } from "@/ui/inventory/types";
 
 class Player extends Entity {
   private isInteracting: boolean = false;
@@ -74,7 +77,7 @@ class Player extends Entity {
     this.itemToUse.use(...args);
   }
 
-  initUsingItem(key: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0) {
+  initUsingItem(key: InventorySlot) {
     this.resetInteraction();
 
     this.itemToUse = this.inventory.getItemFromHotkey(key);
@@ -247,7 +250,7 @@ class Player extends Entity {
 
     document.addEventListener("click", (event: PointerEvent) => {
       if (this.isUsingItemProjectable) {
-        const getMousePos = (canvas: HTMLCanvasElement) => {
+        const getCoordinatesFromCanvasClick = (canvas: HTMLCanvasElement): Coordinates => {
           const { left, top } = canvas.getBoundingClientRect();
           return {
             x: event.clientX - left,
@@ -256,10 +259,12 @@ class Player extends Entity {
         }
 
         if ((event.target as HTMLElement).id === "canvas") {
-          const pos = getMousePos(event.target as HTMLCanvasElement);
+          const coordinatesFromCanvasClick: Coordinates = getCoordinatesFromCanvasClick(event.target as HTMLCanvasElement);
+          const playerAndCenterDifference: Coordinates = GameState.getPlayerAndCenterDifference();
+          const fieldSize: number = GameState.getFieldSize();
 
-          const targetX = Math.floor(pos.x / 50);
-          const targetY = Math.floor(pos.y / 50);
+          const targetX = Math.floor(coordinatesFromCanvasClick.x / fieldSize) + playerAndCenterDifference.x;
+          const targetY = Math.floor(coordinatesFromCanvasClick.y / fieldSize) + playerAndCenterDifference.y;
 
           emitPlayerMakeTurn(this, () => this.useItem({ x: this.x, y: this.y }, { x: targetX, y: targetY }))
         }

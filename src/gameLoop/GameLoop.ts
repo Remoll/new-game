@@ -8,6 +8,7 @@ import Entity from "@/gameObject/entity/Entity";
 import Player from "@/gameObject/entity/player/Player";
 import { GameEventType } from "@/gameEvents/types";
 import { emitPlayerEndsTurn } from "@/gameEvents/emiter/emittedActions";
+import GameState from "@/game/GameState";
 
 class GameLoop {
 	private gameObjects: GameObject[];
@@ -30,19 +31,19 @@ class GameLoop {
 
 	async animateEffect(value: { imageKey: string, effectPath: [number, number][] }) {
 		const nextCoordinates = value.effectPath.shift();
-
 		const [x, y] = nextCoordinates;
+		const fieldSize: number = GameState.getFieldSize();
 
 		this.refreshGameState();
-		this.ctx.drawImage(ImageManager.instance.getImage(value.imageKey), x * 50, y * 50)
+		this.ctx.drawImage(ImageManager.instance.getImage(value.imageKey), x * fieldSize, y * fieldSize)
 
 		if (value.effectPath.length > 0) {
 			await new Promise(resolve => setTimeout(resolve, 20));
 			return this.animateEffect({ imageKey: value.imageKey, effectPath: value.effectPath });
 		} else {
+			await new Promise(resolve => setTimeout(resolve, 20));
 			this.refreshGameState();
 		}
-
 	}
 
 	async playerStartTurn(newAction: EntitiesActions) {
