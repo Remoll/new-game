@@ -45,7 +45,7 @@ class Game {
     if (this.ctx) {
       this.player = new Player({ fields: [], type: "player", x: null, y: null, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
 
-      const gameInstance = new GameInstance(instance01);
+      const gameInstance = new GameInstance(instance03);
       const gameMap = gameInstance.getGameMap();
 
       this.player.setX(instance01.playerStart.x);

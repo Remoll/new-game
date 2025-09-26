@@ -6,4 +6,14 @@ interface BuildingCoordinates {
 	door: { isClosed: boolean, coordinates: Coordinates } | null;
 }
 
-export type { BuildingCoordinates };
+interface GenerateRandomBuildingsCoordinatesOptions {
+	count: number;
+	mapWidth: number;
+	mapHeight: number;
+	minWidth: number;
+	maxWidth: number;
+	minHeight: number;
+	maxHeight: number;
+}
+
+export type { BuildingCoordinates, GenerateRandomBuildingsCoordinatesOptions };

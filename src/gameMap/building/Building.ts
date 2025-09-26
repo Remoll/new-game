@@ -1,5 +1,5 @@
 import Field from "@/gameMap/field/Field";
-import { BuildingCoordinates } from "./types";
+import { BuildingCoordinates, GenerateRandomBuildingsCoordinatesOptions } from "./types";
 import Block from "@/gameObject/block/Block";
 import Door from "@/gameObject/block/Door";
 import { Coordinates } from "@/types";
@@ -69,6 +69,45 @@ class Building {
 
 	getBlocks() {
 		return this.blocks;
+	}
+
+	static generateRandomBuildingsCoordinates(options: GenerateRandomBuildingsCoordinatesOptions): BuildingCoordinates[] {
+		const buildings: BuildingCoordinates[] = [];
+		let attempts = 0;
+		while (buildings.length < options.count && attempts < options.count * 20) {
+			const width = Math.floor(Math.random() * (options.maxWidth - options.minWidth + 1)) + options.minWidth;
+			const height = Math.floor(Math.random() * (options.maxHeight - options.minHeight + 1)) + options.minHeight;
+			// Ensure a gap of at least 1 field from the map edges
+			const x = Math.floor(Math.random() * (options.mapWidth - width - 2)) + 1;
+			const y = Math.floor(Math.random() * (options.mapHeight - height - 2)) + 1;
+
+			const newTopLeft = { x, y };
+			const newBottomRight = { x: x + width - 1, y: y + height - 1 };
+
+			// Check for overlap or touching (gap of at least 1 field)
+			const expandedNewTopLeft = { x: newTopLeft.x - 1, y: newTopLeft.y - 1 };
+			const expandedNewBottomRight = { x: newBottomRight.x + 1, y: newBottomRight.y + 1 };
+			const overlaps = buildings.some(b =>
+				expandedNewTopLeft.x <= b.bottomRight.x + 1 && expandedNewBottomRight.x >= b.topLeft.x - 1 &&
+				expandedNewTopLeft.y <= b.bottomRight.y + 1 && expandedNewBottomRight.y >= b.topLeft.y - 1
+			);
+
+			if (!overlaps) {
+				const doorX = x + Math.floor(width / 2);
+				const doorY = y + height - 1;
+
+				buildings.push({
+					topLeft: newTopLeft,
+					bottomRight: newBottomRight,
+					door: {
+						coordinates: { x: doorX, y: doorY },
+						isClosed: Math.random() < 0.5
+					}
+				});
+			}
+			attempts++;
+		}
+		return buildings;
 	}
 }
 
