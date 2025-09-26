@@ -3,7 +3,7 @@ import { Coordinates } from "@/types";
 class GameState {
     private static fieldSize: number = 50;
     private static gameMapWidth: number = 21;
-    private static gameMapHight: number = 21;
+    private static gameMapHeight: number = 21;
     private static viewRange: number = 10;
     private static playerAndCenterDifference: Coordinates = { x: null, y: null };
 
@@ -15,8 +15,16 @@ class GameState {
         return this.gameMapWidth;
     }
 
-    static getGameMapHight(): number {
-        return this.gameMapHight;
+    static setGameMapWidth(gameMapWidth: number): void {
+        this.gameMapWidth = gameMapWidth;
+    }
+
+    static getGameMapHeight(): number {
+        return this.gameMapHeight;
+    }
+
+    static setGameMapHeight(gameMapHeight: number): void {
+        this.gameMapHeight = gameMapHeight;
     }
 
     static getViewRange(): number {

@@ -1,3 +1,4 @@
+import { InstanceKey } from "@/game/gameInstanceData/types";
 import Field from "@/gameMap/field/Field";
 import { ImageKey } from "@/imageManager/types";
 
@@ -20,10 +21,8 @@ enum Faction {
 	NEUTRAL = "neutral_faction"
 }
 
-interface DispositionToFactions {
-	[Disposition.HOSTILE]?: Faction[];
-	[Disposition.NEUTRAL]?: Faction[];
-	[Disposition.FRIENDLY]?: Faction[];
+type DispositionToFactions = {
+	[key in Disposition]?: Faction[];
 }
 
 interface GameObjectImagesKeys {
@@ -47,4 +46,8 @@ interface EntityAttributes extends GameObjectAttributes {
 	dispositionToFactions: DispositionToFactions;
 }
 
-export { GameObjectAttributes, EntityAttributes, Direction, Disposition, Faction, DispositionToFactions, GameObjectImagesKeys };
+interface GatewayAttributes extends GameObjectAttributes {
+	targetInstanceKey: InstanceKey;
+}
+
+export { GameObjectAttributes, EntityAttributes, GatewayAttributes, Direction, Disposition, Faction, DispositionToFactions, GameObjectImagesKeys };

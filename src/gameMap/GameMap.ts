@@ -10,11 +10,11 @@ class GameMap {
 
   private generateFields() {
     const gameMapWidth: number = GameState.getGameMapWidth();
-    const gameMapHight: number = GameState.getGameMapHight();
+    const gameMapHeight: number = GameState.getGameMapHeight();
     const fields = [];
 
     for (let fieldX = 0; fieldX < gameMapWidth; fieldX++) {
-      for (let fieldY = 0; fieldY < gameMapHight; fieldY++) {
+      for (let fieldY = 0; fieldY < gameMapHeight; fieldY++) {
         fields.push(new Field(fieldX, fieldY));
       }
     }

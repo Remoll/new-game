@@ -17,6 +17,14 @@ class CanvasHandler {
 		this.gameMap = gameMap;
 	}
 
+	setGameObjects(gameObjects: GameObject[]) {
+		this.gameObjects = gameObjects;
+	}
+
+	setGameMap(gameMap: GameMap) {
+		this.gameMap = gameMap;
+	}
+
 	private getFieldOfView(playerPosition: Coordinates): FieldOfView {
 		const viewRange: number = GameState.getViewRange();
 

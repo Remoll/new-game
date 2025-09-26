@@ -29,7 +29,19 @@ class GameObject {
     this.id = this.generateId(type);
 
     const initialField = this.getCurrentField();
-    initialField.addGameObjectToField(this);
+
+    if (initialField) {
+      initialField.addGameObjectToField(this);
+    }
+  }
+
+  setFields(fields: Field[]) {
+    this.fields = fields;
+    const initialField = this.getCurrentField();
+
+    if (initialField) {
+      initialField.addGameObjectToField(this);
+    }
   }
 
   getImagesKeys(): GameObjectImagesKeys {
@@ -38,6 +50,14 @@ class GameObject {
 
   getPosition(): { x: number; y: number } {
     return { x: this.x, y: this.y };
+  }
+
+  setX(x: number) {
+    this.x = x;
+  }
+
+  setY(y: number) {
+    this.y = y;
   }
 
   getId() {
@@ -77,7 +97,7 @@ class GameObject {
   protected getCurrentField(): Field | null {
     const field = this.getFieldFromCoordinates(this.x, this.y);
     if (!field) {
-      console.error("Field not found for coordinates:", this.x, this.y);
+      console.log(this.getId(), " Field not found for coordinates:", this.x, this.y);
       return null;
     }
     return field;

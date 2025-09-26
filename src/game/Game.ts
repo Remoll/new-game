@@ -1,67 +1,86 @@
-import GameEventListener from "@/gameEvents/listener/GameEventListener";
-import GameMap from "@/gameMap/GameMap";
-import GameLoop from "@/gameLoop/GameLoop";
-import Building from "@/gameMap/building/Building";
 import Player from "@/gameObject/entity/player/Player";
 import { Disposition, Faction } from "@/gameObject/types";
-import Npc from "@/gameObject/entity/npc/Npc";
-import ReanimatePotion from "@/gameObject/item/touchable/reanimatePotion/ReanimatePotion";
 import { ImageKey } from "@/imageManager/types";
-import FireBallScroll from "@/gameObject/item/projectile/fireBallScroll/FireBallScroll";
+import GameInstance from "./GameInstance";
+import GameLoop from "@/gameLoop/GameLoop";
+import GameEventListener from "@/gameEvents/listener/GameEventListener";
+import instance01 from "@/game/gameInstanceData/instance01";
+import instance02 from "@/game/gameInstanceData/instance02";
+import instance03 from "@/game/gameInstanceData/instance03";
+import { InstanceData, InstanceKey } from "./gameInstanceData/types";
 
 class Game {
+  private static instance: Game | null = null;
   private ctx: CanvasRenderingContext2D;
+  private gameLoop: GameLoop;
+  private gameEventListener: GameEventListener;
+  private player: Player;
 
-  constructor(ctx: CanvasRenderingContext2D) {
+  private constructor(ctx: CanvasRenderingContext2D) {
     this.ctx = ctx;
     this.initGame();
   }
 
+  static getInstance(ctx?: CanvasRenderingContext2D): Game {
+    if (!Game.instance && ctx) {
+      Game.instance = new Game(ctx);
+    }
+    return Game.instance;
+  }
+
+  private getInstanceDataByKey(key: InstanceKey): InstanceData {
+    switch (key) {
+      case InstanceKey.INSTANCE_01:
+        return instance01;
+      case InstanceKey.INSTANCE_02:
+        return instance02;
+      case InstanceKey.INSTANCE_03:
+        return instance03;
+      default:
+        return instance01;
+    }
+  }
+
   private initGame() {
     if (this.ctx) {
-      const gameMap = new GameMap();
+      this.player = new Player({ fields: [], type: "player", x: null, y: null, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
 
-      const buildingCoordinates = { topLeft: { x: 3, y: 3 }, bottomRight: { x: 17, y: 17 }, door: { coordinates: { x: 6, y: 3 }, isClosed: true } }
+      const gameInstance = new GameInstance(instance01);
+      const gameMap = gameInstance.getGameMap();
 
-      const building = new Building(gameMap.getFields(), buildingCoordinates);
+      this.player.setX(instance01.playerStart.x);
+      this.player.setY(instance01.playerStart.y);
 
-      const blocks = building.getBlocks();
+      this.player.setFields(gameMap.getFields());
 
-      const player = new Player({ fields: gameMap.getFields(), type: "player", x: 1, y: 1, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
+      const gameObjects = [this.player, ...gameInstance.getGameObjects()];
 
-      if (!player) {
-        console.error("Player not created");
-        return;
-      }
+      this.gameLoop = GameLoop.getInstance(gameObjects, gameMap, this.ctx);
 
-      const enemiesCoordinates = [{ x: 5, y: 5 }, { x: 7, y: 7 }, { x: 10, y: 5 }, { x: 11, y: 6 }, { x: 18, y: 18 }]
-
-      const npcs = enemiesCoordinates.map((coordinates) => {
-        const { x, y } = coordinates;
-        return new Npc({ fields: gameMap.getFields(), type: "enemy", x, y, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD }, faction: Faction.ENEMY, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER], [Disposition.FRIENDLY]: [Faction.ENEMY], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false })
-      })
-
-      if (npcs.some((npc) => !npc)) {
-        console.error("Enemies not created");
-        return;
-      }
-
-      const reanimatePotion = new ReanimatePotion({ fields: gameMap.getFields(), type: "reanimatePotion", x: 1, y: 2, imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION }, canOccupiedFields: false, isInteractive: true });
-
-      const fireBallScroll = new FireBallScroll({ fields: gameMap.getFields(), type: "fireBallScroll", x: 2, y: 1, imagesKeys: { default: ImageKey.SCROLL, dead: ImageKey.SCROLL }, canOccupiedFields: false, isInteractive: true });
-
-      const gameObjects = [player, ...npcs, ...blocks, reanimatePotion, fireBallScroll];
-
-      const gameLoop = new GameLoop(gameObjects, gameMap, this.ctx)
-
-      const gameEventListener = new GameEventListener(gameObjects, gameLoop);
-
-      console.log("Event listener initialized:", gameEventListener);
-
-      console.log("Game initialized !!!");
+      this.gameEventListener = GameEventListener.getInstance(gameObjects, this.gameLoop);
     } else {
       console.error("Root element not found");
     }
+  }
+
+  startNewInstance(instanceKey: InstanceKey) {
+    const instanceData = this.getInstanceDataByKey(instanceKey);
+    const gameInstance = new GameInstance(instanceData);
+    const gameMap = gameInstance.getGameMap();
+
+    this.player.setX(instanceData.playerStart.x);
+    this.player.setY(instanceData.playerStart.y);
+
+    this.player.setFields(gameMap.getFields());
+
+    this.player.getItems().forEach((item) => {
+      item.setFields(gameMap.getFields());
+    })
+
+    const gameObjects = [this.player, ...gameInstance.getGameObjects()];
+    this.gameLoop.setGameMap(gameMap)
+    this.gameLoop.setGameObjects(gameObjects)
+    this.gameEventListener.setGameObjects(gameObjects)
   }
 }
 

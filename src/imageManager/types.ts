@@ -10,6 +10,7 @@ enum ImageKey {
     DOOR_OPEN = "doorOpen",
     SCROLL = "scroll",
     FIRE_ORB = "fireOrb",
+    GATEWAY = "gateway",
 }
 
 type ImageMap = {

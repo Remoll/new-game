@@ -4,14 +4,30 @@ import GameLoop from "@/gameLoop/GameLoop";
 import Entity from "@/gameObject/entity/Entity";
 
 class GameEventListener {
+  private static instance: GameEventListener | null = null;
   private gameObjects: GameObject[];
   private gameLoop: GameLoop;
 
-  constructor(gameObjects: GameObject[], gameLoop: GameLoop) {
+  private constructor(gameObjects: GameObject[], gameLoop: GameLoop) {
     this.gameObjects = gameObjects;
     this.gameLoop = gameLoop;
     this.listenToEvents();
-    this.gameLoop.executeTurn()
+    this.startFirstTurn();
+  }
+
+  static getInstance(gameObjects: GameObject[], gameLoop: GameLoop): GameEventListener {
+    if (!GameEventListener.instance && gameObjects && gameLoop) {
+      GameEventListener.instance = new GameEventListener(gameObjects, gameLoop);
+    }
+    return GameEventListener.instance;
+  }
+
+  setGameObjects(gameObjects: GameObject[]) {
+    this.gameObjects = gameObjects;
+  }
+
+  startFirstTurn() {
+    this.gameLoop.executeTurn();
   }
 
   private playerMakeTurn(value) {
@@ -87,30 +103,22 @@ class GameEventListener {
     });
   }
 
+  private pastEventDataToHandler = (event: CustomEvent) => {
+    this.affectTarget(event.detail);
+  }
+
   private listenToEvents() {
-    document.addEventListener(GameEventType.ATTACK, (event: CustomEvent) => {
-      this.affectTarget(event.detail);
-    });
+    document.addEventListener(GameEventType.ATTACK, this.pastEventDataToHandler);
 
-    document.addEventListener(GameEventType.MOVED, (event: CustomEvent) => {
-      this.affectTarget(event.detail);
-    });
+    document.addEventListener(GameEventType.MOVED, this.pastEventDataToHandler);
 
-    document.addEventListener(GameEventType.WAIT, (event: CustomEvent) => {
-      this.affectTarget(event.detail);
-    });
+    document.addEventListener(GameEventType.WAIT, this.pastEventDataToHandler);
 
-    document.addEventListener(GameEventType.PLAYER_MAKE_TURN, (event: CustomEvent) => {
-      this.affectTarget(event.detail);
-    });
+    document.addEventListener(GameEventType.PLAYER_MAKE_TURN, this.pastEventDataToHandler);
 
-    document.addEventListener(GameEventType.DIED, (event: CustomEvent) => {
-      this.affectTarget(event.detail);
-    });
+    document.addEventListener(GameEventType.DIED, this.pastEventDataToHandler);
 
-    document.addEventListener(GameEventType.ANIMATE_EFFECT, (event: CustomEvent) => {
-      this.affectTarget(event.detail);
-    });
+    document.addEventListener(GameEventType.ANIMATE_EFFECT, this.pastEventDataToHandler);
   }
 }
 

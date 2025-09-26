@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   ctx.font = "24px Arial";
 
-  new Game(ctx);
+  Game.getInstance(ctx);
 });
 
 

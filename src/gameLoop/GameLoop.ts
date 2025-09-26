@@ -11,17 +11,35 @@ import { emitPlayerEndsTurn } from "@/gameEvents/emiter/emittedActions";
 import GameState from "@/game/GameState";
 
 class GameLoop {
+	private static instance: GameLoop | null = null;
 	private gameObjects: GameObject[];
 	private gameMap: GameMap;
 	private canvasHandler: CanvasHandler;
 	private ctx: CanvasRenderingContext2D;
 
-	constructor(gameObjects: GameObject[], gameMap: GameMap, ctx: CanvasRenderingContext2D) {
+	private constructor(gameObjects: GameObject[], gameMap: GameMap, ctx: CanvasRenderingContext2D) {
 		this.gameObjects = gameObjects;
 		this.gameMap = gameMap;
 		this.ctx = ctx;
 		this.canvasHandler = new CanvasHandler(this.ctx, this.gameObjects, this.gameMap)
 		this.canvasHandler.renderGameState();
+	}
+
+	static getInstance(gameObjects?: GameObject[], gameMap?: GameMap, ctx?: CanvasRenderingContext2D): GameLoop {
+		if (!GameLoop.instance && gameObjects && gameMap && ctx) {
+			GameLoop.instance = new GameLoop(gameObjects, gameMap, ctx);
+		}
+		return GameLoop.instance;
+	}
+
+	setGameObjects(gameObjects: GameObject[]) {
+		this.gameObjects = gameObjects;
+		this.canvasHandler.setGameObjects(gameObjects);
+	}
+
+	setGameMap(gameMap: GameMap) {
+		this.gameMap = gameMap;
+		this.canvasHandler.setGameMap(gameMap);
 	}
 
 	private refreshGameState() {
