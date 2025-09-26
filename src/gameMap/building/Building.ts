@@ -16,24 +16,23 @@ class Building {
 		this.generateBlocks();
 	}
 
-	private isDoor(x: number, y: number) {
-		if (!this.coordinates.door) {
-			return false;
+	private findDoor(x: number, y: number): { isClosed: boolean, coordinates: Coordinates } | null {
+		if (!this.coordinates.doors) {
+			return null;
 		}
-
-		const { x: doorX, y: doorY } = this.coordinates.door.coordinates;
-
-		if (doorX === x && doorY === y) {
-			return true;
-		}
+		return this.coordinates.doors.find((door) => {
+			const { x: doorX, y: doorY } = door.coordinates;
+			return doorX === x && doorY === y;
+		}) || null;
 	}
 
 	private generateBlock(x: number, y: number): Block | Door {
-		let newField;
+		let newField: Block | Door;
 
-		if (this.isDoor(x, y)) {
-			const isDoorClosed = this.coordinates.door.isClosed
-			newField = new Door({ fields: this.fields, type: "door", x, y, imagesKeys: { default: ImageKey.DOOR_CLOSED, dead: ImageKey.DOOR_OPEN }, canOccupiedFields: true, isInteractive: true }, isDoorClosed);
+		const door = this.findDoor(x, y);
+
+		if (door) {
+			newField = new Door({ fields: this.fields, type: "door", x, y, imagesKeys: { default: ImageKey.DOOR_CLOSED, dead: ImageKey.DOOR_OPEN }, canOccupiedFields: true, isInteractive: true }, door.isClosed);
 		} else {
 			newField = new Block({ fields: this.fields, type: "block", x, y, imagesKeys: { default: ImageKey.BLOCK, dead: ImageKey.BLOCK }, canOccupiedFields: true, isInteractive: false });
 		}
@@ -93,16 +92,53 @@ class Building {
 			);
 
 			if (!overlaps) {
-				const doorX = x + Math.floor(width / 2);
-				const doorY = y + height - 1;
+				// Generate random number of doors (1 to 3 for example)
+				const doorCount = Math.floor(Math.random() * 3) + 1;
+				const doors = [];
+				for (let d = 0; d < doorCount; d++) {
+					// Place doors on valid wall positions, avoiding corners
+					let doorX = x, doorY = y;
+					const wall = d % 4;
+					if (wall === 0) { // bottom wall
+						// x + 1 to x + width - 2 (avoid corners)
+						if (width > 2) {
+							doorX = x + 1 + Math.floor((width - 2) * Math.random());
+						} else {
+							doorX = x; // fallback for tiny buildings
+						}
+						doorY = y + height - 1;
+					} else if (wall === 1) { // top wall
+						if (width > 2) {
+							doorX = x + 1 + Math.floor((width - 2) * Math.random());
+						} else {
+							doorX = x;
+						}
+						doorY = y;
+					} else if (wall === 2) { // left wall
+						if (height > 2) {
+							doorY = y + 1 + Math.floor((height - 2) * Math.random());
+						} else {
+							doorY = y;
+						}
+						doorX = x;
+					} else { // right wall
+						if (height > 2) {
+							doorY = y + 1 + Math.floor((height - 2) * Math.random());
+						} else {
+							doorY = y;
+						}
+						doorX = x + width - 1;
+					}
+					doors.push({
+						coordinates: { x: doorX, y: doorY },
+						isClosed: Math.random() < 0.5
+					});
+				}
 
 				buildings.push({
 					topLeft: newTopLeft,
 					bottomRight: newBottomRight,
-					door: {
-						coordinates: { x: doorX, y: doorY },
-						isClosed: Math.random() < 0.5
-					}
+					doors
 				});
 			}
 			attempts++;

@@ -18,13 +18,13 @@ const instanceData: InstanceData = {
                 x: 7,
                 y: 4
             },
-            door: {
+            doors: [{
                 coordinates: {
                     x: 3,
                     y: 4
                 },
                 isClosed: false
-            }
+            }]
         },
         {
             topLeft: {
@@ -35,13 +35,13 @@ const instanceData: InstanceData = {
                 x: 16,
                 y: 4
             },
-            door: {
+            doors: [{
                 coordinates: {
                     x: 12,
                     y: 4
                 },
                 isClosed: false
-            }
+            }]
         },
         {
             topLeft: {
@@ -52,13 +52,13 @@ const instanceData: InstanceData = {
                 x: 20,
                 y: 6
             },
-            door: {
+            doors: [{
                 coordinates: {
                     x: 20,
                     y: 3
                 },
                 isClosed: true
-            }
+            }]
         },
     ],
     npcs: [
