@@ -16,6 +16,7 @@ class GameLoop {
 	private gameMap: GameMap;
 	private canvasHandler: CanvasHandler;
 	private ctx: CanvasRenderingContext2D;
+	private isPlayerTurn: boolean = false;
 
 	private constructor(gameObjects: GameObject[], gameMap: GameMap, ctx: CanvasRenderingContext2D) {
 		this.gameObjects = gameObjects;
@@ -64,45 +65,74 @@ class GameLoop {
 		}
 	}
 
-	async playerStartTurn(newAction: EntitiesActions) {
-		// TODO: extend it to npcs, wait for all effect animations using events and async await
-		await newAction.action();
-		emitPlayerEndsTurn();
-	}
-
-	executeTurn() {
+	private generateTurnLine(): Entity[] {
 		const aliveEntities: Entity[] = this.gameObjects.filter((gameObject) => {
 			return gameObject instanceof Entity && gameObject.isAlive();
 		}) as Entity[];
 
-		const playerIndex = aliveEntities.findIndex((entity) => entity instanceof Player);
+		const remainingEntitiesSpeed = aliveEntities.map((entity) => ({ id: entity.getId(), remainingSpeed: entity.getSpeed() }))
 
-		if (playerIndex === -1) {
-			throw new Error("No Player in gameLoop");
+		let heightestSpeed = remainingEntitiesSpeed.reduce((max, entity) => entity.remainingSpeed > max ? entity.remainingSpeed : max, 0);
+
+		const turnLine: string[] = []
+
+		do {
+			const fastestEntities = remainingEntitiesSpeed.filter((entity) => entity.remainingSpeed === heightestSpeed)
+			const randomizedFastestEntities = fastestEntities.sort(() => Math.random() - 0.5) // randomize order of entities with same speed
+
+			turnLine.push(...randomizedFastestEntities.map((entity) => entity.id))
+
+			fastestEntities.forEach((enity) => enity.remainingSpeed--)
+			heightestSpeed--;
+		} while (remainingEntitiesSpeed.some((entity) => entity.remainingSpeed > 0))
+
+		return turnLine.map((id) => aliveEntities.find((entity) => entity.getId() === id));
+	}
+
+	async playerStartTurn(newAction: EntitiesActions) {
+		if (this.isPlayerTurn) {
+			await newAction.action();
+			this.isPlayerTurn = false;
+			emitPlayerEndsTurn();
 		}
+	}
 
-		const beforePlayer: Npc[] = aliveEntities.slice(0, playerIndex) as Npc[];
-		// const player: Player = aliveEntities[playerIndex] as Player;
-		const afterPlayer: Npc[] = aliveEntities.slice(playerIndex + 1) as Npc[];
+	private npcTakeTurn(npc: Npc) {
+		npc.takeTurn();
+		document.dispatchEvent(new CustomEvent("entityEndTurn"));
+	}
 
-		const executeNpcsMoves = (npcs: Npc[]) => {
-			for (let index = 0; index <= npcs.length - 1; index++) {
-				npcs[index].takeTurn();
-				this.refreshGameState();
+	private async entityStartTurn(turnLine: Entity[], index: number) {
+		const nextEntityStartTurn = () => {
+			this.refreshGameState();
+			document.removeEventListener("entityEndTurn", nextEntityStartTurn);
+			document.removeEventListener(GameEventType.PLAYER_ENDS_TURN, nextEntityStartTurn)
+			index++;
+
+			if (index === turnLine.length - 1) {
+				this.executeTurn();
+				return;
+			} else {
+				this.entityStartTurn(turnLine, index);
 			}
 		}
 
-		executeNpcsMoves(beforePlayer);
+		const nextEntity = turnLine[index];
 
-		const continueTurnAfterPlayer = () => {
-			this.refreshGameState();
-			document.removeEventListener(GameEventType.PLAYER_ENDS_TURN, continueTurnAfterPlayer)
-			executeNpcsMoves(afterPlayer)
+		await new Promise(resolve => setTimeout(resolve, 100));
 
-			this.executeTurn();
+		if (nextEntity instanceof Player) {
+			this.isPlayerTurn = true;
+			document.addEventListener(GameEventType.PLAYER_ENDS_TURN, nextEntityStartTurn)
+		} else if (nextEntity instanceof Npc) {
+			document.addEventListener("entityEndTurn", nextEntityStartTurn);
+			this.npcTakeTurn(nextEntity)
 		}
+	}
 
-		document.addEventListener(GameEventType.PLAYER_ENDS_TURN, continueTurnAfterPlayer)
+	executeTurn() {
+		const turnLine: Entity[] = this.generateTurnLine();
+		this.entityStartTurn(turnLine, 0);
 	}
 };
 

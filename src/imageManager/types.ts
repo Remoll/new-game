@@ -11,6 +11,8 @@ enum ImageKey {
     SCROLL = "scroll",
     FIRE_ORB = "fireOrb",
     GATEWAY = "gateway",
+    DOG = "dog",
+    DOG_DEAD = "dogDead",
 }
 
 type ImageMap = {

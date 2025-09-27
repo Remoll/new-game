@@ -10,6 +10,7 @@ class Entity extends GameObject {
     private hp: number;
     private faction: Faction;
     private dispositionToFactions: DispositionToFactions;
+    private speed: number;
     private isReanimate: boolean = false;
 
     constructor(attributes: EntityAttributes) {
@@ -21,6 +22,11 @@ class Entity extends GameObject {
         this.hp = hp;
         this.faction = faction;
         this.dispositionToFactions = dispositionToFactions;
+        this.speed = attributes.speed;
+    }
+
+    getSpeed(): number {
+        return this.speed;
     }
 
     getInitialHp(): number {

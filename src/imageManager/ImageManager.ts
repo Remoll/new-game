@@ -12,6 +12,8 @@ import doorOpenImage from "@/imageManager/images/doorOpenImage.png";
 import scrollImage from "@/imageManager/images/scrollImage.png";
 import fireOrbImage from "@/imageManager/images/fireOrbImage.png";
 import gatewayImage from "@/imageManager/images/gatewayImage.png";
+import dogImage from "@/imageManager/images/dogImage.png";
+import dogDeadImage from "@/imageManager/images/dogDeadImage.png";
 
 class ImageManager {
     private static _instance: ImageManager;
@@ -28,6 +30,8 @@ class ImageManager {
         [ImageKey.SCROLL]: undefined,
         [ImageKey.FIRE_ORB]: undefined,
         [ImageKey.GATEWAY]: undefined,
+        [ImageKey.DOG]: undefined,
+        [ImageKey.DOG_DEAD]: undefined,
     };
 
     private constructor() { }
@@ -53,7 +57,7 @@ class ImageManager {
     }
 
     preloadImages = async (): Promise<void> => {
-        const [player, playerDead, enemy, enemyDead, potion, floor, block, doorClosed, doorOpen, scroll, fireOrb, gateway] = await Promise.all([
+        const [player, playerDead, enemy, enemyDead, potion, floor, block, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead] = await Promise.all([
             this.imageLoader(playerImage),
             this.imageLoader(playerDeadImage),
             this.imageLoader(enemyImage),
@@ -66,8 +70,10 @@ class ImageManager {
             this.imageLoader(scrollImage),
             this.imageLoader(fireOrbImage),
             this.imageLoader(gatewayImage),
+            this.imageLoader(dogImage),
+            this.imageLoader(dogDeadImage),
         ])
-        this.setImages({ player, playerDead, enemy, enemyDead, potion, floor, block, doorClosed, doorOpen, scroll, fireOrb, gateway });
+        this.setImages({ player, playerDead, enemy, enemyDead, potion, floor, block, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead });
     }
 
     getImage(key: string): HTMLImageElement | undefined {

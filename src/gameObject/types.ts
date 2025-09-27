@@ -44,6 +44,7 @@ interface EntityAttributes extends GameObjectAttributes {
 	hp: number;
 	faction: Faction;
 	dispositionToFactions: DispositionToFactions;
+	speed: number;
 }
 
 interface GatewayAttributes extends GameObjectAttributes {
