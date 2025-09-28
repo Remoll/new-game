@@ -68,7 +68,7 @@ class GameEventListener {
     const targetType = target.type;
     const targetId = target.id;
     const affectedGameObjects = this.gameObjects
-      .filter((gameObject) => gameObject.getType() === targetType || gameObject.getId() === targetId)
+      .filter((gameObject) => gameObject.getType() === targetType || targetId?.some((id) => id === gameObject.getId()))
       .filter((gameObject) => gameObject instanceof Entity && gameObject.isAlive());
 
     affectedGameObjects.forEach((gameObject) => {

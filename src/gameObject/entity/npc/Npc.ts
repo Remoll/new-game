@@ -16,6 +16,10 @@ class Npc extends Entity {
       return;
     }
 
+    if (nearestGameObject instanceof Entity) {
+      this.setFocusedEnemy(nearestGameObject);
+    }
+
     this.chargeGameObject(nearestGameObject)
   }
 
@@ -58,14 +62,33 @@ class Npc extends Entity {
   }
 
   takeTurn() {
-    const hostileFactions = this.getDispositionToFactions()?.[Disposition.HOSTILE];
+    let focusedEnemy = this.getFocusedEnemy();
 
-    if (!hostileFactions) {
-      console.log("No hostile factions defined for this entity. Can't take turn.");
+    if (focusedEnemy && !focusedEnemy.isAlive()) {
+      this.setFocusedEnemy(null);
+    }
+
+    if (this.getVisibleEnemies().length < 1) {
+      this.findVisibleEnemies();
       return;
     }
 
-    this.findAndCharge({ factions: hostileFactions })
+    const hostileEntities: GameObjectSelector = { id: this.getVisibleEnemies().map((entity) => entity.getId()) };
+
+    if (!hostileEntities) {
+      console.log("No hostile entities defined for this entity. Can't take turn.");
+      return;
+    }
+
+    this.findAndCharge(hostileEntities)
+
+    this.findVisibleEnemies();
+
+    focusedEnemy = this.getFocusedEnemy();
+
+    if (focusedEnemy && !this.getVisibleEnemies().some((entity) => entity === focusedEnemy) && focusedEnemy.isAlive()) {
+      this.getVisibleEnemies().push(focusedEnemy);
+    }
   }
 }
 

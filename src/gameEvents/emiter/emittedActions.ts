@@ -29,7 +29,7 @@ const emitWait = (sender: GameObject, target: GameObjectSelector) => {
 }
 
 const emitPlayerMakeTurn = (sender: GameObject, action: () => unknown) => {
-	const playerSelector: GameObjectSelector = { type: sender.getType(), id: sender.getId() }
+	const playerSelector: GameObjectSelector = { type: sender.getType(), id: [sender.getId()] }
 	GameEventEmitter.emit(GameEventType.PLAYER_MAKE_TURN, sender, null, { performer: playerSelector, action })
 }
 

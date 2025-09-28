@@ -13,7 +13,7 @@ enum GameEventType {
 
 interface GameObjectSelector {
   type?: string;
-  id?: string;
+  id?: string[];
   factions?: Faction[];
 }
 

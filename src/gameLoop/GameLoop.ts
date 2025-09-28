@@ -98,7 +98,9 @@ class GameLoop {
 	}
 
 	private npcTakeTurn(npc: Npc) {
-		npc.takeTurn();
+		if (npc.isAlive()) {
+			npc.takeTurn();
+		}
 		document.dispatchEvent(new CustomEvent("entityEndTurn"));
 	}
 
@@ -118,8 +120,6 @@ class GameLoop {
 		}
 
 		const nextEntity = turnLine[index];
-
-		await new Promise(resolve => setTimeout(resolve, 100));
 
 		if (nextEntity instanceof Player) {
 			this.isPlayerTurn = true;

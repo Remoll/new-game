@@ -1,9 +1,10 @@
-import { Direction, DispositionToFactions, EntityAttributes, Faction } from "@/gameObject/types";
+import { Direction, Disposition, DispositionToFactions, EntityAttributes, Faction } from "@/gameObject/types";
 import { emitAttack, emitDead, emitMove, emitWait } from "@/gameEvents/emiter/emittedActions";
 import { GameObjectSelector } from "@/gameEvents/types";
 import GameObject from "@/gameObject/GameObject";
 import ImageManager from "@/imageManager/ImageManager";
 import { Coordinates } from "@/types";
+import GameState from "@/game/GameState";
 
 class Entity extends GameObject {
     private initialHp: number;
@@ -12,6 +13,8 @@ class Entity extends GameObject {
     private dispositionToFactions: DispositionToFactions;
     private speed: number;
     private isReanimate: boolean = false;
+    private visibleEnemies: Entity[] = [];
+    private focusedEnemy: Entity | null = null;
 
     constructor(attributes: EntityAttributes) {
         const { hp, faction, dispositionToFactions, ...gameObjectAttributes } = attributes;
@@ -45,6 +48,64 @@ class Entity extends GameObject {
         return this.dispositionToFactions;
     }
 
+    findEntitiesInRange(): Entity[] {
+        const { x: entityX, y: entityY } = this.getPosition();
+        const viewRange = GameState.getViewRange();
+        const entitiesInViewRange: Entity[] = [];
+
+        for (let x = entityX - viewRange; x <= entityX + viewRange; x++) {
+            for (let y = entityY - viewRange; y <= entityY + viewRange; y++) {
+                const field = this.getFieldFromCoordinates(x, y);
+                if (!field) continue;
+
+                const gameObjectThatOccupiedField = field.getGameObjectThatOccupiedField();
+
+                if (gameObjectThatOccupiedField && gameObjectThatOccupiedField instanceof Entity && gameObjectThatOccupiedField.isAlive() && gameObjectThatOccupiedField !== this) {
+                    entitiesInViewRange.push(gameObjectThatOccupiedField);
+                }
+            }
+        }
+
+        return entitiesInViewRange;
+    }
+
+    findVisibleEnemies(): void {
+        const entitiesInRange = this.findEntitiesInRange();
+
+        const visibleEntities = entitiesInRange.filter((entityInRange) => {
+            const { x: entityX, y: entityY } = entityInRange.getPosition();
+            const { x: npcX, y: npcY } = this.getPosition();
+
+            const result = this.isLineClearSupercover(
+                npcX, npcY,
+                entityX, entityY,
+                { excludeStart: true, includeEnd: false }
+            );
+
+            return result.clear;
+        })
+
+        const hostileFactions = this.getDispositionToFactions()?.[Disposition.HOSTILE];
+
+        this.setVisibleEnemies(visibleEntities.filter((entity) => entity.isAlive() && hostileFactions?.some((faction) => faction === entity.getFaction())));
+    }
+
+    getFocusedEnemy(): Entity | null {
+        return this.focusedEnemy;
+    }
+
+    setFocusedEnemy(entity: Entity | null) {
+        this.focusedEnemy = entity;
+    }
+
+    getVisibleEnemies(): Entity[] {
+        return this.visibleEnemies;
+    }
+
+    setVisibleEnemies(entities: Entity[]) {
+        this.visibleEnemies = entities;
+    }
+
     takeDamage(value: number) {
         this.hp -= value;
         if (this.hp <= 0) {
@@ -55,6 +116,8 @@ class Entity extends GameObject {
     private die() {
         this.hp = 0;
         this.setCanOccupiedFields(false);
+        this.setFocusedEnemy(null);
+        this.setVisibleEnemies([]);
         emitDead(this, { type: this.getType() });
     }
 
@@ -85,7 +148,7 @@ class Entity extends GameObject {
     }
 
     private attackEntity(entity: Entity) {
-        emitAttack(this, { id: entity.id }, 10)
+        emitAttack(this, { id: [entity.id] }, 10)
     }
 
     protected move(newX: number, newY: number) {
@@ -228,7 +291,9 @@ class Entity extends GameObject {
                     return gameObject.getFaction() === faction
                 });
                 const isGameObjectTypeInTarget = "type" in target && target.type && gameObject.getType() === target.type;
-                const isGameObjectIdInTarget = "id" in target && target.id && gameObject.getId() === target.id;
+                const isGameObjectIdInTarget = "id" in target && target.id.some((id) => {
+                    return gameObject.getId() === id;
+                })
 
                 if ((!checkIsAlive || (gameObject instanceof Entity && gameObject.isAlive())) && (isGameObjectInSelectedFaction || isGameObjectTypeInTarget || isGameObjectIdInTarget)) {
                     const { x: gameObjectX, y: gameObjectY } = gameObject.getPosition();
