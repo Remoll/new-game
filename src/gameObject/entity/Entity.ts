@@ -76,11 +76,7 @@ class Entity extends GameObject {
             const { x: entityX, y: entityY } = entityInRange.getPosition();
             const { x: npcX, y: npcY } = this.getPosition();
 
-            const result = this.isLineClearSupercover(
-                npcX, npcY,
-                entityX, entityY,
-                { excludeStart: true, includeEnd: false }
-            );
+            const result = GameState.hasLineOfSight(npcX, npcY, entityX, entityY,);
 
             return result.clear;
         })

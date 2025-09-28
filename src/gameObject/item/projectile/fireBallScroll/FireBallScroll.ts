@@ -17,11 +17,7 @@ class FireBallScroll extends Projectile {
         const { x: targetX, y: targetY } = targetCoordinates;
         const { x: userX, y: userY } = userCoordinates;
 
-        const result = this.isLineClearSupercover(
-            userX, userY,   // gracz
-            targetX, targetY,   // wróg
-            { excludeStart: true, includeEnd: false }
-        );
+        const result = GameState.hasLineOfSight(userX, userY, targetX, targetY);
 
         const effectPath: [number, number][] = [[userX, userY], ...result.checked];
 

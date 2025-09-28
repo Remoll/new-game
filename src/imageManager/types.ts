@@ -6,6 +6,7 @@ enum ImageKey {
     POTION = "potion",
     FLOOR = "floor",
     BLOCK = "block",
+    BLOCK2 = "block2",
     DOOR_CLOSED = "doorClosed",
     DOOR_OPEN = "doorOpen",
     SCROLL = "scroll",

@@ -24,7 +24,9 @@ class GameInstance {
         GameState.setGameMapHeight(instanceData.mapSize.height);
 
         const gameMap = new GameMap();
-        const fields = gameMap.getFields();
+        const fields = gameMap.getFields(); 
+
+        GameState.setFields(fields);
 
         const npcs: Npc[] = instanceData.npcs.map((npcData) => new Npc({ fields, ...npcData }));
 

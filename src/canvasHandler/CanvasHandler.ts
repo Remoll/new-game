@@ -5,6 +5,8 @@ import Player from "@/gameObject/entity/player/Player";
 import GameState from "@/game/GameState";
 import { FieldOfView } from "./types";
 import Field from "@/gameMap/field/Field";
+import ImageManager from "@/imageManager/ImageManager";
+import { ImageKey } from "@/imageManager/types";
 
 class CanvasHandler {
 	private gameObjects: GameObject[];
@@ -58,11 +60,17 @@ class CanvasHandler {
 
 		const fields: Field[] = this.gameMap.getFields();
 		const fieldsOnView = fields.filter((field) => {
-			return this.checkIsElementOnFieldOfView(fieldOfView, field.getPosition())
+			const isFieldOnVie = this.checkIsElementOnFieldOfView(fieldOfView, field.getPosition());
+
+			if (!isFieldOnVie) {
+				return false;
+			}
+
+			return GameState.hasLineOfSight(playerCoordinates.x, playerCoordinates.y, field.getPosition().x, field.getPosition().y, { ignoreEntities: true }).clear
 		})
 
 		const gameObjectsOnView = this.gameObjects.filter((gameObject) => {
-			return this.checkIsElementOnFieldOfView(fieldOfView, gameObject.getPosition())
+			return fieldsOnView.some((field) => field.getPosition().x === gameObject.getPosition().x && field.getPosition().y === gameObject.getPosition().y)
 		})
 
 		const fieldSize: number = GameState.getFieldSize();
@@ -74,10 +82,28 @@ class CanvasHandler {
 		gameObjectsOnView.forEach((gameObject) => {
 			gameObject.addToCanvas(this.ctx, playerAndCenterDifference, fieldSize)
 		})
+
+		const outOfMapCoordinates: Coordinates[] = []
+		for (let x = fieldOfView.start.x; x <= fieldOfView.end.x; x++) {
+			for (let y = fieldOfView.start.y; y <= fieldOfView.end.y; y++) {
+				const isFieldOnMap = fields.some((field) => field.getPosition().x === x && field.getPosition().y === y)
+
+				if (!isFieldOnMap) {
+					outOfMapCoordinates.push({ x, y })
+				}
+			}
+		}
+
+		outOfMapCoordinates.forEach((coordinates) => {
+			this.ctx.drawImage(ImageManager.instance.getImage(ImageKey.BLOCK2), (coordinates.x - playerAndCenterDifference.x) * fieldSize, (coordinates.y - playerAndCenterDifference.y) * fieldSize)
+		})
+
 	}
 
 	clearCanvas() {
 		this.ctx.clearRect(0, 0, 1100, 1100)
+		this.ctx.fillStyle = "black";
+		this.ctx.fillRect(0, 0, 1100, 1100);
 	}
 }
 
