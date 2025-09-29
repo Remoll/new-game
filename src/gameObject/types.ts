@@ -1,6 +1,7 @@
 import { InstanceKey } from "@/game/gameInstanceData/types";
 import Field from "@/gameMap/field/Field";
 import { ImageKey } from "@/imageManager/types";
+import { Coordinates } from "@/types";
 
 enum Direction {
 	UP = "up",
@@ -49,6 +50,7 @@ interface EntityAttributes extends GameObjectAttributes {
 
 interface GatewayAttributes extends GameObjectAttributes {
 	targetInstanceKey: InstanceKey;
+	targetPlayerCoordinates: Coordinates;
 }
 
 export { GameObjectAttributes, EntityAttributes, GatewayAttributes, Direction, Disposition, Faction, DispositionToFactions, GameObjectImagesKeys };

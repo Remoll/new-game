@@ -4,7 +4,6 @@ import { Coordinates } from "@/types";
 
 interface InstanceData {
     mapSize: { width: number, height: number };
-    playerStart: Coordinates;
     buildingsCoordinates: BuildingCoordinates[];
     npcs: Omit<EntityAttributes, 'fields'>[];
     items: Omit<GameObjectAttributes, 'fields'>[];

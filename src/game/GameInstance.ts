@@ -44,9 +44,9 @@ class GameInstance {
             }
         });
 
-        const gateway: Gateway = new Gateway({ fields, ...instanceData.gateways[0] });
+        const gateways: Gateway[] = instanceData.gateways.map((gateway) => new Gateway({ fields, ...gateway }));
 
-        this.gameObjects = [...npcs, ...blocksFromBuildings, ...items, gateway];
+        this.gameObjects = [...npcs, ...blocksFromBuildings, ...items, ...gateways];
         this.gameMap = gameMap;
     }
 

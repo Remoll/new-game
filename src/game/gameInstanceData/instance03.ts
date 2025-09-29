@@ -7,7 +7,6 @@ const instanceData: InstanceData = {
         width: 50,
         height: 50
     },
-    playerStart: { x: 5, y: 5 },
     buildingsCoordinates: Building.generateRandomBuildingsCoordinates({
         count: 15,
         mapWidth: 50,
@@ -20,7 +19,7 @@ const instanceData: InstanceData = {
     npcs: [],
     items: [],
     gateways: [
-        { targetInstanceKey: InstanceKey.INSTANCE_01, type: "gateway", x: 29, y: 5, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true }
+        { targetInstanceKey: InstanceKey.INSTANCE_02, type: "gateway", x: 20, y: 48, targetPlayerCoordinates: { x: 11, y: 2 }, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true },
     ]
 };
 

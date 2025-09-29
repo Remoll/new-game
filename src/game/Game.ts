@@ -9,6 +9,7 @@ import instance02 from "@/game/gameInstanceData/instance02";
 import instance03 from "@/game/gameInstanceData/instance03";
 import { InstanceData, InstanceKey } from "./gameInstanceData/types";
 import GameState from "./GameState";
+import { Coordinates } from "@/types";
 
 class Game {
   private static instance: Game | null = null;
@@ -45,13 +46,10 @@ class Game {
 
   private initGame() {
     if (this.ctx) {
-      this.player = new Player({ fields: [], speed: 2, type: "player", x: null, y: null, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
+      this.player = new Player({ fields: [], speed: 2, type: "player", x: 1, y: 1, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
 
       this.instances[InstanceKey.INSTANCE_01] = new GameInstance(instance01);
       const gameMap = this.instances[InstanceKey.INSTANCE_01].getGameMap();
-
-      this.player.setX(instance01.playerStart.x);
-      this.player.setY(instance01.playerStart.y);
 
       this.player.setFields(gameMap.getFields());
 
@@ -65,7 +63,7 @@ class Game {
     }
   }
 
-  startNewInstance(instanceKey: InstanceKey) {
+  startNewInstance(instanceKey: InstanceKey, targetPlayerCoordinates: Coordinates) {
     const instanceData = this.getInstanceDataByKey(instanceKey);
 
     if (!this.instances[instanceKey]) {
@@ -74,10 +72,12 @@ class Game {
 
     const gameMap = this.instances[instanceKey].getGameMap();
 
-    this.player.getCurrentField().removeGameObjectFromField(this.player);
+    const playerPrevField = this.player.getCurrentField()
 
-    this.player.setX(instanceData.playerStart.x);
-    this.player.setY(instanceData.playerStart.y);
+    playerPrevField.removeGameObjectFromField(this.player);
+
+    this.player.setX(targetPlayerCoordinates.x);
+    this.player.setY(targetPlayerCoordinates.y);
 
     const fields = gameMap.getFields();
 

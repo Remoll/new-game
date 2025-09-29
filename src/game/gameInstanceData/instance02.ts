@@ -7,7 +7,6 @@ const instanceData: InstanceData = {
         width: 30,
         height: 7
     },
-    playerStart: { x: 1, y: 5 },
     buildingsCoordinates: [
         {
             topLeft: {
@@ -67,7 +66,9 @@ const instanceData: InstanceData = {
     ],
     items: [],
     gateways: [
-        { targetInstanceKey: InstanceKey.INSTANCE_03, type: "gateway", x: 29, y: 5, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true }
+        { targetInstanceKey: InstanceKey.INSTANCE_03, type: "gateway", x: 11, y: 2, targetPlayerCoordinates: { x: 20, y: 48 }, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true },
+        { targetInstanceKey: InstanceKey.INSTANCE_01, type: "gateway", x: 0, y: 5, targetPlayerCoordinates: { x: 0, y: 0 }, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true },
+        { targetInstanceKey: InstanceKey.INSTANCE_01, type: "gateway", x: 29, y: 5, targetPlayerCoordinates: { x: 19, y: 0 }, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true }
     ]
 };
 
