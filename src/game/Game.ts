@@ -8,6 +8,7 @@ import instance01 from "@/game/gameInstanceData/instance01";
 import instance02 from "@/game/gameInstanceData/instance02";
 import instance03 from "@/game/gameInstanceData/instance03";
 import { InstanceData, InstanceKey } from "./gameInstanceData/types";
+import GameState from "./GameState";
 
 class Game {
   private static instance: Game | null = null;
@@ -15,6 +16,7 @@ class Game {
   private gameLoop: GameLoop;
   private gameEventListener: GameEventListener;
   private player: Player;
+  private instances: { [key in InstanceKey]?: GameInstance } = {};
 
   private constructor(ctx: CanvasRenderingContext2D) {
     this.ctx = ctx;
@@ -45,15 +47,15 @@ class Game {
     if (this.ctx) {
       this.player = new Player({ fields: [], speed: 2, type: "player", x: null, y: null, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
 
-      const gameInstance = new GameInstance(instance01);
-      const gameMap = gameInstance.getGameMap();
+      this.instances[InstanceKey.INSTANCE_01] = new GameInstance(instance01);
+      const gameMap = this.instances[InstanceKey.INSTANCE_01].getGameMap();
 
       this.player.setX(instance01.playerStart.x);
       this.player.setY(instance01.playerStart.y);
 
       this.player.setFields(gameMap.getFields());
 
-      const gameObjects = [this.player, ...gameInstance.getGameObjects()];
+      const gameObjects = [this.player, ...this.instances[InstanceKey.INSTANCE_01].getGameObjects()];
 
       this.gameLoop = GameLoop.getInstance(gameObjects, gameMap, this.ctx);
 
@@ -65,19 +67,28 @@ class Game {
 
   startNewInstance(instanceKey: InstanceKey) {
     const instanceData = this.getInstanceDataByKey(instanceKey);
-    const gameInstance = new GameInstance(instanceData);
-    const gameMap = gameInstance.getGameMap();
+
+    if (!this.instances[instanceKey]) {
+      this.instances[instanceKey] = new GameInstance(instanceData);
+    }
+
+    const gameMap = this.instances[instanceKey].getGameMap();
+
+    this.player.getCurrentField().removeGameObjectFromField(this.player);
 
     this.player.setX(instanceData.playerStart.x);
     this.player.setY(instanceData.playerStart.y);
 
-    this.player.setFields(gameMap.getFields());
+    const fields = gameMap.getFields();
+
+    this.player.setFields(fields);
+    GameState.setFields(fields);
 
     this.player.getItems().forEach((item) => {
       item.setFields(gameMap.getFields());
     })
 
-    const gameObjects = [this.player, ...gameInstance.getGameObjects()];
+    const gameObjects = [this.player, ...this.instances[instanceKey].getGameObjects()];
     this.gameLoop.setGameMap(gameMap)
     this.gameLoop.setGameObjects(gameObjects)
     this.gameEventListener.setGameObjects(gameObjects)

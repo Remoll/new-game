@@ -95,7 +95,7 @@ class GameObject {
     return `${type}-${timestamp}-${randomPart}`;
   }
 
-  protected getCurrentField(): Field | null {
+  getCurrentField(): Field | null {
     const field = this.getFieldFromCoordinates(this.x, this.y);
     if (!field) {
       console.log(this.getId(), " Field not found for coordinates:", this.x, this.y);
