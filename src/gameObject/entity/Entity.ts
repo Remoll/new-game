@@ -76,7 +76,7 @@ class Entity extends GameObject {
             const { x: entityX, y: entityY } = entityInRange.getPosition();
             const { x: npcX, y: npcY } = this.getPosition();
 
-            const result = GameState.hasLineOfSight(npcX, npcY, entityX, entityY,);
+            const result = GameState.hasLineOfSight(npcX, npcY, entityX, entityY, { ignoreEntities: true });
 
             return result.clear;
         })
@@ -102,8 +102,12 @@ class Entity extends GameObject {
         this.visibleEnemies = entities;
     }
 
-    takeDamage(value: number) {
+    takeDamage(value: number, sender: Entity) {
         this.hp -= value;
+        if (!this.getFocusedEnemy()) {
+            console.log("sender: ", sender)
+            this.setFocusedEnemy(sender);
+        }
         if (this.hp <= 0) {
             this.die();
         }

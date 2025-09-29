@@ -36,7 +36,7 @@ class FireBallScroll extends Projectile {
         const field = this.getFieldFromCoordinates(colisionCoordinates.x, colisionCoordinates.y);
         const gameObjectThatOccupiedField = field?.getGameObjectThatOccupiedField();
         if (gameObjectThatOccupiedField instanceof Entity) {
-            gameObjectThatOccupiedField.takeDamage(50);
+            gameObjectThatOccupiedField.takeDamage(50, this.getEquippedBy() as Entity);
         }
     }
 }

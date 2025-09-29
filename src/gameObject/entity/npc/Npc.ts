@@ -68,12 +68,20 @@ class Npc extends Entity {
       this.setFocusedEnemy(null);
     }
 
+    if (focusedEnemy && !this.getVisibleEnemies().some((entity) => entity === focusedEnemy) && focusedEnemy.isAlive()) {
+      this.getVisibleEnemies().push(focusedEnemy);
+    }
+
     if (this.getVisibleEnemies().length < 1) {
       this.findVisibleEnemies();
       return;
     }
 
     const hostileEntities: GameObjectSelector = { id: this.getVisibleEnemies().map((entity) => entity.getId()) };
+
+    if (focusedEnemy && !this.getVisibleEnemies().some((entity) => entity === focusedEnemy) && focusedEnemy.isAlive()) {
+      this.getVisibleEnemies().push(focusedEnemy);
+    }
 
     if (!hostileEntities) {
       console.log("No hostile entities defined for this entity. Can't take turn.");

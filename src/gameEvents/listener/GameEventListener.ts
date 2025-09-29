@@ -34,8 +34,8 @@ class GameEventListener {
     this.gameLoop.playerStartTurn(value);
   }
 
-  private handleAttack(targetEntity: Entity, value: number) {
-    targetEntity.takeDamage(value);
+  private handleAttack(targetEntity: Entity, value: number, sender: Entity) {
+    targetEntity.takeDamage(value, sender);
   }
 
   private handleMove() { }
@@ -82,7 +82,7 @@ class GameEventListener {
             console.error('Attack event value must be a number');
             return;
           }
-          this.handleAttack(gameObject, value);
+          this.handleAttack(gameObject, value, sender);
           return;
 
         case GameEventType.MOVED:
