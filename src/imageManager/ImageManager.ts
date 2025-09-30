@@ -15,6 +15,9 @@ import gatewayImage from "@/imageManager/images/gatewayImage.png";
 import dogImage from "@/imageManager/images/dogImage.png";
 import dogDeadImage from "@/imageManager/images/dogDeadImage.png";
 import grassBlockImage from "@/imageManager/images/grassBlockImage.png";
+import fireElementalImage from "@/imageManager/images/fireElementalImage.png";
+import laboratoryImage from "@/imageManager/images/laboratoryImage.png";
+import fireWandImage from "@/imageManager/images/fireWandImage.png";
 
 class ImageManager {
     private static _instance: ImageManager;
@@ -34,6 +37,9 @@ class ImageManager {
         [ImageKey.DOG_DEAD]: undefined,
         [ImageKey.STONE_BLICK_DARK]: undefined,
         [ImageKey.GRASS_BLOCK]: undefined,
+        [ImageKey.FIRE_ELEMENTAL]: undefined,
+        [ImageKey.LABORATORY]: undefined,
+        [ImageKey.FIRE_WAND]: undefined,
     };
 
     private constructor() { }
@@ -59,7 +65,7 @@ class ImageManager {
     }
 
     preloadImages = async (): Promise<void> => {
-        const [player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock] = await Promise.all([
+        const [player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand] = await Promise.all([
             this.imageLoader(playerImage),
             this.imageLoader(playerDeadImage),
             this.imageLoader(enemyImage),
@@ -75,8 +81,11 @@ class ImageManager {
             this.imageLoader(dogDeadImage),
             this.imageLoader(stoneBlockDarkImage),
             this.imageLoader(grassBlockImage),
+            this.imageLoader(fireElementalImage),
+            this.imageLoader(laboratoryImage),
+            this.imageLoader(fireWandImage),
         ])
-        this.setImages({ player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock });
+        this.setImages({ player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand });
     }
 
     getImage(key: string): HTMLImageElement | undefined {

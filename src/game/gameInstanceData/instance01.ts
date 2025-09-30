@@ -35,11 +35,14 @@ const instanceData: InstanceData = {
     ],
     items: [
         { type: "reanimatePotion", x: 1, y: 2, imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION }, canOccupiedFields: false, isInteractive: true },
-        { type: "fireBallScroll", x: 2, y: 1, imagesKeys: { default: ImageKey.SCROLL, dead: ImageKey.SCROLL }, canOccupiedFields: false, isInteractive: true },
+        { type: "fireWand", x: 2, y: 1, imagesKeys: { default: ImageKey.FIRE_WAND, dead: ImageKey.FIRE_WAND }, canOccupiedFields: false, isInteractive: true },
     ],
     gateways: [
         { targetInstanceKey: InstanceKey.INSTANCE_02, type: "gateway", x: 0, y: 0, targetPlayerCoordinates: { x: 0, y: 5 }, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true },
         { targetInstanceKey: InstanceKey.INSTANCE_02, type: "gateway", x: 19, y: 0, targetPlayerCoordinates: { x: 29, y: 5 }, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true }
+    ],
+    workshops: [
+        { type: "workshop", x: 4, y: 4, imagesKeys: { default: ImageKey.LABORATORY, dead: ImageKey.LABORATORY }, canOccupiedFields: true, isInteractive: true },
     ]
 };
 

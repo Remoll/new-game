@@ -6,7 +6,7 @@ import { emitAnimateEffect } from "@/gameEvents/emiter/emittedActions";
 import { ImageKey } from "@/imageManager/types";
 import GameState from "@/game/GameState";
 
-class FireBallScroll extends Projectile {
+class FireWand extends Projectile {
     constructor(attributes: GameObjectAttributes) {
         super(attributes);
         this.isConsumables = false;
@@ -41,4 +41,4 @@ class FireBallScroll extends Projectile {
     }
 }
 
-export default FireBallScroll
+export default FireWand

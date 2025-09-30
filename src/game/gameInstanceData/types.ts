@@ -1,6 +1,5 @@
 import { BuildingCoordinates } from "@/gameMap/building/types";
 import { EntityAttributes, GameObjectAttributes, GatewayAttributes } from "@/gameObject/types";
-import { Coordinates } from "@/types";
 
 interface InstanceData {
     mapSize: { width: number, height: number };
@@ -8,6 +7,7 @@ interface InstanceData {
     npcs: Omit<EntityAttributes, 'fields'>[];
     items: Omit<GameObjectAttributes, 'fields'>[];
     gateways: Omit<GatewayAttributes, 'fields'>[];
+    workshops?: Omit<GameObjectAttributes, 'fields'>[];
 }
 
 enum InstanceKey {

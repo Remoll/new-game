@@ -14,6 +14,9 @@ enum ImageKey {
     DOG = "dog",
     DOG_DEAD = "dogDead",
     GRASS_BLOCK = "grassBlock",
+    FIRE_ELEMENTAL = "fireElemental",
+    LABORATORY = "laboratory",
+    FIRE_WAND = "fireWand",
 }
 
 type ImageMap = {

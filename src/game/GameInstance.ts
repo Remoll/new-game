@@ -9,7 +9,8 @@ import Block from "@/gameObject/block/Block";
 import Door from "@/gameObject/block/Door";
 import GameState from "./GameState";
 import ReanimatePotion from "@/gameObject/item/touchable/reanimatePotion/ReanimatePotion";
-import FireBallScroll from "@/gameObject/item/projectile/fireBallScroll/FireBallScroll";
+import FireWand from "@/gameObject/item/projectile/fireWand/FireWand";
+import Workshop from "@/gameObject/workshop/Workshop";
 
 class GameInstance {
     private gameObjects: GameObject[] = [];
@@ -24,7 +25,7 @@ class GameInstance {
         GameState.setGameMapHeight(instanceData.mapSize.height);
 
         const gameMap = new GameMap();
-        const fields = gameMap.getFields(); 
+        const fields = gameMap.getFields();
 
         GameState.setFields(fields);
 
@@ -37,8 +38,8 @@ class GameInstance {
             switch (itemData.type) {
                 case "reanimatePotion":
                     return new ReanimatePotion({ fields, ...itemData });
-                case "fireBallScroll":
-                    return new FireBallScroll({ fields, ...itemData });
+                case "fireWand":
+                    return new FireWand({ fields, ...itemData });
                 default:
                     throw new Error(`Unknown item type: ${itemData.type}`);
             }
@@ -46,7 +47,9 @@ class GameInstance {
 
         const gateways: Gateway[] = instanceData.gateways.map((gateway) => new Gateway({ fields, ...gateway }));
 
-        this.gameObjects = [...npcs, ...blocksFromBuildings, ...items, ...gateways];
+        const workshops: Workshop[] = instanceData.workshops?.map((workshop) => new Workshop({ fields, ...workshop })) || [];
+
+        this.gameObjects = [...npcs, ...blocksFromBuildings, ...items, ...gateways, ...workshops];
         this.gameMap = gameMap;
     }
 

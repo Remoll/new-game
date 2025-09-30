@@ -11,6 +11,7 @@ import Block from "@/gameObject/block/Block";
 import Item from "@/gameObject/item/Item";
 import Entity from "@/gameObject/entity/Entity";
 import Gateway from "@/gameObject/gateway/Gateway";
+import Workshop from "@/gameObject/workshop/Workshop";
 
 class CanvasHandler {
 	private gameObjects: GameObject[];
@@ -102,6 +103,7 @@ class CanvasHandler {
 
 		const blocksToRender: Block[] = [];
 		const gatewaysToRender: Gateway[] = [];
+		const workshopsToRender: Workshop[] = [];
 		const deadEntitiesToRender: Entity[] = [];
 		const itemsToRender: Item[] = [];
 		const aliveEntitiesToRender: Entity[] = [];
@@ -112,6 +114,8 @@ class CanvasHandler {
 				blocksToRender.push(gameObject);
 			} else if (gameObject instanceof Gateway) {
 				gatewaysToRender.push(gameObject);
+			} else if (gameObject instanceof Workshop) {
+				workshopsToRender.push(gameObject);
 			} else if (gameObject instanceof Item) {
 				itemsToRender.push(gameObject);
 			} else if (gameObject instanceof Entity) {
@@ -128,6 +132,7 @@ class CanvasHandler {
 		const sortedGameObjectsToRender: GameObject[] = [
 			...blocksToRender,
 			...gatewaysToRender,
+			...workshopsToRender,
 			...deadEntitiesToRender,
 			...itemsToRender,
 			...aliveEntitiesToRender,
