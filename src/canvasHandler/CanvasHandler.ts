@@ -63,6 +63,25 @@ class CanvasHandler {
 		const fieldOfView: FieldOfView = this.getFieldOfView(playerCoordinates);
 
 		const fields: Field[] = this.gameMap.getFields();
+
+		const fieldSize: number = GameState.getFieldSize();
+
+		const outOfMapCoordinates: Coordinates[] = []
+
+		for (let x = fieldOfView.start.x; x <= fieldOfView.end.x; x++) {
+			for (let y = fieldOfView.start.y; y <= fieldOfView.end.y; y++) {
+				const isFieldOnMap = fields.some((field) => field.getPosition().x === x && field.getPosition().y === y)
+
+				if (!isFieldOnMap) {
+					outOfMapCoordinates.push({ x, y })
+				}
+			}
+		}
+
+		outOfMapCoordinates.forEach((coordinates) => {
+			this.ctx.drawImage(ImageManager.instance.getImage(ImageKey.STONE_BLICK_DARK), (coordinates.x - playerAndCenterDifference.x) * fieldSize, (coordinates.y - playerAndCenterDifference.y) * fieldSize, fieldSize, fieldSize)
+		})
+
 		const fieldsOnView = fields.filter((field) => {
 			const isFieldOnVie = this.checkIsElementOnFieldOfView(fieldOfView, field.getPosition());
 
@@ -77,12 +96,9 @@ class CanvasHandler {
 			return fieldsOnView.some((field) => field.getPosition().x === gameObject.getPosition().x && field.getPosition().y === gameObject.getPosition().y)
 		})
 
-		const fieldSize: number = GameState.getFieldSize();
-
 		fieldsOnView.forEach((field) => {
 			field.addToCanvas(this.ctx, playerAndCenterDifference, fieldSize)
 		})
-
 
 		const blocksToRender: Block[] = [];
 		const gatewaysToRender: Gateway[] = [];
@@ -122,20 +138,7 @@ class CanvasHandler {
 			gameObject.addToCanvas(this.ctx, playerAndCenterDifference, fieldSize)
 		})
 
-		const outOfMapCoordinates: Coordinates[] = []
-		for (let x = fieldOfView.start.x; x <= fieldOfView.end.x; x++) {
-			for (let y = fieldOfView.start.y; y <= fieldOfView.end.y; y++) {
-				const isFieldOnMap = fields.some((field) => field.getPosition().x === x && field.getPosition().y === y)
 
-				if (!isFieldOnMap) {
-					outOfMapCoordinates.push({ x, y })
-				}
-			}
-		}
-
-		outOfMapCoordinates.forEach((coordinates) => {
-			this.ctx.drawImage(ImageManager.instance.getImage(ImageKey.STONE_BLICK_DARK), (coordinates.x - playerAndCenterDifference.x) * fieldSize, (coordinates.y - playerAndCenterDifference.y) * fieldSize, fieldSize, fieldSize)
-		})
 
 	}
 
