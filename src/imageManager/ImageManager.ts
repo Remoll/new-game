@@ -5,9 +5,8 @@ import playerDeadImage from "@/imageManager/images/playerDeadImage.png";
 import enemyImage from "@/imageManager/images/enemyImage.png";
 import enemyDeadImage from "@/imageManager/images/enemyDeadImage.png";
 import potionImage from "@/imageManager/images/potionImage.png";
-import floorImage from "@/imageManager/images/floorImage.png";
-import blockImage from "@/imageManager/images/blockImage.png";
-import block2Image from "@/imageManager/images/block2Image.png";
+import stoneBlockLightImage from "@/imageManager/images/stoneBlockLightImage.png";
+import stoneBlockDarkImage from "@/imageManager/images/stoneBlockDarkImage.png";
 import doorClosedImage from "@/imageManager/images/doorClosedImage.png";
 import doorOpenImage from "@/imageManager/images/doorOpenImage.png";
 import scrollImage from "@/imageManager/images/scrollImage.png";
@@ -15,6 +14,7 @@ import fireOrbImage from "@/imageManager/images/fireOrbImage.png";
 import gatewayImage from "@/imageManager/images/gatewayImage.png";
 import dogImage from "@/imageManager/images/dogImage.png";
 import dogDeadImage from "@/imageManager/images/dogDeadImage.png";
+import grassBlockImage from "@/imageManager/images/grassBlockImage.png";
 
 class ImageManager {
     private static _instance: ImageManager;
@@ -24,8 +24,7 @@ class ImageManager {
         [ImageKey.ENEMY]: undefined,
         [ImageKey.POTION]: undefined,
         [ImageKey.ENEMY_DEAD]: undefined,
-        [ImageKey.FLOOR]: undefined,
-        [ImageKey.BLOCK]: undefined,
+        [ImageKey.STONE_BLOCK_LIGHT]: undefined,
         [ImageKey.DOOR_CLOSED]: undefined,
         [ImageKey.DOOR_OPEN]: undefined,
         [ImageKey.SCROLL]: undefined,
@@ -33,7 +32,8 @@ class ImageManager {
         [ImageKey.GATEWAY]: undefined,
         [ImageKey.DOG]: undefined,
         [ImageKey.DOG_DEAD]: undefined,
-        [ImageKey.BLOCK2]: undefined,
+        [ImageKey.STONE_BLICK_DARK]: undefined,
+        [ImageKey.GRASS_BLOCK]: undefined,
     };
 
     private constructor() { }
@@ -59,14 +59,13 @@ class ImageManager {
     }
 
     preloadImages = async (): Promise<void> => {
-        const [player, playerDead, enemy, enemyDead, potion, floor, block, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, block2] = await Promise.all([
+        const [player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock] = await Promise.all([
             this.imageLoader(playerImage),
             this.imageLoader(playerDeadImage),
             this.imageLoader(enemyImage),
             this.imageLoader(enemyDeadImage),
             this.imageLoader(potionImage),
-            this.imageLoader(floorImage),
-            this.imageLoader(blockImage),
+            this.imageLoader(stoneBlockLightImage),
             this.imageLoader(doorClosedImage),
             this.imageLoader(doorOpenImage),
             this.imageLoader(scrollImage),
@@ -74,9 +73,10 @@ class ImageManager {
             this.imageLoader(gatewayImage),
             this.imageLoader(dogImage),
             this.imageLoader(dogDeadImage),
-            this.imageLoader(block2Image),
+            this.imageLoader(stoneBlockDarkImage),
+            this.imageLoader(grassBlockImage),
         ])
-        this.setImages({ player, playerDead, enemy, enemyDead, potion, floor, block, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, block2 });
+        this.setImages({ player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock });
     }
 
     getImage(key: string): HTMLImageElement | undefined {

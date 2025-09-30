@@ -1,5 +1,6 @@
 import GameObject from "@/gameObject/GameObject";
 import ImageManager from "@/imageManager/ImageManager";
+import { ImageKey } from "@/imageManager/types";
 import { Coordinates } from "@/types";
 
 class Field {
@@ -57,7 +58,7 @@ class Field {
   }
 
   addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number) {
-    ctx.drawImage(ImageManager.instance.getImage("floor"), (this.x - fieldShift.x) * fieldSize, (this.y - fieldShift.y) * fieldSize)
+    ctx.drawImage(ImageManager.instance.getImage(ImageKey.GRASS_BLOCK), (this.x - fieldShift.x) * fieldSize, (this.y - fieldShift.y) * fieldSize)
   }
 }
 

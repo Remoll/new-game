@@ -4,9 +4,8 @@ enum ImageKey {
     ENEMY = "enemy",
     ENEMY_DEAD = "enemyDead",
     POTION = "potion",
-    FLOOR = "floor",
-    BLOCK = "block",
-    BLOCK2 = "block2",
+    STONE_BLOCK_LIGHT = "stoneBlockLight",
+    STONE_BLICK_DARK = "stoneBlockDark",
     DOOR_CLOSED = "doorClosed",
     DOOR_OPEN = "doorOpen",
     SCROLL = "scroll",
@@ -14,6 +13,7 @@ enum ImageKey {
     GATEWAY = "gateway",
     DOG = "dog",
     DOG_DEAD = "dogDead",
+    GRASS_BLOCK = "grassBlock",
 }
 
 type ImageMap = {

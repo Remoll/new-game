@@ -34,7 +34,7 @@ class Building {
 		if (door) {
 			newField = new Door({ fields: this.fields, type: "door", x, y, imagesKeys: { default: ImageKey.DOOR_CLOSED, dead: ImageKey.DOOR_OPEN }, canOccupiedFields: true, isInteractive: true }, door.isClosed);
 		} else {
-			newField = new Block({ fields: this.fields, type: "block", x, y, imagesKeys: { default: ImageKey.BLOCK, dead: ImageKey.BLOCK }, canOccupiedFields: true, isInteractive: false });
+			newField = new Block({ fields: this.fields, type: "block", x, y, imagesKeys: { default: ImageKey.STONE_BLOCK_LIGHT, dead: ImageKey.STONE_BLOCK_LIGHT }, canOccupiedFields: true, isInteractive: false });
 		}
 
 		return newField;
