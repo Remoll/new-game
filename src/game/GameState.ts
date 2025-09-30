@@ -1,14 +1,24 @@
 import Field from "@/gameMap/field/Field";
 import Entity from "@/gameObject/entity/Entity";
+import Player from "@/gameObject/entity/player/Player";
 import { Coordinates } from "@/types";
 
 class GameState {
+    private static player: Player | null = null;
     private static fieldSize: number = 40;
     private static gameMapWidth: number = 21;
     private static gameMapHeight: number = 21;
     private static viewRange: number = 10;
     private static playerAndCenterDifference: Coordinates = { x: null, y: null };
     private static fields: Field[] = [];
+
+    static setPlayer(player: Player): void {
+        this.player = player;
+    }
+
+    static getPlayer(): Player {
+        return this.player;
+    }
 
     static setFields(fields: Field[]): void {
         this.fields = fields;

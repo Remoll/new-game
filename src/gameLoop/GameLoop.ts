@@ -131,6 +131,18 @@ class GameLoop {
 	}
 
 	executeTurn() {
+		const player = GameState.getPlayer();
+
+		if (!player) {
+			console.log("Player not found - can't execute turn");
+			return;
+		}
+
+		if (!player.isAlive()) {
+			console.log("Player is dead - can't execute turn");
+			return;
+		}
+
 		const turnLine: Entity[] = this.generateTurnLine();
 		this.entityStartTurn(turnLine, 0);
 	}
