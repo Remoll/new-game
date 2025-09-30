@@ -24,7 +24,7 @@ class Item extends GameObject {
 
         const { x, y } = this.getPosition();
 
-        ctx.drawImage(ImageManager.instance.getImage(this.getImagesKeys().default), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize)
+        ctx.drawImage(ImageManager.instance.getImage(this.getImagesKeys().default), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize, fieldSize, fieldSize)
     }
 
     handleInteract(gameObject: GameObject): void {

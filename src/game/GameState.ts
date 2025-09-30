@@ -3,7 +3,7 @@ import Entity from "@/gameObject/entity/Entity";
 import { Coordinates } from "@/types";
 
 class GameState {
-    private static fieldSize: number = 50;
+    private static fieldSize: number = 40;
     private static gameMapWidth: number = 21;
     private static gameMapHeight: number = 21;
     private static viewRange: number = 10;

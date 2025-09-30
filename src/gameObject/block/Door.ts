@@ -21,7 +21,7 @@ class Door extends GameObject {
 
 	addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number) {
 		const { x, y } = this.getPosition();
-		ctx.drawImage(ImageManager.instance.getImage(this.getCanOccupiedFields() ? this.getImagesKeys().default : this.getImagesKeys().dead), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize)
+		ctx.drawImage(ImageManager.instance.getImage(this.getCanOccupiedFields() ? this.getImagesKeys().default : this.getImagesKeys().dead), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize, fieldSize, fieldSize)
 	}
 }
 

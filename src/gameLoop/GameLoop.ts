@@ -54,7 +54,7 @@ class GameLoop {
 		const fieldSize: number = GameState.getFieldSize();
 
 		this.refreshGameState();
-		this.ctx.drawImage(ImageManager.instance.getImage(value.imageKey), x * fieldSize, y * fieldSize)
+		this.ctx.drawImage(ImageManager.instance.getImage(value.imageKey), x * fieldSize, y * fieldSize, fieldSize, fieldSize)
 
 		if (value.effectPath.length > 0) {
 			await new Promise(resolve => setTimeout(resolve, 20));

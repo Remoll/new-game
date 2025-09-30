@@ -58,7 +58,7 @@ class Field {
   }
 
   addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number) {
-    ctx.drawImage(ImageManager.instance.getImage(ImageKey.GRASS_BLOCK), (this.x - fieldShift.x) * fieldSize, (this.y - fieldShift.y) * fieldSize)
+    ctx.drawImage(ImageManager.instance.getImage(ImageKey.GRASS_BLOCK), (this.x - fieldShift.x) * fieldSize, (this.y - fieldShift.y) * fieldSize, fieldSize, fieldSize)
   }
 }
 
