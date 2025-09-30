@@ -7,6 +7,10 @@ import { FieldOfView } from "./types";
 import Field from "@/gameMap/field/Field";
 import ImageManager from "@/imageManager/ImageManager";
 import { ImageKey } from "@/imageManager/types";
+import Block from "@/gameObject/block/Block";
+import Item from "@/gameObject/item/Item";
+import Entity from "@/gameObject/entity/Entity";
+import Gateway from "@/gameObject/gateway/Gateway";
 
 class CanvasHandler {
 	private gameObjects: GameObject[];
@@ -79,7 +83,42 @@ class CanvasHandler {
 			field.addToCanvas(this.ctx, playerAndCenterDifference, fieldSize)
 		})
 
-		gameObjectsOnView.forEach((gameObject) => {
+
+		const blocksToRender: Block[] = [];
+		const gatewaysToRender: Gateway[] = [];
+		const deadEntitiesToRender: Entity[] = [];
+		const itemsToRender: Item[] = [];
+		const aliveEntitiesToRender: Entity[] = [];
+		const restGameObjectsToRender: GameObject[] = [];
+
+		for (const gameObject of gameObjectsOnView) {
+			if (gameObject instanceof Block) {
+				blocksToRender.push(gameObject);
+			} else if (gameObject instanceof Gateway) {
+				gatewaysToRender.push(gameObject);
+			} else if (gameObject instanceof Item) {
+				itemsToRender.push(gameObject);
+			} else if (gameObject instanceof Entity) {
+				if (gameObject.isAlive()) {
+					aliveEntitiesToRender.push(gameObject);
+				} else {
+					deadEntitiesToRender.push(gameObject);
+				}
+			} else {
+				restGameObjectsToRender.push(gameObject);
+			}
+		}
+
+		const sortedGameObjectsToRender: GameObject[] = [
+			...blocksToRender,
+			...gatewaysToRender,
+			...deadEntitiesToRender,
+			...itemsToRender,
+			...aliveEntitiesToRender,
+			...restGameObjectsToRender,
+		];
+
+		sortedGameObjectsToRender.forEach((gameObject) => {
 			gameObject.addToCanvas(this.ctx, playerAndCenterDifference, fieldSize)
 		})
 
