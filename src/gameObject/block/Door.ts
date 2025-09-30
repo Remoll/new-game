@@ -13,7 +13,6 @@ class Door extends GameObject {
 		const gameObjectThatOccupiedField = currentField.getGameObjectThatOccupiedField();
 		const isDoorOpen = !this.getCanOccupiedFields();
 		if (isDoorOpen && gameObjectThatOccupiedField) {
-			console.log("Can't close door, some game object in on the field")
 			return;
 		}
 		this.setCanOccupiedFields(!this.getCanOccupiedFields())

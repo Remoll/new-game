@@ -51,7 +51,6 @@ class Player extends Entity {
     }
 
     if (!field) {
-      console.log("No field from coordinates");
       return;
     }
 
@@ -83,7 +82,6 @@ class Player extends Entity {
     this.itemToUse = this.inventory.getItemFromHotkey(key);
 
     if (!this.itemToUse) {
-      console.log("no item for hotkey ", key);
       return;
     }
 

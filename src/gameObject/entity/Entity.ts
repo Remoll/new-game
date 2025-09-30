@@ -105,7 +105,6 @@ class Entity extends GameObject {
     takeDamage(value: number, sender: Entity) {
         this.hp -= value;
         if (!this.getFocusedEnemy()) {
-            console.log("sender: ", sender)
             this.setFocusedEnemy(sender);
         }
         if (this.hp <= 0) {
@@ -140,7 +139,6 @@ class Entity extends GameObject {
     private checkIsFieldAvailable(x: number, y: number): boolean {
         const field = this.getFieldFromCoordinates(x, y);
         if (!field) {
-            console.log("No field from coordinates");
             return false;
         }
 
@@ -184,7 +182,6 @@ class Entity extends GameObject {
         }
 
         if (!this.checkIsFieldAvailable(newX, newY)) {
-            console.log("fieldOccupied, can't move")
             return;
         }
 

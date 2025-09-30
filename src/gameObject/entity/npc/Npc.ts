@@ -12,7 +12,6 @@ class Npc extends Entity {
     const nearestGameObject = this.findNearestGameObject(target, true);
 
     if (!nearestGameObject) {
-      console.log("nearestGameObject not found");
       return;
     }
 
@@ -25,7 +24,7 @@ class Npc extends Entity {
 
   private chargeGameObject(gameObject: GameObject) {
     if (!this.isAlive()) {
-      console.log("Entity is dead and can't take action")
+      console.error("Entity is dead and can't take action")
       return;
     }
 
@@ -47,14 +46,13 @@ class Npc extends Entity {
     const nextField = this.getFieldFromCoordinates(nextX, nextY);
 
     if (!nextField) {
-      console.log("no nextField from provided coordinates");
+      console.error("no nextField from provided coordinates");
       return;
     }
 
     const gameObjectThatOccupiedField = nextField.getGameObjectThatOccupiedField();
 
     if (gameObjectThatOccupiedField && gameObjectThatOccupiedField instanceof Entity && this.getDispositionToFactions()?.[Disposition.FRIENDLY].some((faction) => faction === gameObjectThatOccupiedField.getFaction())) {
-      console.log("Entity will not attack thier own faction member")
       return;
     }
 
@@ -84,7 +82,6 @@ class Npc extends Entity {
     }
 
     if (!hostileEntities) {
-      console.log("No hostile entities defined for this entity. Can't take turn.");
       return;
     }
 

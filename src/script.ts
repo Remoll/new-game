@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   await ImageManager.instance.preloadImages();
 
-  console.log("Images loaded")
-
   ctx.font = "24px Arial";
 
   Game.getInstance(ctx);
