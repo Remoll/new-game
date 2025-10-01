@@ -4,13 +4,14 @@ import Player from "../entity/player/Player";
 import ImageManager from "@/imageManager/ImageManager";
 import { Coordinates } from "@/types";
 import { InventorySlot } from "@/ui/inventory/types";
+import itemFactory from "./itemFactory";
 
 class Item extends GameObject {
     private equippedBy: GameObject | null = null;
     protected isConsumables: boolean = false;
 
     constructor(attributes: GameObjectAttributes) {
-        super(attributes);
+        super(attributes, itemFactory);
     }
 
     getEquippedBy(): GameObject {

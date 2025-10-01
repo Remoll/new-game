@@ -34,7 +34,6 @@ const instanceData: InstanceData = {
         { speed: 1, type: "enemy", x: 18, y: 18, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD }, faction: Faction.ENEMY, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER], [Disposition.FRIENDLY]: [Faction.ENEMY], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false },
     ],
     items: [
-        { type: "reanimatePotion", x: 1, y: 2, imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION }, canOccupiedFields: false, isInteractive: true },
         { type: "fireWand", x: 2, y: 1, imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND }, canOccupiedFields: false, isInteractive: true },
     ],
     gateways: [
@@ -43,6 +42,9 @@ const instanceData: InstanceData = {
     ],
     workshops: [
         { type: "workshop", x: 4, y: 4, imagesKeys: { default: ImageKey.LABORATORY, dead: ImageKey.LABORATORY }, canOccupiedFields: true, isInteractive: true },
+    ],
+    chests: [
+        { itemsAttributes: [{ type: "reanimatePotion", x: 1, y: 2, imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION }, canOccupiedFields: false, isInteractive: true }], type: "chest", x: 5, y: 4, imagesKeys: { default: ImageKey.CHEST, dead: ImageKey.CHEST }, canOccupiedFields: true, isInteractive: true },
     ]
 };
 

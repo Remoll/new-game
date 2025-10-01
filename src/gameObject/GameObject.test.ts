@@ -3,6 +3,8 @@ import GameObject from './GameObject'
 import { Direction, GameObjectAttributes } from './types'
 import Field from '@/gameMap/field/Field'
 
+// TODO: remove fields
+
 const fields = [new Field(0, 0)];
 
 const ganeObjectAttributes: GameObjectAttributes = {

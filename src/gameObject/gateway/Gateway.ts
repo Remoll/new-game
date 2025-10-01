@@ -4,13 +4,14 @@ import GameObject from "../GameObject";
 import { GatewayAttributes } from "../types";
 import Game from "@/game/Game";
 import { Coordinates } from "@/types";
+import itemFactory from "../item/itemFactory";
 
 class Gateway extends GameObject {
     private targetInstanceKey: InstanceKey;
     private targetPlayerCoordinates: Coordinates;
     constructor(attributes: GatewayAttributes) {
         const { targetInstanceKey, targetPlayerCoordinates, ...restAttributes } = attributes;
-        super(restAttributes);
+        super(restAttributes, itemFactory);
         this.targetInstanceKey = targetInstanceKey;
         this.targetPlayerCoordinates = targetPlayerCoordinates;
     }

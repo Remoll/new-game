@@ -11,6 +11,7 @@ import GameState from "./GameState";
 import ReanimatePotion from "@/gameObject/item/touchable/reanimatePotion/ReanimatePotion";
 import FireWand from "@/gameObject/item/projectile/fireWand/FireWand";
 import Workshop from "@/gameObject/workshop/Workshop";
+import Chest from "@/gameObject/chest/Chest";
 
 class GameInstance {
     private gameObjects: GameObject[] = [];
@@ -29,27 +30,29 @@ class GameInstance {
 
         GameState.setFields(fields);
 
-        const npcs: Npc[] = instanceData.npcs.map((npcData) => new Npc({ fields, ...npcData }));
+        const npcs: Npc[] = instanceData.npcs.map((npcData) => new Npc({ ...npcData }));
 
-        const buildings: Building[] = instanceData.buildingsCoordinates.map((buildingCoordinates) => new Building(fields, buildingCoordinates));
+        const buildings: Building[] = instanceData.buildingsCoordinates.map((buildingCoordinates) => new Building(buildingCoordinates));
         const blocksFromBuildings: (Block | Door)[] = buildings.flatMap((building) => building.getBlocks());
 
         const items: Item[] = instanceData.items.map((itemData) => {
             switch (itemData.type) {
                 case "reanimatePotion":
-                    return new ReanimatePotion({ fields, ...itemData });
+                    return new ReanimatePotion({ ...itemData });
                 case "fireWand":
-                    return new FireWand({ fields, ...itemData });
+                    return new FireWand({ ...itemData });
                 default:
                     throw new Error(`Unknown item type: ${itemData.type}`);
             }
         });
 
-        const gateways: Gateway[] = instanceData.gateways.map((gateway) => new Gateway({ fields, ...gateway }));
+        const gateways: Gateway[] = instanceData.gateways.map((gateway) => new Gateway({ ...gateway }));
 
-        const workshops: Workshop[] = instanceData.workshops?.map((workshop) => new Workshop({ fields, ...workshop })) || [];
+        const workshops: Workshop[] = instanceData.workshops?.map((workshop) => new Workshop({ ...workshop })) || [];
 
-        this.gameObjects = [...npcs, ...blocksFromBuildings, ...items, ...gateways, ...workshops];
+        const chests: Chest[] = instanceData.chests?.map((chest) => new Chest({ ...chest })) || [];
+
+        this.gameObjects = [...npcs, ...blocksFromBuildings, ...items, ...gateways, ...workshops, ...chests];
         this.gameMap = gameMap;
     }
 

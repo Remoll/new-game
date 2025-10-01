@@ -5,6 +5,7 @@ import GameObject from "@/gameObject/GameObject";
 import ImageManager from "@/imageManager/ImageManager";
 import { Coordinates } from "@/types";
 import GameState from "@/game/GameState";
+import itemFactory from "../item/itemFactory";
 
 class Entity extends GameObject {
     private initialHp: number;
@@ -19,7 +20,7 @@ class Entity extends GameObject {
     constructor(attributes: EntityAttributes) {
         const { hp, faction, dispositionToFactions, ...gameObjectAttributes } = attributes;
 
-        super(gameObjectAttributes);
+        super(gameObjectAttributes, itemFactory);
 
         this.initialHp = hp;
         this.hp = hp;
@@ -275,7 +276,9 @@ class Entity extends GameObject {
         let nearestGameObject: GameObject | null = null;
         let minDistance = Infinity;
 
-        this.fields.forEach((field) => {
+        const fields = GameState.getFields();
+
+        fields.forEach((field) => {
             const gameObjects = field.getGameObjectsFromField();
 
             gameObjects.forEach((gameObject) => {

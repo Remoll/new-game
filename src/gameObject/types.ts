@@ -1,7 +1,7 @@
 import { InstanceKey } from "@/game/gameInstanceData/types";
-import Field from "@/gameMap/field/Field";
 import { ImageKey } from "@/imageManager/types";
 import { Coordinates } from "@/types";
+import Item from "./item/Item";
 
 enum Direction {
 	UP = "up",
@@ -32,13 +32,13 @@ interface GameObjectImagesKeys {
 }
 
 interface GameObjectAttributes {
-	fields: Field[];
 	type: string;
 	x: number;
 	y: number;
 	imagesKeys: GameObjectImagesKeys;
 	canOccupiedFields: boolean;
 	isInteractive: boolean;
+	itemsAttributes?: GameObjectAttributes[];
 }
 
 interface EntityAttributes extends GameObjectAttributes {
@@ -53,4 +53,6 @@ interface GatewayAttributes extends GameObjectAttributes {
 	targetPlayerCoordinates: Coordinates;
 }
 
-export { GameObjectAttributes, EntityAttributes, GatewayAttributes, Direction, Disposition, Faction, DispositionToFactions, GameObjectImagesKeys };
+type ItemFactory = (itemAttributes: any) => Item;
+
+export { GameObjectAttributes, EntityAttributes, GatewayAttributes, Direction, Disposition, Faction, DispositionToFactions, GameObjectImagesKeys, ItemFactory };

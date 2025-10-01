@@ -1,12 +1,11 @@
 import Field from "@/gameMap/field/Field";
 import Item from "@/gameObject/item/Item";
-import { Direction, GameObjectAttributes, GameObjectImagesKeys } from "./types";
+import { Direction, GameObjectAttributes, GameObjectImagesKeys, ItemFactory } from "./types";
 import { Coordinates } from "@/types";
 import ImageManager from "@/imageManager/ImageManager";
+import GameState from "@/game/GameState";
 
 class GameObject {
-  // TODO: check is fields is necessary here - already in GameState
-  protected fields: Field[];
   protected type: string;
   protected id: string;
   protected x: number;
@@ -16,28 +15,20 @@ class GameObject {
   protected items: Item[] = [];
   private imagesKeys: GameObjectImagesKeys;
 
-  constructor(attributes: GameObjectAttributes) {
-    const { fields, type, x, y, canOccupiedFields, isInteractive, imagesKeys } = attributes;
+  // use itemFactory to avoid circular dependency issues for GameObject and Items
+  constructor(attributes: GameObjectAttributes, itemFactory: ItemFactory) {
+    const { type, x, y, canOccupiedFields, isInteractive, imagesKeys, itemsAttributes } = attributes;
 
-    this.fields = fields;
     this.type = type;
     this.x = x;
     this.y = y;
     this.imagesKeys = imagesKeys;
     this.canOccupiedFields = canOccupiedFields;
     this.isInteractive = isInteractive;
+    this.items = itemsAttributes?.map(itemFactory) || [];
 
     this.id = this.generateId(type);
 
-    const initialField = this.getCurrentField();
-
-    if (initialField) {
-      initialField.addGameObjectToField(this);
-    }
-  }
-
-  setFields(fields: Field[]) {
-    this.fields = fields;
     const initialField = this.getCurrentField();
 
     if (initialField) {
@@ -110,7 +101,8 @@ class GameObject {
   }
 
   protected getFieldFromCoordinates(x: number, y: number): Field | undefined {
-    return this.fields.find((field) => {
+    const fields = GameState.getFields();
+    return fields.find((field) => {
       const { x: fieldX, y: fieldY } = field.getPosition();
       return fieldX === x && fieldY === y
     });

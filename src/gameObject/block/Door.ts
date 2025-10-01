@@ -2,10 +2,11 @@ import GameObject from "@/gameObject/GameObject";
 import { GameObjectAttributes } from "@/gameObject/types";
 import ImageManager from "@/imageManager/ImageManager";
 import { Coordinates } from "@/types";
+import itemFactory from "../item/itemFactory";
 
 class Door extends GameObject {
 	constructor(attributes: GameObjectAttributes, isClosed = true) {
-		super({ ...attributes, canOccupiedFields: isClosed });
+		super({ ...attributes, canOccupiedFields: isClosed }, itemFactory);
 	}
 
 	handleInteract() {

@@ -1,4 +1,3 @@
-import Field from "@/gameMap/field/Field";
 import { BuildingCoordinates, GenerateRandomBuildingsCoordinatesOptions } from "./types";
 import Block from "@/gameObject/block/Block";
 import Door from "@/gameObject/block/Door";
@@ -7,11 +6,9 @@ import { ImageKey } from "@/imageManager/types";
 
 class Building {
 	private blocks: (Block | Door)[];
-	private fields: Field[];
 	private coordinates: BuildingCoordinates;
 
-	constructor(fields: Field[], coordinates: BuildingCoordinates) {
-		this.fields = fields;
+	constructor(coordinates: BuildingCoordinates) {
 		this.coordinates = coordinates;
 		this.generateBlocks();
 	}
@@ -32,9 +29,9 @@ class Building {
 		const door = this.findDoor(x, y);
 
 		if (door) {
-			newField = new Door({ fields: this.fields, type: "door", x, y, imagesKeys: { default: ImageKey.DOOR_CLOSED, dead: ImageKey.DOOR_OPEN }, canOccupiedFields: true, isInteractive: true }, door.isClosed);
+			newField = new Door({ type: "door", x, y, imagesKeys: { default: ImageKey.DOOR_CLOSED, dead: ImageKey.DOOR_OPEN }, canOccupiedFields: true, isInteractive: true }, door.isClosed);
 		} else {
-			newField = new Block({ fields: this.fields, type: "block", x, y, imagesKeys: { default: ImageKey.STONE_BLOCK_LIGHT, dead: ImageKey.STONE_BLOCK_LIGHT }, canOccupiedFields: true, isInteractive: false });
+			newField = new Block({ type: "block", x, y, imagesKeys: { default: ImageKey.STONE_BLOCK_LIGHT, dead: ImageKey.STONE_BLOCK_LIGHT }, canOccupiedFields: true, isInteractive: false });
 		}
 
 		return newField;

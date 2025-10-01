@@ -45,14 +45,12 @@ class Game {
 
   private initGame() {
     if (this.ctx) {
-      const player = new Player({ fields: [], speed: 2, type: "player", x: 1, y: 1, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
+      const player = new Player({ speed: 2, type: "player", x: 1, y: 1, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
 
       GameState.setPlayer(player);
 
       this.instances[InstanceKey.INSTANCE_01] = new GameInstance(instance01);
       const gameMap = this.instances[InstanceKey.INSTANCE_01].getGameMap();
-
-      player.setFields(gameMap.getFields());
 
       const gameObjects = [player, ...this.instances[InstanceKey.INSTANCE_01].getGameObjects()];
 
@@ -83,12 +81,7 @@ class Game {
 
     const fields = gameMap.getFields();
 
-    player.setFields(fields);
     GameState.setFields(fields);
-
-    player.getItems().forEach((item) => {
-      item.setFields(gameMap.getFields());
-    })
 
     const gameObjects = [player, ...this.instances[instanceKey].getGameObjects()];
     this.gameLoop.setGameMap(gameMap)

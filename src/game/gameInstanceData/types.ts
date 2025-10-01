@@ -4,10 +4,11 @@ import { EntityAttributes, GameObjectAttributes, GatewayAttributes } from "@/gam
 interface InstanceData {
     mapSize: { width: number, height: number };
     buildingsCoordinates: BuildingCoordinates[];
-    npcs: Omit<EntityAttributes, 'fields'>[];
-    items: Omit<GameObjectAttributes, 'fields'>[];
-    gateways: Omit<GatewayAttributes, 'fields'>[];
-    workshops?: Omit<GameObjectAttributes, 'fields'>[];
+    npcs: EntityAttributes[];
+    items: GameObjectAttributes[];
+    gateways: GatewayAttributes[];
+    workshops?: GameObjectAttributes[];
+    chests?: GameObjectAttributes[]
 }
 
 enum InstanceKey {
