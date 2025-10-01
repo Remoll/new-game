@@ -20,6 +20,23 @@ class Player extends Entity {
   constructor(attributes: EntityAttributes) {
     super(attributes);
     this.addMoveListener();
+
+    this.setInitialHotkey()
+  }
+
+  private setInitialHotkey(): void {
+    let hotkey: InventorySlot = 1;
+
+    this.getItems().forEach((item, index) => {
+      if (index <= 9) {
+        this.inventory.setHotkey(hotkey, item)
+        if (hotkey <= 9) {
+          hotkey++
+        } else {
+          hotkey = 0
+        }
+      }
+    })
   }
 
   private resetInteraction(): void {

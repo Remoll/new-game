@@ -33,9 +33,7 @@ const instanceData: InstanceData = {
         { speed: 1, type: "enemy", x: 5, y: 1, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD }, faction: Faction.ENEMY, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER], [Disposition.FRIENDLY]: [Faction.ENEMY], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false },
         { speed: 1, type: "enemy", x: 18, y: 18, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD }, faction: Faction.ENEMY, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER], [Disposition.FRIENDLY]: [Faction.ENEMY], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false },
     ],
-    items: [
-        { type: "fireWand", x: 2, y: 1, imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND }, canOccupiedFields: false, isInteractive: true },
-    ],
+    items: [],
     gateways: [
         { targetInstanceKey: InstanceKey.INSTANCE_02, type: "gateway", x: 0, y: 0, targetPlayerCoordinates: { x: 0, y: 5 }, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true },
         { targetInstanceKey: InstanceKey.INSTANCE_02, type: "gateway", x: 19, y: 0, targetPlayerCoordinates: { x: 29, y: 5 }, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true }
