@@ -17,6 +17,12 @@ enum ImageKey {
     FIRE_ELEMENTAL = "fireElemental",
     LABORATORY = "laboratory",
     FIRE_WAND = "fireWand",
+    PILE_OF_DUST = "pileOfDust",
+    WAND = "wand",
+    WIZARD = "wizard",
+    WIZARD_DEAD = "wizardDead",
+    ICE_ORB = "iceOrb",
+    CHEST = "chest",
 }
 
 type ImageMap = {

@@ -1,7 +1,7 @@
 import { ImageKey, ImageMap } from "./types";
 
 import playerImage from "@/imageManager/images/playerImage.png";
-import playerDeadImage from "@/imageManager/images/playerDeadImage.png";
+import playerDeadImage from "@/imageManager/images/playerImage.png";
 import enemyImage from "@/imageManager/images/enemyImage.png";
 import enemyDeadImage from "@/imageManager/images/enemyDeadImage.png";
 import potionImage from "@/imageManager/images/potionImage.png";
@@ -18,6 +18,12 @@ import grassBlockImage from "@/imageManager/images/grassBlockImage.png";
 import fireElementalImage from "@/imageManager/images/fireElementalImage.png";
 import laboratoryImage from "@/imageManager/images/laboratoryImage.png";
 import fireWandImage from "@/imageManager/images/fireWandImage.png";
+import pileOfDustImage from "@/imageManager/images/pileOfDustImage.png";
+import wandImage from "@/imageManager/images/wandImage.png";
+import wizardImage from "@/imageManager/images/wizardImage.png";
+import wizardDeadImage from "@/imageManager/images/wizardDeadImage.png";
+import iceOrbImage from "@/imageManager/images/iceOrbImage.png";
+import chestImage from "@/imageManager/images/chestImage.png";
 
 class ImageManager {
     private static _instance: ImageManager;
@@ -40,6 +46,12 @@ class ImageManager {
         [ImageKey.FIRE_ELEMENTAL]: undefined,
         [ImageKey.LABORATORY]: undefined,
         [ImageKey.FIRE_WAND]: undefined,
+        [ImageKey.PILE_OF_DUST]: undefined,
+        [ImageKey.WAND]: undefined,
+        [ImageKey.WIZARD]: undefined,
+        [ImageKey.WIZARD_DEAD]: undefined,
+        [ImageKey.ICE_ORB]: undefined,
+        [ImageKey.CHEST]: undefined,
     };
 
     private constructor() { }
@@ -65,7 +77,7 @@ class ImageManager {
     }
 
     preloadImages = async (): Promise<void> => {
-        const [player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand] = await Promise.all([
+        const [player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest] = await Promise.all([
             this.imageLoader(playerImage),
             this.imageLoader(playerDeadImage),
             this.imageLoader(enemyImage),
@@ -84,8 +96,14 @@ class ImageManager {
             this.imageLoader(fireElementalImage),
             this.imageLoader(laboratoryImage),
             this.imageLoader(fireWandImage),
+            this.imageLoader(pileOfDustImage),
+            this.imageLoader(wandImage),
+            this.imageLoader(wizardImage),
+            this.imageLoader(wizardDeadImage),
+            this.imageLoader(iceOrbImage),
+            this.imageLoader(chestImage),
         ])
-        this.setImages({ player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand });
+        this.setImages({ player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest });
     }
 
     getImage(key: string): HTMLImageElement | undefined {

@@ -61,7 +61,7 @@ const instanceData: InstanceData = {
         },
     ],
     npcs: [
-        { speed: 4, type: "enemy", x: 12, y: 1, imagesKeys: { default: ImageKey.FIRE_ELEMENTAL, dead: ImageKey.FIRE_ORB }, faction: Faction.ENEMY, hp: 300, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER], [Disposition.FRIENDLY]: [Faction.ENEMY], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false },
+        { speed: 4, type: "enemy", x: 12, y: 1, imagesKeys: { default: ImageKey.FIRE_ELEMENTAL, dead: ImageKey.PILE_OF_DUST }, faction: Faction.ENEMY, hp: 300, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.PLAYER], [Disposition.FRIENDLY]: [Faction.ENEMY], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false },
     ],
     items: [],
     gateways: [
