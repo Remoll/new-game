@@ -64,6 +64,11 @@ class Game {
 
   startNewInstance(instanceKey: InstanceKey, targetPlayerCoordinates: Coordinates) {
     const player = GameState.getPlayer();
+
+    const playerPrevField = player.getCurrentField();
+
+    playerPrevField.removeGameObjectFromField(player);
+
     const instanceData = this.getInstanceDataByKey(instanceKey);
 
     if (!this.instances[instanceKey]) {
@@ -72,16 +77,13 @@ class Game {
 
     const gameMap = this.instances[instanceKey].getGameMap();
 
-    const playerPrevField = player.getCurrentField()
-
-    playerPrevField.removeGameObjectFromField(player);
-
-    player.setX(targetPlayerCoordinates.x);
-    player.setY(targetPlayerCoordinates.y);
-
     const fields = gameMap.getFields();
 
     GameState.setFields(fields);
+    player.setX(targetPlayerCoordinates.x);
+    player.setY(targetPlayerCoordinates.y);
+    const playerCurrentField = player.getCurrentField();
+    playerCurrentField.addGameObjectToField(player);
 
     const gameObjects = [player, ...this.instances[instanceKey].getGameObjects()];
     this.gameLoop.setGameMap(gameMap)
