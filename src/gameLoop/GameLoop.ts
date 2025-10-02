@@ -43,6 +43,12 @@ class GameLoop {
 		this.canvasHandler.setGameMap(gameMap);
 	}
 
+	private getAliveEntitiesFromGameObjects(): Entity[] {
+		return this.gameObjects.filter((gameObject) => {
+			return gameObject instanceof Entity && gameObject.isAlive();
+		}) as Entity[];
+	}
+
 	private refreshGameState() {
 		this.canvasHandler.clearCanvas()
 		this.canvasHandler.renderGameState();
@@ -66,9 +72,7 @@ class GameLoop {
 	}
 
 	private generateTurnLine(): Entity[] {
-		const aliveEntities: Entity[] = this.gameObjects.filter((gameObject) => {
-			return gameObject instanceof Entity && gameObject.isAlive();
-		}) as Entity[];
+		const aliveEntities: Entity[] = this.getAliveEntitiesFromGameObjects();
 
 		const remainingEntitiesSpeed = aliveEntities.map((entity) => ({ id: entity.getId(), remainingSpeed: entity.getSpeed() }))
 
@@ -98,7 +102,7 @@ class GameLoop {
 	}
 
 	private npcTakeTurn(npc: Npc) {
-		if (npc.isAlive()) {
+		if (this.getAliveEntitiesFromGameObjects().includes(npc)) {
 			npc.takeTurn();
 		}
 		document.dispatchEvent(new CustomEvent("entityEndTurn"));

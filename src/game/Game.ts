@@ -50,6 +50,10 @@ class Game {
       GameState.setPlayer(player);
 
       this.instances[InstanceKey.INSTANCE_01] = new GameInstance(instance01);
+
+      const playerCurrentField = player.getCurrentField();
+      playerCurrentField.addGameObjectToField(player);
+
       const gameMap = this.instances[InstanceKey.INSTANCE_01].getGameMap();
 
       const gameObjects = [player, ...this.instances[InstanceKey.INSTANCE_01].getGameObjects()];
@@ -66,7 +70,6 @@ class Game {
     const player = GameState.getPlayer();
 
     const playerPrevField = player.getCurrentField();
-
     playerPrevField.removeGameObjectFromField(player);
 
     const instanceData = this.getInstanceDataByKey(instanceKey);
