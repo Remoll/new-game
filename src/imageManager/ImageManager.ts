@@ -1,7 +1,7 @@
 import { ImageKey, ImageMap } from "./types";
 
 import playerImage from "@/imageManager/images/playerImage.png";
-import playerDeadImage from "@/imageManager/images/playerImage.png";
+import playerDeadImage from "@/imageManager/images/playerDeadImage.png";
 import enemyImage from "@/imageManager/images/enemyImage.png";
 import enemyDeadImage from "@/imageManager/images/enemyDeadImage.png";
 import potionImage from "@/imageManager/images/potionImage.png";
