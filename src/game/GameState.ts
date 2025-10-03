@@ -1,6 +1,4 @@
 import Field from "@/gameMap/field/Field";
-import Block from "@/gameObject/block/Block";
-import Entity from "@/gameObject/entity/Entity";
 import Player from "@/gameObject/entity/player/Player";
 import { Coordinates } from "@/types";
 
@@ -12,6 +10,8 @@ class GameState {
     private static viewRange: number = 10;
     private static playerAndCenterDifference: Coordinates = { x: null, y: null };
     private static fields: Field[] = [];
+
+    private constructor() { }
 
     static setPlayer(player: Player): void {
         this.player = player;

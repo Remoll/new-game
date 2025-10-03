@@ -1,22 +1,19 @@
 import { describe, expect, test } from 'vitest'
 import GameObject from './GameObject'
 import { Direction, GameObjectAttributes } from './types'
-import Field from '@/gameMap/field/Field'
-
-// TODO: remove fields
-
-const fields = [new Field(0, 0)];
+import { ImageKey } from '@/imageManager/types'
+import itemFactory from './item/itemFactory'
 
 const ganeObjectAttributes: GameObjectAttributes = {
-    fields,
     type: "gameObject",
     x: 0,
     y: 0,
     canOccupiedFields: true,
     isInteractive: false,
+    imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG }
 }
 
-const gameObject: GameObject = new GameObject(ganeObjectAttributes)
+const gameObject: GameObject = new GameObject(ganeObjectAttributes, itemFactory)
 
 describe('findNewCoordinatesFromDirection', () => {
     test("direction up", () => {
