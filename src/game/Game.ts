@@ -45,7 +45,7 @@ class Game {
 
   private initGame() {
     if (this.ctx) {
-      const player = new Player({ itemsAttributes: [{ type: "fireWand", x: 2, y: 1, imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND }, canOccupiedFields: false, isInteractive: true }], speed: 2, type: "player", x: 1, y: 1, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
+      const player = new Player({ itemsAttributes: [{ type: "fireWand", x: null, y: null, imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND }, canOccupiedFields: false, isInteractive: true }, { type: "sword", x: null, y: null, imagesKeys: { default: ImageKey.SWORD, dead: ImageKey.SWORD_EQUIPED }, canOccupiedFields: false, isInteractive: true }], speed: 2, type: "player", x: 1, y: 1, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
 
       GameState.setPlayer(player);
 

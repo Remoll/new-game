@@ -9,6 +9,9 @@ import Projectile from "@/gameObject/item/projectile/Projectile";
 import GameState from "@/game/GameState";
 import { Coordinates } from "@/types";
 import { InventorySlot } from "@/ui/inventory/types";
+import Equipment from "@/gameObject/item/equipment/Equipment";
+import ImageManager from "@/imageManager/ImageManager";
+import { EquipmentSlot } from "@/gameObject/item/equipment/types";
 
 class Player extends Entity {
   private isInteracting: boolean = false;
@@ -102,7 +105,10 @@ class Player extends Entity {
       return;
     }
 
-    if (this.itemToUse instanceof Touchable) {
+    if (this.itemToUse instanceof Equipment) {
+      this.resetInteraction();
+      emitPlayerMakeTurn(this, () => this.itemToUse.use(this))
+    } else if (this.itemToUse instanceof Touchable) {
       this.isUsingItemTouchable = true;
     } else if (this.itemToUse instanceof Projectile) {
       this.isUsingItemProjectable = true;
@@ -112,6 +118,23 @@ class Player extends Entity {
   removeItemFromInventory(item: Item): void {
     this.inventory.removeItemFromHotkey(item)
     this.items = this.items.filter((itemInInventory) => itemInInventory.getId() !== item.getId());
+  }
+
+  async addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number) {
+    const { x, y } = this.getPosition();
+
+    if (this.isAlive()) {
+      ctx.fillStyle = "#c3ff00ff";
+      ctx.fillText(`${this.getHp()}`, (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize);
+
+      const mainHandItem = this.getEquipmentBySlot(EquipmentSlot.MAIN_HAND)
+
+      if (mainHandItem) {
+        ctx.drawImage(ImageManager.instance.getImage(mainHandItem.getImagesKeys().dead), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize, fieldSize, fieldSize)
+      }
+    }
+
+    ctx.drawImage(ImageManager.instance.getImage(this.isAlive() ? this.getImagesKeys().default : this.getImagesKeys().dead), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize, fieldSize, fieldSize)
   }
 
   private addMoveListener() {

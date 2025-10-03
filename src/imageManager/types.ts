@@ -23,6 +23,8 @@ enum ImageKey {
     WIZARD_DEAD = "wizardDead",
     ICE_ORB = "iceOrb",
     CHEST = "chest",
+    SWORD = "sword",
+    SWORD_EQUIPED = "swordEquiped",
 }
 
 type ImageMap = {

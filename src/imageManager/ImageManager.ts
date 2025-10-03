@@ -24,6 +24,8 @@ import wizardImage from "@/imageManager/images/wizardImage.png";
 import wizardDeadImage from "@/imageManager/images/wizardDeadImage.png";
 import iceOrbImage from "@/imageManager/images/iceOrbImage.png";
 import chestImage from "@/imageManager/images/chestImage.png";
+import swordImage from "@/imageManager/images/swordImage.png";
+import swordEquipedImage from "@/imageManager/images/swordEquipedImage.png";
 
 class ImageManager {
     private static _instance: ImageManager;
@@ -52,6 +54,8 @@ class ImageManager {
         [ImageKey.WIZARD_DEAD]: undefined,
         [ImageKey.ICE_ORB]: undefined,
         [ImageKey.CHEST]: undefined,
+        [ImageKey.SWORD]: undefined,
+        [ImageKey.SWORD_EQUIPED]: undefined,
     };
 
     private constructor() { }
@@ -77,7 +81,7 @@ class ImageManager {
     }
 
     preloadImages = async (): Promise<void> => {
-        const [player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest] = await Promise.all([
+        const [player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest, sword, swordEquiped] = await Promise.all([
             this.imageLoader(playerImage),
             this.imageLoader(playerDeadImage),
             this.imageLoader(enemyImage),
@@ -102,8 +106,10 @@ class ImageManager {
             this.imageLoader(wizardDeadImage),
             this.imageLoader(iceOrbImage),
             this.imageLoader(chestImage),
+            this.imageLoader(swordImage),
+            this.imageLoader(swordEquipedImage),
         ])
-        this.setImages({ player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest });
+        this.setImages({ player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest, sword, swordEquiped });
     }
 
     getImage(key: string): HTMLImageElement | undefined {

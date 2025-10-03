@@ -14,6 +14,10 @@ class Item extends GameObject {
         super(attributes, itemFactory);
     }
 
+    setEquippedBy(gameObject: GameObject): void {
+        this.equippedBy = gameObject;
+    }
+
     getEquippedBy(): GameObject {
         return this.equippedBy;
     }

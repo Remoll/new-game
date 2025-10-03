@@ -6,6 +6,8 @@ import ImageManager from "@/imageManager/ImageManager";
 import { Coordinates } from "@/types";
 import GameState from "@/game/GameState";
 import itemFactory from "../item/itemFactory";
+import { EquipmentSlot } from "../item/equipment/types";
+import Equipment from "../item/equipment/Equipment";
 
 class Entity extends GameObject {
     private initialHp: number;
@@ -16,6 +18,9 @@ class Entity extends GameObject {
     private isReanimate: boolean = false;
     private visibleEnemies: Entity[] = [];
     private focusedEnemy: Entity | null = null;
+    private equipments: Record<EquipmentSlot, Equipment> = {
+        [EquipmentSlot.MAIN_HAND]: null,
+    }
 
     constructor(attributes: EntityAttributes) {
         const { hp, faction, dispositionToFactions, ...gameObjectAttributes } = attributes;
@@ -27,6 +32,19 @@ class Entity extends GameObject {
         this.faction = faction;
         this.dispositionToFactions = dispositionToFactions;
         this.speed = attributes.speed;
+    }
+
+    equipItem(equipment: Equipment) {
+        const equipmentSlot = equipment.getSlot();
+        this.equipments[equipmentSlot] = equipment;
+    }
+
+    getEquipments(): Record<EquipmentSlot, Equipment> {
+        return this.equipments;
+    }
+
+    getEquipmentBySlot(slot: EquipmentSlot): Equipment {
+        return this.getEquipments()[slot];
     }
 
     getSpeed(): number {
@@ -147,7 +165,8 @@ class Entity extends GameObject {
     }
 
     private attackEntity(entity: Entity) {
-        emitAttack(this, { id: [entity.id] }, 10)
+        const attackValue = this.getEquipmentBySlot(EquipmentSlot.MAIN_HAND) ? 50 : 10;
+        emitAttack(this, { id: [entity.id] }, attackValue)
     }
 
     protected move(newX: number, newY: number) {

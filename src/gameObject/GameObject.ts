@@ -25,7 +25,11 @@ class GameObject {
     this.imagesKeys = imagesKeys;
     this.canOccupiedFields = canOccupiedFields;
     this.isInteractive = isInteractive;
+
     this.items = itemsAttributes?.map(itemFactory) || [];
+    this.items.forEach((item) => {
+      item.setEquippedBy(this);
+    });
 
     this.id = this.generateId(type);
 
