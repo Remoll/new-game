@@ -137,6 +137,17 @@ class Player extends Entity {
     ctx.drawImage(ImageManager.instance.getImage(this.isAlive() ? this.getImagesKeys().default : this.getImagesKeys().dead), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize, fieldSize, fieldSize)
   }
 
+  addItem(item: Item): void {
+    this.items.push(item);
+    item.setEquippedBy(this);
+    const playerInventory = this.getInventory();
+    const inventorySlots: InventorySlot[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    const firstEmptySlot: InventorySlot = inventorySlots.find((slot) => {
+      return !playerInventory.getItemFromHotkey(slot)
+    })
+    playerInventory.setHotkey(firstEmptySlot, item);
+  }
+
   private addMoveListener() {
     document.addEventListener("keydown", (event) => {
       const key = event.key;

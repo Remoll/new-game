@@ -10,7 +10,14 @@ class Chest extends GameObject {
 
     handleInteract(gameObject: GameObject): void {
         if (gameObject instanceof Player) {
-            console.log("open chest: ", this.getItems())
+            const itemsInChest = this.getItems();
+
+            if (itemsInChest) {
+                itemsInChest.forEach((item) => {
+                    gameObject.addItem(item);
+                    this.removeItemFromInventory(item);
+                })
+            }
         }
     }
 }
