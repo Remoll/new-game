@@ -91,7 +91,7 @@ class CanvasHandler {
 				return false;
 			}
 
-			return GameState.hasLineOfSight(playerCoordinates.x, playerCoordinates.y, field.getPosition().x, field.getPosition().y, { ignoreEntities: true }).clear
+			return GameState.hasLineOfSight(playerCoordinates.x, playerCoordinates.y, field.getPosition().x, field.getPosition().y, { justBlocks: true }).clear
 		})
 
 		const gameObjectsOnView = this.gameObjects.filter((gameObject) => {
@@ -103,13 +103,13 @@ class CanvasHandler {
 		})
 
 		const blocksToRender: Block[] = [];
+		const restGameObjectsToRender: GameObject[] = [];
 		const gatewaysToRender: Gateway[] = [];
 		const workshopsToRender: Workshop[] = [];
 		const chestsToRender: Chest[] = [];
 		const deadEntitiesToRender: Entity[] = [];
 		const itemsToRender: Item[] = [];
 		const aliveEntitiesToRender: Entity[] = [];
-		const restGameObjectsToRender: GameObject[] = [];
 
 		for (const gameObject of gameObjectsOnView) {
 			if (gameObject instanceof Block) {
@@ -135,13 +135,13 @@ class CanvasHandler {
 
 		const sortedGameObjectsToRender: GameObject[] = [
 			...blocksToRender,
+			...restGameObjectsToRender,
 			...gatewaysToRender,
 			...workshopsToRender,
 			...chestsToRender,
 			...deadEntitiesToRender,
 			...itemsToRender,
 			...aliveEntitiesToRender,
-			...restGameObjectsToRender,
 		];
 
 		sortedGameObjectsToRender.forEach((gameObject) => {

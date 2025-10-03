@@ -54,7 +54,9 @@ class Building {
 			} else {
 				// Create opposite Y walls
 				fieldsCoordinates.push({ x: fieldX, y: start.y })
-				fieldsCoordinates.push({ x: fieldX, y: end.y })
+				if (start.y !== end.y) {
+					fieldsCoordinates.push({ x: fieldX, y: end.y })
+				}
 			}
 		}
 

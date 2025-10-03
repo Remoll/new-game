@@ -8,10 +8,9 @@ import Item from "@/gameObject/item/Item";
 import Block from "@/gameObject/block/Block";
 import Door from "@/gameObject/block/Door";
 import GameState from "./GameState";
-import ReanimatePotion from "@/gameObject/item/touchable/reanimatePotion/ReanimatePotion";
-import FireWand from "@/gameObject/item/projectile/fireWand/FireWand";
 import Workshop from "@/gameObject/workshop/Workshop";
 import Chest from "@/gameObject/chest/Chest";
+import itemFactory from "@/gameObject/item/itemFactory";
 
 class GameInstance {
     private gameObjects: GameObject[] = [];
@@ -35,16 +34,7 @@ class GameInstance {
         const buildings: Building[] = instanceData.buildingsCoordinates.map((buildingCoordinates) => new Building(buildingCoordinates));
         const blocksFromBuildings: (Block | Door)[] = buildings.flatMap((building) => building.getBlocks());
 
-        const items: Item[] = instanceData.items.map((itemData) => {
-            switch (itemData.type) {
-                case "reanimatePotion":
-                    return new ReanimatePotion({ ...itemData });
-                case "fireWand":
-                    return new FireWand({ ...itemData });
-                default:
-                    throw new Error(`Unknown item type: ${itemData.type}`);
-            }
-        });
+        const items: Item[] = instanceData.items.map(itemFactory);
 
         const gateways: Gateway[] = instanceData.gateways.map((gateway) => new Gateway({ ...gateway }));
 
@@ -52,7 +42,9 @@ class GameInstance {
 
         const chests: Chest[] = instanceData.chests?.map((chest) => new Chest({ ...chest })) || [];
 
-        this.gameObjects = [...npcs, ...blocksFromBuildings, ...items, ...gateways, ...workshops, ...chests];
+        const restGameObjects: GameObject[] = instanceData.gameObjects?.map((gameObject) => new GameObject({ ...gameObject }, itemFactory)) || [];
+
+        this.gameObjects = [...npcs, ...blocksFromBuildings, ...items, ...gateways, ...workshops, ...chests, ...restGameObjects];
         this.gameMap = gameMap;
     }
 

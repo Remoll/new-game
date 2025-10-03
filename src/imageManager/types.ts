@@ -25,6 +25,10 @@ enum ImageKey {
     CHEST = "chest",
     SWORD = "sword",
     SWORD_EQUIPED = "swordEquiped",
+    STOOL = "stool",
+    WOOD_TEXTURE = "woodTexture",
+    INNKEEPER = "innkeeper",
+    DOOR_STONE = "doorStone",
 }
 
 type ImageMap = {

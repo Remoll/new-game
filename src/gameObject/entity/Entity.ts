@@ -95,7 +95,7 @@ class Entity extends GameObject {
             const { x: entityX, y: entityY } = entityInRange.getPosition();
             const { x: npcX, y: npcY } = this.getPosition();
 
-            const result = GameState.hasLineOfSight(npcX, npcY, entityX, entityY, { ignoreEntities: true });
+            const result = GameState.hasLineOfSight(npcX, npcY, entityX, entityY, { justBlocks: true });
 
             return result.clear;
         })

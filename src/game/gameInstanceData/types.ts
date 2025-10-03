@@ -8,13 +8,15 @@ interface InstanceData {
     items: GameObjectAttributes[];
     gateways: GatewayAttributes[];
     workshops?: GameObjectAttributes[];
-    chests?: GameObjectAttributes[]
+    chests?: GameObjectAttributes[];
+    gameObjects?: GameObjectAttributes[];
 }
 
 enum InstanceKey {
     INSTANCE_01 = 'instance01',
     INSTANCE_02 = 'instance02',
     INSTANCE_03 = 'instance03',
+    INN = 'inn',
 }
 
 export { type InstanceData, InstanceKey };

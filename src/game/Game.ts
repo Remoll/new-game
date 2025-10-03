@@ -7,6 +7,7 @@ import GameEventListener from "@/gameEvents/listener/GameEventListener";
 import instance01 from "@/game/gameInstanceData/instance01";
 import instance02 from "@/game/gameInstanceData/instance02";
 import instance03 from "@/game/gameInstanceData/instance03";
+import inn from "@/game/gameInstanceData/inn";
 import { InstanceData, InstanceKey } from "./gameInstanceData/types";
 import GameState from "./GameState";
 import { Coordinates } from "@/types";
@@ -38,6 +39,8 @@ class Game {
         return instance02;
       case InstanceKey.INSTANCE_03:
         return instance03;
+      case InstanceKey.INN:
+        return inn;
       default:
         return instance01;
     }
@@ -45,18 +48,18 @@ class Game {
 
   private initGame() {
     if (this.ctx) {
-      const player = new Player({ itemsAttributes: [{ type: "fireWand", x: null, y: null, imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND }, canOccupiedFields: false, isInteractive: true }, { type: "sword", x: null, y: null, imagesKeys: { default: ImageKey.SWORD, dead: ImageKey.SWORD_EQUIPED }, canOccupiedFields: false, isInteractive: true }], speed: 2, type: "player", x: 1, y: 1, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
+      const player = new Player({ itemsAttributes: [{ type: "fireWand", x: null, y: null, imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND }, canOccupiedFields: false, isInteractive: true }, { type: "sword", x: null, y: null, imagesKeys: { default: ImageKey.SWORD, dead: ImageKey.SWORD_EQUIPED }, canOccupiedFields: false, isInteractive: true }], speed: 2, type: "player", x: 17, y: 5, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
 
       GameState.setPlayer(player);
 
-      this.instances[InstanceKey.INSTANCE_01] = new GameInstance(instance01);
+      this.instances[InstanceKey.INN] = new GameInstance(inn);
 
       const playerCurrentField = player.getCurrentField();
       playerCurrentField.addGameObjectToField(player);
 
-      const gameMap = this.instances[InstanceKey.INSTANCE_01].getGameMap();
+      const gameMap = this.instances[InstanceKey.INN].getGameMap();
 
-      const gameObjects = [player, ...this.instances[InstanceKey.INSTANCE_01].getGameObjects()];
+      const gameObjects = [player, ...this.instances[InstanceKey.INN].getGameObjects()];
 
       this.gameLoop = GameLoop.getInstance(gameObjects, gameMap, this.ctx);
 

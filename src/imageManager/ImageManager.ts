@@ -26,6 +26,10 @@ import iceOrbImage from "@/imageManager/images/iceOrbImage.png";
 import chestImage from "@/imageManager/images/chestImage.png";
 import swordImage from "@/imageManager/images/swordImage.png";
 import swordEquipedImage from "@/imageManager/images/swordEquipedImage.png";
+import stoolImage from "@/imageManager/images/stoolImage.png";
+import woodTextureImage from "@/imageManager/images/woodTextureImage.png";
+import innkeeperImage from "@/imageManager/images/innkeeperImage.png";
+import doorStoneImage from "@/imageManager/images/doorStoneImage.png";
 
 class ImageManager {
     private static _instance: ImageManager;
@@ -56,6 +60,10 @@ class ImageManager {
         [ImageKey.CHEST]: undefined,
         [ImageKey.SWORD]: undefined,
         [ImageKey.SWORD_EQUIPED]: undefined,
+        [ImageKey.STOOL]: undefined,
+        [ImageKey.WOOD_TEXTURE]: undefined,
+        [ImageKey.INNKEEPER]: undefined,
+        [ImageKey.DOOR_STONE]: undefined,
     };
 
     private constructor() { }
@@ -81,7 +89,7 @@ class ImageManager {
     }
 
     preloadImages = async (): Promise<void> => {
-        const [player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest, sword, swordEquiped] = await Promise.all([
+        const [player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest, sword, swordEquiped, stool, woodTexture, innkeeper, doorStone] = await Promise.all([
             this.imageLoader(playerImage),
             this.imageLoader(playerDeadImage),
             this.imageLoader(enemyImage),
@@ -108,8 +116,12 @@ class ImageManager {
             this.imageLoader(chestImage),
             this.imageLoader(swordImage),
             this.imageLoader(swordEquipedImage),
+            this.imageLoader(stoolImage),
+            this.imageLoader(woodTextureImage),
+            this.imageLoader(innkeeperImage),
+            this.imageLoader(doorStoneImage),
         ])
-        this.setImages({ player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest, sword, swordEquiped });
+        this.setImages({ player, playerDead, enemy, enemyDead, potion, stoneBlockLight, doorClosed, doorOpen, scroll, fireOrb, gateway, dog, dogDead, stoneBlockDark, grassBlock, fireElemental, laboratory, fireWand, pileOfDust, wand, wizard, wizardDead, iceOrb, chest, sword, swordEquiped, stool, woodTexture, innkeeper, doorStone });
     }
 
     getImage(key: string): HTMLImageElement | undefined {

@@ -1,4 +1,5 @@
 import Field from "@/gameMap/field/Field";
+import Block from "@/gameObject/block/Block";
 import Entity from "@/gameObject/entity/Entity";
 import Player from "@/gameObject/entity/player/Player";
 import { Coordinates } from "@/types";
@@ -64,8 +65,8 @@ class GameState {
         this.playerAndCenterDifference = playerAndCenterDifference;
     }
 
-    static hasLineOfSight(x1: number, y1: number, x2: number, y2: number, opts: { ignoreEntities?: boolean } = {}): { clear: boolean, checked: [number, number][] } {
-        const ignoreEntities = !!opts.ignoreEntities;
+    static hasLineOfSight(x1: number, y1: number, x2: number, y2: number, opts: { justBlocks?: boolean } = {}): { clear: boolean, checked: [number, number][] } {
+        const justBlocks = !!opts.justBlocks;
 
         const checked: Array<[number, number]> = [];
 
@@ -93,7 +94,7 @@ class GameState {
 
                 const blockingElement = field.getGameObjectThatOccupiedField();
 
-                if (blockingElement && (!ignoreEntities || (ignoreEntities && !(blockingElement instanceof Entity)))) {
+                if (blockingElement && (!justBlocks || (justBlocks && (blockingElement?.getType() === "block" || blockingElement?.getType() === "door")))) {
                     return { checked, clear: false }
                 }
             }
