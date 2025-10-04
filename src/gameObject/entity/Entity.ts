@@ -15,7 +15,7 @@ import { GameObjectSelector } from '@/gameEvents/types.ts';
 import GameObject from '@/gameObject/GameObject.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
 import { Coordinates } from '@/types.ts';
-import GameState from '@/game/GameState.ts';
+import GameState from '@/gameState/GameState.ts';
 import itemFactory from '../item/itemFactory.ts';
 import { EquipmentSlot } from '../item/equipment/types.ts';
 import Equipment from '../item/equipment/Equipment.ts';

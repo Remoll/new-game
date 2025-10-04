@@ -1,5 +1,5 @@
 import { ImageKey } from '@/imageManager/types.ts';
-import { GameInstanceData, GameInstanceKey } from './types.ts';
+import { GameInstanceData, GameInstanceKey } from '../types.ts';
 import Building from '@/gameMap/building/Building.ts';
 
 const gameInstanceData: GameInstanceData = {

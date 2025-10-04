@@ -2,7 +2,7 @@ import GameObject from '@/gameObject/GameObject.ts';
 import GameMap from '@/gameMap/GameMap.ts';
 import { Coordinates } from '@/types.ts';
 import Player from '@/gameObject/entity/player/Player.ts';
-import GameState from '@/game/GameState.ts';
+import GameState from '@/gameState/GameState.ts';
 import { FieldOfView } from './types.ts';
 import Field from '@/gameMap/field/Field.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';

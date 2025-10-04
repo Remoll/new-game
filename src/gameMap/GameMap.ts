@@ -1,4 +1,4 @@
-import GameState from '@/game/GameState.ts';
+import GameState from '@/gameState/GameState.ts';
 import Field from '@/gameMap/field/Field.ts';
 
 class GameMap {

@@ -9,7 +9,7 @@ import { Coordinates } from '@/types.ts';
 import Block from '../block/Block.ts';
 import GameObject from '../GameObject.ts';
 import itemFactory from '../item/itemFactory.ts';
-import GameState from '@/game/GameState.ts';
+import GameState from '@/gameState/GameState.ts';
 
 describe('findShortestPath', () => {
   const targetCoordinates: Coordinates = { x: 0, y: 2 };

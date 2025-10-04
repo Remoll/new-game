@@ -1,4 +1,4 @@
-import { GameInstanceKey } from '@/game/gameInstanceData/types.ts';
+import { GameInstanceKey } from '@/gameInstance/types.ts';
 import Player from '../entity/player/Player.ts';
 import GameObject from '../GameObject.ts';
 import { GatewayAttributes } from '../types.ts';

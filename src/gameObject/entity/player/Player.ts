@@ -6,7 +6,7 @@ import Item from '@/gameObject/item/Item.ts';
 import Field from '@/gameMap/field/Field.ts';
 import Touchable from '@/gameObject/item/touchable/Touchable.ts';
 import Projectile from '@/gameObject/item/projectile/Projectile.ts';
-import GameState from '@/game/GameState.ts';
+import GameState from '@/gameState/GameState.ts';
 import { Coordinates } from '@/types.ts';
 import { InventorySlot } from '@/ui/inventory/types.ts';
 import Equipment from '@/gameObject/item/equipment/Equipment.ts';

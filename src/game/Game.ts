@@ -1,16 +1,16 @@
 import Player from '@/gameObject/entity/player/Player.ts';
 import { Disposition, Faction } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
-import GameInstance from './GameInstance.ts';
+import GameInstance from '../gameInstance/GameInstance.ts';
 import GameLoop from '@/gameLoop/GameLoop.ts';
 import GameEventListener from '@/gameEvents/listener/GameEventListener.ts';
-import instance01 from '@/game/gameInstanceData/instance01.ts';
-import instance02 from '@/game/gameInstanceData/instance02.ts';
-import instance03 from '@/game/gameInstanceData/instance03.ts';
-import inn from '@/game/gameInstanceData/inn.ts';
-import { GameInstanceData, GameInstanceKey } from './gameInstanceData/types.ts';
-import GameState from './GameState.ts';
+import instance01 from '@/gameInstance/gameInstancesData/instance01.ts';
+import instance02 from '@/gameInstance/gameInstancesData/instance02.ts';
+import instance03 from '@/gameInstance/gameInstancesData/instance03.ts';
+import inn from '@/gameInstance/gameInstancesData/inn.ts';
+import GameState from '../gameState/GameState.ts';
 import { Coordinates } from '@/types.ts';
+import { GameInstanceData, GameInstanceKey } from '@/gameInstance/types.ts';
 
 class Game {
   private static singleton: Game | null = null;

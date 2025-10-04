@@ -1,6 +1,6 @@
 import { Disposition, Faction } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
-import { GameInstanceData, GameInstanceKey } from './types.ts';
+import { GameInstanceData, GameInstanceKey } from '../types.ts';
 
 const gameInstanceData: GameInstanceData = {
   mapSize: {

@@ -8,7 +8,7 @@ import {
 } from './types.ts';
 import { Coordinates } from '@/types.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
-import GameState from '@/game/GameState.ts';
+import GameState from '@/gameState/GameState.ts';
 
 class GameObject {
   protected type: string;

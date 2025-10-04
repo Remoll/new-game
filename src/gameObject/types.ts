@@ -1,4 +1,4 @@
-import { GameInstanceKey } from '@/game/gameInstanceData/types.ts';
+import { GameInstanceKey } from '@/gameInstance/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { Coordinates } from '@/types.ts';
 import Item from './item/Item.ts';

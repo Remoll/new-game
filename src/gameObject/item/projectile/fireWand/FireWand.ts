@@ -4,7 +4,7 @@ import { Coordinates } from '@/types.ts';
 import Entity from '@/gameObject/entity/Entity.ts';
 import { emitAnimateEffect } from '@/gameEvents/emiter/emittedActions.ts';
 import { ImageKey } from '@/imageManager/types.ts';
-import GameState from '@/game/GameState.ts';
+import GameState from '@/gameState/GameState.ts';
 
 class FireWand extends Projectile {
   constructor(attributes: GameObjectAttributes) {

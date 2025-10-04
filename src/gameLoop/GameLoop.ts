@@ -8,7 +8,7 @@ import Entity from '@/gameObject/entity/Entity.ts';
 import Player from '@/gameObject/entity/player/Player.ts';
 import { GameEventType } from '@/gameEvents/types.ts';
 import { emitPlayerEndsTurn } from '@/gameEvents/emiter/emittedActions.ts';
-import GameState from '@/game/GameState.ts';
+import GameState from '@/gameState/GameState.ts';
 
 class GameLoop {
   private static singleton: GameLoop | null = null;
