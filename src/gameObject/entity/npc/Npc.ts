@@ -1,7 +1,7 @@
-import { GameObjectSelector } from "@/gameEvents/types";
-import { Disposition, EntityAttributes } from "@/gameObject/types";
-import Entity from "@/gameObject/entity/Entity";
-import GameObject from "@/gameObject/GameObject";
+import { GameObjectSelector } from '@/gameEvents/types.ts';
+import { Disposition, EntityAttributes } from '@/gameObject/types.ts';
+import Entity from '@/gameObject/entity/Entity.ts';
+import GameObject from '@/gameObject/GameObject.ts';
 
 class Npc extends Entity {
   constructor(attributes: EntityAttributes) {
@@ -19,12 +19,12 @@ class Npc extends Entity {
       this.setFocusedEnemy(nearestGameObject);
     }
 
-    this.chargeGameObject(nearestGameObject)
+    this.chargeGameObject(nearestGameObject);
   }
 
   private chargeGameObject(gameObject: GameObject) {
     if (!this.isAlive()) {
-      console.error("Entity is dead and can't take action")
+      console.error("Entity is dead and can't take action");
       return;
     }
 
@@ -46,17 +46,24 @@ class Npc extends Entity {
     const nextField = this.getFieldFromCoordinates(nextX, nextY);
 
     if (!nextField) {
-      console.error("no nextField from provided coordinates");
+      console.error('no nextField from provided coordinates');
       return;
     }
 
-    const gameObjectThatOccupiedField = nextField.getGameObjectThatOccupiedField();
+    const gameObjectThatOccupiedField =
+      nextField.getGameObjectThatOccupiedField();
 
-    if (gameObjectThatOccupiedField && gameObjectThatOccupiedField instanceof Entity && this.getDispositionToFactions()?.[Disposition.FRIENDLY].some((faction) => faction === gameObjectThatOccupiedField.getFaction())) {
+    if (
+      gameObjectThatOccupiedField &&
+      gameObjectThatOccupiedField instanceof Entity &&
+      this.getDispositionToFactions()?.[Disposition.FRIENDLY].some(
+        (faction) => faction === gameObjectThatOccupiedField.getFaction()
+      )
+    ) {
       return;
     }
 
-    this.takeActionToDirectionFromCoordinates(nextX, nextY)
+    this.takeActionToDirectionFromCoordinates(nextX, nextY);
   }
 
   takeTurn() {
@@ -66,7 +73,11 @@ class Npc extends Entity {
       this.setFocusedEnemy(null);
     }
 
-    if (focusedEnemy && !this.getVisibleEnemies().some((entity) => entity === focusedEnemy) && focusedEnemy.isAlive()) {
+    if (
+      focusedEnemy &&
+      !this.getVisibleEnemies().some((entity) => entity === focusedEnemy) &&
+      focusedEnemy.isAlive()
+    ) {
       this.getVisibleEnemies().push(focusedEnemy);
     }
 
@@ -75,9 +86,15 @@ class Npc extends Entity {
       return;
     }
 
-    const hostileEntities: GameObjectSelector = { id: this.getVisibleEnemies().map((entity) => entity.getId()) };
+    const hostileEntities: GameObjectSelector = {
+      id: this.getVisibleEnemies().map((entity) => entity.getId()),
+    };
 
-    if (focusedEnemy && !this.getVisibleEnemies().some((entity) => entity === focusedEnemy) && focusedEnemy.isAlive()) {
+    if (
+      focusedEnemy &&
+      !this.getVisibleEnemies().some((entity) => entity === focusedEnemy) &&
+      focusedEnemy.isAlive()
+    ) {
       this.getVisibleEnemies().push(focusedEnemy);
     }
 
@@ -85,13 +102,17 @@ class Npc extends Entity {
       return;
     }
 
-    this.findAndCharge(hostileEntities)
+    this.findAndCharge(hostileEntities);
 
     this.findVisibleEnemies();
 
     focusedEnemy = this.getFocusedEnemy();
 
-    if (focusedEnemy && !this.getVisibleEnemies().some((entity) => entity === focusedEnemy) && focusedEnemy.isAlive()) {
+    if (
+      focusedEnemy &&
+      !this.getVisibleEnemies().some((entity) => entity === focusedEnemy) &&
+      focusedEnemy.isAlive()
+    ) {
       this.getVisibleEnemies().push(focusedEnemy);
     }
   }

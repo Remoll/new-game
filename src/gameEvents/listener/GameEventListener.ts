@@ -1,7 +1,7 @@
-import { GameEvent, GameEventType } from "@/gameEvents/types";
-import GameObject from "@/gameObject/GameObject";
-import GameLoop from "@/gameLoop/GameLoop";
-import Entity from "@/gameObject/entity/Entity";
+import { GameEvent, GameEventType } from '@/gameEvents/types.ts';
+import GameObject from '@/gameObject/GameObject.ts';
+import GameLoop from '@/gameLoop/GameLoop.ts';
+import Entity from '@/gameObject/entity/Entity.ts';
 
 class GameEventListener {
   private static instance: GameEventListener | null = null;
@@ -15,7 +15,10 @@ class GameEventListener {
     this.startFirstTurn();
   }
 
-  static getInstance(gameObjects: GameObject[], gameLoop: GameLoop): GameEventListener {
+  static getInstance(
+    gameObjects: GameObject[],
+    gameLoop: GameLoop
+  ): GameEventListener {
     if (!GameEventListener.instance && gameObjects && gameLoop) {
       GameEventListener.instance = new GameEventListener(gameObjects, gameLoop);
     }
@@ -38,11 +41,11 @@ class GameEventListener {
     targetEntity.takeDamage(value, sender);
   }
 
-  private handleMove() { }
+  private handleMove() {}
 
-  private handleWait() { }
+  private handleWait() {}
 
-  private handleDied() { }
+  private handleDied() {}
 
   private affectTarget(eventDetail: GameEvent) {
     const { type, sender, target, value } = eventDetail;
@@ -68,8 +71,14 @@ class GameEventListener {
     const targetType = target.type;
     const targetId = target.id;
     const affectedGameObjects = this.gameObjects
-      .filter((gameObject) => gameObject.getType() === targetType || targetId?.some((id) => id === gameObject.getId()))
-      .filter((gameObject) => gameObject instanceof Entity && gameObject.isAlive());
+      .filter(
+        (gameObject) =>
+          gameObject.getType() === targetType ||
+          targetId?.some((id) => id === gameObject.getId())
+      )
+      .filter(
+        (gameObject) => gameObject instanceof Entity && gameObject.isAlive()
+      );
 
     affectedGameObjects.forEach((gameObject) => {
       switch (type) {
@@ -80,6 +89,10 @@ class GameEventListener {
           }
           if (typeof value !== 'number') {
             console.error('Attack event value must be a number');
+            return;
+          }
+          if (!(sender instanceof Entity)) {
+            console.error('Sender is not instanceof of Entity');
             return;
           }
           this.handleAttack(gameObject, value, sender);
@@ -105,20 +118,29 @@ class GameEventListener {
 
   private pastEventDataToHandler = (event: CustomEvent) => {
     this.affectTarget(event.detail);
-  }
+  };
 
   private listenToEvents() {
-    document.addEventListener(GameEventType.ATTACK, this.pastEventDataToHandler);
+    document.addEventListener(
+      GameEventType.ATTACK,
+      this.pastEventDataToHandler
+    );
 
     document.addEventListener(GameEventType.MOVED, this.pastEventDataToHandler);
 
     document.addEventListener(GameEventType.WAIT, this.pastEventDataToHandler);
 
-    document.addEventListener(GameEventType.PLAYER_MAKE_TURN, this.pastEventDataToHandler);
+    document.addEventListener(
+      GameEventType.PLAYER_MAKE_TURN,
+      this.pastEventDataToHandler
+    );
 
     document.addEventListener(GameEventType.DIED, this.pastEventDataToHandler);
 
-    document.addEventListener(GameEventType.ANIMATE_EFFECT, this.pastEventDataToHandler);
+    document.addEventListener(
+      GameEventType.ANIMATE_EFFECT,
+      this.pastEventDataToHandler
+    );
   }
 }
 

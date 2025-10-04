@@ -1,8 +1,8 @@
-import { GameObjectSelector } from "@/gameEvents/types";
+import { GameObjectSelector } from '@/gameEvents/types.ts';
 
 interface EntitiesActions {
-	performer: GameObjectSelector;
-	action: (...args: unknown[]) => unknown;
+  performer: GameObjectSelector;
+  action: (...args: unknown[]) => unknown;
 }
 
-export { EntitiesActions }
+export { EntitiesActions };

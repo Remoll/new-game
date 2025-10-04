@@ -1,155 +1,210 @@
-import GameObject from "@/gameObject/GameObject";
-import { EntitiesActions } from "./types";
-import GameMap from "@/gameMap/GameMap";
-import CanvasHandler from "@/canvasHandler/CanvasHandler";
-import Npc from "@/gameObject/entity/npc/Npc";
-import ImageManager from "@/imageManager/ImageManager";
-import Entity from "@/gameObject/entity/Entity";
-import Player from "@/gameObject/entity/player/Player";
-import { GameEventType } from "@/gameEvents/types";
-import { emitPlayerEndsTurn } from "@/gameEvents/emiter/emittedActions";
-import GameState from "@/game/GameState";
+import GameObject from '@/gameObject/GameObject.ts';
+import { EntitiesActions } from './types.ts';
+import GameMap from '@/gameMap/GameMap.ts';
+import CanvasHandler from '@/canvasHandler/CanvasHandler.ts';
+import Npc from '@/gameObject/entity/npc/Npc.ts';
+import ImageManager from '@/imageManager/ImageManager.ts';
+import Entity from '@/gameObject/entity/Entity.ts';
+import Player from '@/gameObject/entity/player/Player.ts';
+import { GameEventType } from '@/gameEvents/types.ts';
+import { emitPlayerEndsTurn } from '@/gameEvents/emiter/emittedActions.ts';
+import GameState from '@/game/GameState.ts';
 
 class GameLoop {
-	private static instance: GameLoop | null = null;
-	private gameObjects: GameObject[];
-	private gameMap: GameMap;
-	private canvasHandler: CanvasHandler;
-	private ctx: CanvasRenderingContext2D;
-	private isPlayerTurn: boolean = false;
+  private static instance: GameLoop | null = null;
+  private gameObjects: GameObject[];
+  private gameMap: GameMap;
+  private canvasHandler: CanvasHandler;
+  private ctx: CanvasRenderingContext2D;
+  private isPlayerTurn: boolean = false;
 
-	private constructor(gameObjects: GameObject[], gameMap: GameMap, ctx: CanvasRenderingContext2D) {
-		this.gameObjects = gameObjects;
-		this.gameMap = gameMap;
-		this.ctx = ctx;
-		this.canvasHandler = new CanvasHandler(this.ctx, this.gameObjects, this.gameMap)
-		this.canvasHandler.renderGameState();
-	}
+  private constructor(
+    gameObjects: GameObject[],
+    gameMap: GameMap,
+    ctx: CanvasRenderingContext2D
+  ) {
+    this.gameObjects = gameObjects;
+    this.gameMap = gameMap;
+    this.ctx = ctx;
+    this.canvasHandler = new CanvasHandler(
+      this.ctx,
+      this.gameObjects,
+      this.gameMap
+    );
+    this.canvasHandler.renderGameState();
+  }
 
-	static getInstance(gameObjects?: GameObject[], gameMap?: GameMap, ctx?: CanvasRenderingContext2D): GameLoop {
-		if (!GameLoop.instance && gameObjects && gameMap && ctx) {
-			GameLoop.instance = new GameLoop(gameObjects, gameMap, ctx);
-		}
-		return GameLoop.instance;
-	}
+  static getInstance(
+    gameObjects?: GameObject[],
+    gameMap?: GameMap,
+    ctx?: CanvasRenderingContext2D
+  ): GameLoop {
+    if (!GameLoop.instance && gameObjects && gameMap && ctx) {
+      GameLoop.instance = new GameLoop(gameObjects, gameMap, ctx);
+    }
+    return GameLoop.instance;
+  }
 
-	setGameObjects(gameObjects: GameObject[]) {
-		this.gameObjects = gameObjects;
-		this.canvasHandler.setGameObjects(gameObjects);
-	}
+  setGameObjects(gameObjects: GameObject[]) {
+    this.gameObjects = gameObjects;
+    this.canvasHandler.setGameObjects(gameObjects);
+  }
 
-	setGameMap(gameMap: GameMap) {
-		this.gameMap = gameMap;
-		this.canvasHandler.setGameMap(gameMap);
-	}
+  setGameMap(gameMap: GameMap) {
+    this.gameMap = gameMap;
+    this.canvasHandler.setGameMap(gameMap);
+  }
 
-	private getAliveEntitiesFromGameObjects(): Entity[] {
-		return this.gameObjects.filter((gameObject) => {
-			return gameObject instanceof Entity && gameObject.isAlive();
-		}) as Entity[];
-	}
+  private getAliveEntitiesFromGameObjects(): Entity[] {
+    return this.gameObjects.filter((gameObject) => {
+      return gameObject instanceof Entity && gameObject.isAlive();
+    }) as Entity[];
+  }
 
-	private refreshGameState() {
-		this.canvasHandler.clearCanvas()
-		this.canvasHandler.renderGameState();
-	}
+  private refreshGameState() {
+    this.canvasHandler.clearCanvas();
+    this.canvasHandler.renderGameState();
+  }
 
-	async animateEffect(value: { imageKey: string, effectPath: [number, number][] }) {
-		const nextCoordinates = value.effectPath.shift();
-		const [x, y] = nextCoordinates;
-		const fieldSize: number = GameState.getFieldSize();
+  async animateEffect(value: unknown) {
+    if (
+      !(
+        typeof value === 'object' &&
+        'effectPath' in value &&
+        'imageKey' in value &&
+        Array.isArray(value.effectPath) &&
+        typeof value.imageKey === 'string'
+      )
+    ) {
+      console.error('Incorrect animateEffect value type');
+      return;
+    }
 
-		this.refreshGameState();
-		this.ctx.drawImage(ImageManager.instance.getImage(value.imageKey), x * fieldSize, y * fieldSize, fieldSize, fieldSize)
+    const nextCoordinates = value.effectPath.shift();
+    const [x, y] = nextCoordinates;
+    const fieldSize: number = GameState.getFieldSize();
 
-		if (value.effectPath.length > 0) {
-			await new Promise(resolve => setTimeout(resolve, 20));
-			return this.animateEffect({ imageKey: value.imageKey, effectPath: value.effectPath });
-		} else {
-			await new Promise(resolve => setTimeout(resolve, 20));
-			this.refreshGameState();
-		}
-	}
+    this.refreshGameState();
+    this.ctx.drawImage(
+      ImageManager.instance.getImage(value.imageKey),
+      x * fieldSize,
+      y * fieldSize,
+      fieldSize,
+      fieldSize
+    );
 
-	private generateTurnLine(): Entity[] {
-		const aliveEntities: Entity[] = this.getAliveEntitiesFromGameObjects();
+    if (value.effectPath.length > 0) {
+      await new Promise((resolve) => setTimeout(resolve, 20));
+      return this.animateEffect({
+        imageKey: value.imageKey,
+        effectPath: value.effectPath,
+      });
+    } else {
+      await new Promise((resolve) => setTimeout(resolve, 20));
+      this.refreshGameState();
+    }
+  }
 
-		const remainingEntitiesSpeed = aliveEntities.map((entity) => ({ id: entity.getId(), remainingSpeed: entity.getSpeed() }))
+  private generateTurnLine(): Entity[] {
+    const aliveEntities: Entity[] = this.getAliveEntitiesFromGameObjects();
 
-		let heightestSpeed = remainingEntitiesSpeed.reduce((max, entity) => entity.remainingSpeed > max ? entity.remainingSpeed : max, 0);
+    const remainingEntitiesSpeed = aliveEntities.map((entity) => ({
+      id: entity.getId(),
+      remainingSpeed: entity.getSpeed(),
+    }));
 
-		const turnLine: string[] = []
+    let heightestSpeed = remainingEntitiesSpeed.reduce(
+      (max, entity) =>
+        entity.remainingSpeed > max ? entity.remainingSpeed : max,
+      0
+    );
 
-		do {
-			const fastestEntities = remainingEntitiesSpeed.filter((entity) => entity.remainingSpeed === heightestSpeed)
-			const randomizedFastestEntities = fastestEntities.sort(() => Math.random() - 0.5) // randomize order of entities with same speed
+    const turnLine: string[] = [];
 
-			turnLine.push(...randomizedFastestEntities.map((entity) => entity.id))
+    do {
+      const fastestEntities = remainingEntitiesSpeed.filter(
+        (entity) => entity.remainingSpeed === heightestSpeed
+      );
+      const randomizedFastestEntities = fastestEntities.sort(
+        () => Math.random() - 0.5
+      ); // randomize order of entities with same speed
 
-			fastestEntities.forEach((enity) => enity.remainingSpeed--)
-			heightestSpeed--;
-		} while (remainingEntitiesSpeed.some((entity) => entity.remainingSpeed > 0))
+      turnLine.push(...randomizedFastestEntities.map((entity) => entity.id));
 
-		return turnLine.map((id) => aliveEntities.find((entity) => entity.getId() === id));
-	}
+      fastestEntities.forEach((enity) => enity.remainingSpeed--);
+      heightestSpeed--;
+    } while (
+      remainingEntitiesSpeed.some((entity) => entity.remainingSpeed > 0)
+    );
 
-	async playerStartTurn(newAction: EntitiesActions) {
-		if (this.isPlayerTurn) {
-			await newAction.action();
-			this.isPlayerTurn = false;
-			emitPlayerEndsTurn();
-		}
-	}
+    return turnLine.map((id) =>
+      aliveEntities.find((entity) => entity.getId() === id)
+    );
+  }
 
-	private npcTakeTurn(npc: Npc) {
-		if (this.getAliveEntitiesFromGameObjects().includes(npc)) {
-			npc.takeTurn();
-		}
-		document.dispatchEvent(new CustomEvent("entityEndTurn"));
-	}
+  async playerStartTurn(newAction: EntitiesActions) {
+    if (this.isPlayerTurn) {
+      await newAction.action();
+      this.isPlayerTurn = false;
+      emitPlayerEndsTurn();
+    }
+  }
 
-	private async entityStartTurn(turnLine: Entity[], index: number) {
-		const nextEntityStartTurn = () => {
-			this.refreshGameState();
-			document.removeEventListener("entityEndTurn", nextEntityStartTurn);
-			document.removeEventListener(GameEventType.PLAYER_ENDS_TURN, nextEntityStartTurn)
-			index++;
+  private npcTakeTurn(npc: Npc) {
+    if (this.getAliveEntitiesFromGameObjects().includes(npc)) {
+      npc.takeTurn();
+    }
+    document.dispatchEvent(new CustomEvent('entityEndTurn'));
+  }
 
-			if (index === turnLine.length - 1) {
-				this.executeTurn();
-				return;
-			} else {
-				this.entityStartTurn(turnLine, index);
-			}
-		}
+  private async entityStartTurn(turnLine: Entity[], index: number) {
+    const nextEntityStartTurn = () => {
+      this.refreshGameState();
+      document.removeEventListener('entityEndTurn', nextEntityStartTurn);
+      document.removeEventListener(
+        GameEventType.PLAYER_ENDS_TURN,
+        nextEntityStartTurn
+      );
+      index++;
 
-		const nextEntity = turnLine[index];
+      if (index === turnLine.length - 1) {
+        this.executeTurn();
+        return;
+      } else {
+        this.entityStartTurn(turnLine, index);
+      }
+    };
 
-		if (nextEntity instanceof Player) {
-			this.isPlayerTurn = true;
-			document.addEventListener(GameEventType.PLAYER_ENDS_TURN, nextEntityStartTurn)
-		} else if (nextEntity instanceof Npc) {
-			document.addEventListener("entityEndTurn", nextEntityStartTurn);
-			this.npcTakeTurn(nextEntity)
-		}
-	}
+    const nextEntity = turnLine[index];
 
-	executeTurn() {
-		const player = GameState.getPlayer();
+    if (nextEntity instanceof Player) {
+      this.isPlayerTurn = true;
+      document.addEventListener(
+        GameEventType.PLAYER_ENDS_TURN,
+        nextEntityStartTurn
+      );
+    } else if (nextEntity instanceof Npc) {
+      document.addEventListener('entityEndTurn', nextEntityStartTurn);
+      this.npcTakeTurn(nextEntity);
+    }
+  }
 
-		if (!player) {
-			console.log("Player not found - can't execute turn");
-			return;
-		}
+  executeTurn() {
+    const player = GameState.getPlayer();
 
-		if (!player.isAlive()) {
-			console.log("Player is dead - can't execute turn");
-			return;
-		}
+    if (!player) {
+      console.log("Player not found - can't execute turn");
+      return;
+    }
 
-		const turnLine: Entity[] = this.generateTurnLine();
-		this.entityStartTurn(turnLine, 0);
-	}
-};
+    if (!player.isAlive()) {
+      console.log("Player is dead - can't execute turn");
+      return;
+    }
+
+    const turnLine: Entity[] = this.generateTurnLine();
+    this.entityStartTurn(turnLine, 0);
+  }
+}
 
 export default GameLoop;

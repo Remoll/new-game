@@ -1,27 +1,35 @@
-import { ImageKey } from "@/imageManager/types";
-import { InstanceData, InstanceKey } from "./types";
-import Building from "@/gameMap/building/Building";
+import { ImageKey } from '@/imageManager/types.ts';
+import { InstanceData, InstanceKey } from './types.ts';
+import Building from '@/gameMap/building/Building.ts';
 
 const instanceData: InstanceData = {
-    mapSize: {
-        width: 50,
-        height: 50
+  mapSize: {
+    width: 50,
+    height: 50,
+  },
+  buildingsCoordinates: Building.generateRandomBuildingsCoordinates({
+    count: 15,
+    mapWidth: 50,
+    mapHeight: 50,
+    minWidth: 5,
+    maxWidth: 20,
+    minHeight: 5,
+    maxHeight: 20,
+  }),
+  npcs: [],
+  items: [],
+  gateways: [
+    {
+      targetInstanceKey: InstanceKey.INSTANCE_02,
+      type: 'gateway',
+      x: 20,
+      y: 48,
+      targetPlayerCoordinates: { x: 11, y: 2 },
+      imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY },
+      canOccupiedFields: false,
+      isInteractive: true,
     },
-    buildingsCoordinates: Building.generateRandomBuildingsCoordinates({
-        count: 15,
-        mapWidth: 50,
-        mapHeight: 50,
-        minWidth: 5,
-        maxWidth: 20,
-        minHeight: 5,
-        maxHeight: 20
-    }),
-    npcs: [],
-    items: [],
-    gateways: [
-        { targetInstanceKey: InstanceKey.INSTANCE_02, type: "gateway", x: 20, y: 48, targetPlayerCoordinates: { x: 11, y: 2 }, imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY }, canOccupiedFields: false, isInteractive: true },
-    ]
+  ],
 };
 
 export default instanceData;
-

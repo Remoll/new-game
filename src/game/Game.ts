@@ -1,16 +1,16 @@
-import Player from "@/gameObject/entity/player/Player";
-import { Disposition, Faction } from "@/gameObject/types";
-import { ImageKey } from "@/imageManager/types";
-import GameInstance from "./GameInstance";
-import GameLoop from "@/gameLoop/GameLoop";
-import GameEventListener from "@/gameEvents/listener/GameEventListener";
-import instance01 from "@/game/gameInstanceData/instance01";
-import instance02 from "@/game/gameInstanceData/instance02";
-import instance03 from "@/game/gameInstanceData/instance03";
-import inn from "@/game/gameInstanceData/inn";
-import { InstanceData, InstanceKey } from "./gameInstanceData/types";
-import GameState from "./GameState";
-import { Coordinates } from "@/types";
+import Player from '@/gameObject/entity/player/Player.ts';
+import { Disposition, Faction } from '@/gameObject/types.ts';
+import { ImageKey } from '@/imageManager/types.ts';
+import GameInstance from './GameInstance.ts';
+import GameLoop from '@/gameLoop/GameLoop.ts';
+import GameEventListener from '@/gameEvents/listener/GameEventListener.ts';
+import instance01 from '@/game/gameInstanceData/instance01.ts';
+import instance02 from '@/game/gameInstanceData/instance02.ts';
+import instance03 from '@/game/gameInstanceData/instance03.ts';
+import inn from '@/game/gameInstanceData/inn.ts';
+import { InstanceData, InstanceKey } from './gameInstanceData/types.ts';
+import GameState from './GameState.ts';
+import { Coordinates } from '@/types.ts';
 
 class Game {
   private static instance: Game | null = null;
@@ -48,7 +48,43 @@ class Game {
 
   private initGame() {
     if (this.ctx) {
-      const player = new Player({ itemsAttributes: [{ type: "fireWand", x: null, y: null, imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND }, canOccupiedFields: false, isInteractive: true }, { type: "sword", x: null, y: null, imagesKeys: { default: ImageKey.SWORD, dead: ImageKey.SWORD_EQUIPED }, canOccupiedFields: false, isInteractive: true }], speed: 2, type: "player", x: 17, y: 5, imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD }, faction: Faction.PLAYER, hp: 200, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.PLAYER], [Disposition.NEUTRAL]: [Faction.NEUTRAL] }, canOccupiedFields: true, isInteractive: false });
+      const player = new Player({
+        itemsAttributes: [
+          {
+            type: 'fireWand',
+            x: null,
+            y: null,
+            imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND },
+            canOccupiedFields: false,
+            isInteractive: true,
+          },
+          {
+            type: 'sword',
+            x: null,
+            y: null,
+            imagesKeys: {
+              default: ImageKey.SWORD,
+              dead: ImageKey.SWORD_EQUIPED,
+            },
+            canOccupiedFields: false,
+            isInteractive: true,
+          },
+        ],
+        speed: 2,
+        type: 'player',
+        x: 17,
+        y: 5,
+        imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD },
+        faction: Faction.PLAYER,
+        hp: 200,
+        dispositionToFactions: {
+          [Disposition.HOSTILE]: [Faction.ENEMY],
+          [Disposition.FRIENDLY]: [Faction.PLAYER],
+          [Disposition.NEUTRAL]: [Faction.NEUTRAL],
+        },
+        canOccupiedFields: true,
+        isInteractive: false,
+      });
 
       GameState.setPlayer(player);
 
@@ -59,17 +95,26 @@ class Game {
 
       const gameMap = this.instances[InstanceKey.INN].getGameMap();
 
-      const gameObjects = [player, ...this.instances[InstanceKey.INN].getGameObjects()];
+      const gameObjects = [
+        player,
+        ...this.instances[InstanceKey.INN].getGameObjects(),
+      ];
 
       this.gameLoop = GameLoop.getInstance(gameObjects, gameMap, this.ctx);
 
-      this.gameEventListener = GameEventListener.getInstance(gameObjects, this.gameLoop);
+      this.gameEventListener = GameEventListener.getInstance(
+        gameObjects,
+        this.gameLoop
+      );
     } else {
-      console.error("Root element not found");
+      console.error('Root element not found');
     }
   }
 
-  startNewInstance(instanceKey: InstanceKey, targetPlayerCoordinates: Coordinates) {
+  startNewInstance(
+    instanceKey: InstanceKey,
+    targetPlayerCoordinates: Coordinates
+  ) {
     const player = GameState.getPlayer();
 
     const playerPrevField = player.getCurrentField();
@@ -91,10 +136,13 @@ class Game {
     const playerCurrentField = player.getCurrentField();
     playerCurrentField.addGameObjectToField(player);
 
-    const gameObjects = [player, ...this.instances[instanceKey].getGameObjects()];
-    this.gameLoop.setGameMap(gameMap)
-    this.gameLoop.setGameObjects(gameObjects)
-    this.gameEventListener.setGameObjects(gameObjects)
+    const gameObjects = [
+      player,
+      ...this.instances[instanceKey].getGameObjects(),
+    ];
+    this.gameLoop.setGameMap(gameMap);
+    this.gameLoop.setGameObjects(gameObjects);
+    this.gameEventListener.setGameObjects(gameObjects);
   }
 }
 

@@ -1,9 +1,14 @@
-import Field from "@/gameMap/field/Field";
-import Item from "@/gameObject/item/Item";
-import { Direction, GameObjectAttributes, GameObjectImagesKeys, ItemFactory } from "./types";
-import { Coordinates } from "@/types";
-import ImageManager from "@/imageManager/ImageManager";
-import GameState from "@/game/GameState";
+import Field from '@/gameMap/field/Field.ts';
+import Item from '@/gameObject/item/Item.ts';
+import {
+  Direction,
+  GameObjectAttributes,
+  GameObjectImagesKeys,
+  ItemFactory,
+} from './types.ts';
+import { Coordinates } from '@/types.ts';
+import ImageManager from '@/imageManager/ImageManager.ts';
+import GameState from '@/game/GameState.ts';
 
 class GameObject {
   protected type: string;
@@ -17,7 +22,15 @@ class GameObject {
 
   // use itemFactory to avoid circular dependency issues for GameObject and Items
   constructor(attributes: GameObjectAttributes, itemFactory: ItemFactory) {
-    const { type, x, y, canOccupiedFields, isInteractive, imagesKeys, itemsAttributes } = attributes;
+    const {
+      type,
+      x,
+      y,
+      canOccupiedFields,
+      isInteractive,
+      imagesKeys,
+      itemsAttributes,
+    } = attributes;
 
     this.type = type;
     this.x = x;
@@ -78,7 +91,9 @@ class GameObject {
   }
 
   removeItemFromInventory(item: Item): void {
-    this.items = this.items.filter((itemInInventory) => itemInInventory.getId() !== item.getId());
+    this.items = this.items.filter(
+      (itemInInventory) => itemInInventory.getId() !== item.getId()
+    );
   }
 
   setCanOccupiedFields(value: boolean) {
@@ -99,22 +114,32 @@ class GameObject {
     return field;
   }
 
-  addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number) {
+  addToCanvas(
+    ctx: CanvasRenderingContext2D,
+    fieldShift: Coordinates,
+    fieldSize: number
+  ) {
     const { x, y } = this.getPosition();
-    ctx.drawImage(ImageManager.instance.getImage(this.getImagesKeys().default), (x - fieldShift.x) * fieldSize, (y - fieldShift.y) * fieldSize, fieldSize, fieldSize)
-
+    ctx.drawImage(
+      ImageManager.instance.getImage(this.getImagesKeys().default),
+      (x - fieldShift.x) * fieldSize,
+      (y - fieldShift.y) * fieldSize,
+      fieldSize,
+      fieldSize
+    );
   }
 
   protected getFieldFromCoordinates(x: number, y: number): Field | undefined {
     const fields = GameState.getFields();
     return fields.find((field) => {
       const { x: fieldX, y: fieldY } = field.getPosition();
-      return fieldX === x && fieldY === y
+      return fieldX === x && fieldY === y;
     });
   }
 
   handleInteract(gameObject?: GameObject) {
     // implement in subclasses
+    console.log('gameObject: ', gameObject);
     return;
   }
 
@@ -123,8 +148,18 @@ class GameObject {
   }
 
   findNewCoordinatesFromDirection(direction: Direction): Coordinates {
-    const newX = direction === Direction.LEFT ? this.x - 1 : direction === Direction.RIGHT ? this.x + 1 : this.x;
-    const newY = direction === Direction.UP ? this.y - 1 : direction === Direction.DOWN ? this.y + 1 : this.y;
+    const newX =
+      direction === Direction.LEFT
+        ? this.x - 1
+        : direction === Direction.RIGHT
+          ? this.x + 1
+          : this.x;
+    const newY =
+      direction === Direction.UP
+        ? this.y - 1
+        : direction === Direction.DOWN
+          ? this.y + 1
+          : this.y;
 
     return { x: newX, y: newY };
   }

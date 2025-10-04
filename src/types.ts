@@ -1,6 +1,6 @@
 interface Coordinates {
-    x: number,
-    y: number,
-};
+  x: number;
+  y: number;
+}
 
 export { Coordinates };

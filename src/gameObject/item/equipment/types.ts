@@ -1,5 +1,5 @@
 enum EquipmentSlot {
-    MAIN_HAND = "mainHand",
+  MAIN_HAND = 'mainHand',
 }
 
 export { EquipmentSlot };

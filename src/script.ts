@@ -1,26 +1,25 @@
-import Game from "@/game/Game"
-import ImageManager from "./imageManager/ImageManager";
+import Game from '@/game/Game.ts';
+import ImageManager from './imageManager/ImageManager.ts';
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const canvas = document.getElementById("canvas") as HTMLCanvasElement | null;
+document.addEventListener('DOMContentLoaded', async () => {
+  const canvas = document.getElementById('canvas') as HTMLCanvasElement | null;
   if (!canvas) {
-    console.error("Canvas element not found");
+    console.error('Canvas element not found');
     return;
   }
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext('2d');
 
   if (!ctx) {
-    console.error("Root element not found");
+    console.error('Root element not found');
     return;
   }
 
   await ImageManager.instance.preloadImages();
 
-  ctx.font = "24px Arial";
+  ctx.font = '24px Arial';
 
   Game.getInstance(ctx);
 });
-
 
 // // --- 1. Linia ---
 // ctx.beginPath();

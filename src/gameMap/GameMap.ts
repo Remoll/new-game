@@ -1,5 +1,5 @@
-import GameState from "@/game/GameState";
-import Field from "@/gameMap/field/Field";
+import GameState from '@/game/GameState.ts';
+import Field from '@/gameMap/field/Field.ts';
 
 class GameMap {
   private fields: Field[];

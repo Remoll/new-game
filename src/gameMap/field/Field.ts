@@ -1,7 +1,7 @@
-import GameObject from "@/gameObject/GameObject";
-import ImageManager from "@/imageManager/ImageManager";
-import { ImageKey } from "@/imageManager/types";
-import { Coordinates } from "@/types";
+import GameObject from '@/gameObject/GameObject.ts';
+import ImageManager from '@/imageManager/ImageManager.ts';
+import { ImageKey } from '@/imageManager/types.ts';
+import { Coordinates } from '@/types.ts';
 
 class Field {
   private x: number;
@@ -18,11 +18,15 @@ class Field {
   }
 
   getIsOccupied() {
-    return this.gameObjectsOnField.some((gameObject) => gameObject.getCanOccupiedFields());
+    return this.gameObjectsOnField.some((gameObject) =>
+      gameObject.getCanOccupiedFields()
+    );
   }
 
   addGameObjectToField(gameObjectToAdd: GameObject) {
-    const doesGameObjectExistInOccupiedBy = this.gameObjectsOnField.some((gameObject) => gameObject.getId() === gameObjectToAdd.getId())
+    const doesGameObjectExistInOccupiedBy = this.gameObjectsOnField.some(
+      (gameObject) => gameObject.getId() === gameObjectToAdd.getId()
+    );
     if (doesGameObjectExistInOccupiedBy) {
       return;
     }
@@ -31,7 +35,9 @@ class Field {
   }
 
   removeGameObjectFromField(gameObjectToRemove: GameObject) {
-    this.gameObjectsOnField = this.gameObjectsOnField.filter((gameObject) => gameObject.getId() !== gameObjectToRemove.getId())
+    this.gameObjectsOnField = this.gameObjectsOnField.filter(
+      (gameObject) => gameObject.getId() !== gameObjectToRemove.getId()
+    );
   }
 
   getGameObjectsFromField(): GameObject[] {
@@ -43,22 +49,36 @@ class Field {
       return null;
     }
 
-    const gameObjectsThatCanOccupiedFields = this.gameObjectsOnField.filter((gameObject) => gameObject.getCanOccupiedFields())
+    const gameObjectsThatCanOccupiedFields = this.gameObjectsOnField.filter(
+      (gameObject) => gameObject.getCanOccupiedFields()
+    );
 
     if (gameObjectsThatCanOccupiedFields.length < 1) {
       return null;
     }
 
     if (gameObjectsThatCanOccupiedFields.length > 1) {
-      console.error("more than one game object from gameObjectsThatCanOccupiedFields, need exact one")
+      console.error(
+        'more than one game object from gameObjectsThatCanOccupiedFields, need exact one'
+      );
       return null;
     }
 
     return gameObjectsThatCanOccupiedFields[0];
   }
 
-  addToCanvas(ctx: CanvasRenderingContext2D, fieldShift: Coordinates, fieldSize: number) {
-    ctx.drawImage(ImageManager.instance.getImage(ImageKey.GRASS_BLOCK), (this.x - fieldShift.x) * fieldSize, (this.y - fieldShift.y) * fieldSize, fieldSize, fieldSize)
+  addToCanvas(
+    ctx: CanvasRenderingContext2D,
+    fieldShift: Coordinates,
+    fieldSize: number
+  ) {
+    ctx.drawImage(
+      ImageManager.instance.getImage(ImageKey.GRASS_BLOCK),
+      (this.x - fieldShift.x) * fieldSize,
+      (this.y - fieldShift.y) * fieldSize,
+      fieldSize,
+      fieldSize
+    );
   }
 }
 

@@ -1,114 +1,519 @@
-import { Disposition, Faction } from "@/gameObject/types";
-import { ImageKey } from "@/imageManager/types";
-import { InstanceData, InstanceKey } from "./types";
+import { Disposition, Faction } from '@/gameObject/types.ts';
+import { ImageKey } from '@/imageManager/types.ts';
+import { InstanceData, InstanceKey } from './types.ts';
 
 const instanceData: InstanceData = {
-    mapSize: {
-        width: 20,
-        height: 7
+  mapSize: {
+    width: 20,
+    height: 7,
+  },
+  buildingsCoordinates: [
+    {
+      topLeft: {
+        x: 0,
+        y: 0,
+      },
+      bottomRight: {
+        x: 19,
+        y: 0,
+      },
+      doors: null,
     },
-    buildingsCoordinates: [
+    {
+      topLeft: {
+        x: 0,
+        y: 6,
+      },
+      bottomRight: {
+        x: 19,
+        y: 6,
+      },
+      doors: null,
+    },
+    {
+      topLeft: {
+        x: 0,
+        y: 1,
+      },
+      bottomRight: {
+        x: 0,
+        y: 5,
+      },
+      doors: null,
+    },
+    {
+      topLeft: {
+        x: 19,
+        y: 1,
+      },
+      bottomRight: {
+        x: 19,
+        y: 4,
+      },
+      doors: null,
+    },
+  ],
+  npcs: [
+    {
+      speed: 1,
+      type: 'innkeeper',
+      x: 2,
+      y: 2,
+      imagesKeys: { default: ImageKey.INNKEEPER, dead: ImageKey.INNKEEPER },
+      faction: Faction.NEUTRAL,
+      hp: 100,
+      dispositionToFactions: {
+        [Disposition.HOSTILE]: [Faction.ENEMY],
+        [Disposition.FRIENDLY]: [Faction.NEUTRAL],
+        [Disposition.NEUTRAL]: [Faction.PLAYER],
+      },
+      canOccupiedFields: true,
+      isInteractive: true,
+    },
+    {
+      speed: 1,
+      type: 'npc',
+      x: 16,
+      y: 2,
+      imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
+      faction: Faction.NEUTRAL,
+      hp: 100,
+      dispositionToFactions: {
+        [Disposition.HOSTILE]: [Faction.ENEMY],
+        [Disposition.FRIENDLY]: [Faction.NEUTRAL],
+        [Disposition.NEUTRAL]: [Faction.PLAYER],
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      speed: 1,
+      type: 'npc',
+      x: 12,
+      y: 3,
+      imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
+      faction: Faction.NEUTRAL,
+      hp: 100,
+      dispositionToFactions: {
+        [Disposition.HOSTILE]: [Faction.ENEMY],
+        [Disposition.FRIENDLY]: [Faction.NEUTRAL],
+        [Disposition.NEUTRAL]: [Faction.PLAYER],
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      speed: 1,
+      type: 'npc',
+      x: 7,
+      y: 1,
+      imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
+      faction: Faction.NEUTRAL,
+      hp: 100,
+      dispositionToFactions: {
+        [Disposition.HOSTILE]: [Faction.ENEMY],
+        [Disposition.FRIENDLY]: [Faction.NEUTRAL],
+        [Disposition.NEUTRAL]: [Faction.PLAYER],
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      speed: 1,
+      type: 'npc',
+      x: 9,
+      y: 4,
+      imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
+      faction: Faction.NEUTRAL,
+      hp: 100,
+      dispositionToFactions: {
+        [Disposition.HOSTILE]: [Faction.ENEMY],
+        [Disposition.FRIENDLY]: [Faction.NEUTRAL],
+        [Disposition.NEUTRAL]: [Faction.PLAYER],
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      speed: 3,
+      type: 'dog',
+      x: 18,
+      y: 2,
+      imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG_DEAD },
+      faction: Faction.NEUTRAL,
+      hp: 150,
+      dispositionToFactions: {
+        [Disposition.HOSTILE]: [Faction.ENEMY],
+        [Disposition.FRIENDLY]: [Faction.NEUTRAL],
+        [Disposition.NEUTRAL]: [Faction.PLAYER],
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+  ],
+  items: [],
+  gateways: [
+    {
+      targetInstanceKey: InstanceKey.INSTANCE_02,
+      type: 'gateway',
+      x: 19,
+      y: 5,
+      targetPlayerCoordinates: { x: 0, y: 5 },
+      imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE },
+      canOccupiedFields: true,
+      isInteractive: true,
+    },
+  ],
+  workshops: [],
+  chests: [
+    {
+      itemsAttributes: [
         {
-            topLeft: {
-                x: 0,
-                y: 0
-            },
-            bottomRight: {
-                x: 19,
-                y: 0
-            },
-            doors: null
+          type: 'reanimatePotion',
+          x: null,
+          y: null,
+          imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION },
+          canOccupiedFields: false,
+          isInteractive: true,
         },
-        {
-            topLeft: {
-                x: 0,
-                y: 6
-            },
-            bottomRight: {
-                x: 19,
-                y: 6
-            },
-            doors: null
-        },
-        {
-            topLeft: {
-                x: 0,
-                y: 1
-            },
-            bottomRight: {
-                x: 0,
-                y: 5
-            },
-            doors: null
-        },
-        {
-            topLeft: {
-                x: 19,
-                y: 1
-            },
-            bottomRight: {
-                x: 19,
-                y: 4
-            },
-            doors: null
-        },
-    ],
-    npcs: [
-        { speed: 1, type: "innkeeper", x: 2, y: 2, imagesKeys: { default: ImageKey.INNKEEPER, dead: ImageKey.INNKEEPER }, faction: Faction.NEUTRAL, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.NEUTRAL], [Disposition.NEUTRAL]: [Faction.PLAYER] }, canOccupiedFields: true, isInteractive: true },
-        { speed: 1, type: "npc", x: 16, y: 2, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD }, faction: Faction.NEUTRAL, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.NEUTRAL], [Disposition.NEUTRAL]: [Faction.PLAYER] }, canOccupiedFields: true, isInteractive: false },
-        { speed: 1, type: "npc", x: 12, y: 3, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD }, faction: Faction.NEUTRAL, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.NEUTRAL], [Disposition.NEUTRAL]: [Faction.PLAYER] }, canOccupiedFields: true, isInteractive: false },
-        { speed: 1, type: "npc", x: 7, y: 1, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD }, faction: Faction.NEUTRAL, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.NEUTRAL], [Disposition.NEUTRAL]: [Faction.PLAYER] }, canOccupiedFields: true, isInteractive: false },
-        { speed: 1, type: "npc", x: 9, y: 4, imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD }, faction: Faction.NEUTRAL, hp: 100, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.NEUTRAL], [Disposition.NEUTRAL]: [Faction.PLAYER] }, canOccupiedFields: true, isInteractive: false },
-        { speed: 3, type: "dog", x: 18, y: 2, imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG_DEAD }, faction: Faction.NEUTRAL, hp: 150, dispositionToFactions: { [Disposition.HOSTILE]: [Faction.ENEMY], [Disposition.FRIENDLY]: [Faction.NEUTRAL], [Disposition.NEUTRAL]: [Faction.PLAYER] }, canOccupiedFields: true, isInteractive: false },
-    ],
-    items: [],
-    gateways: [
-        { targetInstanceKey: InstanceKey.INSTANCE_02, type: "gateway", x: 19, y: 5, targetPlayerCoordinates: { x: 0, y: 5 }, imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE }, canOccupiedFields: true, isInteractive: true },
-    ],
-    workshops: [],
-    chests: [
-        { itemsAttributes: [{ type: "reanimatePotion", x: null, y: null, imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION }, canOccupiedFields: false, isInteractive: true }], type: "chest", x: 1, y: 1, imagesKeys: { default: ImageKey.CHEST, dead: ImageKey.CHEST }, canOccupiedFields: true, isInteractive: true },
-    ],
-    gameObjects: [
-        { type: "table", x: 3, y: 1, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 3, y: 2, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 3, y: 3, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
+      ],
+      type: 'chest',
+      x: 1,
+      y: 1,
+      imagesKeys: { default: ImageKey.CHEST, dead: ImageKey.CHEST },
+      canOccupiedFields: true,
+      isInteractive: true,
+    },
+  ],
+  gameObjects: [
+    {
+      type: 'table',
+      x: 3,
+      y: 1,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 3,
+      y: 2,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 3,
+      y: 3,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
 
-        { type: "table", x: 7, y: 2, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 8, y: 2, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 9, y: 2, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 7, y: 3, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 8, y: 3, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 9, y: 3, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "stool", x: 7, y: 1, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 8, y: 1, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 9, y: 1, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 7, y: 4, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 8, y: 4, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 9, y: 4, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 6, y: 2, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 6, y: 3, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 10, y: 2, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 10, y: 3, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
+    {
+      type: 'table',
+      x: 7,
+      y: 2,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 8,
+      y: 2,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 9,
+      y: 2,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 7,
+      y: 3,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 8,
+      y: 3,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 9,
+      y: 3,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 7,
+      y: 1,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 8,
+      y: 1,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 9,
+      y: 1,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 7,
+      y: 4,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 8,
+      y: 4,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 9,
+      y: 4,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 6,
+      y: 2,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 6,
+      y: 3,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 10,
+      y: 2,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 10,
+      y: 3,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
 
-        { type: "table", x: 13, y: 2, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 14, y: 2, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 15, y: 2, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 13, y: 3, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 14, y: 3, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "table", x: 15, y: 3, imagesKeys: { default: ImageKey.WOOD_TEXTURE, dead: ImageKey.WOOD_TEXTURE }, canOccupiedFields: true, isInteractive: false },
-        { type: "stool", x: 13, y: 1, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 14, y: 1, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 15, y: 1, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 13, y: 4, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 14, y: 4, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 15, y: 4, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 12, y: 2, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 12, y: 3, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 16, y: 2, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-        { type: "stool", x: 16, y: 3, imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL }, canOccupiedFields: false, isInteractive: false },
-    ],
+    {
+      type: 'table',
+      x: 13,
+      y: 2,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 14,
+      y: 2,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 15,
+      y: 2,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 13,
+      y: 3,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 14,
+      y: 3,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'table',
+      x: 15,
+      y: 3,
+      imagesKeys: {
+        default: ImageKey.WOOD_TEXTURE,
+        dead: ImageKey.WOOD_TEXTURE,
+      },
+      canOccupiedFields: true,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 13,
+      y: 1,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 14,
+      y: 1,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 15,
+      y: 1,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 13,
+      y: 4,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 14,
+      y: 4,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 15,
+      y: 4,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 12,
+      y: 2,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 12,
+      y: 3,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 16,
+      y: 2,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+    {
+      type: 'stool',
+      x: 16,
+      y: 3,
+      imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+      canOccupiedFields: false,
+      isInteractive: false,
+    },
+  ],
 };
 
 export default instanceData;
-
