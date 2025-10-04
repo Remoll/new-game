@@ -1,4 +1,4 @@
-import { InstanceKey } from '@/game/gameInstanceData/types.ts';
+import { GameInstanceKey } from '@/game/gameInstanceData/types.ts';
 import Player from '../entity/player/Player.ts';
 import GameObject from '../GameObject.ts';
 import { GatewayAttributes } from '../types.ts';
@@ -7,19 +7,25 @@ import { Coordinates } from '@/types.ts';
 import itemFactory from '../item/itemFactory.ts';
 
 class Gateway extends GameObject {
-  private targetInstanceKey: InstanceKey;
+  private targetGameInstanceKey: GameInstanceKey;
   private targetPlayerCoordinates: Coordinates;
   constructor(attributes: GatewayAttributes) {
-    const { targetInstanceKey, targetPlayerCoordinates, ...restAttributes } =
-      attributes;
+    const {
+      targetGameInstanceKey,
+      targetPlayerCoordinates,
+      ...restAttributes
+    } = attributes;
     super(restAttributes, itemFactory);
-    this.targetInstanceKey = targetInstanceKey;
+    this.targetGameInstanceKey = targetGameInstanceKey;
     this.targetPlayerCoordinates = targetPlayerCoordinates;
   }
 
   movePlayerToNextMap() {
-    const game = Game.getInstance();
-    game.startNewInstance(this.targetInstanceKey, this.targetPlayerCoordinates);
+    const game = Game.getSingleton();
+    game.startNewGameInstance(
+      this.targetGameInstanceKey,
+      this.targetPlayerCoordinates
+    );
   }
 
   handleInteract(gameObject: GameObject) {

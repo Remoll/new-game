@@ -4,7 +4,7 @@ import GameLoop from '@/gameLoop/GameLoop.ts';
 import Entity from '@/gameObject/entity/Entity.ts';
 
 class GameEventListener {
-  private static instance: GameEventListener | null = null;
+  private static singleton: GameEventListener | null = null;
   private gameObjects: GameObject[];
   private gameLoop: GameLoop;
 
@@ -15,14 +15,17 @@ class GameEventListener {
     this.startFirstTurn();
   }
 
-  static getInstance(
+  static getSingleton(
     gameObjects: GameObject[],
     gameLoop: GameLoop
   ): GameEventListener {
-    if (!GameEventListener.instance && gameObjects && gameLoop) {
-      GameEventListener.instance = new GameEventListener(gameObjects, gameLoop);
+    if (!GameEventListener.singleton && gameObjects && gameLoop) {
+      GameEventListener.singleton = new GameEventListener(
+        gameObjects,
+        gameLoop
+      );
     }
-    return GameEventListener.instance;
+    return GameEventListener.singleton;
   }
 
   setGameObjects(gameObjects: GameObject[]) {
@@ -84,7 +87,7 @@ class GameEventListener {
       switch (type) {
         case GameEventType.ATTACK:
           if (gameObject instanceof Entity === false) {
-            console.error('Target gameObject is not an instance of Entity');
+            console.error('Target gameObject is not an instanceof Entity');
             return;
           }
           if (typeof value !== 'number') {

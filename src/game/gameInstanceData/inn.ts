@@ -1,8 +1,8 @@
 import { Disposition, Faction } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
-import { InstanceData, InstanceKey } from './types.ts';
+import { GameInstanceData, GameInstanceKey } from './types.ts';
 
-const instanceData: InstanceData = {
+const gameInstanceData: GameInstanceData = {
   mapSize: {
     width: 20,
     height: 7,
@@ -154,7 +154,7 @@ const instanceData: InstanceData = {
   items: [],
   gateways: [
     {
-      targetInstanceKey: InstanceKey.INSTANCE_02,
+      targetGameInstanceKey: GameInstanceKey.INSTANCE_02,
       type: 'gateway',
       x: 19,
       y: 5,
@@ -516,4 +516,4 @@ const instanceData: InstanceData = {
   ],
 };
 
-export default instanceData;
+export default gameInstanceData;

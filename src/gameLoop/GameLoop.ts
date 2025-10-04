@@ -11,7 +11,7 @@ import { emitPlayerEndsTurn } from '@/gameEvents/emiter/emittedActions.ts';
 import GameState from '@/game/GameState.ts';
 
 class GameLoop {
-  private static instance: GameLoop | null = null;
+  private static singleton: GameLoop | null = null;
   private gameObjects: GameObject[];
   private gameMap: GameMap;
   private canvasHandler: CanvasHandler;
@@ -34,15 +34,15 @@ class GameLoop {
     this.canvasHandler.renderGameState();
   }
 
-  static getInstance(
+  static getSingleton(
     gameObjects?: GameObject[],
     gameMap?: GameMap,
     ctx?: CanvasRenderingContext2D
   ): GameLoop {
-    if (!GameLoop.instance && gameObjects && gameMap && ctx) {
-      GameLoop.instance = new GameLoop(gameObjects, gameMap, ctx);
+    if (!GameLoop.singleton && gameObjects && gameMap && ctx) {
+      GameLoop.singleton = new GameLoop(gameObjects, gameMap, ctx);
     }
-    return GameLoop.instance;
+    return GameLoop.singleton;
   }
 
   setGameObjects(gameObjects: GameObject[]) {
@@ -86,7 +86,7 @@ class GameLoop {
 
     this.refreshGameState();
     this.ctx.drawImage(
-      ImageManager.instance.getImage(value.imageKey),
+      ImageManager.getSingleton().getImage(value.imageKey),
       x * fieldSize,
       y * fieldSize,
       fieldSize,

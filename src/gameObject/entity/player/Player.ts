@@ -144,7 +144,9 @@ class Player extends Entity {
 
       if (mainHandItem) {
         ctx.drawImage(
-          ImageManager.instance.getImage(mainHandItem.getImagesKeys().dead),
+          ImageManager.getSingleton().getImage(
+            mainHandItem.getImagesKeys().dead
+          ),
           (x - fieldShift.x) * fieldSize,
           (y - fieldShift.y) * fieldSize,
           fieldSize,
@@ -154,7 +156,7 @@ class Player extends Entity {
     }
 
     ctx.drawImage(
-      ImageManager.instance.getImage(
+      ImageManager.getSingleton().getImage(
         this.isAlive()
           ? this.getImagesKeys().default
           : this.getImagesKeys().dead

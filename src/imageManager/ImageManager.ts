@@ -32,7 +32,7 @@ import innkeeperImage from '@/imageManager/images/innkeeperImage.png';
 import doorStoneImage from '@/imageManager/images/doorStoneImage.png';
 
 class ImageManager {
-  private static _instance: ImageManager;
+  private static singleton: ImageManager;
   private images: ImageMap = {
     [ImageKey.PLAYER]: undefined,
     [ImageKey.PLAYER_DEAD]: undefined,
@@ -68,11 +68,11 @@ class ImageManager {
 
   private constructor() {}
 
-  public static get instance(): ImageManager {
-    if (!ImageManager._instance) {
-      ImageManager._instance = new ImageManager();
+  public static getSingleton(): ImageManager {
+    if (!ImageManager.singleton) {
+      ImageManager.singleton = new ImageManager();
     }
-    return ImageManager._instance;
+    return ImageManager.singleton;
   }
 
   private setImages(images: ImageMap) {

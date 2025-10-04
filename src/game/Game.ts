@@ -8,38 +8,38 @@ import instance01 from '@/game/gameInstanceData/instance01.ts';
 import instance02 from '@/game/gameInstanceData/instance02.ts';
 import instance03 from '@/game/gameInstanceData/instance03.ts';
 import inn from '@/game/gameInstanceData/inn.ts';
-import { InstanceData, InstanceKey } from './gameInstanceData/types.ts';
+import { GameInstanceData, GameInstanceKey } from './gameInstanceData/types.ts';
 import GameState from './GameState.ts';
 import { Coordinates } from '@/types.ts';
 
 class Game {
-  private static instance: Game | null = null;
+  private static singleton: Game | null = null;
   private ctx: CanvasRenderingContext2D;
   private gameLoop: GameLoop;
   private gameEventListener: GameEventListener;
-  private instances: { [key in InstanceKey]?: GameInstance } = {};
+  private gameInstances: { [key in GameInstanceKey]?: GameInstance } = {};
 
   private constructor(ctx: CanvasRenderingContext2D) {
     this.ctx = ctx;
     this.initGame();
   }
 
-  static getInstance(ctx?: CanvasRenderingContext2D): Game {
-    if (!Game.instance && ctx) {
-      Game.instance = new Game(ctx);
+  static getSingleton(ctx?: CanvasRenderingContext2D): Game {
+    if (!Game.singleton && ctx) {
+      Game.singleton = new Game(ctx);
     }
-    return Game.instance;
+    return Game.singleton;
   }
 
-  private getInstanceDataByKey(key: InstanceKey): InstanceData {
+  private getInstanceDataByKey(key: GameInstanceKey): GameInstanceData {
     switch (key) {
-      case InstanceKey.INSTANCE_01:
+      case GameInstanceKey.INSTANCE_01:
         return instance01;
-      case InstanceKey.INSTANCE_02:
+      case GameInstanceKey.INSTANCE_02:
         return instance02;
-      case InstanceKey.INSTANCE_03:
+      case GameInstanceKey.INSTANCE_03:
         return instance03;
-      case InstanceKey.INN:
+      case GameInstanceKey.INN:
         return inn;
       default:
         return instance01;
@@ -88,21 +88,21 @@ class Game {
 
       GameState.setPlayer(player);
 
-      this.instances[InstanceKey.INN] = new GameInstance(inn);
+      this.gameInstances[GameInstanceKey.INN] = new GameInstance(inn);
 
       const playerCurrentField = player.getCurrentField();
       playerCurrentField.addGameObjectToField(player);
 
-      const gameMap = this.instances[InstanceKey.INN].getGameMap();
+      const gameMap = this.gameInstances[GameInstanceKey.INN].getGameMap();
 
       const gameObjects = [
         player,
-        ...this.instances[InstanceKey.INN].getGameObjects(),
+        ...this.gameInstances[GameInstanceKey.INN].getGameObjects(),
       ];
 
-      this.gameLoop = GameLoop.getInstance(gameObjects, gameMap, this.ctx);
+      this.gameLoop = GameLoop.getSingleton(gameObjects, gameMap, this.ctx);
 
-      this.gameEventListener = GameEventListener.getInstance(
+      this.gameEventListener = GameEventListener.getSingleton(
         gameObjects,
         this.gameLoop
       );
@@ -111,8 +111,8 @@ class Game {
     }
   }
 
-  startNewInstance(
-    instanceKey: InstanceKey,
+  startNewGameInstance(
+    gameInstanceKey: GameInstanceKey,
     targetPlayerCoordinates: Coordinates
   ) {
     const player = GameState.getPlayer();
@@ -120,13 +120,13 @@ class Game {
     const playerPrevField = player.getCurrentField();
     playerPrevField.removeGameObjectFromField(player);
 
-    const instanceData = this.getInstanceDataByKey(instanceKey);
+    const gameInstanceData = this.getInstanceDataByKey(gameInstanceKey);
 
-    if (!this.instances[instanceKey]) {
-      this.instances[instanceKey] = new GameInstance(instanceData);
+    if (!this.gameInstances[gameInstanceKey]) {
+      this.gameInstances[gameInstanceKey] = new GameInstance(gameInstanceData);
     }
 
-    const gameMap = this.instances[instanceKey].getGameMap();
+    const gameMap = this.gameInstances[gameInstanceKey].getGameMap();
 
     const fields = gameMap.getFields();
 
@@ -138,7 +138,7 @@ class Game {
 
     const gameObjects = [
       player,
-      ...this.instances[instanceKey].getGameObjects(),
+      ...this.gameInstances[gameInstanceKey].getGameObjects(),
     ];
     this.gameLoop.setGameMap(gameMap);
     this.gameLoop.setGameObjects(gameObjects);

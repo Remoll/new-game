@@ -178,7 +178,7 @@ class Entity extends GameObject {
     const { x, y } = this.getPosition();
 
     ctx.drawImage(
-      ImageManager.instance.getImage(
+      ImageManager.getSingleton().getImage(
         this.isAlive()
           ? this.getImagesKeys().default
           : this.getImagesKeys().dead

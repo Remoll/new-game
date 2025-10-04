@@ -5,7 +5,7 @@ import {
   GatewayAttributes,
 } from '@/gameObject/types.ts';
 
-interface InstanceData {
+interface GameInstanceData {
   mapSize: { width: number; height: number };
   buildingsCoordinates: BuildingCoordinates[];
   npcs: EntityAttributes[];
@@ -16,11 +16,11 @@ interface InstanceData {
   gameObjects?: GameObjectAttributes[];
 }
 
-enum InstanceKey {
+enum GameInstanceKey {
   INSTANCE_01 = 'instance01',
   INSTANCE_02 = 'instance02',
   INSTANCE_03 = 'instance03',
   INN = 'inn',
 }
 
-export { type InstanceData, InstanceKey };
+export { type GameInstanceData, GameInstanceKey };

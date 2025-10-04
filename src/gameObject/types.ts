@@ -1,4 +1,4 @@
-import { InstanceKey } from '@/game/gameInstanceData/types.ts';
+import { GameInstanceKey } from '@/game/gameInstanceData/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { Coordinates } from '@/types.ts';
 import Item from './item/Item.ts';
@@ -49,7 +49,7 @@ interface EntityAttributes extends GameObjectAttributes {
 }
 
 interface GatewayAttributes extends GameObjectAttributes {
-  targetInstanceKey: InstanceKey;
+  targetGameInstanceKey: GameInstanceKey;
   targetPlayerCoordinates: Coordinates;
 }
 

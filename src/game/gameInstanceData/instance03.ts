@@ -1,8 +1,8 @@
 import { ImageKey } from '@/imageManager/types.ts';
-import { InstanceData, InstanceKey } from './types.ts';
+import { GameInstanceData, GameInstanceKey } from './types.ts';
 import Building from '@/gameMap/building/Building.ts';
 
-const instanceData: InstanceData = {
+const gameInstanceData: GameInstanceData = {
   mapSize: {
     width: 50,
     height: 50,
@@ -20,7 +20,7 @@ const instanceData: InstanceData = {
   items: [],
   gateways: [
     {
-      targetInstanceKey: InstanceKey.INSTANCE_02,
+      targetGameInstanceKey: GameInstanceKey.INSTANCE_02,
       type: 'gateway',
       x: 20,
       y: 48,
@@ -32,4 +32,4 @@ const instanceData: InstanceData = {
   ],
 };
 
-export default instanceData;
+export default gameInstanceData;

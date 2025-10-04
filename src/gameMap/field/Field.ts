@@ -73,7 +73,7 @@ class Field {
     fieldSize: number
   ) {
     ctx.drawImage(
-      ImageManager.instance.getImage(ImageKey.GRASS_BLOCK),
+      ImageManager.getSingleton().getImage(ImageKey.GRASS_BLOCK),
       (this.x - fieldShift.x) * fieldSize,
       (this.y - fieldShift.y) * fieldSize,
       fieldSize,

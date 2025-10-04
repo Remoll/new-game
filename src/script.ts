@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  await ImageManager.instance.preloadImages();
+  await ImageManager.getSingleton().preloadImages();
 
   ctx.font = '24px Arial';
 
-  Game.getInstance(ctx);
+  Game.getSingleton(ctx);
 });
 
 // // --- 1. Linia ---

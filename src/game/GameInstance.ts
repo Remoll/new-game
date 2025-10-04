@@ -3,7 +3,7 @@ import Building from '@/gameMap/building/Building.ts';
 import Npc from '@/gameObject/entity/npc/Npc.ts';
 import Gateway from '@/gameObject/gateway/Gateway.ts';
 import GameObject from '@/gameObject/GameObject.ts';
-import { InstanceData } from '@/game/gameInstanceData/types.ts';
+import { GameInstanceData } from '@/game/gameInstanceData/types.ts';
 import Item from '@/gameObject/item/Item.ts';
 import Block from '@/gameObject/block/Block.ts';
 import Door from '@/gameObject/block/Door.ts';
@@ -16,46 +16,46 @@ class GameInstance {
   private gameObjects: GameObject[] = [];
   private gameMap: GameMap;
 
-  constructor(instanceData: InstanceData) {
-    this.createInstance(instanceData);
+  constructor(gameInstanceData: GameInstanceData) {
+    this.createInstance(gameInstanceData);
   }
 
-  createInstance(instanceData: InstanceData) {
-    GameState.setGameMapWidth(instanceData.mapSize.width);
-    GameState.setGameMapHeight(instanceData.mapSize.height);
+  createInstance(gameInstanceData: GameInstanceData) {
+    GameState.setGameMapWidth(gameInstanceData.mapSize.width);
+    GameState.setGameMapHeight(gameInstanceData.mapSize.height);
 
     const gameMap = new GameMap();
     const fields = gameMap.getFields();
 
     GameState.setFields(fields);
 
-    const npcs: Npc[] = instanceData.npcs.map(
+    const npcs: Npc[] = gameInstanceData.npcs.map(
       (npcData) => new Npc({ ...npcData })
     );
 
-    const buildings: Building[] = instanceData.buildingsCoordinates.map(
+    const buildings: Building[] = gameInstanceData.buildingsCoordinates.map(
       (buildingCoordinates) => new Building(buildingCoordinates)
     );
     const blocksFromBuildings: (Block | Door)[] = buildings.flatMap(
       (building) => building.getBlocks()
     );
 
-    const items: Item[] = instanceData.items.map(itemFactory);
+    const items: Item[] = gameInstanceData.items.map(itemFactory);
 
-    const gateways: Gateway[] = instanceData.gateways.map(
+    const gateways: Gateway[] = gameInstanceData.gateways.map(
       (gateway) => new Gateway({ ...gateway })
     );
 
     const workshops: Workshop[] =
-      instanceData.workshops?.map(
+      gameInstanceData.workshops?.map(
         (workshop) => new Workshop({ ...workshop })
       ) || [];
 
     const chests: Chest[] =
-      instanceData.chests?.map((chest) => new Chest({ ...chest })) || [];
+      gameInstanceData.chests?.map((chest) => new Chest({ ...chest })) || [];
 
     const restGameObjects: GameObject[] =
-      instanceData.gameObjects?.map(
+      gameInstanceData.gameObjects?.map(
         (gameObject) => new GameObject({ ...gameObject }, itemFactory)
       ) || [];
 

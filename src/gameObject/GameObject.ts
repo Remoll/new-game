@@ -121,7 +121,7 @@ class GameObject {
   ) {
     const { x, y } = this.getPosition();
     ctx.drawImage(
-      ImageManager.instance.getImage(this.getImagesKeys().default),
+      ImageManager.getSingleton().getImage(this.getImagesKeys().default),
       (x - fieldShift.x) * fieldSize,
       (y - fieldShift.y) * fieldSize,
       fieldSize,

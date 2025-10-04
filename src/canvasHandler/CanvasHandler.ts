@@ -99,7 +99,7 @@ class CanvasHandler {
 
     outOfMapCoordinates.forEach((coordinates) => {
       this.ctx.drawImage(
-        ImageManager.instance.getImage(ImageKey.STONE_BLICK_DARK),
+        ImageManager.getSingleton().getImage(ImageKey.STONE_BLICK_DARK),
         (coordinates.x - playerAndCenterDifference.x) * fieldSize,
         (coordinates.y - playerAndCenterDifference.y) * fieldSize,
         fieldSize,

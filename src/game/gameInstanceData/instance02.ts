@@ -1,8 +1,8 @@
 import { Disposition, Faction } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
-import { InstanceData, InstanceKey } from './types.ts';
+import { GameInstanceData, GameInstanceKey } from './types.ts';
 
-const instanceData: InstanceData = {
+const gameInstanceData: GameInstanceData = {
   mapSize: {
     width: 30,
     height: 7,
@@ -90,7 +90,7 @@ const instanceData: InstanceData = {
   items: [],
   gateways: [
     {
-      targetInstanceKey: InstanceKey.INSTANCE_03,
+      targetGameInstanceKey: GameInstanceKey.INSTANCE_03,
       type: 'gateway',
       x: 11,
       y: 2,
@@ -100,7 +100,7 @@ const instanceData: InstanceData = {
       isInteractive: true,
     },
     {
-      targetInstanceKey: InstanceKey.INSTANCE_01,
+      targetGameInstanceKey: GameInstanceKey.INSTANCE_01,
       type: 'gateway',
       x: 0,
       y: 5,
@@ -110,7 +110,7 @@ const instanceData: InstanceData = {
       isInteractive: true,
     },
     {
-      targetInstanceKey: InstanceKey.INSTANCE_01,
+      targetGameInstanceKey: GameInstanceKey.INSTANCE_01,
       type: 'gateway',
       x: 29,
       y: 5,
@@ -122,4 +122,4 @@ const instanceData: InstanceData = {
   ],
 };
 
-export default instanceData;
+export default gameInstanceData;
