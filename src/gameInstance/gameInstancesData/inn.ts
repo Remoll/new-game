@@ -1,6 +1,7 @@
 import { Disposition, Faction } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { GameInstanceData, GameInstanceKey } from '../types.ts';
+import { DialogueKey } from '@/dialogueManager/types.ts';
 
 const gameInstanceData: GameInstanceData = {
   mapSize: {
@@ -69,6 +70,7 @@ const gameInstanceData: GameInstanceData = {
       },
       canOccupiedFields: true,
       isInteractive: true,
+      dialogueKey: DialogueKey.INNKEEPER,
     },
     {
       speed: 1,

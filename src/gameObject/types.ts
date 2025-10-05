@@ -2,6 +2,7 @@ import { GameInstanceKey } from '@/gameInstance/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { Coordinates } from '@/types.ts';
 import Item from './item/Item.ts';
+import { DialogueKey } from '@/dialogueManager/types.ts';
 
 enum Direction {
   UP = 'up',
@@ -39,6 +40,7 @@ interface GameObjectAttributes {
   canOccupiedFields: boolean;
   isInteractive: boolean;
   itemsAttributes?: GameObjectAttributes[];
+  dialogueKey?: DialogueKey | null;
 }
 
 interface EntityAttributes extends GameObjectAttributes {

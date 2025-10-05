@@ -1,0 +1,24 @@
+::start
+Witaj w mojej karczmie! Co cię sprowadza?
+* [Masz coś do sprzedania?] { action: trade } -> end
+* [Słyszałem, że masz problem z beczką piwa] { if: sideQuest_notStarted } -> sidequest_intro
+* [Opowiedz mi o okolicy] -> gossip
+* [Chcę porozmawiać o głównym zadaniu] { if: mainQuest_stage2 } -> mainQuestUpdate
+* [Na razie wystarczy] -> end
+
+::sidequest_intro
+Tak, zgubiłem beczkę w lesie! Jeśli ją znajdziesz, dam ci złoto.
+{ questStart: lost_barrel }
+-> end
+
+::gossip
+W lesie widziano gobliny. Lepiej tam nie idź nocą.
+-> start
+
+::mainQuestUpdate
+Widzę, że dotarłeś do drugiego etapu... Mam coś, co ci pomoże.
+{ questUpdate: main_quest_stage3 }
+-> end
+
+::end
+Do zobaczenia, przyjacielu!

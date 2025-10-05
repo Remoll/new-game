@@ -9,6 +9,9 @@ import {
 import { Coordinates } from '@/types.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
 import GameState from '@/gameState/GameState.ts';
+import DialogueManager from '@/dialogueManager/DialogueManager.ts';
+import { DialogueKey } from '@/dialogueManager/types.ts';
+import Player from './entity/player/Player.ts';
 
 class GameObject {
   protected type: string;
@@ -19,6 +22,7 @@ class GameObject {
   protected isInteractive: boolean;
   protected items: Item[] = [];
   private imagesKeys: GameObjectImagesKeys;
+  private dialogueKey: DialogueKey | null;
 
   // use itemFactory to avoid circular dependency issues for GameObject and Items
   constructor(attributes: GameObjectAttributes, itemFactory: ItemFactory) {
@@ -30,6 +34,7 @@ class GameObject {
       isInteractive,
       imagesKeys,
       itemsAttributes,
+      dialogueKey,
     } = attributes;
 
     this.type = type;
@@ -38,6 +43,7 @@ class GameObject {
     this.imagesKeys = imagesKeys;
     this.canOccupiedFields = canOccupiedFields;
     this.isInteractive = isInteractive;
+    this.dialogueKey = dialogueKey || null;
 
     this.items = itemsAttributes?.map(itemFactory) || [];
     this.items.forEach((item) => {
@@ -139,7 +145,13 @@ class GameObject {
 
   handleInteract(gameObject?: GameObject) {
     // implement in subclasses
-    console.log('gameObject: ', gameObject);
+    if (this.dialogueKey && gameObject instanceof Player) {
+      const dialogue = DialogueManager.getSingleton().getDialogue(
+        this.dialogueKey
+      );
+      // TODO: create ui for dialouges
+      console.log('dialogue: ', dialogue);
+    }
     return;
   }
 

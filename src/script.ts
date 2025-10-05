@@ -1,5 +1,6 @@
 import Game from '@/game/Game.ts';
 import ImageManager from './imageManager/ImageManager.ts';
+import DialogueManager from './dialogueManager/DialogueManager.ts';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const canvas = document.getElementById('canvas') as HTMLCanvasElement | null;
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   await ImageManager.getSingleton().preloadImages();
+  await DialogueManager.getSingleton().preloadDialogues();
 
   ctx.font = '24px Arial';
 
