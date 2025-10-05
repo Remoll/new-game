@@ -12,6 +12,7 @@ import { InventorySlot } from '@/ui/inventory/types.ts';
 import Equipment from '@/gameObject/item/equipment/Equipment.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
 import { EquipmentSlot } from '@/gameObject/item/equipment/types.ts';
+import DialogueEngine from '@/dialogueManager/DialogueEngine.ts';
 
 class Player extends Entity {
   private isInteracting: boolean = false;
@@ -182,6 +183,40 @@ class Player extends Entity {
   private addMoveListener() {
     document.addEventListener('keydown', (event) => {
       const key = event.key;
+      if (GameState.getIsDialogueOpen()) {
+        const dialogueEngine = DialogueEngine.getSingleton();
+        switch (key) {
+          case '1':
+            dialogueEngine.goToDialogueNode(1);
+            return;
+          case '2':
+            dialogueEngine.goToDialogueNode(2);
+            return;
+          case '3':
+            dialogueEngine.goToDialogueNode(3);
+            return;
+          case '4':
+            dialogueEngine.goToDialogueNode(4);
+            return;
+          case '5':
+            dialogueEngine.goToDialogueNode(5);
+            return;
+          case '6':
+            dialogueEngine.goToDialogueNode(6);
+            return;
+          case '7':
+            dialogueEngine.goToDialogueNode(7);
+            return;
+          case '8':
+            dialogueEngine.goToDialogueNode(8);
+            return;
+          case '9':
+            dialogueEngine.goToDialogueNode(9);
+            return;
+          default:
+            return;
+        }
+      }
       if (this.inventory.getIsOpen()) {
         switch (key) {
           case 'a':

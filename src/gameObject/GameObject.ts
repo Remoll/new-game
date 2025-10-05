@@ -9,9 +9,9 @@ import {
 import { Coordinates } from '@/types.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
 import GameState from '@/gameState/GameState.ts';
-import DialogueManager from '@/dialogueManager/DialogueManager.ts';
 import { DialogueKey } from '@/dialogueManager/types.ts';
 import Player from './entity/player/Player.ts';
+import DialogueEngine from '@/dialogueManager/DialogueEngine.ts';
 
 class GameObject {
   protected type: string;
@@ -144,13 +144,9 @@ class GameObject {
   }
 
   handleInteract(gameObject?: GameObject) {
-    // implement in subclasses
+    // implemented in subclasses
     if (this.dialogueKey && gameObject instanceof Player) {
-      const dialogue = DialogueManager.getSingleton().getDialogue(
-        this.dialogueKey
-      );
-      // TODO: create ui for dialouges
-      console.log('dialogue: ', dialogue);
+      DialogueEngine.getSingleton().initDialogue(this.dialogueKey);
     }
     return;
   }

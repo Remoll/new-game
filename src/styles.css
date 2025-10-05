@@ -23,6 +23,17 @@
   display: none;
 }
 
+#dialogue {
+  z-index: 3;
+  width: 840px;
+  height: 400px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: gray;
+  display: none;
+}
+
 #bar {
   z-index: 3;
   width: 100%;

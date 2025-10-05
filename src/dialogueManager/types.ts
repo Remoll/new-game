@@ -1,4 +1,3 @@
-// src/dialogueManager/types.ts
 interface DialogueOption {
   text: string;
   target: string;
@@ -13,8 +12,25 @@ interface DialogueNode {
   commands?: Record<string, string>;
 }
 
+type DialogueGraph = Record<string, DialogueNode>;
+
 enum DialogueKey {
   INNKEEPER = 'innkeeper',
 }
 
-export { DialogueOption, DialogueNode, DialogueKey };
+enum DialogueActionType {
+  TRADE = 'trade',
+  END = 'end',
+  QUEST_START = 'questStart',
+  QUEST_UPDATE = 'questUpdate',
+  COMPLETE_QUEST = 'completeQuest',
+  GIVE_ITEM = 'giveItem',
+}
+
+export {
+  DialogueOption,
+  DialogueNode,
+  DialogueKey,
+  DialogueGraph,
+  DialogueActionType,
+};

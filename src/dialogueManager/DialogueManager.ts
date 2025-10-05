@@ -1,9 +1,9 @@
 import DialogueParser from './DialogueParser.ts';
-import { DialogueKey, DialogueNode } from './types.ts';
+import { DialogueGraph, DialogueKey } from './types.ts';
 
 class DialogueManager {
   private static singleton: DialogueManager;
-  private dialogues: Record<DialogueKey, Record<string, DialogueNode>> = {
+  private dialogues: Record<DialogueKey, DialogueGraph> = {
     [DialogueKey.INNKEEPER]: null,
   };
 
@@ -28,9 +28,7 @@ class DialogueManager {
     };
   }
 
-  getDialogue(
-    dialogueKey: DialogueKey
-  ): Record<string, DialogueNode> | undefined {
+  getDialogue(dialogueKey: DialogueKey): DialogueGraph | undefined {
     return this.dialogues[dialogueKey];
   }
 }

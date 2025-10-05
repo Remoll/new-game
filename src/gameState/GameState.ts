@@ -3,6 +3,7 @@ import Player from '@/gameObject/entity/player/Player.ts';
 import { Coordinates } from '@/types.ts';
 
 class GameState {
+  private static isDialogueOpen: boolean = false;
   private static player: Player | null = null;
   private static fieldSize: number = 40;
   private static gameMapWidth: number = 21;
@@ -12,6 +13,14 @@ class GameState {
   private static fields: Field[] = [];
 
   private constructor() {}
+
+  static setIsDialogueOpen(value: boolean): void {
+    this.isDialogueOpen = value;
+  }
+
+  static getIsDialogueOpen(): boolean {
+    return this.isDialogueOpen;
+  }
 
   static setPlayer(player: Player): void {
     this.player = player;
