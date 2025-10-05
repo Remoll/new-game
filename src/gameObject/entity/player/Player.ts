@@ -13,6 +13,7 @@ import Equipment from '@/gameObject/item/equipment/Equipment.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
 import { EquipmentSlot } from '@/gameObject/item/equipment/types.ts';
 import DialogueEngine from '@/dialogueManager/DialogueEngine.ts';
+import QuestUi from '@/ui/quests/QuestUi.ts';
 
 class Player extends Entity {
   private isInteracting: boolean = false;
@@ -183,6 +184,15 @@ class Player extends Entity {
   private addMoveListener() {
     document.addEventListener('keydown', (event) => {
       const key = event.key;
+      if (key.toLowerCase() === 'j') {
+        const container = document.getElementById('quests')!;
+        const questUi = QuestUi.getSingleton();
+        if (container.style.display === 'block') {
+          questUi.closeJournal();
+        } else {
+          questUi.openJournal();
+        }
+      }
       if (GameState.getIsDialogueOpen()) {
         const dialogueEngine = DialogueEngine.getSingleton();
         switch (key) {

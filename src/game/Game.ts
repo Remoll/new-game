@@ -11,6 +11,8 @@ import inn from '@/gameInstance/gameInstancesData/inn.ts';
 import GameState from '../gameState/GameState.ts';
 import { Coordinates } from '@/types.ts';
 import { GameInstanceData, GameInstanceKey } from '@/gameInstance/types.ts';
+import { QuestManager } from '@/questManager/QuestManager.ts';
+import findWayToHome from '@/questManager/quests/findWayToHome.ts';
 
 class Game {
   private static singleton: Game | null = null;
@@ -101,6 +103,8 @@ class Game {
       ];
 
       this.gameLoop = GameLoop.getSingleton(gameObjects, gameMap, this.ctx);
+
+      QuestManager.getSingleton().addQuest(findWayToHome);
 
       this.gameEventListener = GameEventListener.getSingleton(
         gameObjects,

@@ -5,7 +5,7 @@ Witaj w mojej karczmie! Co cię sprowadza?
 * [Słyszałem, że masz problem z beczką piwa] { if: !onQuest lostBarrel && !questCompleted lostBarrel } -> sidequest_intro
 * [Mam twoją beczkę] {if: onQuest lostBarrel 1 && haveItem lostBarrel }{ action: completeQuest lostBarrel } -> sidequest_complete
 * [Opowiedz mi o okolicy] -> gossip
-* [Chcę porozmawiać o głównym zadaniu] { if: onQuest mainQuest 1 }{ action: questUpdate mainQuest 2 } -> mainQuestUpdate
+* [Jak dojść do domu] { if: onQuest findWayToHome 1 }{ action: questUpdate findWayToHome 2 } -> mainQuestUpdate
 * [Na razie wystarczy] -> end
 
 ::give_item
