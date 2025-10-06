@@ -78,13 +78,12 @@ class QuestUi {
     if (!quest) return;
 
     const current = quest.stages[quest.currentStage];
-    const next = quest.stages[quest.currentStage + 1];
 
     this.questDetail.innerHTML = `
       <h3>${quest.name}</h3>
       <p><strong>Etap:</strong> ${quest.currentStage + 1}/${quest.stages.length}</p>
       <p><strong>Opis:</strong> ${current.description}</p>
-      ${next ? `<p><em>Następny cel:</em> ${next.description}</p>` : ''}
+      <p><em>Cel:</em> ${current.objective}</p>
       <p style="color:${quest.isCompleted ? 'limegreen' : 'orange'}">
         ${quest.isCompleted ? '✅ Ukończony' : '🕓 W toku'}
       </p>

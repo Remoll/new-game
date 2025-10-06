@@ -1,14 +1,22 @@
-type QuestType = 'main' | 'side';
+enum QuestType {
+  MAIN = 'main',
+  SIDE = 'side',
+}
+
+enum QuestKey {
+  FIND_LOST_BARREL = 'findLostBarrel',
+  FIND_WAY_TO_HOME = 'findWayToHome',
+}
 
 interface QuestStage {
   id: number;
   description: string;
-  objective?: string;
+  objective: string;
   completed?: boolean;
 }
 
-interface Quest {
-  id: string;
+interface QuestData {
+  id: QuestKey;
   name: string;
   type: QuestType;
   stages: QuestStage[];
@@ -18,4 +26,4 @@ interface Quest {
   requirements?: string[]; // np. ["mainQuest >= 2"]
 }
 
-export { QuestType, QuestStage, Quest };
+export { QuestType, QuestStage, QuestData, QuestKey };

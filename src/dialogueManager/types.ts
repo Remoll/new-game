@@ -21,10 +21,16 @@ enum DialogueKey {
 enum DialogueActionType {
   TRADE = 'trade',
   END = 'end',
-  QUEST_START = 'questStart',
-  QUEST_UPDATE = 'questUpdate',
+  START_QUEST = 'startQuest',
+  UPDATE_QUEST = 'updateQuest',
   COMPLETE_QUEST = 'completeQuest',
   GIVE_ITEM = 'giveItem',
+}
+
+enum DialogueConditionType {
+  QUEST_ACTIVE = 'questActive',
+  QUEST_COMPLETED = 'questCompleted',
+  HAVE_ITEM = 'haveItem',
 }
 
 export {
@@ -33,4 +39,5 @@ export {
   DialogueKey,
   DialogueGraph,
   DialogueActionType,
+  DialogueConditionType,
 };

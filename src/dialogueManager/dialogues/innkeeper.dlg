@@ -2,10 +2,10 @@
 Witaj w mojej karczmie! Co cię sprowadza?
 * [Masz coś do sprzedania?] { action: trade } -> start
 * [Daj mi miecz] { action: giveItem sword 1 } -> give_item
-* [Słyszałem, że masz problem z beczką piwa] { if: !onQuest lostBarrel && !questCompleted lostBarrel } -> sidequest_intro
-* [Mam twoją beczkę] {if: onQuest lostBarrel 1 && haveItem lostBarrel }{ action: completeQuest lostBarrel } -> sidequest_complete
+* [Słyszałem, że masz problem z beczką piwa] { if: !questActive findLostBarrel 0 && !questCompleted findLostBarrel } -> sidequest_intro
+* [Mam twoją beczkę] {if: questActive findLostBarrel 0 && haveItem lostBarrel 1 }{ action: completeQuest findLostBarrel } -> sidequest_complete
 * [Opowiedz mi o okolicy] -> gossip
-* [Jak dojść do domu] { if: onQuest findWayToHome 1 }{ action: questUpdate findWayToHome 2 } -> mainQuestUpdate
+* [Jak dojść do domu] { if: questActive findWayToHome 0 }{ action: updateQuest findWayToHome 1 } -> mainQuestUpdate
 * [Na razie wystarczy] -> end
 
 ::give_item
@@ -14,7 +14,7 @@ Proszę bardzo, miecz.
 
 ::sidequest_intro
 Tak, zgubiłem beczkę w lesie! Jeśli ją znajdziesz, dam ci złoto. Znajdziesz?
-* [Tak] { action: questStart lostBarrel } -> start
+* [Tak] { action: startQuest findLostBarrel } -> start
 * [Nie] -> start
 
 ::sidequest_complete

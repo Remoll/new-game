@@ -1,9 +1,9 @@
-import { Quest } from '../types.ts';
+import { QuestData, QuestKey, QuestType } from '../types.ts';
 
-const findWayToHome: Quest = {
-  id: 'findWayToHome',
+const findWayToHome: QuestData = {
+  id: QuestKey.FIND_WAY_TO_HOME,
   name: 'Find way to home',
-  type: 'main',
+  type: QuestType.MAIN,
   currentStage: 0,
   isCompleted: false,
   stages: [
@@ -15,6 +15,11 @@ const findWayToHome: Quest = {
     {
       id: 1,
       description: 'Leave inn into road to forest.',
+      objective: 'Leave inn.',
+    },
+    {
+      id: 2,
+      description: 'Cooo.',
       objective: 'Leave inn.',
     },
   ],

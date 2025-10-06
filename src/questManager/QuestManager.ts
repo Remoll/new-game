@@ -1,8 +1,9 @@
-import { Quest } from './types.ts';
+import QuestLibrary from './QuestLibrary.ts';
+import { QuestData, QuestKey } from './types.ts';
 
 export class QuestManager {
   private static singleton: QuestManager | null = null;
-  private quests: Map<string, Quest> = new Map();
+  private quests: Map<string, QuestData> = new Map();
 
   private constructor() {}
 
@@ -19,31 +20,39 @@ export class QuestManager {
   // =======================
 
   /** Dodaje nowy quest */
-  addQuest(quest: Quest): void {
-    if (this.quests.has(quest.id)) {
-      console.warn(`Quest '${quest.id}' już istnieje — pomijam.`);
+  private addQuest(questData: QuestData): void {
+    if (this.quests.has(questData.id)) {
+      console.warn(`Quest '${questData.id}' już istnieje — pomijam.`);
       return;
     }
-    this.quests.set(quest.id, quest);
+    this.quests.set(questData.id, questData);
+  }
+
+  startQuest(questKey: QuestKey) {
+    this.addQuest(QuestLibrary.getSingleton().getQuestData(questKey));
   }
 
   /** Pobiera quest po ID */
-  getQuest(id: string): Quest | undefined {
+  getQuest(id: QuestKey): QuestData | undefined {
     return this.quests.get(id);
   }
 
+  getQuestCurrentStage(id: QuestKey): number {
+    return this.quests.get(id).currentStage;
+  }
+
   /** Zwraca wszystkie questy */
-  getAllQuests(): Quest[] {
+  getAllQuests(): QuestData[] {
     return Array.from(this.quests.values());
   }
 
   /** Zwraca tylko aktywne questy */
-  getActiveQuests(): Quest[] {
+  getActiveQuests(): QuestData[] {
     return Array.from(this.quests.values()).filter((q) => !q.isCompleted);
   }
 
   /** Zwraca questy ukończone */
-  getCompletedQuests(): Quest[] {
+  getCompletedQuests(): QuestData[] {
     return Array.from(this.quests.values()).filter((q) => q.isCompleted);
   }
 
@@ -51,8 +60,8 @@ export class QuestManager {
   //   ZMIANA STANU QUESTÓW
   // =======================
 
-  /** Aktualizuje etap questa (np. z DSL: { action: questUpdate mainQuest 1 }) */
-  updateQuestStage(questId: string, newStageIndex: number): void {
+  /** Aktualizuje etap questa (np. z DSL: { action: updateQuest mainQuest 1 }) */
+  updateQuestStage(questId: QuestKey, newStageIndex: number): void {
     const quest = this.quests.get(questId);
     if (!quest) {
       console.warn(`Quest '${questId}' nie istnieje.`);
@@ -83,7 +92,7 @@ export class QuestManager {
   }
 
   /** Oznacza questa jako ukończonego */
-  completeQuest(questId: string): void {
+  completeQuest(questId: QuestKey): void {
     const quest = this.quests.get(questId);
     if (!quest) return;
     quest.isCompleted = true;
@@ -93,13 +102,13 @@ export class QuestManager {
   }
 
   /** Sprawdza, czy quest jest aktywny */
-  isQuestActive(questId: string): boolean {
+  isQuestActive(questId: QuestKey): boolean {
     const quest = this.quests.get(questId);
     return !!quest && !quest.isCompleted;
   }
 
   /** Sprawdza, czy quest jest ukończony */
-  isQuestCompleted(questId: string): boolean {
+  isQuestCompleted(questId: QuestKey): boolean {
     const quest = this.quests.get(questId);
     return !!quest && quest.isCompleted;
   }
