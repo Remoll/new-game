@@ -29,6 +29,7 @@ enum ImageKey {
   WOOD_TEXTURE = 'woodTexture',
   INNKEEPER = 'innkeeper',
   DOOR_STONE = 'doorStone',
+  BARREL = 'barrel',
 }
 
 type ImageMap = {

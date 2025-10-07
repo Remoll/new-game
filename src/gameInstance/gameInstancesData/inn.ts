@@ -153,7 +153,16 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
   ],
-  items: [],
+  items: [
+    {
+      type: 'lostBarrel',
+      x: 2,
+      y: 4,
+      imagesKeys: { default: ImageKey.BARREL, dead: ImageKey.BARREL },
+      canOccupiedFields: false,
+      isInteractive: true,
+    },
+  ],
   gateways: [
     {
       targetGameInstanceKey: GameInstanceKey.INSTANCE_02,

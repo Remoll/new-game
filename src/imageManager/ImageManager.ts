@@ -30,6 +30,7 @@ import stoolImage from '@/imageManager/images/stoolImage.png';
 import woodTextureImage from '@/imageManager/images/woodTextureImage.png';
 import innkeeperImage from '@/imageManager/images/innkeeperImage.png';
 import doorStoneImage from '@/imageManager/images/doorStoneImage.png';
+import barrelImage from '@/imageManager/images/barrelImage.png';
 
 class ImageManager {
   private static singleton: ImageManager;
@@ -64,6 +65,7 @@ class ImageManager {
     [ImageKey.WOOD_TEXTURE]: undefined,
     [ImageKey.INNKEEPER]: undefined,
     [ImageKey.DOOR_STONE]: undefined,
+    [ImageKey.BARREL]: undefined,
   };
 
   private constructor() {}
@@ -120,6 +122,7 @@ class ImageManager {
       woodTexture,
       innkeeper,
       doorStone,
+      barrel,
     ] = await Promise.all([
       this.imageLoader(playerImage),
       this.imageLoader(playerDeadImage),
@@ -151,6 +154,7 @@ class ImageManager {
       this.imageLoader(woodTextureImage),
       this.imageLoader(innkeeperImage),
       this.imageLoader(doorStoneImage),
+      this.imageLoader(barrelImage),
     ]);
     this.setImages({
       player,
@@ -183,6 +187,7 @@ class ImageManager {
       woodTexture,
       innkeeper,
       doorStone,
+      barrel,
     });
   };
 
