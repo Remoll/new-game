@@ -1,24 +1,19 @@
 ::start
 Witaj w mojej karczmie! Co cię sprowadza?
-* [Masz coś do sprzedania?] { action: trade } -> start
-* [Daj mi miecz] { action: giveItem sword 1 } -> give_item
+* [Masz coś do sprzedania?] { actions: trade } -> start
 * [Słyszałem, że masz problem z beczką piwa] { if: !questActive findLostBarrel 0 && !questCompleted findLostBarrel } -> sidequest_intro
-* [Mam twoją beczkę] {if: questActive findLostBarrel 0 && haveItem lostBarrel 1 }{ action: completeQuest findLostBarrel } -> sidequest_complete
+* [Mam twoją beczkę] {if: questActive findLostBarrel 0 && haveItem lostBarrel 1 }{ actions: completeQuest findLostBarrel && takeItem lostBarrel 1 && giveItem sword 1 } -> sidequest_complete
 * [Opowiedz mi o okolicy] -> gossip
-* [Jak dojść do domu] { if: questActive findWayToHome 0 }{ action: updateQuest findWayToHome 1 } -> mainQuestUpdate
+* [Jak dojść do domu] { if: questActive findWayToHome 0 }{ actions: updateQuest findWayToHome 1 } -> mainQuestUpdate
 * [Na razie wystarczy] -> end
-
-::give_item
-Proszę bardzo, miecz.
-* [Dzięki!] -> start
 
 ::sidequest_intro
 Tak, zgubiłem beczkę w lesie! Jeśli ją znajdziesz, dam ci złoto. Znajdziesz?
-* [Tak] { action: startQuest findLostBarrel } -> start
+* [Tak] { actions: startQuest findLostBarrel } -> start
 * [Nie] -> start
 
 ::sidequest_complete
-Dzięki stary, masz pieniądze
+Dzięki stary, masz miecz!
 * [Również dzięki] -> start
 
 ::gossip
@@ -31,4 +26,4 @@ Widzę, że dotarłeś do drugiego etapu... Mam coś, co ci pomoże.
 
 ::end
 Do zobaczenia, przyjacielu! 
-* [koniec] { action: end }
+* [koniec] { actions: end }

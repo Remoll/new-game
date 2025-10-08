@@ -1,7 +1,7 @@
 import { GameInstanceKey } from '@/gameInstance/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { Coordinates } from '@/types.ts';
-import Item from './item/Item.ts';
+import type Item from './item/Item.ts';
 import { DialogueKey } from '@/dialogueManager/types.ts';
 
 enum Direction {

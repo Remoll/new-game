@@ -51,27 +51,7 @@ class Game {
   private initGame() {
     if (this.ctx) {
       const player = new Player({
-        itemsAttributes: [
-          {
-            type: 'fireWand',
-            x: null,
-            y: null,
-            imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND },
-            canOccupiedFields: false,
-            isInteractive: true,
-          },
-          {
-            type: 'sword',
-            x: null,
-            y: null,
-            imagesKeys: {
-              default: ImageKey.SWORD,
-              dead: ImageKey.SWORD_EQUIPED,
-            },
-            canOccupiedFields: false,
-            isInteractive: true,
-          },
-        ],
+        itemsAttributes: [],
         speed: 2,
         type: 'player',
         x: 2,

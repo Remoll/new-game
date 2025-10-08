@@ -7,6 +7,7 @@ import {
   DialogueNode,
   DialogueOption,
 } from '@/dialogueManager/types.ts';
+import itemFromType from '@/gameObject/item/itemFromType.ts';
 import GameState from '@/gameState/GameState.ts';
 import { QuestManager } from '@/questManager/QuestManager.ts';
 import { QuestKey } from '@/questManager/types.ts';
@@ -35,7 +36,7 @@ class DialogueEngine {
     GameState.setIsDialogueOpen(false);
   }
 
-  private executeActionFromDialogue(action: string) {
+  private async executeActionFromDialogue(action: string) {
     const actionParts = action.split(' ');
     const actionName = actionParts[0] as DialogueActionType;
     const actionAttributes = actionParts.slice(1, actionParts.length);
@@ -66,11 +67,37 @@ class DialogueEngine {
         );
         break;
 
-      case DialogueActionType.GIVE_ITEM:
-        console.log(
-          `hande giveItem: ${actionAttributes[0]}, quantity: ${actionAttributes[1]}`
-        );
+      case DialogueActionType.TAKE_ITEM: {
+        const player = GameState.getPlayer();
+        const times = parseInt(actionAttributes[1]);
+
+        for (let i = 0; i < times; i++) {
+          const itemForDelete = player
+            .getItems()
+            .find(
+              (itemInInventory) =>
+                itemInInventory.getType() === actionAttributes[0]
+            );
+          if (!itemForDelete) {
+            console.error('No item to remove after dialogue');
+          } else {
+            player.removeItemFromInventory(itemForDelete);
+          }
+        }
+
         break;
+      }
+
+      case DialogueActionType.GIVE_ITEM: {
+        const times = parseInt(actionAttributes[1]);
+
+        for (let i = 0; i < times; i++) {
+          const item = itemFromType(actionAttributes[0]);
+          GameState.getPlayer().addItem(item);
+        }
+
+        break;
+      }
 
       default:
         break;
@@ -164,10 +191,13 @@ class DialogueEngine {
   goToDialogueNode(selectedKey: number) {
     const optionIndex = selectedKey - 1;
     const selectedOption = this.activeOptions[optionIndex];
-    const action = selectedOption.action;
+    const actions = selectedOption.actions;
 
-    if (action) {
-      this.executeActionFromDialogue(action);
+    if (selectedOption.actions) {
+      const actionsArray = actions.split(' && ');
+      actionsArray.forEach((action) => {
+        this.executeActionFromDialogue(action);
+      });
     }
 
     const nextNode = this.currentDialogueGraph[selectedOption.target];

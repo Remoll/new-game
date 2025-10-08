@@ -2,7 +2,7 @@ interface DialogueOption {
   text: string;
   target: string;
   conditions?: Record<string, string>;
-  action?: string;
+  actions?: string;
 }
 
 interface DialogueNode {
@@ -25,6 +25,7 @@ enum DialogueActionType {
   UPDATE_QUEST = 'updateQuest',
   COMPLETE_QUEST = 'completeQuest',
   GIVE_ITEM = 'giveItem',
+  TAKE_ITEM = 'takeItem',
 }
 
 enum DialogueConditionType {

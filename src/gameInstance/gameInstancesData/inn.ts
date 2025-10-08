@@ -180,10 +180,10 @@ const gameInstanceData: GameInstanceData = {
     {
       itemsAttributes: [
         {
-          type: 'reanimatePotion',
+          type: 'fireWand',
           x: null,
           y: null,
-          imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION },
+          imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND },
           canOccupiedFields: false,
           isInteractive: true,
         },

@@ -1,5 +1,5 @@
 import Field from '@/gameMap/field/Field.ts';
-import Item from '@/gameObject/item/Item.ts';
+import type Item from '@/gameObject/item/Item.ts';
 import {
   Direction,
   GameObjectAttributes,
@@ -11,7 +11,6 @@ import ImageManager from '@/imageManager/ImageManager.ts';
 import GameState from '@/gameState/GameState.ts';
 import { DialogueKey } from '@/dialogueManager/types.ts';
 import Player from './entity/player/Player.ts';
-import DialogueEngine from '@/dialogueManager/DialogueEngine.ts';
 
 class GameObject {
   protected type: string;
@@ -146,7 +145,13 @@ class GameObject {
   handleInteract(gameObject?: GameObject) {
     // implemented in subclasses
     if (this.dialogueKey && gameObject instanceof Player) {
-      DialogueEngine.getSingleton().initDialogue(this.dialogueKey);
+      // lazy/dynamic import to avoid circular runtime dependency with DialogueEngine -> itemFactory -> Item -> GameObject -> DialogueEngine
+      import('@/dialogueManager/DialogueEngine.ts').then((module) => {
+        const DialogueEngine = module.default;
+        DialogueEngine.getSingleton().initDialogue(
+          this.dialogueKey as DialogueKey
+        );
+      });
     }
     return;
   }

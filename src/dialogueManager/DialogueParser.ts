@@ -47,7 +47,7 @@ class DialogueParser {
           text,
           target,
           conditions: meta.if ? { condition: meta.if } : undefined,
-          action: meta.action,
+          actions: meta.actions,
         };
 
         currentNode.options.push(option);
