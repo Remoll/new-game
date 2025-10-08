@@ -8,6 +8,7 @@ import instance01 from '@/gameInstance/gameInstancesData/instance01.ts';
 import instance02 from '@/gameInstance/gameInstancesData/instance02.ts';
 import instance03 from '@/gameInstance/gameInstancesData/instance03.ts';
 import inn from '@/gameInstance/gameInstancesData/inn.ts';
+import forestEdge from '@/gameInstance/gameInstancesData/forestEdge.ts';
 import GameState from '../gameState/GameState.ts';
 import { Coordinates } from '@/types.ts';
 import { GameInstanceData, GameInstanceKey } from '@/gameInstance/types.ts';
@@ -43,6 +44,8 @@ class Game {
         return instance03;
       case GameInstanceKey.INN:
         return inn;
+      case GameInstanceKey.FOREST_EDGE:
+        return forestEdge;
       default:
         return instance01;
     }
@@ -54,8 +57,8 @@ class Game {
         itemsAttributes: [],
         speed: 2,
         type: 'player',
-        x: 2,
-        y: 3,
+        x: 1,
+        y: 13,
         imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD },
         faction: Faction.PLAYER,
         hp: 200,
@@ -70,16 +73,19 @@ class Game {
 
       GameState.setPlayer(player);
 
-      this.gameInstances[GameInstanceKey.INN] = new GameInstance(inn);
+      this.gameInstances[GameInstanceKey.FOREST_EDGE] = new GameInstance(
+        forestEdge
+      );
 
       const playerCurrentField = player.getCurrentField();
       playerCurrentField.addGameObjectToField(player);
 
-      const gameMap = this.gameInstances[GameInstanceKey.INN].getGameMap();
+      const gameMap =
+        this.gameInstances[GameInstanceKey.FOREST_EDGE].getGameMap();
 
       const gameObjects = [
         player,
-        ...this.gameInstances[GameInstanceKey.INN].getGameObjects(),
+        ...this.gameInstances[GameInstanceKey.FOREST_EDGE].getGameObjects(),
       ];
 
       this.gameLoop = GameLoop.getSingleton(gameObjects, gameMap, this.ctx);

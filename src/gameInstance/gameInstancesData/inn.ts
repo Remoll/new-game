@@ -153,23 +153,14 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
   ],
-  items: [
-    {
-      type: 'lostBarrel',
-      x: 2,
-      y: 4,
-      imagesKeys: { default: ImageKey.BARREL, dead: ImageKey.BARREL },
-      canOccupiedFields: false,
-      isInteractive: true,
-    },
-  ],
+  items: [],
   gateways: [
     {
-      targetGameInstanceKey: GameInstanceKey.INSTANCE_02,
+      targetGameInstanceKey: GameInstanceKey.FOREST_EDGE,
       type: 'gateway',
       x: 19,
       y: 5,
-      targetPlayerCoordinates: { x: 0, y: 5 },
+      targetPlayerCoordinates: { x: 1, y: 13 },
       imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE },
       canOccupiedFields: true,
       isInteractive: true,

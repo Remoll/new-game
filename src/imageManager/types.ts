@@ -32,6 +32,18 @@ enum ImageKey {
   BARREL = 'barrel',
   VILLAGER = 'villager',
   VILLAGER_DEAD = 'villagerDead',
+  TREE = 'tree',
+  BOULDER = 'boulder',
+  BOAR = 'boar',
+  BOAR_DEAD = 'boarDead',
+  WOLF = 'wolf',
+  WOLF_DEAD = 'wolfDead',
+  SKELETON = 'skeleton',
+  GROUND_TEXTURE = 'groundTexture',
+  WATER_TEXTURE = 'waterTexture',
+  IMP = 'imp',
+  BONES = 'bones',
+  DEMONIC_ORB = 'demonicOrb',
 }
 
 type ImageMap = {

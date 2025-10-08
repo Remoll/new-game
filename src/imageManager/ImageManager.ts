@@ -33,6 +33,18 @@ import doorStoneImage from '@/imageManager/images/doorStoneImage.png';
 import barrelImage from '@/imageManager/images/barrelImage.png';
 import villagerImage from '@/imageManager/images/villagerImage.png';
 import villagerDeadImage from '@/imageManager/images/villagerDeadImage.png';
+import treeImage from '@/imageManager/images/treeImage.png';
+import boulderImage from '@/imageManager/images/boulderImage.png';
+import boarImage from '@/imageManager/images/boarImage.png';
+import boarDeadImage from '@/imageManager/images/boarDeadImage.png';
+import wolfImage from '@/imageManager/images/wolfImage.png';
+import wolfDeadImage from '@/imageManager/images/wolfDeadImage.png';
+import skeletonImage from '@/imageManager/images/skeletonImage.png';
+import groundTextureImage from '@/imageManager/images/groundTextureImage.png';
+import waterTextureImage from '@/imageManager/images/waterTextureImage.png';
+import impImage from '@/imageManager/images/impImage.png';
+import bonesImage from '@/imageManager/images/bonesImage.png';
+import demonicOrbImage from '@/imageManager/images/demonicOrbImage.png';
 
 class ImageManager {
   private static singleton: ImageManager;
@@ -70,6 +82,18 @@ class ImageManager {
     [ImageKey.BARREL]: undefined,
     [ImageKey.VILLAGER]: undefined,
     [ImageKey.VILLAGER_DEAD]: undefined,
+    [ImageKey.TREE]: undefined,
+    [ImageKey.BOULDER]: undefined,
+    [ImageKey.BOAR]: undefined,
+    [ImageKey.BOAR_DEAD]: undefined,
+    [ImageKey.WOLF]: undefined,
+    [ImageKey.WOLF_DEAD]: undefined,
+    [ImageKey.SKELETON]: undefined,
+    [ImageKey.GROUND_TEXTURE]: undefined,
+    [ImageKey.WATER_TEXTURE]: undefined,
+    [ImageKey.IMP]: undefined,
+    [ImageKey.BONES]: undefined,
+    [ImageKey.DEMONIC_ORB]: undefined,
   };
 
   private constructor() {}
@@ -129,6 +153,18 @@ class ImageManager {
       barrel,
       villager,
       villagerDead,
+      tree,
+      boulder,
+      boar,
+      boarDead,
+      wolf,
+      wolfDead,
+      skeleton,
+      groundTexture,
+      waterTexture,
+      imp,
+      bones,
+      demonicOrb,
     ] = await Promise.all([
       this.imageLoader(playerImage),
       this.imageLoader(playerDeadImage),
@@ -163,6 +199,18 @@ class ImageManager {
       this.imageLoader(barrelImage),
       this.imageLoader(villagerImage),
       this.imageLoader(villagerDeadImage),
+      this.imageLoader(treeImage),
+      this.imageLoader(boulderImage),
+      this.imageLoader(boarImage),
+      this.imageLoader(boarDeadImage),
+      this.imageLoader(wolfImage),
+      this.imageLoader(wolfDeadImage),
+      this.imageLoader(skeletonImage),
+      this.imageLoader(groundTextureImage),
+      this.imageLoader(waterTextureImage),
+      this.imageLoader(impImage),
+      this.imageLoader(bonesImage),
+      this.imageLoader(demonicOrbImage),
     ]);
     this.setImages({
       player,
@@ -198,6 +246,18 @@ class ImageManager {
       barrel,
       villager,
       villagerDead,
+      tree,
+      boulder,
+      boar,
+      boarDead,
+      wolf,
+      wolfDead,
+      skeleton,
+      groundTexture,
+      waterTexture,
+      imp,
+      bones,
+      demonicOrb,
     });
   };
 
