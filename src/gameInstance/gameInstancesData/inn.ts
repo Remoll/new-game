@@ -93,7 +93,7 @@ const gameInstanceData: GameInstanceData = {
       type: 'npc',
       x: 12,
       y: 3,
-      imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
+      imagesKeys: { default: ImageKey.VILLAGER, dead: ImageKey.VILLAGER_DEAD },
       faction: Faction.NEUTRAL,
       hp: 100,
       dispositionToFactions: {
@@ -125,7 +125,7 @@ const gameInstanceData: GameInstanceData = {
       type: 'npc',
       x: 9,
       y: 4,
-      imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
+      imagesKeys: { default: ImageKey.VILLAGER, dead: ImageKey.VILLAGER_DEAD },
       faction: Faction.NEUTRAL,
       hp: 100,
       dispositionToFactions: {

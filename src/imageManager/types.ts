@@ -30,6 +30,8 @@ enum ImageKey {
   INNKEEPER = 'innkeeper',
   DOOR_STONE = 'doorStone',
   BARREL = 'barrel',
+  VILLAGER = 'villager',
+  VILLAGER_DEAD = 'villagerDead',
 }
 
 type ImageMap = {
