@@ -17,6 +17,8 @@ class MapCreator {
   private mapGameObjects: Record<string, GameSprite[]> = {};
   private previouslyClickedCoordinates: Coordinates | null = null;
   private selectedSprite: GameSprite | null = null;
+  private areaCoordinatedStart: Coordinates | null = null;
+  private areaCoordinatedEnd: Coordinates | null = null;
 
   private constructor(ctx: CanvasRenderingContext2D, mapSize: Coordinates) {
     this.ctx = ctx;
@@ -39,6 +41,22 @@ class MapCreator {
       MapCreator.singleton = new MapCreator(ctx, mapSize);
     }
     return MapCreator.singleton;
+  }
+
+  private setAreaCoordinatesStart(coordinates: Coordinates) {
+    this.areaCoordinatedStart = coordinates;
+  }
+
+  private getAreaCoordinatesStart(): Coordinates | null {
+    return this.areaCoordinatedStart;
+  }
+
+  private setAreaCoordinatesEnd(coordinates: Coordinates) {
+    this.areaCoordinatedEnd = coordinates;
+  }
+
+  private getAreaCoordinatesEnd(): Coordinates | null {
+    return this.areaCoordinatedEnd;
   }
 
   private setPreviouslyClickedCoordinates(coordinates: Coordinates) {
@@ -82,17 +100,27 @@ class MapCreator {
     );
   }
 
-  private getCoordinatesFromCanvasClick(
-    event: PointerEvent
-  ): Coordinates | null {
+  private getMouseCoordinatesFromCanvas(event: MouseEvent): Coordinates | null {
     if ((event.target as HTMLElement).id !== 'canvas') {
       return null;
     }
+
     const { left, top } = (event.target as HTMLElement).getBoundingClientRect();
-    return {
+
+    const canvasMousePosition = {
       x: event.clientX - left,
       y: event.clientY - top,
     };
+
+    const targetX = Math.floor(canvasMousePosition.x / this.fieldSize);
+
+    const targetY = Math.floor(canvasMousePosition.y / this.fieldSize);
+
+    if (targetX > this.mapSize.x - 1 || targetY > this.mapSize.y - 1) {
+      return null;
+    }
+
+    return { x: targetX, y: targetY };
   }
 
   private placeSpriteOnTheMap(coordinates: Coordinates) {
@@ -168,29 +196,65 @@ class MapCreator {
     }
   }
 
+  private drawArea() {
+    const startCoords = this.getAreaCoordinatesStart();
+    const endCoords = this.getAreaCoordinatesEnd();
+
+    const start = {
+      x: Math.min(startCoords.x, endCoords.x),
+      y: Math.min(startCoords.y, endCoords.y),
+    };
+
+    const end = {
+      x: Math.max(startCoords.x, endCoords.x),
+      y: Math.max(startCoords.y, endCoords.y),
+    };
+
+    for (let fieldX = start.x; fieldX <= end.x; fieldX++) {
+      for (let fieldY = start.y; fieldY <= end.y; fieldY++) {
+        this.placeSpriteOnTheMap({ x: fieldX, y: fieldY });
+      }
+    }
+  }
+
   private handleCanvasClick() {
-    document.addEventListener('click', (event: PointerEvent) => {
-      const coordinatesFromCanvasClick: Coordinates =
-        this.getCoordinatesFromCanvasClick(event);
+    const handleEndAreaDraw = (event: MouseEvent) => {
+      document.removeEventListener('mouseup', handleEndAreaDraw);
 
-      if (!coordinatesFromCanvasClick) {
+      this.setAreaCoordinatesEnd(this.getMouseCoordinatesFromCanvas(event));
+
+      if (!this.getAreaCoordinatesEnd()) {
         return;
       }
 
-      const targetX = Math.floor(coordinatesFromCanvasClick.x / this.fieldSize);
+      this.drawArea();
+    };
 
-      const targetY = Math.floor(coordinatesFromCanvasClick.y / this.fieldSize);
-
-      if (targetX > this.mapSize.x - 1 || targetY > this.mapSize.y - 1) {
+    document.addEventListener('mousedown', (event: MouseEvent) => {
+      if (!this.spriteToBePlacedOnTheMap) {
         return;
       }
 
-      const coordinates = { x: targetX, y: targetY };
+      this.setAreaCoordinatesStart(this.getMouseCoordinatesFromCanvas(event));
+
+      if (!this.getAreaCoordinatesStart()) {
+        return;
+      }
+
+      document.addEventListener('mouseup', handleEndAreaDraw);
+    });
+
+    document.addEventListener('click', (event: MouseEvent) => {
+      const coordinatesFromCanvas = this.getMouseCoordinatesFromCanvas(event);
+
+      if (!coordinatesFromCanvas) {
+        return;
+      }
 
       if (this.spriteToBePlacedOnTheMap) {
-        this.placeSpriteOnTheMap(coordinates);
+        this.placeSpriteOnTheMap(coordinatesFromCanvas);
       } else {
-        this.selectSpriteFromCoordinates(coordinates);
+        this.selectSpriteFromCoordinates(coordinatesFromCanvas);
       }
     });
 
