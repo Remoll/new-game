@@ -1,6 +1,7 @@
 import Game from '@/game/Game.ts';
 import ImageManager from './imageManager/ImageManager.ts';
 import DialogueManager from './dialogueManager/DialogueManager.ts';
+import MapCreator from './mapCreator/MapCreator.ts';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const canvas = document.getElementById('canvas') as HTMLCanvasElement | null;
@@ -8,19 +9,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Canvas element not found');
     return;
   }
-  const ctx = canvas.getContext('2d');
 
+  const ctx = canvas.getContext('2d');
   if (!ctx) {
-    console.error('Root element not found');
+    console.error('Context not found');
     return;
   }
 
+  const path = window.location.pathname;
   await ImageManager.getSingleton().preloadImages();
-  await DialogueManager.getSingleton().preloadDialogues();
 
-  ctx.font = '24px Arial';
+  if (path === '/' || path === '/index.html') {
+    await DialogueManager.getSingleton().preloadDialogues();
 
-  Game.getSingleton(ctx);
+    ctx.font = '24px Arial';
+    const hotkeysBar = document.getElementById('bar');
+    hotkeysBar.style.display = 'block';
+    Game.getSingleton(ctx);
+  } else if (path === '/map-creator') {
+    MapCreator.getSingleton(ctx, { x: 30, y: 15 });
+  } else {
+    document.body.innerHTML = '<h1>404 - Wrong URL</h1>';
+  }
 });
 
 // // --- 1. Linia ---

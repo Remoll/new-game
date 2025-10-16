@@ -165,6 +165,16 @@ const gameInstanceData: GameInstanceData = {
       canOccupiedFields: true,
       isInteractive: true,
     },
+    {
+      targetGameInstanceKey: GameInstanceKey.INSTANCE_02,
+      type: 'gateway',
+      x: 1,
+      y: 5,
+      targetPlayerCoordinates: { x: 1, y: 5 },
+      imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE },
+      canOccupiedFields: true,
+      isInteractive: true,
+    },
   ],
   workshops: [],
   chests: [

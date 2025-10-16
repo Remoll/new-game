@@ -100,11 +100,11 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: true,
     },
     {
-      targetGameInstanceKey: GameInstanceKey.INSTANCE_01,
+      targetGameInstanceKey: GameInstanceKey.INN,
       type: 'gateway',
       x: 0,
       y: 5,
-      targetPlayerCoordinates: { x: 0, y: 0 },
+      targetPlayerCoordinates: { x: 2, y: 5 },
       imagesKeys: { default: ImageKey.GATEWAY, dead: ImageKey.GATEWAY },
       canOccupiedFields: false,
       isInteractive: true,

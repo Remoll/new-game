@@ -70,3 +70,10 @@
   left: 50%;
   transform: translate(-50%, 0);
 }
+
+#game-library {
+  position: absolute;
+  top: 840px;
+  width: 840px;
+  background-color: #999;
+}
