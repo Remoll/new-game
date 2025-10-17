@@ -1,22 +1,33 @@
 import ImageManager from '@/imageManager/ImageManager.ts';
-import { fieldsLibrary, gameObjectsLibrary } from './library.ts';
+import { fieldsLibrary, entitiesLibrary, blocksLibrary } from './library.ts';
 import { Coordinates } from '@/types.ts';
-import { GameSprite, SpriteType } from './types.ts';
+import { BlockSprite, EntitySprite, FieldSprite, SpriteType } from './types.ts';
 
 class MapCreator {
   private static singleton: MapCreator | null = null;
   private ctx: CanvasRenderingContext2D;
   private mapSize: Coordinates;
+  private fieldSize: number;
+
   private gameLibraryElement: HTMLElement;
   private fieldsElement: HTMLElement;
-  private gameObjectsElement: HTMLElement;
+  private entitiesElement: HTMLElement;
+  private blocksElement: HTMLElement;
   private clearCursorElement: HTMLElement;
-  private fieldSize: number;
-  private spriteToBePlacedOnTheMap: GameSprite | null = null;
-  private mapFields: Record<string, GameSprite> = {};
-  private mapGameObjects: Record<string, GameSprite[]> = {};
+
+  private mapFields: Record<string, FieldSprite> = {};
+  private mapEntities: Record<string, EntitySprite[]> = {};
+  private mapBlocks: Record<string, BlockSprite[]> = {};
+
+  private spriteToBePlacedOnTheMap:
+    | FieldSprite
+    | EntitySprite
+    | BlockSprite
+    | null = null;
   private previouslyClickedCoordinates: Coordinates | null = null;
-  private selectedSprite: GameSprite | null = null;
+  private selectedSprite: FieldSprite | EntitySprite | BlockSprite | null =
+    null;
+
   private areaCoordinatedStart: Coordinates | null = null;
   private areaCoordinatedEnd: Coordinates | null = null;
 
@@ -25,7 +36,8 @@ class MapCreator {
     this.mapSize = mapSize;
     this.gameLibraryElement = document.getElementById('game-library');
     this.fieldsElement = document.getElementById('fields');
-    this.gameObjectsElement = document.getElementById('game-objects');
+    this.entitiesElement = document.getElementById('entities');
+    this.blocksElement = document.getElementById('blocks');
     this.clearCursorElement = document.getElementById('clear-cursor');
     this.fieldSize = 840 / (mapSize.x > mapSize.y ? mapSize.x : mapSize.y);
     this.gameLibraryElement.style.display = 'flex';
@@ -63,7 +75,7 @@ class MapCreator {
     this.previouslyClickedCoordinates = coordinates;
   }
 
-  private setSelectedSprite(sprite: GameSprite) {
+  private setSelectedSprite(sprite: FieldSprite | EntitySprite | BlockSprite) {
     this.selectedSprite = sprite;
   }
 
@@ -82,22 +94,32 @@ class MapCreator {
       );
     });
 
-    Object.entries(this.mapGameObjects).forEach(
-      ([key, mapGameObjectsOnCoordinates]) => {
-        const [x, y] = key.split(',');
+    const renderGameObjects = (
+      gameObjects: Record<string, EntitySprite[] | BlockSprite[]>
+    ) => {
+      Object.entries(gameObjects).forEach(
+        ([key, mapGameObjectOnCoordinates]) => {
+          const [x, y] = key.split(',');
 
-        // TODO: establish render line
-        mapGameObjectsOnCoordinates.forEach((mapGameObject) => {
-          this.ctx.drawImage(
-            ImageManager.getSingleton().getImage(mapGameObject.imageKey),
-            parseInt(x) * this.fieldSize,
-            parseInt(y) * this.fieldSize,
-            this.fieldSize,
-            this.fieldSize
-          );
-        });
-      }
-    );
+          // TODO: establish render line
+          mapGameObjectOnCoordinates.forEach((mapGameObject) => {
+            this.ctx.drawImage(
+              ImageManager.getSingleton().getImage(
+                mapGameObject.imagesKeys.default
+              ),
+              parseInt(x) * this.fieldSize,
+              parseInt(y) * this.fieldSize,
+              this.fieldSize,
+              this.fieldSize
+            );
+          });
+        }
+      );
+    };
+
+    [this.mapBlocks, this.mapEntities].forEach((gameObjects) => {
+      renderGameObjects(gameObjects);
+    });
   }
 
   private getMouseCoordinatesFromCanvas(event: MouseEvent): Coordinates | null {
@@ -133,15 +155,28 @@ class MapCreator {
         break;
       }
 
-      case SpriteType.GAME_OBJECT: {
-        const mapPlaceFromCoordinates = this.mapGameObjects[coordinatesKey];
+      case SpriteType.ENTITY: {
+        const mapPlaceFromCoordinates = this.mapEntities[coordinatesKey];
 
         if (mapPlaceFromCoordinates) {
           mapPlaceFromCoordinates.push({
             ...this.spriteToBePlacedOnTheMap,
           });
         } else {
-          this.mapGameObjects[coordinatesKey] = [this.spriteToBePlacedOnTheMap];
+          this.mapEntities[coordinatesKey] = [this.spriteToBePlacedOnTheMap];
+        }
+        break;
+      }
+
+      case SpriteType.BLOCK: {
+        const mapPlaceFromCoordinates = this.mapBlocks[coordinatesKey];
+
+        if (mapPlaceFromCoordinates) {
+          mapPlaceFromCoordinates.push({
+            ...this.spriteToBePlacedOnTheMap,
+          });
+        } else {
+          this.mapBlocks[coordinatesKey] = [this.spriteToBePlacedOnTheMap];
         }
         break;
       }
@@ -164,21 +199,19 @@ class MapCreator {
     ) {
       switch (this.selectedSprite.spriteType) {
         case SpriteType.FIELD: {
-          if (this.mapGameObjects[coordinatesKey]?.[0]) {
-            this.setSelectedSprite(this.mapGameObjects[coordinatesKey][0]);
+          if (this.mapEntities[coordinatesKey]?.[0]) {
+            this.setSelectedSprite(this.mapEntities[coordinatesKey][0]);
           }
           break;
         }
-        case SpriteType.GAME_OBJECT: {
-          const indexOfSelectedSprite = this.mapGameObjects[
+        case SpriteType.ENTITY: {
+          const indexOfSelectedSprite = this.mapEntities[
             coordinatesKey
-          ].findIndex(
-            (gameObjectSprite) => gameObjectSprite === this.selectedSprite
-          );
+          ].findIndex((entitySprite) => entitySprite === this.selectedSprite);
           const newSprite =
-            this.mapGameObjects[coordinatesKey][indexOfSelectedSprite + 1] ||
+            this.mapEntities[coordinatesKey][indexOfSelectedSprite + 1] ||
             this.mapFields[coordinatesKey] ||
-            this.mapGameObjects[coordinatesKey][0];
+            this.mapEntities[coordinatesKey][0];
 
           if (newSprite) {
             this.setSelectedSprite(newSprite);
@@ -189,7 +222,7 @@ class MapCreator {
     } else {
       this.setPreviouslyClickedCoordinates({ x: targetX, y: targetY });
       this.setSelectedSprite(
-        this.mapGameObjects[coordinatesKey]?.[0] ||
+        this.mapEntities[coordinatesKey]?.[0] ||
           this.mapFields[coordinatesKey] ||
           null
       );
@@ -251,9 +284,7 @@ class MapCreator {
         return;
       }
 
-      if (this.spriteToBePlacedOnTheMap) {
-        this.placeSpriteOnTheMap(coordinatesFromCanvas);
-      } else {
+      if (!this.spriteToBePlacedOnTheMap) {
         this.selectSpriteFromCoordinates(coordinatesFromCanvas);
       }
     });
@@ -263,7 +294,9 @@ class MapCreator {
     });
   }
 
-  private setSpriteToBePlacedOnTheMap(sprite: GameSprite) {
+  private setSpriteToBePlacedOnTheMap(
+    sprite: FieldSprite | EntitySprite | BlockSprite
+  ) {
     this.spriteToBePlacedOnTheMap = sprite;
   }
 
@@ -284,12 +317,14 @@ class MapCreator {
       this.fieldsElement.appendChild(fieldElement);
     });
 
-    gameObjectsLibrary.forEach((gameObject) => {
+    entitiesLibrary.forEach((gameObject) => {
       const gameObjectElement = document.createElement('li');
 
       gameObjectElement.id = `gameObject-${gameObject.type}`;
 
-      const image = ImageManager.getSingleton().getImage(gameObject.imageKey);
+      const image = ImageManager.getSingleton().getImage(
+        gameObject.imagesKeys.default
+      );
 
       gameObjectElement.appendChild(image);
 
@@ -297,7 +332,25 @@ class MapCreator {
         this.setSpriteToBePlacedOnTheMap(gameObject)
       );
 
-      this.gameObjectsElement.appendChild(gameObjectElement);
+      this.entitiesElement.appendChild(gameObjectElement);
+    });
+
+    blocksLibrary.forEach((block) => {
+      const blockElement = document.createElement('li');
+
+      blockElement.id = `block-${block.type}`;
+
+      const image = ImageManager.getSingleton().getImage(
+        block.imagesKeys.default
+      );
+
+      blockElement.appendChild(image);
+
+      blockElement.addEventListener('click', () =>
+        this.setSpriteToBePlacedOnTheMap(block)
+      );
+
+      this.blocksElement.appendChild(blockElement);
     });
   }
 }

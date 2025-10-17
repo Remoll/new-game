@@ -6,11 +6,13 @@ import { Coordinates } from '@/types.ts';
 class Field {
   private x: number;
   private y: number;
+  private imageKey: ImageKey;
   private gameObjectsOnField: GameObject[] = [];
 
-  constructor(x: number, y: number) {
+  constructor(x: number, y: number, imageKey: ImageKey) {
     this.x = x;
     this.y = y;
+    this.imageKey = imageKey;
   }
 
   getPosition(): { x: number; y: number } {
@@ -73,7 +75,7 @@ class Field {
     fieldSize: number
   ) {
     ctx.drawImage(
-      ImageManager.getSingleton().getImage(ImageKey.GRASS_BLOCK),
+      ImageManager.getSingleton().getImage(this.imageKey),
       (this.x - fieldShift.x) * fieldSize,
       (this.y - fieldShift.y) * fieldSize,
       fieldSize,
