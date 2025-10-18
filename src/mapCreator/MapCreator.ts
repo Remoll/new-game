@@ -204,14 +204,31 @@ class MapCreator {
           }
           break;
         }
+        // TODO: rewrite select line logic
         case SpriteType.ENTITY: {
           const indexOfSelectedSprite = this.mapEntities[
             coordinatesKey
           ].findIndex((entitySprite) => entitySprite === this.selectedSprite);
           const newSprite =
             this.mapEntities[coordinatesKey][indexOfSelectedSprite + 1] ||
+            this.mapBlocks[coordinatesKey]?.[0] ||
             this.mapFields[coordinatesKey] ||
             this.mapEntities[coordinatesKey][0];
+
+          if (newSprite) {
+            this.setSelectedSprite(newSprite);
+          }
+          break;
+        }
+        case SpriteType.BLOCK: {
+          const indexOfSelectedSprite = this.mapBlocks[
+            coordinatesKey
+          ].findIndex((blockSprite) => blockSprite === this.selectedSprite);
+          const newSprite =
+            this.mapBlocks[coordinatesKey][indexOfSelectedSprite + 1] ||
+            this.mapFields[coordinatesKey] ||
+            this.mapEntities[coordinatesKey]?.[0] ||
+            this.mapBlocks[coordinatesKey][0];
 
           if (newSprite) {
             this.setSelectedSprite(newSprite);
@@ -223,10 +240,12 @@ class MapCreator {
       this.setPreviouslyClickedCoordinates({ x: targetX, y: targetY });
       this.setSelectedSprite(
         this.mapEntities[coordinatesKey]?.[0] ||
+          this.mapBlocks[coordinatesKey]?.[0] ||
           this.mapFields[coordinatesKey] ||
           null
       );
     }
+    console.log(this.selectedSprite);
   }
 
   private drawArea() {
