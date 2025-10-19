@@ -14,6 +14,9 @@ class MapCreator {
   private entitiesElement: HTMLElement;
   private blocksElement: HTMLElement;
   private clearCursorElement: HTMLElement;
+  private selectedSpriteElement: HTMLElement;
+  private selectedSpriteImageElement: HTMLElement;
+  private removeSelectedSpriteButton: HTMLElement;
 
   private mapFields: Record<string, FieldSprite> = {};
   private mapEntities: Record<string, EntitySprite[]> = {};
@@ -39,10 +42,92 @@ class MapCreator {
     this.entitiesElement = document.getElementById('entities');
     this.blocksElement = document.getElementById('blocks');
     this.clearCursorElement = document.getElementById('clear-cursor');
+    this.selectedSpriteElement = document.getElementById('selected-spike');
+    this.selectedSpriteImageElement = document.getElementById(
+      'selected-spike-image'
+    );
+    this.removeSelectedSpriteButton = document.getElementById(
+      'remove-selected-sprite'
+    );
+
     this.fieldSize = 840 / (mapSize.x > mapSize.y ? mapSize.x : mapSize.y);
     this.gameLibraryElement.style.display = 'flex';
     this.fillSprites();
     this.handleCanvasClick();
+    this.addRemoveSelectedSpriteListener();
+  }
+
+  private removeSelectedSpriteFromMap() {
+    if (!this.selectedSprite) {
+      return;
+    }
+
+    if (!this.previouslyClickedCoordinates) {
+      throw new Error(
+        'this.previouslyClickedCoordinates not set for this.selectedSprite'
+      );
+    }
+
+    let selectedSpriteObject;
+
+    switch (this.selectedSprite.spriteType) {
+      case SpriteType.FIELD: {
+        selectedSpriteObject = this.mapFields;
+        break;
+      }
+
+      case SpriteType.ENTITY: {
+        selectedSpriteObject = this.mapEntities;
+        break;
+      }
+
+      case SpriteType.BLOCK: {
+        selectedSpriteObject = this.mapBlocks;
+        break;
+      }
+
+      default:
+        break;
+    }
+
+    const { x, y } = this.previouslyClickedCoordinates;
+
+    const coordinatesKey = `${x},${y}`;
+
+    switch (this.selectedSprite.spriteType) {
+      case SpriteType.FIELD: {
+        selectedSpriteObject[coordinatesKey] = null;
+        break;
+      }
+
+      case SpriteType.ENTITY:
+      case SpriteType.BLOCK: {
+        const spriteIndex = selectedSpriteObject[coordinatesKey].findIndex(
+          (sprite) => sprite === this.selectedSprite
+        );
+
+        if (spriteIndex === undefined || spriteIndex < 0) {
+          throw new Error('spriteIndex for removing sprite not exist');
+        }
+
+        selectedSpriteObject[coordinatesKey].splice(spriteIndex, 1);
+        break;
+      }
+
+      default: {
+        throw new Error('invalid spriteType during remove');
+      }
+    }
+
+    this.setSelectedSprite(null);
+    this.closeSelectedSpriteWindow();
+    this.rerenderMap();
+  }
+
+  private addRemoveSelectedSpriteListener() {
+    this.removeSelectedSpriteButton.addEventListener('click', () => {
+      this.removeSelectedSpriteFromMap();
+    });
   }
 
   static getSingleton(
@@ -75,7 +160,9 @@ class MapCreator {
     this.previouslyClickedCoordinates = coordinates;
   }
 
-  private setSelectedSprite(sprite: FieldSprite | EntitySprite | BlockSprite) {
+  private setSelectedSprite(
+    sprite: FieldSprite | EntitySprite | BlockSprite | null
+  ) {
     this.selectedSprite = sprite;
   }
 
@@ -188,11 +275,54 @@ class MapCreator {
     this.rerenderMap();
   }
 
+  private setImageFormSelectedSpriteWindow() {
+    if (!this.selectedSprite) {
+      return;
+    }
+
+    let image;
+
+    const imageManager = ImageManager.getSingleton();
+
+    switch (this.selectedSprite.spriteType) {
+      case SpriteType.FIELD: {
+        image = imageManager.getImage(this.selectedSprite.imageKey);
+        break;
+      }
+
+      case SpriteType.ENTITY:
+      case SpriteType.BLOCK: {
+        image = imageManager.getImage(this.selectedSprite.imagesKeys.default);
+        break;
+      }
+
+      default:
+        break;
+    }
+
+    this.selectedSpriteImageElement.innerHTML = '';
+    this.selectedSpriteImageElement.appendChild(image);
+  }
+
+  private openSelectedSpriteWindow() {
+    if (!this.selectedSprite) {
+      return;
+    }
+    this.setImageFormSelectedSpriteWindow();
+    this.selectedSpriteElement.style.display = 'block';
+  }
+
+  private closeSelectedSpriteWindow() {
+    this.selectedSpriteImageElement.innerHTML = '';
+    this.selectedSpriteElement.style.display = 'none';
+  }
+
   private selectSpriteFromCoordinates(coordinates: Coordinates) {
     const { x: targetX, y: targetY } = coordinates;
     const coordinatesKey = `${targetX},${targetY}`;
 
     if (
+      this.selectedSprite &&
       this.previouslyClickedCoordinates &&
       this.previouslyClickedCoordinates.x === targetX &&
       this.previouslyClickedCoordinates.y === targetY
@@ -245,7 +375,12 @@ class MapCreator {
           null
       );
     }
-    console.log(this.selectedSprite);
+
+    if (this.selectedSprite) {
+      this.openSelectedSpriteWindow();
+    } else {
+      this.closeSelectedSpriteWindow();
+    }
   }
 
   private drawArea() {

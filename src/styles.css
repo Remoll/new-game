@@ -77,3 +77,8 @@
   width: 840px;
   background-color: #999;
 }
+
+#selected-spike {
+  position: absolute;
+  left: 100%;
+}
