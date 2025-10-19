@@ -55,6 +55,7 @@ class MapCreator {
     this.fillSprites();
     this.handleCanvasClick();
     this.addRemoveSelectedSpriteListener();
+    this.rerenderMap();
   }
 
   private removeSelectedSpriteFromMap() {
@@ -169,6 +170,11 @@ class MapCreator {
   private rerenderMap() {
     this.ctx.clearRect(0, 0, 840, 840);
     const imageManager = ImageManager.getSingleton();
+
+    const { x: width, y: height } = this.mapSize;
+
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillRect(0, 0, width * this.fieldSize, height * this.fieldSize);
 
     Object.entries(this.mapFields).forEach(([key, mapField]) => {
       const [x, y] = key.split(',');
