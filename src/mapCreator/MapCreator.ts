@@ -96,7 +96,7 @@ class MapCreator {
 
     switch (this.selectedSprite.spriteType) {
       case SpriteType.FIELD: {
-        selectedSpriteObject[coordinatesKey] = null;
+        delete selectedSpriteObject[coordinatesKey];
         break;
       }
 
@@ -168,12 +168,13 @@ class MapCreator {
 
   private rerenderMap() {
     this.ctx.clearRect(0, 0, 840, 840);
+    const imageManager = ImageManager.getSingleton();
 
     Object.entries(this.mapFields).forEach(([key, mapField]) => {
       const [x, y] = key.split(',');
 
       this.ctx.drawImage(
-        ImageManager.getSingleton().getImage(mapField.imageKey),
+        imageManager.getImage(mapField.imageKey),
         parseInt(x) * this.fieldSize,
         parseInt(y) * this.fieldSize,
         this.fieldSize,
@@ -191,9 +192,7 @@ class MapCreator {
           // TODO: establish render line
           mapGameObjectOnCoordinates.forEach((mapGameObject) => {
             this.ctx.drawImage(
-              ImageManager.getSingleton().getImage(
-                mapGameObject.imagesKeys.default
-              ),
+              imageManager.getImage(mapGameObject.imagesKeys.default),
               parseInt(x) * this.fieldSize,
               parseInt(y) * this.fieldSize,
               this.fieldSize,
@@ -238,7 +237,7 @@ class MapCreator {
 
     switch (spriteType) {
       case SpriteType.FIELD: {
-        this.mapFields[coordinatesKey] = this.spriteToBePlacedOnTheMap;
+        this.mapFields[coordinatesKey] = { ...this.spriteToBePlacedOnTheMap };
         break;
       }
 
@@ -250,7 +249,9 @@ class MapCreator {
             ...this.spriteToBePlacedOnTheMap,
           });
         } else {
-          this.mapEntities[coordinatesKey] = [this.spriteToBePlacedOnTheMap];
+          this.mapEntities[coordinatesKey] = [
+            { ...this.spriteToBePlacedOnTheMap },
+          ];
         }
         break;
       }
@@ -263,7 +264,9 @@ class MapCreator {
             ...this.spriteToBePlacedOnTheMap,
           });
         } else {
-          this.mapBlocks[coordinatesKey] = [this.spriteToBePlacedOnTheMap];
+          this.mapBlocks[coordinatesKey] = [
+            { ...this.spriteToBePlacedOnTheMap },
+          ];
         }
         break;
       }
@@ -327,44 +330,46 @@ class MapCreator {
       this.previouslyClickedCoordinates.x === targetX &&
       this.previouslyClickedCoordinates.y === targetY
     ) {
+      // TODO: rewrite select line logic
+      let newSprite: FieldSprite | EntitySprite | BlockSprite | undefined;
+
       switch (this.selectedSprite.spriteType) {
         case SpriteType.FIELD: {
-          if (this.mapEntities[coordinatesKey]?.[0]) {
-            this.setSelectedSprite(this.mapEntities[coordinatesKey][0]);
-          }
+          newSprite =
+            this.mapEntities[coordinatesKey]?.[0] ||
+            this.mapBlocks[coordinatesKey]?.[0];
+
           break;
         }
-        // TODO: rewrite select line logic
+
         case SpriteType.ENTITY: {
           const indexOfSelectedSprite = this.mapEntities[
             coordinatesKey
           ].findIndex((entitySprite) => entitySprite === this.selectedSprite);
-          const newSprite =
+          newSprite =
             this.mapEntities[coordinatesKey][indexOfSelectedSprite + 1] ||
             this.mapBlocks[coordinatesKey]?.[0] ||
             this.mapFields[coordinatesKey] ||
             this.mapEntities[coordinatesKey][0];
 
-          if (newSprite) {
-            this.setSelectedSprite(newSprite);
-          }
           break;
         }
         case SpriteType.BLOCK: {
           const indexOfSelectedSprite = this.mapBlocks[
             coordinatesKey
           ].findIndex((blockSprite) => blockSprite === this.selectedSprite);
-          const newSprite =
+          newSprite =
             this.mapBlocks[coordinatesKey][indexOfSelectedSprite + 1] ||
             this.mapFields[coordinatesKey] ||
             this.mapEntities[coordinatesKey]?.[0] ||
             this.mapBlocks[coordinatesKey][0];
 
-          if (newSprite) {
-            this.setSelectedSprite(newSprite);
-          }
           break;
         }
+      }
+
+      if (newSprite) {
+        this.setSelectedSprite(newSprite);
       }
     } else {
       this.setPreviouslyClickedCoordinates({ x: targetX, y: targetY });
@@ -455,12 +460,16 @@ class MapCreator {
   }
 
   private fillSprites() {
+    const imageManager = ImageManager.getSingleton();
+
     fieldsLibrary.forEach((field) => {
       const fieldElement = document.createElement('li');
 
       fieldElement.id = `field-${field.type}`;
 
-      const image = ImageManager.getSingleton().getImage(field.imageKey);
+      const image = new Image();
+
+      image.src = imageManager.getImage(field.imageKey).src;
 
       fieldElement.appendChild(image);
 
@@ -471,22 +480,22 @@ class MapCreator {
       this.fieldsElement.appendChild(fieldElement);
     });
 
-    entitiesLibrary.forEach((gameObject) => {
-      const gameObjectElement = document.createElement('li');
+    entitiesLibrary.forEach((entities) => {
+      const entitiesElement = document.createElement('li');
 
-      gameObjectElement.id = `gameObject-${gameObject.type}`;
+      entitiesElement.id = `entities-${entities.type}`;
 
-      const image = ImageManager.getSingleton().getImage(
-        gameObject.imagesKeys.default
+      const image = new Image();
+
+      image.src = imageManager.getImage(entities.imagesKeys.default).src;
+
+      entitiesElement.appendChild(image);
+
+      entitiesElement.addEventListener('click', () =>
+        this.setSpriteToBePlacedOnTheMap(entities)
       );
 
-      gameObjectElement.appendChild(image);
-
-      gameObjectElement.addEventListener('click', () =>
-        this.setSpriteToBePlacedOnTheMap(gameObject)
-      );
-
-      this.entitiesElement.appendChild(gameObjectElement);
+      this.entitiesElement.appendChild(entitiesElement);
     });
 
     blocksLibrary.forEach((block) => {
@@ -494,9 +503,9 @@ class MapCreator {
 
       blockElement.id = `block-${block.type}`;
 
-      const image = ImageManager.getSingleton().getImage(
-        block.imagesKeys.default
-      );
+      const image = new Image();
+
+      image.src = imageManager.getImage(block.imagesKeys.default).src;
 
       blockElement.appendChild(image);
 
