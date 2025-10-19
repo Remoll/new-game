@@ -2,6 +2,7 @@ import GameObject from '@/gameObject/GameObject.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { Coordinates } from '@/types.ts';
+import { FieldAttributes } from '../types.ts';
 
 class Field {
   private x: number;
@@ -9,7 +10,8 @@ class Field {
   private imageKey: ImageKey;
   private gameObjectsOnField: GameObject[] = [];
 
-  constructor(x: number, y: number, imageKey: ImageKey) {
+  constructor(fieldAttributes: FieldAttributes) {
+    const { x, y, imageKey } = fieldAttributes;
     this.x = x;
     this.y = y;
     this.imageKey = imageKey;

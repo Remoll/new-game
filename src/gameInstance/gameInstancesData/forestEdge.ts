@@ -3,7 +3,7 @@ import { ImageKey } from '@/imageManager/types.ts';
 import { GameInstanceData, GameInstanceKey } from '../types.ts';
 
 const gameInstanceData: GameInstanceData = {
-  mapSize: { width: 25, height: 25 },
+  mapSize: { x: 25, y: 25 },
 
   buildingsCoordinates: [],
 
@@ -164,6 +164,16 @@ const gameInstanceData: GameInstanceData = {
       x: 0,
       y: 13,
       targetPlayerCoordinates: { x: 18, y: 5 },
+      imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE },
+      canOccupiedFields: true,
+      isInteractive: true,
+    },
+    {
+      targetGameInstanceKey: GameInstanceKey.TEST,
+      type: 'gateway',
+      x: 0,
+      y: 15,
+      targetPlayerCoordinates: { x: 19, y: 7 },
       imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE },
       canOccupiedFields: true,
       isInteractive: true,

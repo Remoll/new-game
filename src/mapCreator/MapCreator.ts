@@ -2,6 +2,9 @@ import ImageManager from '@/imageManager/ImageManager.ts';
 import { fieldsLibrary, entitiesLibrary, blocksLibrary } from './library.ts';
 import { Coordinates } from '@/types.ts';
 import { BlockSprite, EntitySprite, FieldSprite, SpriteType } from './types.ts';
+import { EntityAttributes, GameObjectAttributes } from '@/gameObject/types.ts';
+import { GameInstanceData } from '@/gameInstance/types.ts';
+import { FieldAttributes } from '@/gameMap/types.ts';
 
 class MapCreator {
   private static singleton: MapCreator | null = null;
@@ -17,6 +20,7 @@ class MapCreator {
   private selectedSpriteElement: HTMLElement;
   private selectedSpriteImageElement: HTMLElement;
   private removeSelectedSpriteButton: HTMLElement;
+  private generateMapFileButton: HTMLElement;
 
   private mapFields: Record<string, FieldSprite> = {};
   private mapEntities: Record<string, EntitySprite[]> = {};
@@ -49,12 +53,15 @@ class MapCreator {
     this.removeSelectedSpriteButton = document.getElementById(
       'remove-selected-sprite'
     );
+    this.generateMapFileButton = document.getElementById('generate-map-file');
 
     this.fieldSize = 840 / (mapSize.x > mapSize.y ? mapSize.x : mapSize.y);
     this.gameLibraryElement.style.display = 'flex';
+    this.generateMapFileButton.style.display = 'block';
     this.fillSprites();
     this.handleCanvasClick();
     this.addRemoveSelectedSpriteListener();
+    this.addGenerateMapFileListener();
     this.rerenderMap();
   }
 
@@ -128,6 +135,88 @@ class MapCreator {
   private addRemoveSelectedSpriteListener() {
     this.removeSelectedSpriteButton.addEventListener('click', () => {
       this.removeSelectedSpriteFromMap();
+    });
+  }
+
+  private generateMapFile() {
+    const parseSpritesObjectToArray = (
+      mapGameObjects:
+        | Record<string, EntitySprite[]>
+        | Record<string, BlockSprite[]>
+        | Record<string, FieldSprite>
+    ): EntityAttributes[] | GameObjectAttributes[] | FieldAttributes[] => {
+      const targetArray:
+        | EntityAttributes[]
+        | GameObjectAttributes[]
+        | FieldAttributes[] = [];
+
+      Object.entries(mapGameObjects).forEach(
+        ([coordinatesKey, gameObjects]) => {
+          const coordinatesArray = coordinatesKey.split(',');
+          const [xString, yString] = coordinatesArray;
+          const x = parseInt(xString);
+          const y = parseInt(yString);
+
+          if (Array.isArray(gameObjects)) {
+            gameObjects.forEach((gameObject) => {
+              const { spriteType, ...entityAttributes } = gameObject;
+              targetArray.push({ ...entityAttributes, x, y });
+            });
+          } else {
+            const { spriteType, type, ...entityAttributes } = gameObjects;
+            targetArray.push({ ...entityAttributes, x, y });
+          }
+        }
+      );
+
+      return targetArray;
+    };
+
+    const fields: FieldAttributes[] = parseSpritesObjectToArray(
+      this.mapFields
+    ) as FieldAttributes[];
+
+    const npcs: EntityAttributes[] = parseSpritesObjectToArray(
+      this.mapEntities
+    ) as EntityAttributes[];
+
+    const blocks: GameObjectAttributes[] = parseSpritesObjectToArray(
+      this.mapBlocks
+    ) as GameObjectAttributes[];
+
+    const instanceData: GameInstanceData = {
+      mapSize: this.mapSize,
+      fields,
+      npcs,
+      blocks,
+      items: [],
+      gateways: [],
+    };
+
+    console.log('instanceData: ', instanceData);
+
+    // 1️⃣ Konwersja obiektu do JSON
+    const jsonString = JSON.stringify(instanceData, null, 2); // "ładny" format z wcięciami
+
+    // 2️⃣ Utworzenie obiektu Blob z tekstu JSON
+    const blob = new Blob([jsonString], { type: 'application/json' });
+
+    // 3️⃣ Utworzenie tymczasowego adresu URL do pliku
+    const url = URL.createObjectURL(blob);
+
+    // 4️⃣ Utworzenie linku <a> i symulacja kliknięcia
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'gameInstance.json'; // nazwa pliku do pobrania
+    a.click();
+
+    // 5️⃣ Zwolnienie pamięci (dobry nawyk)
+    URL.revokeObjectURL(url);
+  }
+
+  private addGenerateMapFileListener() {
+    this.generateMapFileButton.addEventListener('click', () => {
+      this.generateMapFile();
     });
   }
 

@@ -9,6 +9,7 @@ import instance02 from '@/gameInstance/gameInstancesData/instance02.ts';
 import instance03 from '@/gameInstance/gameInstancesData/instance03.ts';
 import inn from '@/gameInstance/gameInstancesData/inn.ts';
 import forestEdge from '@/gameInstance/gameInstancesData/forestEdge.ts';
+import mapCreatorTest from '@/gameInstance/gameInstancesData/mapCreatorTest.ts';
 import GameState from '../gameState/GameState.ts';
 import { Coordinates } from '@/types.ts';
 import { GameInstanceData, GameInstanceKey } from '@/gameInstance/types.ts';
@@ -46,6 +47,8 @@ class Game {
         return inn;
       case GameInstanceKey.FOREST_EDGE:
         return forestEdge;
+      case GameInstanceKey.TEST:
+        return mapCreatorTest;
       default:
         return instance01;
     }

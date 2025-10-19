@@ -4,8 +4,8 @@ import { GameInstanceData, GameInstanceKey } from '../types.ts';
 
 const gameInstanceData: GameInstanceData = {
   mapSize: {
-    width: 21,
-    height: 21,
+    x: 21,
+    y: 21,
   },
   buildingsCoordinates: [
     {

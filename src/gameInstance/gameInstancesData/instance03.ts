@@ -4,8 +4,8 @@ import Building from '@/gameMap/building/Building.ts';
 
 const gameInstanceData: GameInstanceData = {
   mapSize: {
-    width: 50,
-    height: 50,
+    x: 50,
+    y: 50,
   },
   buildingsCoordinates: Building.generateRandomBuildingsCoordinates({
     count: 15,

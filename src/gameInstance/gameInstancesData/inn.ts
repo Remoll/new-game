@@ -5,8 +5,8 @@ import { DialogueKey } from '@/dialogueManager/types.ts';
 
 const gameInstanceData: GameInstanceData = {
   mapSize: {
-    width: 20,
-    height: 7,
+    x: 20,
+    y: 7,
   },
   buildingsCoordinates: [
     {

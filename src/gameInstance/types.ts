@@ -1,13 +1,17 @@
 import { BuildingCoordinates } from '@/gameMap/building/types.ts';
+import { FieldAttributes } from '@/gameMap/types.ts';
 import {
   EntityAttributes,
   GameObjectAttributes,
   GatewayAttributes,
 } from '@/gameObject/types.ts';
+import { Coordinates } from '@/types.ts';
 
 interface GameInstanceData {
-  mapSize: { width: number; height: number };
-  buildingsCoordinates: BuildingCoordinates[];
+  mapSize: Coordinates;
+  blocks?: GameObjectAttributes[];
+  buildingsCoordinates?: BuildingCoordinates[];
+  fields?: FieldAttributes[];
   npcs: EntityAttributes[];
   items: GameObjectAttributes[];
   gateways: GatewayAttributes[];
@@ -22,6 +26,7 @@ enum GameInstanceKey {
   INSTANCE_03 = 'instance03',
   INN = 'inn',
   FOREST_EDGE = 'forestEdge',
+  TEST = 'mapCreatorTest',
 }
 
 export { type GameInstanceData, GameInstanceKey };

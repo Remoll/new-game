@@ -21,10 +21,10 @@ class GameInstance {
   }
 
   createInstance(gameInstanceData: GameInstanceData) {
-    GameState.setGameMapWidth(gameInstanceData.mapSize.width);
-    GameState.setGameMapHeight(gameInstanceData.mapSize.height);
+    GameState.setGameMapWidth(gameInstanceData.mapSize.x);
+    GameState.setGameMapHeight(gameInstanceData.mapSize.y);
 
-    const gameMap = new GameMap();
+    const gameMap = new GameMap(gameInstanceData.fields);
     const fields = gameMap.getFields();
 
     GameState.setFields(fields);
@@ -33,12 +33,16 @@ class GameInstance {
       (npcData) => new Npc({ ...npcData })
     );
 
-    const buildings: Building[] = gameInstanceData.buildingsCoordinates.map(
-      (buildingCoordinates) => new Building(buildingCoordinates)
-    );
+    const buildings: Building[] =
+      gameInstanceData.buildingsCoordinates?.map(
+        (buildingCoordinates) => new Building(buildingCoordinates)
+      ) || [];
     const blocksFromBuildings: (Block | Door)[] = buildings.flatMap(
       (building) => building.getBlocks()
     );
+
+    const blocks: Block[] =
+      gameInstanceData.blocks?.map((block) => new Block({ ...block })) || [];
 
     const items: Item[] = gameInstanceData.items.map(itemFactory);
 
@@ -62,6 +66,7 @@ class GameInstance {
     this.gameObjects = [
       ...npcs,
       ...blocksFromBuildings,
+      ...blocks,
       ...items,
       ...gateways,
       ...workshops,
