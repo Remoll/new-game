@@ -1,6 +1,7 @@
 import ImageManager from '@/imageManager/ImageManager.ts';
 import {
   fieldsLibrary,
+  itemsLibrary,
   entitiesLibrary,
   blocksLibrary,
   gameObjectsLibrary,
@@ -8,6 +9,7 @@ import {
 import { Coordinates } from '@/types.ts';
 import {
   BlockSprite,
+  ItemsSprite,
   EntitySprite,
   FieldSprite,
   GameObjectSprite,
@@ -19,11 +21,13 @@ import { FieldAttributes } from '@/gameMap/types.ts';
 
 class MapCreator {
   private static singleton: MapCreator | null = null;
+  parseSpritesObjectToArray;
   private ctx: CanvasRenderingContext2D;
   private mapSize: Coordinates;
   private fieldSize: number;
 
   private gameLibraryElement: HTMLElement;
+  private itemsElement: HTMLElement;
   private fieldsElement: HTMLElement;
   private entitiesElement: HTMLElement;
   private gameObjectsElement: HTMLElement;
@@ -35,12 +39,14 @@ class MapCreator {
   private generateMapFileButton: HTMLElement;
 
   private mapFields: Record<string, FieldSprite> = {};
+  private mapItems: Record<string, ItemsSprite[]> = {};
   private mapEntities: Record<string, EntitySprite[]> = {};
   private mapGameObjects: Record<string, GameObjectSprite[]> = {};
   private mapBlocks: Record<string, BlockSprite[]> = {};
 
   private spriteToBePlacedOnTheMap:
     | FieldSprite
+    | ItemsSprite
     | EntitySprite
     | GameObjectSprite
     | BlockSprite
@@ -48,6 +54,7 @@ class MapCreator {
   private previouslyClickedCoordinates: Coordinates | null = null;
   private selectedSprite:
     | FieldSprite
+    | ItemsSprite
     | EntitySprite
     | GameObjectSprite
     | BlockSprite
@@ -61,6 +68,7 @@ class MapCreator {
     this.mapSize = mapSize;
     this.gameLibraryElement = document.getElementById('game-library');
     this.fieldsElement = document.getElementById('fields');
+    this.itemsElement = document.getElementById('items');
     this.entitiesElement = document.getElementById('entities');
     this.gameObjectsElement = document.getElementById('game-objects');
     this.blocksElement = document.getElementById('blocks');
@@ -108,6 +116,16 @@ class MapCreator {
         break;
       }
 
+      case SpriteType.GAME_OBJECT: {
+        selectedSpriteObject = this.mapGameObjects;
+        break;
+      }
+
+      case SpriteType.ITEMS: {
+        selectedSpriteObject = this.mapItems;
+        break;
+      }
+
       case SpriteType.BLOCK: {
         selectedSpriteObject = this.mapBlocks;
         break;
@@ -128,7 +146,9 @@ class MapCreator {
       }
 
       case SpriteType.ENTITY:
-      case SpriteType.BLOCK: {
+      case SpriteType.BLOCK:
+      case SpriteType.GAME_OBJECT:
+      case SpriteType.ITEMS: {
         const spriteIndex = selectedSpriteObject[coordinatesKey].findIndex(
           (sprite) => sprite === this.selectedSprite
         );
@@ -161,6 +181,8 @@ class MapCreator {
     const parseSpritesObjectToArray = (
       mapGameObjects:
         | Record<string, EntitySprite[]>
+        | Record<string, GameObjectSprite[]>
+        | Record<string, ItemsSprite[]>
         | Record<string, BlockSprite[]>
         | Record<string, FieldSprite>
     ): EntityAttributes[] | GameObjectAttributes[] | FieldAttributes[] => {
@@ -178,12 +200,12 @@ class MapCreator {
 
           if (Array.isArray(gameObjects)) {
             gameObjects.forEach((gameObject) => {
-              const { spriteType, ...entityAttributes } = gameObject;
-              targetArray.push({ ...entityAttributes, x, y });
+              const { spriteType, ...rest } = gameObject;
+              targetArray.push({ ...rest, x, y });
             });
           } else {
-            const { spriteType, type, ...entityAttributes } = gameObjects;
-            targetArray.push({ ...entityAttributes, x, y });
+            const { spriteType, type, ...rest } = gameObjects;
+            targetArray.push({ ...rest, x, y });
           }
         }
       );
@@ -207,34 +229,27 @@ class MapCreator {
       this.mapBlocks
     ) as GameObjectAttributes[];
 
+    const items: GameObjectAttributes[] = parseSpritesObjectToArray(
+      this.mapItems
+    ) as GameObjectAttributes[];
+
     const instanceData: GameInstanceData = {
       mapSize: this.mapSize,
       fields,
       npcs,
       gameObjects,
       blocks,
-      items: [],
+      items,
       gateways: [],
     };
 
-    console.log('instanceData: ', instanceData);
-
-    // 1️⃣ Konwersja obiektu do JSON
-    const jsonString = JSON.stringify(instanceData, null, 2); // "ładny" format z wcięciami
-
-    // 2️⃣ Utworzenie obiektu Blob z tekstu JSON
+    const jsonString = JSON.stringify(instanceData, null, 2);
     const blob = new Blob([jsonString], { type: 'application/json' });
-
-    // 3️⃣ Utworzenie tymczasowego adresu URL do pliku
     const url = URL.createObjectURL(blob);
-
-    // 4️⃣ Utworzenie linku <a> i symulacja kliknięcia
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'gameInstance.json'; // nazwa pliku do pobrania
+    a.download = 'gameInstance.json';
     a.click();
-
-    // 5️⃣ Zwolnienie pamięci (dobry nawyk)
     URL.revokeObjectURL(url);
   }
 
@@ -275,7 +290,13 @@ class MapCreator {
   }
 
   private setSelectedSprite(
-    sprite: FieldSprite | EntitySprite | GameObjectSprite | BlockSprite | null
+    sprite:
+      | FieldSprite
+      | ItemsSprite
+      | EntitySprite
+      | GameObjectSprite
+      | BlockSprite
+      | null
   ) {
     this.selectedSprite = sprite;
   }
@@ -304,7 +325,7 @@ class MapCreator {
     const renderGameObjects = (
       gameObjects: Record<
         string,
-        EntitySprite[] | GameObjectSprite[] | BlockSprite[]
+        ItemsSprite[] | EntitySprite[] | GameObjectSprite[] | BlockSprite[]
       >
     ) => {
       Object.entries(gameObjects).forEach(
@@ -325,11 +346,14 @@ class MapCreator {
       );
     };
 
-    [this.mapBlocks, this.mapGameObjects, this.mapEntities].forEach(
-      (gameObjects) => {
-        renderGameObjects(gameObjects);
-      }
-    );
+    [
+      this.mapBlocks,
+      this.mapGameObjects,
+      this.mapEntities,
+      this.mapItems,
+    ].forEach((gameObjects) => {
+      renderGameObjects(gameObjects);
+    });
   }
 
   private getMouseCoordinatesFromCanvas(event: MouseEvent): Coordinates | null {
@@ -374,6 +398,21 @@ class MapCreator {
           });
         } else {
           this.mapEntities[coordinatesKey] = [
+            { ...this.spriteToBePlacedOnTheMap },
+          ];
+        }
+        break;
+      }
+
+      case SpriteType.ITEMS: {
+        const mapPlaceFromCoordinates = this.mapItems[coordinatesKey];
+
+        if (mapPlaceFromCoordinates) {
+          mapPlaceFromCoordinates.push({
+            ...this.spriteToBePlacedOnTheMap,
+          });
+        } else {
+          this.mapItems[coordinatesKey] = [
             { ...this.spriteToBePlacedOnTheMap },
           ];
         }
@@ -433,7 +472,9 @@ class MapCreator {
       }
 
       case SpriteType.ENTITY:
-      case SpriteType.BLOCK: {
+      case SpriteType.BLOCK:
+      case SpriteType.GAME_OBJECT:
+      case SpriteType.ITEMS: {
         image = imageManager.getImage(this.selectedSprite.imagesKeys.default);
         break;
       }
@@ -475,12 +516,14 @@ class MapCreator {
         | EntitySprite
         | GameObjectSprite
         | BlockSprite
+        | ItemsSprite
         | undefined;
 
       switch (this.selectedSprite.spriteType) {
         case SpriteType.FIELD: {
           newSprite =
             this.mapEntities[coordinatesKey]?.[0] ||
+            this.mapItems[coordinatesKey]?.[0] ||
             this.mapGameObjects[coordinatesKey]?.[0] ||
             this.mapBlocks[coordinatesKey]?.[0];
 
@@ -493,6 +536,7 @@ class MapCreator {
           ].findIndex((entitySprite) => entitySprite === this.selectedSprite);
           newSprite =
             this.mapEntities[coordinatesKey][indexOfSelectedSprite + 1] ||
+            this.mapItems[coordinatesKey]?.[0] ||
             this.mapGameObjects[coordinatesKey]?.[0] ||
             this.mapBlocks[coordinatesKey]?.[0] ||
             this.mapFields[coordinatesKey] ||
@@ -500,6 +544,37 @@ class MapCreator {
 
           break;
         }
+
+        case SpriteType.ITEMS: {
+          const indexOfSelectedSprite = this.mapEntities[
+            coordinatesKey
+          ].findIndex((entitySprite) => entitySprite === this.selectedSprite);
+          newSprite =
+            this.mapItems[coordinatesKey][indexOfSelectedSprite + 1] ||
+            this.mapGameObjects[coordinatesKey]?.[0] ||
+            this.mapBlocks[coordinatesKey]?.[0] ||
+            this.mapFields[coordinatesKey] ||
+            this.mapEntities[coordinatesKey]?.[0] ||
+            this.mapItems[coordinatesKey][0];
+
+          break;
+        }
+
+        case SpriteType.GAME_OBJECT: {
+          const indexOfSelectedSprite = this.mapEntities[
+            coordinatesKey
+          ].findIndex((entitySprite) => entitySprite === this.selectedSprite);
+          newSprite =
+            this.mapGameObjects[coordinatesKey][indexOfSelectedSprite + 1] ||
+            this.mapBlocks[coordinatesKey]?.[0] ||
+            this.mapFields[coordinatesKey] ||
+            this.mapEntities[coordinatesKey]?.[0] ||
+            this.mapItems[coordinatesKey]?.[0] ||
+            this.mapGameObjects[coordinatesKey][0];
+
+          break;
+        }
+
         case SpriteType.BLOCK: {
           const indexOfSelectedSprite = this.mapBlocks[
             coordinatesKey
@@ -508,6 +583,7 @@ class MapCreator {
             this.mapBlocks[coordinatesKey][indexOfSelectedSprite + 1] ||
             this.mapFields[coordinatesKey] ||
             this.mapEntities[coordinatesKey]?.[0] ||
+            this.mapItems[coordinatesKey]?.[0] ||
             this.mapGameObjects[coordinatesKey]?.[0] ||
             this.mapBlocks[coordinatesKey][0];
 
@@ -522,6 +598,7 @@ class MapCreator {
       this.setPreviouslyClickedCoordinates({ x: targetX, y: targetY });
       this.setSelectedSprite(
         this.mapEntities[coordinatesKey]?.[0] ||
+          this.mapItems[coordinatesKey]?.[0] ||
           this.mapGameObjects[coordinatesKey]?.[0] ||
           this.mapBlocks[coordinatesKey]?.[0] ||
           this.mapFields[coordinatesKey] ||
@@ -602,7 +679,12 @@ class MapCreator {
   }
 
   private setSpriteToBePlacedOnTheMap(
-    sprite: FieldSprite | EntitySprite | GameObjectSprite | BlockSprite
+    sprite:
+      | FieldSprite
+      | EntitySprite
+      | GameObjectSprite
+      | BlockSprite
+      | ItemsSprite
   ) {
     this.spriteToBePlacedOnTheMap = sprite;
   }
@@ -644,6 +726,24 @@ class MapCreator {
       );
 
       this.entitiesElement.appendChild(entitiesElement);
+    });
+
+    itemsLibrary.forEach((items) => {
+      const itemsElement = document.createElement('li');
+
+      itemsElement.id = `items-${items.type}`;
+
+      const image = new Image();
+
+      image.src = imageManager.getImage(items.imagesKeys.default).src;
+
+      itemsElement.appendChild(image);
+
+      itemsElement.addEventListener('click', () =>
+        this.setSpriteToBePlacedOnTheMap(items)
+      );
+
+      this.itemsElement.appendChild(itemsElement);
     });
 
     gameObjectsLibrary.forEach((gameObject) => {

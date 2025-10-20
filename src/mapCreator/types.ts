@@ -9,9 +9,10 @@ import { ImageKey } from '@/imageManager/types.ts';
 
 enum SpriteType {
   FIELD = 'field',
+  GAME_OBJECT = 'gameObject',
+  ITEMS = 'items',
   ENTITY = 'entity',
   BLOCK = 'block',
-  GAME_OBJECT = 'gameObject',
 }
 
 interface GameSprite {
@@ -33,6 +34,10 @@ interface GameObjectSprite extends GameSprite {
   dialogueKey?: DialogueKey | null;
 }
 
+interface ItemsSprite extends Omit<GameObjectSprite, 'spriteType'> {
+  spriteType: SpriteType.ITEMS;
+}
+
 interface EntitySprite extends Omit<GameObjectSprite, 'spriteType'> {
   spriteType: SpriteType.ENTITY;
   speed: number;
@@ -49,4 +54,11 @@ interface BlockSprite extends Omit<GameObjectSprite, 'spriteType'> {
   spriteType: SpriteType.BLOCK;
 }
 
-export { SpriteType, FieldSprite, GameObjectSprite, EntitySprite, BlockSprite };
+export {
+  SpriteType,
+  FieldSprite,
+  GameObjectSprite,
+  ItemsSprite,
+  EntitySprite,
+  BlockSprite,
+};

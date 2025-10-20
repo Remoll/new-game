@@ -4,6 +4,7 @@ import {
   EntitySprite,
   FieldSprite,
   GameObjectSprite,
+  ItemsSprite,
   SpriteType,
 } from './types.ts';
 import { Disposition, Faction } from '@/gameObject/types.ts';
@@ -68,6 +69,36 @@ const gameObjectsLibrary: GameObjectSprite[] = [
     type: 'stool',
     imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
     ...getGameObjectsAttributes(),
+  },
+];
+
+const getItemsAttributes = (): {
+  itemsAttributes: [];
+  spriteType: SpriteType.ITEMS;
+  canOccupiedFields: boolean;
+  isInteractive: boolean;
+} => ({
+  itemsAttributes: [],
+  spriteType: SpriteType.ITEMS,
+  canOccupiedFields: false,
+  isInteractive: true,
+});
+
+const itemsLibrary: ItemsSprite[] = [
+  {
+    type: 'sword',
+    imagesKeys: { default: ImageKey.SWORD, dead: ImageKey.SWORD_EQUIPED },
+    ...getItemsAttributes(),
+  },
+  {
+    type: 'fireWand',
+    imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND },
+    ...getItemsAttributes(),
+  },
+  {
+    type: 'reanimatePotion',
+    imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION },
+    ...getItemsAttributes(),
   },
 ];
 
@@ -162,6 +193,13 @@ const entitiesLibrary: EntitySprite[] = [
     hp: 200,
     ...getEntitiesConstantAttributes(),
   },
+  {
+    speed: 2,
+    type: 'innkeeper',
+    imagesKeys: { default: ImageKey.INNKEEPER, dead: ImageKey.INNKEEPER },
+    hp: 200,
+    ...getEntitiesConstantAttributes(),
+  },
 ];
 
 const getBlocksConstantAttributes = (): {
@@ -203,4 +241,10 @@ const blocksLibrary: BlockSprite[] = [
   },
 ];
 
-export { fieldsLibrary, gameObjectsLibrary, entitiesLibrary, blocksLibrary };
+export {
+  fieldsLibrary,
+  gameObjectsLibrary,
+  itemsLibrary,
+  entitiesLibrary,
+  blocksLibrary,
+};
