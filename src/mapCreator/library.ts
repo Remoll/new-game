@@ -1,5 +1,11 @@
 import { ImageKey } from '@/imageManager/types.ts';
-import { BlockSprite, EntitySprite, FieldSprite, SpriteType } from './types.ts';
+import {
+  BlockSprite,
+  EntitySprite,
+  FieldSprite,
+  GameObjectSprite,
+  SpriteType,
+} from './types.ts';
 import { Disposition, Faction } from '@/gameObject/types.ts';
 
 const fieldsLibrary: FieldSprite[] = [
@@ -12,6 +18,56 @@ const fieldsLibrary: FieldSprite[] = [
     type: 'water',
     spriteType: SpriteType.FIELD,
     imageKey: ImageKey.WATER_TEXTURE,
+  },
+  {
+    type: 'ground',
+    spriteType: SpriteType.FIELD,
+    imageKey: ImageKey.GROUND_TEXTURE,
+  },
+  {
+    type: 'woodTexture',
+    imageKey: ImageKey.WOOD_TEXTURE,
+    spriteType: SpriteType.FIELD,
+  },
+];
+
+const getGameObjectsAttributes = (): {
+  itemsAttributes: [];
+  spriteType: SpriteType.GAME_OBJECT;
+  canOccupiedFields: boolean;
+  isInteractive: boolean;
+} => ({
+  itemsAttributes: [],
+  spriteType: SpriteType.GAME_OBJECT,
+  canOccupiedFields: true,
+  isInteractive: false,
+});
+
+const gameObjectsLibrary: GameObjectSprite[] = [
+  {
+    type: 'boulder',
+    imagesKeys: { default: ImageKey.BOULDER, dead: ImageKey.BOULDER },
+    ...getGameObjectsAttributes(),
+  },
+  {
+    type: 'chest',
+    imagesKeys: { default: ImageKey.CHEST, dead: ImageKey.CHEST },
+    ...getGameObjectsAttributes(),
+  },
+  {
+    type: 'barrel',
+    imagesKeys: { default: ImageKey.BARREL, dead: ImageKey.BARREL },
+    ...getGameObjectsAttributes(),
+  },
+  {
+    type: 'laboratory',
+    imagesKeys: { default: ImageKey.LABORATORY, dead: ImageKey.LABORATORY },
+    ...getGameObjectsAttributes(),
+  },
+  {
+    type: 'stool',
+    imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
+    ...getGameObjectsAttributes(),
   },
 ];
 
@@ -61,6 +117,51 @@ const entitiesLibrary: EntitySprite[] = [
     hp: 200,
     ...getEntitiesConstantAttributes(),
   },
+  {
+    speed: 1,
+    type: 'skeleton',
+    imagesKeys: { default: ImageKey.SKELETON, dead: ImageKey.BONES },
+    hp: 300,
+    ...getEntitiesConstantAttributes(),
+  },
+  {
+    speed: 4,
+    type: 'fireElemental',
+    imagesKeys: {
+      default: ImageKey.FIRE_ELEMENTAL,
+      dead: ImageKey.PILE_OF_DUST,
+    },
+    hp: 400,
+    ...getEntitiesConstantAttributes(),
+  },
+  {
+    speed: 1,
+    type: 'beggar',
+    imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
+    hp: 100,
+    ...getEntitiesConstantAttributes(),
+  },
+  {
+    speed: 1,
+    type: 'villager',
+    imagesKeys: { default: ImageKey.VILLAGER, dead: ImageKey.VILLAGER_DEAD },
+    hp: 100,
+    ...getEntitiesConstantAttributes(),
+  },
+  {
+    speed: 2,
+    type: 'wizard',
+    imagesKeys: { default: ImageKey.WIZARD, dead: ImageKey.WIZARD_DEAD },
+    hp: 200,
+    ...getEntitiesConstantAttributes(),
+  },
+  {
+    speed: 3,
+    type: 'wolf',
+    imagesKeys: { default: ImageKey.WOLF, dead: ImageKey.WOLF_DEAD },
+    hp: 200,
+    ...getEntitiesConstantAttributes(),
+  },
 ];
 
 const getBlocksConstantAttributes = (): {
@@ -85,6 +186,14 @@ const blocksLibrary: BlockSprite[] = [
     ...getBlocksConstantAttributes(),
   },
   {
+    type: 'stoneBlockDark',
+    imagesKeys: {
+      default: ImageKey.STONE_BLICK_DARK,
+      dead: ImageKey.STONE_BLICK_DARK,
+    },
+    ...getBlocksConstantAttributes(),
+  },
+  {
     type: 'tree',
     imagesKeys: {
       default: ImageKey.TREE,
@@ -94,4 +203,4 @@ const blocksLibrary: BlockSprite[] = [
   },
 ];
 
-export { fieldsLibrary, entitiesLibrary, blocksLibrary };
+export { fieldsLibrary, gameObjectsLibrary, entitiesLibrary, blocksLibrary };

@@ -25,6 +25,7 @@ interface FieldSprite extends GameSprite {
 }
 
 interface GameObjectSprite extends GameSprite {
+  spriteType: SpriteType.GAME_OBJECT;
   imagesKeys: GameObjectImagesKeys;
   canOccupiedFields: boolean;
   isInteractive: boolean;
@@ -32,7 +33,7 @@ interface GameObjectSprite extends GameSprite {
   dialogueKey?: DialogueKey | null;
 }
 
-interface EntitySprite extends GameObjectSprite {
+interface EntitySprite extends Omit<GameObjectSprite, 'spriteType'> {
   spriteType: SpriteType.ENTITY;
   speed: number;
   faction: Faction;
@@ -44,8 +45,8 @@ interface EntitySprite extends GameObjectSprite {
   };
 }
 
-interface BlockSprite extends GameObjectSprite {
+interface BlockSprite extends Omit<GameObjectSprite, 'spriteType'> {
   spriteType: SpriteType.BLOCK;
 }
 
-export { SpriteType, FieldSprite, EntitySprite, BlockSprite };
+export { SpriteType, FieldSprite, GameObjectSprite, EntitySprite, BlockSprite };

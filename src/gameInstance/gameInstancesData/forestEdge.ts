@@ -173,7 +173,7 @@ const gameInstanceData: GameInstanceData = {
       type: 'gateway',
       x: 0,
       y: 15,
-      targetPlayerCoordinates: { x: 19, y: 7 },
+      targetPlayerCoordinates: { x: 1, y: 1 },
       imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE },
       canOccupiedFields: true,
       isInteractive: true,
