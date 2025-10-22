@@ -32,6 +32,8 @@ interface GameObjectSprite extends GameSprite {
   isInteractive: boolean;
   itemsAttributes?: GameObjectAttributes[];
   dialogueKey?: DialogueKey | null;
+  sizeX?: number;
+  sizeY?: number;
 }
 
 interface ItemsSprite extends Omit<GameObjectSprite, 'spriteType'> {

@@ -41,6 +41,8 @@ interface GameObjectAttributes {
   isInteractive: boolean;
   itemsAttributes?: GameObjectAttributes[];
   dialogueKey?: DialogueKey | null;
+  sizeX?: number;
+  sizeY?: number;
 }
 
 interface EntityAttributes extends GameObjectAttributes {

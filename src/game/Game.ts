@@ -80,8 +80,7 @@ class Game {
         forestEdge
       );
 
-      const playerCurrentField = player.getCurrentField();
-      playerCurrentField.addGameObjectToField(player);
+      player.addGameObjectToFields();
 
       const gameMap =
         this.gameInstances[GameInstanceKey.FOREST_EDGE].getGameMap();
@@ -126,8 +125,7 @@ class Game {
     GameState.setFields(fields);
     player.setX(targetPlayerCoordinates.x);
     player.setY(targetPlayerCoordinates.y);
-    const playerCurrentField = player.getCurrentField();
-    playerCurrentField.addGameObjectToField(player);
+    player.addGameObjectToFields();
 
     const gameObjects = [
       player,

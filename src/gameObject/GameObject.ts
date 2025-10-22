@@ -17,6 +17,8 @@ class GameObject {
   protected id: string;
   protected x: number;
   protected y: number;
+  private sizeX: number;
+  private sizeY: number;
   protected canOccupiedFields: boolean;
   protected isInteractive: boolean;
   protected items: Item[] = [];
@@ -34,6 +36,8 @@ class GameObject {
       imagesKeys,
       itemsAttributes,
       dialogueKey,
+      sizeX,
+      sizeY,
     } = attributes;
 
     this.type = type;
@@ -43,7 +47,8 @@ class GameObject {
     this.canOccupiedFields = canOccupiedFields;
     this.isInteractive = isInteractive;
     this.dialogueKey = dialogueKey || null;
-
+    this.sizeX = sizeX || 1;
+    this.sizeY = sizeY || 1;
     this.items = itemsAttributes?.map(itemFactory) || [];
     this.items.forEach((item) => {
       item.setEquippedBy(this);
@@ -51,11 +56,58 @@ class GameObject {
 
     this.id = this.generateId(type);
 
-    const initialField = this.getCurrentField();
+    this.addGameObjectToFields();
+  }
 
-    if (initialField) {
-      initialField.addGameObjectToField(this);
+  findFieldsThatGameObjectShouldOccupied() {
+    if (!this.getCurrentField()) {
+      return null;
     }
+
+    const fields = GameState.getFields();
+    const borderX = this.x + this.sizeX - 1;
+    const borderY = this.y + this.sizeY - 1;
+
+    return fields.filter((field) => {
+      const { x: fieldX, y: fieldY } = field.getPosition();
+
+      return (
+        fieldX <= borderX &&
+        fieldY <= borderY &&
+        this.x <= fieldX &&
+        this.y <= fieldY
+      );
+    });
+  }
+
+  addGameObjectToFields() {
+    if (!this.getCurrentField()) {
+      return;
+    }
+
+    const fieldsThatGameObjectShouldOccupied =
+      this.findFieldsThatGameObjectShouldOccupied();
+
+    fieldsThatGameObjectShouldOccupied.forEach((field) => {
+      field.addGameObjectToField(this);
+    });
+  }
+
+  removeGameObjectFromFields() {
+    if (!this.getCurrentField()) {
+      return;
+    }
+
+    const fieldsThatGameObjectShouldOccupied =
+      this.findFieldsThatGameObjectShouldOccupied();
+
+    fieldsThatGameObjectShouldOccupied.forEach((field) => {
+      field.removeGameObjectFromField(this);
+    });
+  }
+
+  getSize(): Coordinates {
+    return { x: this.sizeX, y: this.sizeY };
   }
 
   getImagesKeys(): GameObjectImagesKeys {
@@ -129,8 +181,8 @@ class GameObject {
       ImageManager.getSingleton().getImage(this.getImagesKeys().default),
       (x - fieldShift.x) * fieldSize,
       (y - fieldShift.y) * fieldSize,
-      fieldSize,
-      fieldSize
+      fieldSize * this.sizeX,
+      fieldSize * this.sizeY
     );
   }
 

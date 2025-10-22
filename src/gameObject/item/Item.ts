@@ -44,7 +44,7 @@ class Item extends GameObject {
     gameObject.addItem(this);
     this.equippedBy = gameObject;
     this.setCanOccupiedFields(false);
-    this.getCurrentField().removeGameObjectFromField(this);
+    this.removeGameObjectFromFields();
     this.x = null;
     this.y = null;
   }

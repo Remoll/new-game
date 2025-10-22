@@ -80,6 +80,20 @@ const gameObjectsLibrary: GameObjectSprite[] = [
     imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
     ...getGameObjectsAttributes(),
   },
+  {
+    type: 'wagon',
+    imagesKeys: { default: ImageKey.WAGON, dead: ImageKey.WAGON },
+    sizeX: 2,
+    sizeY: 2,
+    ...getGameObjectsAttributes(),
+  },
+  {
+    type: 'table',
+    imagesKeys: { default: ImageKey.TABLE, dead: ImageKey.TABLE },
+    sizeX: 2,
+    sizeY: 2,
+    ...getGameObjectsAttributes(),
+  },
 ];
 
 const getItemsAttributes = (): {

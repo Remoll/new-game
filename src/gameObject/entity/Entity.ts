@@ -226,8 +226,7 @@ class Entity extends GameObject {
     const oldField = this.getFieldFromCoordinates(initialX, initialY);
     oldField.removeGameObjectFromField(this);
 
-    const newField = this.getCurrentField();
-    newField.addGameObjectToField(this);
+    this.addGameObjectToFields();
 
     emitMove(this, { type: 'enemy' });
   }

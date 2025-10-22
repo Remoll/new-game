@@ -338,8 +338,8 @@ class MapCreator {
               imageManager.getImage(mapGameObject.imagesKeys.default),
               parseInt(x) * this.fieldSize,
               parseInt(y) * this.fieldSize,
-              this.fieldSize,
-              this.fieldSize
+              this.fieldSize * (mapGameObject.sizeX || 1),
+              this.fieldSize * (mapGameObject.sizeY || 1)
             );
           });
         }
