@@ -9,12 +9,12 @@ import instance02 from '@/gameInstance/gameInstancesData/instance02.ts';
 import instance03 from '@/gameInstance/gameInstancesData/instance03.ts';
 import inn from '@/gameInstance/gameInstancesData/inn.ts';
 import forestEdge from '@/gameInstance/gameInstancesData/forestEdge.ts';
-import mapCreatorTest from '@/gameInstance/gameInstancesData/mapCreatorTest.ts';
 import GameState from '../gameState/GameState.ts';
 import { Coordinates } from '@/types.ts';
 import { GameInstanceData, GameInstanceKey } from '@/gameInstance/types.ts';
 import { QuestManager } from '@/questManager/QuestManager.ts';
 import { QuestKey } from '@/questManager/types.ts';
+import roadToTheForest from '@/gameInstance/gameInstancesData/roadToTheForest.ts';
 
 class Game {
   private static singleton: Game | null = null;
@@ -47,8 +47,8 @@ class Game {
         return inn;
       case GameInstanceKey.FOREST_EDGE:
         return forestEdge;
-      case GameInstanceKey.TEST:
-        return mapCreatorTest;
+      case GameInstanceKey.ROAD_TO_THE_FOREST:
+        return roadToTheForest;
       default:
         return instance01;
     }
@@ -61,7 +61,7 @@ class Game {
         speed: 2,
         type: 'player',
         x: 1,
-        y: 13,
+        y: 2,
         imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD },
         faction: Faction.PLAYER,
         hp: 200,
@@ -76,18 +76,15 @@ class Game {
 
       GameState.setPlayer(player);
 
-      this.gameInstances[GameInstanceKey.FOREST_EDGE] = new GameInstance(
-        forestEdge
-      );
+      this.gameInstances[GameInstanceKey.INN] = new GameInstance(inn);
 
       player.addGameObjectToFields();
 
-      const gameMap =
-        this.gameInstances[GameInstanceKey.FOREST_EDGE].getGameMap();
+      const gameMap = this.gameInstances[GameInstanceKey.INN].getGameMap();
 
       const gameObjects = [
         player,
-        ...this.gameInstances[GameInstanceKey.FOREST_EDGE].getGameObjects(),
+        ...this.gameInstances[GameInstanceKey.INN].getGameObjects(),
       ];
 
       this.gameLoop = GameLoop.getSingleton(gameObjects, gameMap, this.ctx);

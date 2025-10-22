@@ -135,38 +135,38 @@
       "y": 5
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 1,
       "y": 6
-    },
-    {
-      "imageKey": "sandTexture",
-      "x": 1,
-      "y": 7
-    },
-    {
-      "imageKey": "sandTexture",
-      "x": 1,
-      "y": 8
-    },
-    {
-      "imageKey": "sandTexture",
-      "x": 1,
-      "y": 9
-    },
-    {
-      "imageKey": "sandTexture",
-      "x": 1,
-      "y": 10
-    },
-    {
-      "imageKey": "sandTexture",
-      "x": 1,
-      "y": 11
     },
     {
       "imageKey": "grassBlock",
       "x": 1,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 10
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 11
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
       "y": 12
     },
     {
@@ -185,17 +185,17 @@
       "y": 15
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "groundTexture",
       "x": 1,
       "y": 16
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "groundTexture",
       "x": 1,
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "groundTexture",
       "x": 1,
       "y": 18
     },
@@ -235,18 +235,18 @@
       "y": 5
     },
     {
-      "imageKey": "sandTexture",
-      "x": 2,
-      "y": 6
-    },
-    {
       "imageKey": "grassBlock",
       "x": 2,
-      "y": 7
+      "y": 6
     },
     {
       "imageKey": "grassBlock",
       "x": 2,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 2,
       "y": 8
     },
     {
@@ -260,18 +260,18 @@
       "y": 10
     },
     {
-      "imageKey": "sandTexture",
-      "x": 2,
-      "y": 11
-    },
-    {
       "imageKey": "grassBlock",
       "x": 2,
-      "y": 12
+      "y": 11
     },
     {
       "imageKey": "grassBlock",
       "x": 2,
+      "y": 12
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 2,
       "y": 13
     },
     {
@@ -285,17 +285,17 @@
       "y": 15
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "groundTexture",
       "x": 2,
       "y": 16
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "groundTexture",
       "x": 2,
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "groundTexture",
       "x": 2,
       "y": 18
     },
@@ -335,18 +335,18 @@
       "y": 5
     },
     {
-      "imageKey": "sandTexture",
-      "x": 3,
-      "y": 6
-    },
-    {
       "imageKey": "grassBlock",
       "x": 3,
-      "y": 7
+      "y": 6
     },
     {
       "imageKey": "grassBlock",
       "x": 3,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
       "y": 8
     },
     {
@@ -360,18 +360,18 @@
       "y": 10
     },
     {
-      "imageKey": "sandTexture",
-      "x": 3,
-      "y": 11
-    },
-    {
       "imageKey": "grassBlock",
       "x": 3,
-      "y": 12
+      "y": 11
     },
     {
       "imageKey": "grassBlock",
       "x": 3,
+      "y": 12
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
       "y": 13
     },
     {
@@ -385,17 +385,17 @@
       "y": 15
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "groundTexture",
       "x": 3,
       "y": 16
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "groundTexture",
       "x": 3,
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "groundTexture",
       "x": 3,
       "y": 18
     },
@@ -435,7 +435,7 @@
       "y": 5
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 4,
       "y": 6
     },
@@ -460,7 +460,7 @@
       "y": 10
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 4,
       "y": 11
     },
@@ -490,17 +490,17 @@
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "groundTexture",
       "x": 4,
       "y": 17
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 4,
       "y": 18
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 4,
       "y": 19
     },
@@ -515,7 +515,7 @@
       "y": 1
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 5,
       "y": 2
     },
@@ -530,32 +530,32 @@
       "y": 4
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 5,
       "y": 5
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 5,
       "y": 6
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 5,
       "y": 7
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "sandTexture",
       "x": 5,
       "y": 8
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 5,
       "y": 9
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 5,
       "y": 10
     },
@@ -565,22 +565,22 @@
       "y": 11
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 5,
       "y": 12
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 5,
       "y": 13
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 5,
       "y": 14
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 5,
       "y": 15
     },
@@ -590,7 +590,7 @@
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "groundTexture",
       "x": 5,
       "y": 17
     },
@@ -610,12 +610,12 @@
       "y": 0
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 6,
       "y": 1
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 6,
       "y": 2
     },
@@ -630,7 +630,7 @@
       "y": 4
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 6,
       "y": 5
     },
@@ -640,17 +640,17 @@
       "y": 6
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 6,
       "y": 7
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 6,
       "y": 8
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 6,
       "y": 9
     },
@@ -660,7 +660,7 @@
       "y": 10
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 6,
       "y": 11
     },
@@ -680,12 +680,12 @@
       "y": 14
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 6,
       "y": 15
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 6,
       "y": 16
     },
@@ -695,7 +695,7 @@
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 6,
       "y": 18
     },
@@ -710,7 +710,7 @@
       "y": 0
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 7,
       "y": 1
     },
@@ -720,12 +720,12 @@
       "y": 2
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 7,
       "y": 3
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 7,
       "y": 4
     },
@@ -735,22 +735,22 @@
       "y": 5
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 7,
       "y": 6
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "sandTexture",
       "x": 7,
       "y": 7
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 7,
       "y": 8
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 7,
       "y": 9
     },
@@ -760,17 +760,17 @@
       "y": 10
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 7,
       "y": 11
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 7,
       "y": 12
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 7,
       "y": 13
     },
@@ -790,12 +790,12 @@
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 7,
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 7,
       "y": 18
     },
@@ -815,7 +815,7 @@
       "y": 1
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 8,
       "y": 2
     },
@@ -830,7 +830,7 @@
       "y": 4
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 8,
       "y": 5
     },
@@ -840,62 +840,62 @@
       "y": 6
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 8,
       "y": 7
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 8,
       "y": 8
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 8,
       "y": 9
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 8,
       "y": 10
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 8,
       "y": 11
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 8,
       "y": 12
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 8,
       "y": 13
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 8,
       "y": 14
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 8,
       "y": 15
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 8,
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 8,
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 8,
       "y": 18
     },
@@ -915,27 +915,27 @@
       "y": 1
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 9,
       "y": 2
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 3
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 4
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 5
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 6
     },
@@ -950,27 +950,27 @@
       "y": 8
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 9
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 10
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 11
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 12
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 13
     },
@@ -985,17 +985,17 @@
       "y": 15
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 9,
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 9,
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 9,
       "y": 18
     },
@@ -1015,12 +1015,12 @@
       "y": 1
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 10,
       "y": 2
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 10,
       "y": 3
     },
@@ -1030,7 +1030,7 @@
       "y": 4
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 10,
       "y": 5
     },
@@ -1040,7 +1040,7 @@
       "y": 6
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 10,
       "y": 7
     },
@@ -1055,17 +1055,17 @@
       "y": 9
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 10,
       "y": 10
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 10,
       "y": 11
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 10,
       "y": 12
     },
@@ -1085,7 +1085,7 @@
       "y": 15
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 10,
       "y": 16
     },
@@ -1095,7 +1095,7 @@
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 10,
       "y": 18
     },
@@ -1105,22 +1105,22 @@
       "y": 19
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 11,
       "y": 0
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 11,
       "y": 1
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 11,
       "y": 2
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 11,
       "y": 3
     },
@@ -1130,7 +1130,7 @@
       "y": 4
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 11,
       "y": 5
     },
@@ -1155,17 +1155,17 @@
       "y": 9
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 11,
       "y": 10
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 11,
       "y": 11
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 11,
       "y": 12
     },
@@ -1180,12 +1180,12 @@
       "y": 14
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 11,
       "y": 15
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 11,
       "y": 16
     },
@@ -1195,7 +1195,7 @@
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 11,
       "y": 18
     },
@@ -1210,7 +1210,7 @@
       "y": 0
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 12,
       "y": 1
     },
@@ -1235,17 +1235,17 @@
       "y": 5
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 12,
       "y": 6
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 12,
       "y": 7
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 12,
       "y": 8
     },
@@ -1255,7 +1255,7 @@
       "y": 9
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 12,
       "y": 10
     },
@@ -1265,12 +1265,12 @@
       "y": 11
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 12,
       "y": 12
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 12,
       "y": 13
     },
@@ -1280,22 +1280,22 @@
       "y": 14
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "waterTexture",
       "x": 12,
       "y": 15
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "waterTexture",
       "x": 12,
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 12,
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 12,
       "y": 18
     },
@@ -1310,7 +1310,7 @@
       "y": 0
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 13,
       "y": 1
     },
@@ -1325,7 +1325,7 @@
       "y": 3
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 13,
       "y": 4
     },
@@ -1345,12 +1345,12 @@
       "y": 7
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 13,
       "y": 8
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 13,
       "y": 9
     },
@@ -1360,17 +1360,17 @@
       "y": 10
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 13,
       "y": 11
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 13,
       "y": 12
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 13,
       "y": 13
     },
@@ -1390,12 +1390,12 @@
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 13,
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 13,
       "y": 18
     },
@@ -1410,7 +1410,7 @@
       "y": 0
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 14,
       "y": 1
     },
@@ -1425,12 +1425,12 @@
       "y": 3
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 14,
       "y": 4
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 14,
       "y": 5
     },
@@ -1455,7 +1455,7 @@
       "y": 9
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 14,
       "y": 10
     },
@@ -1470,22 +1470,22 @@
       "y": 12
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 14,
       "y": 13
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 14,
       "y": 14
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 14,
       "y": 15
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 14,
       "y": 16
     },
@@ -1495,7 +1495,7 @@
       "y": 17
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 14,
       "y": 18
     },
@@ -1510,7 +1510,7 @@
       "y": 0
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 15,
       "y": 1
     },
@@ -1525,12 +1525,12 @@
       "y": 3
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 15,
       "y": 4
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 15,
       "y": 5
     },
@@ -1540,12 +1540,12 @@
       "y": 6
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 15,
       "y": 7
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 15,
       "y": 8
     },
@@ -1555,7 +1555,7 @@
       "y": 9
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 15,
       "y": 10
     },
@@ -1590,7 +1590,7 @@
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 15,
       "y": 17
     },
@@ -1615,12 +1615,12 @@
       "y": 1
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 16,
       "y": 2
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 16,
       "y": 3
     },
@@ -1630,22 +1630,22 @@
       "y": 4
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 16,
       "y": 5
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 16,
       "y": 6
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 16,
       "y": 7
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 16,
       "y": 8
     },
@@ -1655,7 +1655,7 @@
       "y": 9
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 16,
       "y": 10
     },
@@ -1690,7 +1690,7 @@
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 16,
       "y": 17
     },
@@ -1725,7 +1725,7 @@
       "y": 3
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 17,
       "y": 4
     },
@@ -1735,17 +1735,17 @@
       "y": 5
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 17,
       "y": 6
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 17,
       "y": 7
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 17,
       "y": 8
     },
@@ -1755,7 +1755,7 @@
       "y": 9
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 17,
       "y": 10
     },
@@ -1790,7 +1790,7 @@
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 17,
       "y": 17
     },
@@ -1815,17 +1815,17 @@
       "y": 1
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 2
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 3
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 4
     },
@@ -1835,17 +1835,17 @@
       "y": 5
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 6
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 7
     },
     {
-      "imageKey": "waterTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 8
     },
@@ -1855,42 +1855,42 @@
       "y": 9
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 10
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 11
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 12
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 13
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 14
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 15
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 16
     },
     {
-      "imageKey": "sandTexture",
+      "imageKey": "grassBlock",
       "x": 18,
       "y": 17
     },
@@ -1910,7 +1910,7 @@
       "y": 0
     },
     {
-      "imageKey": "grassBlock",
+      "imageKey": "sandTexture",
       "x": 19,
       "y": 1
     },
@@ -2008,84 +2008,6 @@
   "npcs": [
     {
       "speed": 3,
-      "type": "boar",
-      "imagesKeys": {
-        "default": "boar",
-        "dead": "boarDead"
-      },
-      "hp": 200,
-      "itemsAttributes": [],
-      "faction": "enemy_faction",
-      "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
-      },
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 5,
-      "y": 1
-    },
-    {
-      "speed": 3,
-      "type": "wolf",
-      "imagesKeys": {
-        "default": "wolf",
-        "dead": "wolfDead"
-      },
-      "hp": 200,
-      "itemsAttributes": [],
-      "faction": "enemy_faction",
-      "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
-      },
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 18,
-      "y": 4
-    },
-    {
-      "speed": 3,
-      "type": "wolf",
-      "imagesKeys": {
-        "default": "wolf",
-        "dead": "wolfDead"
-      },
-      "hp": 200,
-      "itemsAttributes": [],
-      "faction": "enemy_faction",
-      "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
-      },
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 18,
-      "y": 3
-    },
-    {
-      "speed": 3,
       "type": "bear",
       "imagesKeys": {
         "default": "bear",
@@ -2107,95 +2029,17 @@
       },
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 11,
-      "y": 7
-    },
-    {
-      "speed": 3,
-      "type": "boar",
-      "imagesKeys": {
-        "default": "boar",
-        "dead": "boarDead"
-      },
-      "hp": 200,
-      "itemsAttributes": [],
-      "faction": "enemy_faction",
-      "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
-      },
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 5,
-      "y": 5
-    },
-    {
-      "speed": 3,
-      "type": "boar",
-      "imagesKeys": {
-        "default": "boar",
-        "dead": "boarDead"
-      },
-      "hp": 200,
-      "itemsAttributes": [],
-      "faction": "enemy_faction",
-      "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
-      },
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 1,
-      "y": 12
-    },
-    {
-      "speed": 3,
-      "type": "boar",
-      "imagesKeys": {
-        "default": "boar",
-        "dead": "boarDead"
-      },
-      "hp": 200,
-      "itemsAttributes": [],
-      "faction": "enemy_faction",
-      "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
-      },
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 1,
+      "x": 15,
       "y": 11
     },
     {
-      "speed": 1,
-      "type": "skeleton",
+      "speed": 3,
+      "type": "boar",
       "imagesKeys": {
-        "default": "skeleton",
-        "dead": "bones"
+        "default": "boar",
+        "dead": "boarDead"
       },
-      "hp": 300,
+      "hp": 200,
       "itemsAttributes": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
@@ -2211,17 +2055,17 @@
       },
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 16,
-      "y": 12
+      "x": 2,
+      "y": 9
     },
     {
-      "speed": 1,
-      "type": "skeleton",
+      "speed": 3,
+      "type": "boar",
       "imagesKeys": {
-        "default": "skeleton",
-        "dead": "bones"
+        "default": "boar",
+        "dead": "boarDead"
       },
-      "hp": 300,
+      "hp": 200,
       "itemsAttributes": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
@@ -2237,8 +2081,34 @@
       },
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 16,
-      "y": 15
+      "x": 3,
+      "y": 10
+    },
+    {
+      "speed": 3,
+      "type": "boar",
+      "imagesKeys": {
+        "default": "boar",
+        "dead": "boarDead"
+      },
+      "hp": 200,
+      "itemsAttributes": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 11
     },
     {
       "speed": 4,
@@ -2263,8 +2133,8 @@
       },
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 16,
-      "y": 13
+      "x": 3,
+      "y": 17
     },
     {
       "speed": 4,
@@ -2289,8 +2159,60 @@
       },
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 16,
-      "y": 14
+      "x": 1,
+      "y": 17
+    },
+    {
+      "speed": 4,
+      "type": "imp",
+      "imagesKeys": {
+        "default": "imp",
+        "dead": "demonicOrb"
+      },
+      "hp": 100,
+      "itemsAttributes": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 18
+    },
+    {
+      "speed": 4,
+      "type": "imp",
+      "imagesKeys": {
+        "default": "imp",
+        "dead": "demonicOrb"
+      },
+      "hp": 100,
+      "itemsAttributes": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 16
     }
   ],
   "gameObjects": [
@@ -2303,7 +2225,31 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 10,
+      "x": 9,
+      "y": 15
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 5
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
       "y": 8
     },
     {
@@ -2315,7 +2261,103 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 15,
+      "x": 6,
+      "y": 13
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 11
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 12
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 14
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 12
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 9
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 9
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 9
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
       "y": 6
     },
     {
@@ -2327,8 +2369,68 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
+      "x": 14,
+      "y": 4
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
       "x": 15,
-      "y": 13
+      "y": 2
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 2
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 9
+    },
+    {
+      "type": "grave",
+      "imagesKeys": {
+        "default": "grave",
+        "dead": "grave"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 17
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 12
     }
   ],
   "blocks": [
@@ -2341,188 +2443,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 0,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 1,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 2,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 3,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 4,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 4,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 5,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 6,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 7,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 8,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
       "x": 9,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 11,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 12,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 12,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 13,
-      "y": 2
+      "y": 14
     },
     {
       "type": "tree",
@@ -2534,235 +2456,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 15,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 16,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 17,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 0,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 1,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 2,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 3,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 4,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 5,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 6,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 6,
-      "y": 1
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 7,
-      "y": 1
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 8,
-      "y": 1
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 9,
-      "y": 1
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 1
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 11,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 12,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 13,
-      "y": 0
+      "y": 7
     },
     {
       "type": "tree",
@@ -2774,7 +2468,91 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
-      "y": 0
+      "y": 8
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 10
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 11
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 12
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 6
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 6
     },
     {
       "type": "tree",
@@ -2786,19 +2564,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 16,
-      "y": 0
+      "y": 6
     },
     {
       "type": "tree",
@@ -2810,7 +2576,79 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
-      "y": 0
+      "y": 6
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 12
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 14
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 14
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 14
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 12
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 13
     },
     {
       "type": "tree",
@@ -2822,7 +2660,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 18,
-      "y": 0
+      "y": 12
     },
     {
       "type": "tree",
@@ -2834,67 +2672,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
-      "y": 0
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 1
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 2
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 3
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 4
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 5
+      "y": 12
     },
     {
       "type": "tree",
@@ -2917,8 +2695,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 17,
-      "y": 3
+      "x": 19,
+      "y": 7
     },
     {
       "type": "tree",
@@ -2929,8 +2707,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 14,
-      "y": 5
+      "x": 19,
+      "y": 8
     },
     {
       "type": "tree",
@@ -2941,8 +2719,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 15,
-      "y": 5
+      "x": 19,
+      "y": 9
     },
     {
       "type": "tree",
@@ -2953,8 +2731,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 16,
-      "y": 5
+      "x": 19,
+      "y": 10
     },
     {
       "type": "tree",
@@ -2965,8 +2743,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 17,
-      "y": 5
+      "x": 19,
+      "y": 11
     },
     {
       "type": "tree",
@@ -2978,6 +2756,54 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 18,
+      "y": 6
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 2
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 3
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 4
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
       "y": 5
     },
     {
@@ -2989,8 +2815,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 13,
-      "y": 3
+      "x": 0,
+      "y": 2
     },
     {
       "type": "tree",
@@ -3001,8 +2827,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 14,
-      "y": 3
+      "x": 1,
+      "y": 2
     },
     {
       "type": "tree",
@@ -3013,8 +2839,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 15,
-      "y": 3
+      "x": 2,
+      "y": 2
     },
     {
       "type": "tree",
@@ -3025,8 +2851,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 16,
-      "y": 3
+      "x": 3,
+      "y": 2
     },
     {
       "type": "tree",
@@ -3038,7 +2864,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
-      "y": 4
+      "y": 2
     },
     {
       "type": "tree",
@@ -3050,7 +2876,31 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 5,
-      "y": 4
+      "y": 2
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 2
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 3
     },
     {
       "type": "tree",
@@ -3073,8 +2923,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 7,
-      "y": 4
+      "x": 6,
+      "y": 5
     },
     {
       "type": "tree",
@@ -3085,104 +2935,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 8,
-      "y": 4
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 9,
-      "y": 4
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 4
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 11,
-      "y": 4
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 12,
-      "y": 4
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 14,
+      "x": 6,
       "y": 6
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 0,
-      "y": 5
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 1,
-      "y": 5
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 2,
-      "y": 5
     },
     {
       "type": "tree",
@@ -3194,7 +2948,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 3,
-      "y": 5
+      "y": 6
     },
     {
       "type": "tree",
@@ -3206,7 +2960,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
-      "y": 5
+      "y": 6
     },
     {
       "type": "tree",
@@ -3217,7 +2971,7 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 0,
+      "x": 5,
       "y": 6
     },
     {
@@ -3230,6 +2984,42 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
       "y": 7
     },
     {
@@ -3301,523 +3091,7 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 12,
-      "y": 6
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 6,
-      "y": 6
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 7,
-      "y": 6
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 8,
-      "y": 6
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 9,
-      "y": 6
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 6
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 11,
-      "y": 6
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 9,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 11,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 12,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 14,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 15,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 16,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 17,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 18,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 7
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 8
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 8,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 8,
-      "y": 10
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 2,
-      "y": 10
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 3,
-      "y": 10
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 4,
-      "y": 10
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 5,
-      "y": 10
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 6,
-      "y": 10
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 7,
-      "y": 10
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 2,
-      "y": 7
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 2,
-      "y": 8
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 2,
-      "y": 9
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 3,
-      "y": 7
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 4,
-      "y": 7
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 5,
-      "y": 7
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 6,
-      "y": 7
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 12,
-      "y": 11
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 14,
-      "y": 11
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 12,
-      "y": 15
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 14,
-      "y": 16
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 15,
-      "y": 16
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 16,
-      "y": 16
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 17,
-      "y": 16
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 17,
-      "y": 11
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 17,
-      "y": 12
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 17,
+      "x": 0,
       "y": 13
     },
     {
@@ -3829,7 +3103,7 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 17,
+      "x": 0,
       "y": 14
     },
     {
@@ -3841,91 +3115,7 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 17,
-      "y": 15
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 16,
-      "y": 11
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 15,
-      "y": 11
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 11,
-      "y": 11
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 11
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 9,
-      "y": 15
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 15
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 11,
+      "x": 0,
       "y": 15
     },
     {
@@ -3938,7 +3128,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 1,
-      "y": 12
+      "y": 15
     },
     {
       "type": "tree",
@@ -3950,7 +3140,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 2,
-      "y": 12
+      "y": 15
     },
     {
       "type": "tree",
@@ -3962,7 +3152,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 3,
-      "y": 12
+      "y": 15
     },
     {
       "type": "tree",
@@ -3974,7 +3164,19 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
-      "y": 12
+      "y": 15
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 16
     },
     {
       "type": "tree",
@@ -3986,31 +3188,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 5,
-      "y": 12
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 6,
-      "y": 12
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 7,
-      "y": 12
+      "y": 16
     },
     {
       "type": "tree",
@@ -4022,7 +3200,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
-      "y": 12
+      "y": 0
     },
     {
       "type": "tree",
@@ -4033,8 +3211,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 9,
-      "y": 12
+      "x": 8,
+      "y": 1
     },
     {
       "type": "tree",
@@ -4045,8 +3223,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 9,
-      "y": 13
+      "x": 8,
+      "y": 2
     },
     {
       "type": "tree",
@@ -4057,8 +3235,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 9,
-      "y": 14
+      "x": 8,
+      "y": 3
     },
     {
       "type": "tree",
@@ -4069,7 +3247,67 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 19,
+      "x": 8,
+      "y": 4
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 6
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 8
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
       "y": 10
     },
     {
@@ -4081,19 +3319,7 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 19,
-      "y": 11
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
+      "x": 6,
       "y": 12
     },
     {
@@ -4105,19 +3331,7 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 19,
-      "y": 13
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
+      "x": 6,
       "y": 14
     },
     {
@@ -4129,236 +3343,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 19,
-      "y": 15
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 16
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 17
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 19,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 11,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 12,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 13,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 14,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 15,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 16,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 17,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 18,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 17
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 11,
-      "y": 17
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 9,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 10,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 8,
-      "y": 15
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 8,
-      "y": 16
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 5,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 6,
-      "y": 18
+      "x": 7,
+      "y": 14
     },
     {
       "type": "tree",
@@ -4370,67 +3356,7 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 7,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 8,
-      "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 3,
-      "y": 16
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 4,
-      "y": 16
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 5,
-      "y": 16
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 6,
-      "y": 16
+      "y": 15
     },
     {
       "type": "tree",
@@ -4453,32 +3379,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 3,
-      "y": 17
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 3,
+      "x": 5,
       "y": 18
-    },
-    {
-      "type": "tree",
-      "imagesKeys": {
-        "default": "tree",
-        "dead": "tree"
-      },
-      "itemsAttributes": [],
-      "canOccupiedFields": true,
-      "isInteractive": false,
-      "x": 3,
-      "y": 19
     },
     {
       "type": "tree",
@@ -4501,8 +3403,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 14,
-      "y": 12
+      "x": 6,
+      "y": 19
     },
     {
       "type": "tree",
@@ -4513,8 +3415,8 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 14,
-      "y": 15
+      "x": 7,
+      "y": 19
     },
     {
       "type": "tree",
@@ -4525,8 +3427,20 @@
       "itemsAttributes": [],
       "canOccupiedFields": true,
       "isInteractive": false,
-      "x": 14,
-      "y": 13
+      "x": 8,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 19
     },
     {
       "type": "tree",
@@ -4538,7 +3452,823 @@
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 10,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 15
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 16
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 17
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 18
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 18
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 19
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 16
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 17
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 18
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 17
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 17
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 17
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 17
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 17
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 17
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 17
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 16
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 15
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 13
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 10
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 11
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 8
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 5
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 4
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 4
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 3
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 4
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 1
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 2
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 2
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 8
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 11
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 10
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 8
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 14
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 13
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 14
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
       "y": 12
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 10
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 11
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 1
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 4
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 0
     }
   ],
   "items": [],

@@ -2,12 +2,31 @@ import { Disposition, Faction } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { GameInstanceData, GameInstanceKey } from '../types.ts';
 import { DialogueKey } from '@/dialogueManager/types.ts';
+import { Coordinates } from '@/types.ts';
+
+const fieldsCoordinates = () => {
+  const coordinates: Coordinates[] = [];
+  for (let x = 0; x < 20; x++) {
+    for (let y = 0; y < 7; y++) {
+      coordinates.push({ x, y });
+    }
+  }
+
+  return coordinates;
+};
 
 const gameInstanceData: GameInstanceData = {
   mapSize: {
     x: 20,
     y: 7,
   },
+  fields: [
+    ...fieldsCoordinates().map((coordinates) => ({
+      x: coordinates.x,
+      y: coordinates.y,
+      imageKey: ImageKey.WOOD_TEXTURE,
+    })),
+  ],
   buildingsCoordinates: [
     {
       topLeft: {
@@ -156,21 +175,11 @@ const gameInstanceData: GameInstanceData = {
   items: [],
   gateways: [
     {
-      targetGameInstanceKey: GameInstanceKey.FOREST_EDGE,
+      targetGameInstanceKey: GameInstanceKey.ROAD_TO_THE_FOREST,
       type: 'gateway',
       x: 19,
       y: 5,
-      targetPlayerCoordinates: { x: 1, y: 13 },
-      imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE },
-      canOccupiedFields: true,
-      isInteractive: true,
-    },
-    {
-      targetGameInstanceKey: GameInstanceKey.INSTANCE_02,
-      type: 'gateway',
-      x: 1,
-      y: 5,
-      targetPlayerCoordinates: { x: 1, y: 5 },
+      targetPlayerCoordinates: { x: 0, y: 1 },
       imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE },
       canOccupiedFields: true,
       isInteractive: true,

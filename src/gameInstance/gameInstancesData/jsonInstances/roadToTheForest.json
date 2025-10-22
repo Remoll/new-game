@@ -1,0 +1,2502 @@
+{
+  "mapSize": {
+    "x": 25,
+    "y": 10
+  },
+  "fields": [
+    {
+      "imageKey": "grassBlock",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 0,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 0,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 0,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 0,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 0,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 0,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 0,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 0,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 0,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 0
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 1,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 2,
+      "y": 0
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 2,
+      "y": 1
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 2,
+      "y": 2
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 2,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 2,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 2,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 2,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 2,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 2,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
+      "y": 2
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 3,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 3,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 4,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 4,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 4,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 4,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 4,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 5,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 5,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 5,
+      "y": 2
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 5,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 5,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 5,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 5,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 5,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 5,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 5,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 6,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 6,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 6,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 6,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 6,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 6,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 6,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 6,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 6,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 7,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 7,
+      "y": 2
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 7,
+      "y": 3
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 7,
+      "y": 4
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 7,
+      "y": 5
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 7,
+      "y": 6
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 7,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 7,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 7,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 8,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 8,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 8,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 8,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 8,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 8,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 8,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 8,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 8,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 8,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 9,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 9,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 9,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 9,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 9,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 9,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 9,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 9,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 9,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 9,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 10,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 10,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 10,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 10,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 10,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 11,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 11,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 11,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 11,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 11,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 12,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 12,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 12,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 12,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 12,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 13,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 13,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 13,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 13,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 13,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 14,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 14,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 14,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 14,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 14,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 15,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 15,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 15,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 15,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 15,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 16,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 16,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 16,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 16,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 16,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 17,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 17,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 17,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 17,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 17,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 18,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 18,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 18,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 18,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 18,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 18,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 18,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 18,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 18,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 18,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 19,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 19,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 19,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 19,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 19,
+      "y": 4
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 19,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 19,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 19,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 19,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 19,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 20,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 20,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 20,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 20,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 20,
+      "y": 4
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 20,
+      "y": 5
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 20,
+      "y": 6
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 20,
+      "y": 7
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 20,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 20,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 21,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 21,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 21,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 21,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 21,
+      "y": 4
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 21,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 21,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 21,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 21,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 21,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 22,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 22,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 22,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 22,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 22,
+      "y": 4
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 22,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 22,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 22,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 22,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 22,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 23,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 23,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 23,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 23,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 23,
+      "y": 4
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 23,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 23,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 23,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 23,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 23,
+      "y": 9
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 24,
+      "y": 0
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 24,
+      "y": 1
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 24,
+      "y": 2
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 24,
+      "y": 3
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 24,
+      "y": 4
+    },
+    {
+      "imageKey": "sandTexture",
+      "x": 24,
+      "y": 5
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 24,
+      "y": 6
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 24,
+      "y": 7
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 24,
+      "y": 8
+    },
+    {
+      "imageKey": "grassBlock",
+      "x": 24,
+      "y": 9
+    }
+  ],
+  "npcs": [
+    {
+      "speed": 1,
+      "type": "skeleton",
+      "imagesKeys": {
+        "default": "skeleton",
+        "dead": "bones"
+      },
+      "hp": 300,
+      "itemsAttributes": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 5
+    },
+    {
+      "speed": 1,
+      "type": "skeleton",
+      "imagesKeys": {
+        "default": "skeleton",
+        "dead": "bones"
+      },
+      "hp": 300,
+      "itemsAttributes": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 3
+    },
+    {
+      "speed": 1,
+      "type": "skeleton",
+      "imagesKeys": {
+        "default": "skeleton",
+        "dead": "bones"
+      },
+      "hp": 300,
+      "itemsAttributes": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 4
+    },
+    {
+      "speed": 1,
+      "type": "skeleton",
+      "imagesKeys": {
+        "default": "skeleton",
+        "dead": "bones"
+      },
+      "hp": 300,
+      "itemsAttributes": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 3
+    },
+    {
+      "speed": 1,
+      "type": "skeleton",
+      "imagesKeys": {
+        "default": "skeleton",
+        "dead": "bones"
+      },
+      "hp": 300,
+      "itemsAttributes": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 2
+    }
+  ],
+  "gameObjects": [
+    {
+      "type": "wagon",
+      "imagesKeys": {
+        "default": "wagon",
+        "dead": "wagon"
+      },
+      "sizeX": 2,
+      "sizeY": 2,
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 7
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 22,
+      "y": 7
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 2
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 1
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 22,
+      "y": 2
+    },
+    {
+      "type": "boulder",
+      "imagesKeys": {
+        "default": "boulder",
+        "dead": "boulder"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 7
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 4
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 6
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 4
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 6
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 6
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 6
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 20,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 21,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 22,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 23,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 24,
+      "y": 9
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 5
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 5
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 5
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 5
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 5
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 5
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 6
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 8
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 20,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 21,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 22,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 23,
+      "y": 0
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 24,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 5
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 8
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 22,
+      "y": 8
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 23,
+      "y": 7
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 24,
+      "y": 6
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 24,
+      "y": 4
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 23,
+      "y": 3
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 21,
+      "y": 1
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 21,
+      "y": 1
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 20,
+      "y": 1
+    },
+    {
+      "type": "tree",
+      "imagesKeys": {
+        "default": "tree",
+        "dead": "tree"
+      },
+      "itemsAttributes": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 1
+    }
+  ],
+  "items": [],
+  "gateways": []
+}
