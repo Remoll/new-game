@@ -44,6 +44,12 @@ enum ImageKey {
   IMP = 'imp',
   BONES = 'bones',
   DEMONIC_ORB = 'demonicOrb',
+  WOODEN_BLOCK = 'woodenBlock',
+  SAND_TEXTURE = 'sandTexture',
+  SWAMP_TEXTURE = 'swampTexture',
+  GRAVE = 'grave',
+  BEAR = 'bear',
+  BEAR_DEAD = 'bearDead',
 }
 
 type ImageMap = {

@@ -30,6 +30,16 @@ const fieldsLibrary: FieldSprite[] = [
     imageKey: ImageKey.WOOD_TEXTURE,
     spriteType: SpriteType.FIELD,
   },
+  {
+    type: 'sandTexture',
+    imageKey: ImageKey.SAND_TEXTURE,
+    spriteType: SpriteType.FIELD,
+  },
+  {
+    type: 'swampTexture',
+    imageKey: ImageKey.SWAMP_TEXTURE,
+    spriteType: SpriteType.FIELD,
+  },
 ];
 
 const getGameObjectsAttributes = (): {
@@ -200,6 +210,13 @@ const entitiesLibrary: EntitySprite[] = [
     hp: 200,
     ...getEntitiesConstantAttributes(),
   },
+  {
+    speed: 3,
+    type: 'bear',
+    imagesKeys: { default: ImageKey.BEAR, dead: ImageKey.BEAR_DEAD },
+    hp: 400,
+    ...getEntitiesConstantAttributes(),
+  },
 ];
 
 const getBlocksConstantAttributes = (): {
@@ -236,6 +253,14 @@ const blocksLibrary: BlockSprite[] = [
     imagesKeys: {
       default: ImageKey.TREE,
       dead: ImageKey.TREE,
+    },
+    ...getBlocksConstantAttributes(),
+  },
+  {
+    type: 'woodenBlock',
+    imagesKeys: {
+      default: ImageKey.WOODEN_BLOCK,
+      dead: ImageKey.WOODEN_BLOCK,
     },
     ...getBlocksConstantAttributes(),
   },

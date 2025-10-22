@@ -62,6 +62,10 @@ class Field {
     }
 
     if (gameObjectsThatCanOccupiedFields.length > 1) {
+      console.log(
+        'gameObjectsThatCanOccupiedFields: ',
+        gameObjectsThatCanOccupiedFields
+      );
       // console.error(
       //   'more than one game object from gameObjectsThatCanOccupiedFields, need exact one'
       // );

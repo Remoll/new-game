@@ -226,7 +226,7 @@ class MapCreator {
     ) as GameObjectAttributes[];
 
     const gameObjects: GameObjectAttributes[] = parseSpritesObjectToArray(
-      this.mapBlocks
+      this.mapGameObjects
     ) as GameObjectAttributes[];
 
     const items: GameObjectAttributes[] = parseSpritesObjectToArray(

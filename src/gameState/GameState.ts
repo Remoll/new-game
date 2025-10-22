@@ -123,7 +123,8 @@ class GameState {
                 blockingElement?.getType() === 'door' ||
                 blockingElement?.getType() === 'tree' ||
                 blockingElement?.getType() === 'stoneBlockLight' ||
-                blockingElement?.getType() === 'stoneBlockDark')))
+                blockingElement?.getType() === 'stoneBlockDark' ||
+                blockingElement?.getType() === 'woodenBlock')))
         ) {
           return { checked, clear: false };
         }

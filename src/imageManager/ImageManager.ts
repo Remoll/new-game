@@ -45,6 +45,12 @@ import waterTextureImage from '@/imageManager/images/waterTextureImage.png';
 import impImage from '@/imageManager/images/impImage.png';
 import bonesImage from '@/imageManager/images/bonesImage.png';
 import demonicOrbImage from '@/imageManager/images/demonicOrbImage.png';
+import woodenBlockImage from '@/imageManager/images/woodenBlockImage.png';
+import sandTextureImage from '@/imageManager/images/sandTextureImage.png';
+import swampTextureImage from '@/imageManager/images/swampTextureImage.png';
+import graveImage from '@/imageManager/images/graveImage.png';
+import bearImage from '@/imageManager/images/bearImage.png';
+import bearDeadImage from '@/imageManager/images/bearDeadImage.png';
 
 class ImageManager {
   private static singleton: ImageManager;
@@ -94,6 +100,12 @@ class ImageManager {
     [ImageKey.IMP]: undefined,
     [ImageKey.BONES]: undefined,
     [ImageKey.DEMONIC_ORB]: undefined,
+    [ImageKey.WOODEN_BLOCK]: undefined,
+    [ImageKey.SAND_TEXTURE]: undefined,
+    [ImageKey.SWAMP_TEXTURE]: undefined,
+    [ImageKey.GRAVE]: undefined,
+    [ImageKey.BEAR]: undefined,
+    [ImageKey.BEAR_DEAD]: undefined,
   };
 
   private constructor() {}
@@ -165,6 +177,12 @@ class ImageManager {
       imp,
       bones,
       demonicOrb,
+      woodenBlock,
+      sandTexture,
+      swampTexture,
+      grave,
+      bear,
+      bearDead,
     ] = await Promise.all([
       this.imageLoader(playerImage),
       this.imageLoader(playerDeadImage),
@@ -211,6 +229,12 @@ class ImageManager {
       this.imageLoader(impImage),
       this.imageLoader(bonesImage),
       this.imageLoader(demonicOrbImage),
+      this.imageLoader(woodenBlockImage),
+      this.imageLoader(sandTextureImage),
+      this.imageLoader(swampTextureImage),
+      this.imageLoader(graveImage),
+      this.imageLoader(bearImage),
+      this.imageLoader(bearDeadImage),
     ]);
     this.setImages({
       player,
@@ -258,6 +282,12 @@ class ImageManager {
       imp,
       bones,
       demonicOrb,
+      woodenBlock,
+      sandTexture,
+      swampTexture,
+      grave,
+      bear,
+      bearDead,
     });
   };
 
