@@ -4,6 +4,7 @@ interface FieldAttributes {
   x: number;
   y: number;
   imageKey: ImageKey;
+  crossable?: boolean;
 }
 
 export { FieldAttributes };

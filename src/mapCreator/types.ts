@@ -23,6 +23,7 @@ interface GameSprite {
 interface FieldSprite extends GameSprite {
   spriteType: SpriteType.FIELD;
   imageKey: ImageKey;
+  crossable?: boolean;
 }
 
 interface GameObjectSprite extends GameSprite {

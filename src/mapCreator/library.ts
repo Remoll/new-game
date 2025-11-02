@@ -19,6 +19,7 @@ const fieldsLibrary: FieldSprite[] = [
     type: 'water',
     spriteType: SpriteType.FIELD,
     imageKey: ImageKey.WATER_TEXTURE,
+    crossable: false,
   },
   {
     type: 'ground',

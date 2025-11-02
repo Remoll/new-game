@@ -206,7 +206,7 @@ class Entity extends GameObject {
       return false;
     }
 
-    return !field.getIsOccupied();
+    return !field.getIsOccupied() && field.getIsCrossable();
   }
 
   private attackEntity(entity: Entity) {

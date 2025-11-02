@@ -9,16 +9,22 @@ class Field {
   private y: number;
   private imageKey: ImageKey;
   private gameObjectsOnField: GameObject[] = [];
+  private crossable: boolean = true;
 
   constructor(fieldAttributes: FieldAttributes) {
-    const { x, y, imageKey } = fieldAttributes;
+    const { x, y, imageKey, crossable } = fieldAttributes;
     this.x = x;
     this.y = y;
     this.imageKey = imageKey;
+    this.crossable = crossable === false ? false : true;
   }
 
   getPosition(): { x: number; y: number } {
     return { x: this.x, y: this.y };
+  }
+
+  getIsCrossable(): boolean {
+    return this.crossable;
   }
 
   getIsOccupied() {
