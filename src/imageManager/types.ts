@@ -52,6 +52,7 @@ enum ImageKey {
   BEAR_DEAD = 'bearDead',
   WAGON = 'wagon',
   TABLE = 'table',
+  WOODEN_PALISADE = 'woodenPalisade',
 }
 
 type ImageMap = {

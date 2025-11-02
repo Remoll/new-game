@@ -53,6 +53,7 @@ import bearImage from '@/imageManager/images/bearImage.png';
 import bearDeadImage from '@/imageManager/images/bearDeadImage.png';
 import wagonImage from '@/imageManager/images/wagonImage.png';
 import tableImage from '@/imageManager/images/tableImage.png';
+import woodenPalisadeImage from '@/imageManager/images/woodenPalisadeImage.png';
 
 class ImageManager {
   private static singleton: ImageManager;
@@ -110,6 +111,7 @@ class ImageManager {
     [ImageKey.BEAR_DEAD]: undefined,
     [ImageKey.WAGON]: undefined,
     [ImageKey.TABLE]: undefined,
+    [ImageKey.WOODEN_PALISADE]: undefined,
   };
 
   private constructor() {}
@@ -189,6 +191,7 @@ class ImageManager {
       bearDead,
       wagon,
       table,
+      woodenPalisade,
     ] = await Promise.all([
       this.imageLoader(playerImage),
       this.imageLoader(playerDeadImage),
@@ -243,6 +246,7 @@ class ImageManager {
       this.imageLoader(bearDeadImage),
       this.imageLoader(wagonImage),
       this.imageLoader(tableImage),
+      this.imageLoader(woodenPalisadeImage),
     ]);
     this.setImages({
       player,
@@ -298,6 +302,7 @@ class ImageManager {
       bearDead,
       wagon,
       table,
+      woodenPalisade,
     });
   };
 

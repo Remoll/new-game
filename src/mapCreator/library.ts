@@ -95,6 +95,15 @@ const gameObjectsLibrary: GameObjectSprite[] = [
     sizeY: 2,
     ...getGameObjectsAttributes(),
   },
+
+  {
+    type: 'woodenPalisade',
+    imagesKeys: {
+      default: ImageKey.WOODEN_PALISADE,
+      dead: ImageKey.WOODEN_PALISADE,
+    },
+    ...getGameObjectsAttributes(),
+  },
 ];
 
 const getItemsAttributes = (): {
