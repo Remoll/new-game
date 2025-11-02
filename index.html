@@ -67,9 +67,147 @@
       </div>
 
       <div id="notification" style="display: none">
-        <h3 id="notification-title"></h1>
+        <h3 id="notification-title"></h3>
         <p id="notification-message"></p>
         <button id="notification-close-button">Close</button>
+      </div>
+
+      <div id="instruction-info">Press H to toggle instruction</div>
+
+      <div id="instruction" style="display: none">
+        <ol>
+          <li>
+            <strong>Controls</strong>
+            <ul>
+              <li>
+                <span class="key">W</span> <span class="key">A</span>
+                <span class="key">S</span> <span class="key">D</span> — move or
+                attack in that direction.
+              </li>
+              <li>
+                <span class="key">E</span> then
+                <span class="key">W/A/S/D</span> — interact with a nearby tile
+                in that direction.
+              </li>
+              <li><span class="key">Space</span> — wait one turn.</li>
+              <li><span class="key">I</span> — open inventory.</li>
+              <li><span class="key">J</span> — open quest log.</li>
+              <li>
+                Hotkeys: <span class="key">1</span>–<span class="key">9</span>
+                and <span class="key">0</span> — use items assigned to these
+                slots.
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Movement and Attack Rules</strong>
+            <ol>
+              <li>
+                If the tile in the chosen direction is passable and there is no
+                NPC or wall, the player moves into that tile.
+              </li>
+              <li>
+                If there is an NPC in that direction, pressing the direction key
+                attacks that NPC instead of moving.
+              </li>
+              <li>Walls and non-crossable tiles block movement.</li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Interaction</strong>
+            <ol>
+              <li>
+                Press <span class="key">E</span> then a direction key (<span
+                  class="key"
+                  >W/A/S/D</span
+                >) to interact with the tile in that direction.
+              </li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Item Types and How to Use Them</strong>
+            <ul>
+              <li>
+                <strong>Projectable</strong> — select its hotkey, then
+                <em>click a target tile</em> to fire a projectile there.
+              </li>
+              <li>
+                <strong>Touchable</strong> — select its hotkey then press
+                <span class="key">W/A/S/D</span> to use on an adjacent tile in
+                that direction, or press <span class="key">Space</span> to use
+                on the player's own tile.
+              </li>
+              <li>
+                <strong>Equipment</strong> — select its hotkey to equip it; the
+                game automatically places it in the correct equipment slot.
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Inventory and Hotkey Assignment</strong>
+            <ol>
+              <li>Open inventory with <span class="key">I</span>.</li>
+              <li>
+                Navigate inventory items with <span class="key">A</span> (left)
+                and <span class="key">D</span> (right).
+              </li>
+              <li>
+                To assign the currently selected inventory item to a hotkey,
+                press the hotkey number <span class="key">1</span>–<span
+                  class="key"
+                  >9</span
+                >
+                or <span class="key">0</span>.
+              </li>
+              <li>
+                New items added to inventory are placed into the next available
+                hotkey slot automatically when possible.
+              </li>
+              <li>
+                Once an item is assigned to a hotkey, use it by pressing that
+                hotkey (follow rules for projectable/touchable/equipment).
+              </li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Quest Log</strong>
+            <ol>
+              <li>
+                Press <span class="key">J</span> to open the quest log and see
+                tasks and progress.
+              </li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Quick Summary</strong>
+            <ul>
+              <li><span class="key">W/A/S/D</span> — move or attack.</li>
+              <li><span class="key">E</span> + direction — interact.</li>
+              <li>
+                <span class="key">Space</span> — wait / use on self (for
+                touchable).
+              </li>
+              <li>
+                <span class="key">I</span> — inventory;
+                <span class="key">A</span>/<span class="key">D</span> to pick
+                item, then press <span class="key">1</span>–<span class="key"
+                  >0</span
+                >
+                to assign.
+              </li>
+              <li>
+                Select a hotkey to use: click a tile for projectable,
+                directional key/space for touchable, hotkey to equip equipment.
+              </li>
+            </ul>
+          </li>
+        </ol>
       </div>
 
       <div id="game-library" style="display: none">

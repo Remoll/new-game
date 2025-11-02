@@ -193,6 +193,14 @@ class Player extends Entity {
           questUi.openJournal();
         }
       }
+      if (key.toLowerCase() === 'h') {
+        const instructionElement = document.getElementById('instruction')!;
+        if (instructionElement.style.display === 'block') {
+          instructionElement.style.display = 'none';
+        } else {
+          instructionElement.style.display = 'block';
+        }
+      }
       if (GameState.getIsDialogueOpen()) {
         const dialogueEngine = DialogueEngine.getSingleton();
         switch (key) {
