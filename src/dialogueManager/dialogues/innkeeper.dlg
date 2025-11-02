@@ -2,19 +2,19 @@
 Welcome to my inn! What brings you here?
 * [Do you have something to sell?] { actions: trade } -> start
 * [Got any work that needs doing?] { if: !questActive findLostBarrel 0 && !questCompleted findLostBarrel } -> sidequest_intro
-* [Found your barrel, but your driver’s dead. Skeletons by the cemetery tore him apart. The woods aren’t safe] {if: questActive findLostBarrel 0 && haveItem lostBarrel 1 }{ actions: completeQuest findLostBarrel && takeItem lostBarrel 1 && giveItem sword 1 } -> sidequest_complete_1
+* [Found your barrel, but your driver’s dead. Skeletons by the cemetery tore him apart. The woods aren’t safe] {if: questActive findLostBarrel 0 && haveItem lostBarrel 1 } -> sidequest_complete_1
 * [Tell me about the area] -> gossip
-* [I think I’ve lost my way. Which road leads to the city?] { if: questActive findWayToHome 0 }{ actions: updateQuest findWayToHome 1 } -> main_quest_update_1
+* [I think I’ve lost my way. Which road leads to the city?] { if: questActive findWayToHome 0 } -> main_quest_update_1
 * [That's enough for now. See you.] -> end
 
 ::sidequest_intro
 Aye, maybe I do. Been waiting on a delivery of ale since yesterday, but my cask’s still not here. The man bringing it should’ve come down the road from the woods by now.
-* [I'll see what I can do. You think something happened?] { actions: startQuest findLostBarrel } -> sidequest_start
+* [I'll see what I can do. You think something happened?] -> sidequest_start
 * [I'm not interested] -> start
 
 ::sidequest_start
 Wouldn’t surprise me. The woods by the old cemetery’ve been giving folks the chills of late. Strange lights at night, whispers in the fog… bah, nonsense, I hope. Still, if you’re headed that way, keep your eyes open. See if you can find my barrel and the poor fool driving the cart. Bring me word, and I’ll make it worth your while.
-* [Sure] -> start
+* [Sure] { actions: startQuest findLostBarrel } -> start
 
 ::sidequest_complete_1
 Skeletons? Don’t jest with me, traveler. You’ve had too much of that rotgut, haven’t you? Dead men don’t walk—least not around here
@@ -22,7 +22,7 @@ Skeletons? Don’t jest with me, traveler. You’ve had too much of that rotgut,
 
 ::sidequest_complete_2
 (takes a deep breath, uneasy) Gods help us… Maybe there’s truth in the old tales after all. Here, take this. My sword’s seen better days, but it’s sharper than your tongue, I reckon. If you’re bound to wander near cursed ground, you’ll need it more than I do.
-* [Thanks, it will come in handy] -> start
+* [Thanks, it will come in handy] { actions: completeQuest findLostBarrel && takeItem lostBarrel 1 && giveItem sword 1 } -> start
 
 ::gossip
 Ha! You must be lost. There’s naught here but miners, mud, and my ale. The forest keeps the city folk away — wolves, bandits, spirits, who knows. We send ore down the road, and once a month the merchants brave the wilds to fetch it. Till then, it’s just us and the wind howlin’ through the trees.
@@ -38,7 +38,7 @@ See that old oak behind the stable? A path starts just there. Follow it through 
 
 ::main_quest_update_3
 (laughs again) Bah! You’ll be fine. Worst you’ll meet’s a hungry fox or a drunk miner. Probably.
-* [Thanks, I’ll manage] -> start
+* [Thanks, I’ll manage] { actions: updateQuest findWayToHome 1 } -> start
 
 ::end
 See you soon, my friend!

@@ -72,6 +72,18 @@
   transform: translate(-50%, 0);
 }
 
+#notification {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #444;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  border: 1px solid #222;
+}
+
 #game-library {
   position: absolute;
   top: 840px;

@@ -14,13 +14,14 @@ const findWayToHome: QuestData = {
     },
     {
       id: 1,
-      description: 'Leave inn into road to forest.',
-      objective: 'Leave inn.',
+      description:
+        'Leave the inn and follow the road to the forest to the east.',
+      objective: 'Leave the inn and follow the road to the forest to the east',
     },
     {
       id: 2,
-      description: 'Cooo.',
-      objective: 'Leave inn.',
+      description: '',
+      objective: '',
     },
   ],
 };
