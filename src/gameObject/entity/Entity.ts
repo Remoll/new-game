@@ -210,6 +210,14 @@ class Entity extends GameObject {
   }
 
   private attackEntity(entity: Entity) {
+    const isEntityEnemy = this.dispositionToFactions.hostile.includes(
+      entity.getFaction()
+    );
+
+    if (!isEntityEnemy) {
+      return;
+    }
+
     const attackValue = this.getEquipmentBySlot(EquipmentSlot.MAIN_HAND)
       ? 50
       : 10;
