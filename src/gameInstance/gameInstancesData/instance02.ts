@@ -78,6 +78,7 @@ const gameInstanceData: GameInstanceData = {
       },
       faction: Faction.ENEMY,
       hp: 300,
+      defaultAttackValue: 40,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],

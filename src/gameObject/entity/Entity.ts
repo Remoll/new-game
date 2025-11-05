@@ -32,10 +32,16 @@ class Entity extends GameObject {
   private equipments: Record<EquipmentSlot, Equipment> = {
     [EquipmentSlot.MAIN_HAND]: null,
   };
+  private defaultAttackValue: number;
 
   constructor(attributes: EntityAttributes) {
-    const { hp, faction, dispositionToFactions, ...gameObjectAttributes } =
-      attributes;
+    const {
+      hp,
+      faction,
+      dispositionToFactions,
+      defaultAttackValue,
+      ...gameObjectAttributes
+    } = attributes;
 
     super(gameObjectAttributes, itemFactory);
 
@@ -44,6 +50,11 @@ class Entity extends GameObject {
     this.faction = faction;
     this.dispositionToFactions = dispositionToFactions;
     this.speed = attributes.speed;
+    this.defaultAttackValue = defaultAttackValue;
+  }
+
+  getDefaultAttackValue(): number {
+    return this.defaultAttackValue;
   }
 
   equipItem(equipment: Equipment) {
@@ -220,7 +231,7 @@ class Entity extends GameObject {
 
     const attackValue = this.getEquipmentBySlot(EquipmentSlot.MAIN_HAND)
       ? 50
-      : 10;
+      : this.getDefaultAttackValue();
     emitAttack(this, { id: [entity.id] }, attackValue);
   }
 

@@ -1264,18 +1264,13 @@
         "dead": "bones"
       },
       "hp": 300,
+      "defaultAttackValue": 15,
       "itemsAttributes": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -1292,16 +1287,11 @@
       "hp": 300,
       "itemsAttributes": [],
       "faction": "enemy_faction",
+      "defaultAttackValue": 15,
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -1318,16 +1308,11 @@
       "hp": 300,
       "itemsAttributes": [],
       "faction": "enemy_faction",
+      "defaultAttackValue": 15,
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -1344,16 +1329,11 @@
       "hp": 300,
       "itemsAttributes": [],
       "faction": "enemy_faction",
+      "defaultAttackValue": 15,
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -1370,16 +1350,11 @@
       "hp": 300,
       "itemsAttributes": [],
       "faction": "enemy_faction",
+      "defaultAttackValue": 15,
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,

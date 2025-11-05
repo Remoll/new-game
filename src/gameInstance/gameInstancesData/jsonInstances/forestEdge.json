@@ -2014,18 +2014,13 @@
         "dead": "bearDead"
       },
       "hp": 400,
+      "defaultAttackValue": 100,
       "itemsAttributes": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -2040,18 +2035,13 @@
         "dead": "boarDead"
       },
       "hp": 200,
+      "defaultAttackValue": 40,
       "itemsAttributes": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -2068,16 +2058,11 @@
       "hp": 200,
       "itemsAttributes": [],
       "faction": "enemy_faction",
+      "defaultAttackValue": 40,
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -2094,16 +2079,11 @@
       "hp": 200,
       "itemsAttributes": [],
       "faction": "enemy_faction",
+      "defaultAttackValue": 40,
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -2118,18 +2098,13 @@
         "dead": "demonicOrb"
       },
       "hp": 100,
+      "defaultAttackValue": 20,
       "itemsAttributes": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -2144,18 +2119,13 @@
         "dead": "demonicOrb"
       },
       "hp": 100,
+      "defaultAttackValue": 20,
       "itemsAttributes": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -2170,18 +2140,13 @@
         "dead": "demonicOrb"
       },
       "hp": 100,
+      "defaultAttackValue": 20,
       "itemsAttributes": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,
@@ -2196,18 +2161,13 @@
         "dead": "demonicOrb"
       },
       "hp": 100,
+      "defaultAttackValue": 20,
       "itemsAttributes": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
-        "hostile": [
-          "player_faction"
-        ],
-        "friendly": [
-          "enemy_faction"
-        ],
-        "neutral": [
-          "neutral_faction"
-        ]
+        "hostile": ["player_faction"],
+        "friendly": ["enemy_faction"],
+        "neutral": ["neutral_faction"]
       },
       "canOccupiedFields": true,
       "isInteractive": false,

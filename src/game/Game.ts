@@ -64,7 +64,8 @@ class Game {
         y: 2,
         imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD },
         faction: Faction.PLAYER,
-        hp: 200,
+        hp: 100,
+        defaultAttackValue: 10,
         dispositionToFactions: {
           [Disposition.HOSTILE]: [Faction.ENEMY],
           [Disposition.FRIENDLY]: [Faction.PLAYER],

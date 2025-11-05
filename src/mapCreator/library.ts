@@ -166,6 +166,7 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'dog',
     imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG_DEAD },
     hp: 150,
+    defaultAttackValue: 20,
     ...getEntitiesConstantAttributes(),
   },
   {
@@ -173,6 +174,7 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'imp',
     imagesKeys: { default: ImageKey.IMP, dead: ImageKey.DEMONIC_ORB },
     hp: 100,
+    defaultAttackValue: 20,
     ...getEntitiesConstantAttributes(),
   },
   {
@@ -180,11 +182,13 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'boar',
     imagesKeys: { default: ImageKey.BOAR, dead: ImageKey.BOAR_DEAD },
     hp: 200,
+    defaultAttackValue: 40,
     ...getEntitiesConstantAttributes(),
   },
   {
     speed: 1,
     type: 'skeleton',
+    defaultAttackValue: 15,
     imagesKeys: { default: ImageKey.SKELETON, dead: ImageKey.BONES },
     hp: 300,
     ...getEntitiesConstantAttributes(),
@@ -197,6 +201,7 @@ const entitiesLibrary: EntitySprite[] = [
       dead: ImageKey.PILE_OF_DUST,
     },
     hp: 400,
+    defaultAttackValue: 40,
     ...getEntitiesConstantAttributes(),
   },
   {
@@ -204,6 +209,7 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'beggar',
     imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
     hp: 100,
+    defaultAttackValue: 10,
     ...getEntitiesConstantAttributes(),
   },
   {
@@ -211,6 +217,7 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'villager',
     imagesKeys: { default: ImageKey.VILLAGER, dead: ImageKey.VILLAGER_DEAD },
     hp: 100,
+    defaultAttackValue: 10,
     ...getEntitiesConstantAttributes(),
   },
   {
@@ -218,6 +225,7 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'wizard',
     imagesKeys: { default: ImageKey.WIZARD, dead: ImageKey.WIZARD_DEAD },
     hp: 200,
+    defaultAttackValue: 10,
     ...getEntitiesConstantAttributes(),
   },
   {
@@ -225,6 +233,7 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'wolf',
     imagesKeys: { default: ImageKey.WOLF, dead: ImageKey.WOLF_DEAD },
     hp: 200,
+    defaultAttackValue: 25,
     ...getEntitiesConstantAttributes(),
   },
   {
@@ -232,6 +241,7 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'innkeeper',
     imagesKeys: { default: ImageKey.INNKEEPER, dead: ImageKey.INNKEEPER },
     hp: 200,
+    defaultAttackValue: 10,
     ...getEntitiesConstantAttributes(),
   },
   {
@@ -239,6 +249,7 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'bear',
     imagesKeys: { default: ImageKey.BEAR, dead: ImageKey.BEAR_DEAD },
     hp: 400,
+    defaultAttackValue: 100,
     ...getEntitiesConstantAttributes(),
   },
 ];

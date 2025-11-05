@@ -50,6 +50,7 @@ interface EntityAttributes extends GameObjectAttributes {
   faction: Faction;
   dispositionToFactions: DispositionToFactions;
   speed: number;
+  defaultAttackValue: number;
 }
 
 interface GatewayAttributes extends GameObjectAttributes {

@@ -37,6 +37,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG_DEAD },
       faction: Faction.ENEMY,
       hp: 150,
+      defaultAttackValue: 20,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],
@@ -53,6 +54,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.ENEMY,
       hp: 100,
+      defaultAttackValue: 10,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],
@@ -69,6 +71,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.ENEMY,
       hp: 100,
+      defaultAttackValue: 10,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],
@@ -85,6 +88,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.ENEMY,
       hp: 100,
+      defaultAttackValue: 10,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],
@@ -101,6 +105,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.ENEMY,
       hp: 100,
+      defaultAttackValue: 10,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],

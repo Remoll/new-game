@@ -46,6 +46,7 @@ interface EntitySprite extends Omit<GameObjectSprite, 'spriteType'> {
   speed: number;
   faction: Faction;
   hp: number;
+  defaultAttackValue: number;
   dispositionToFactions: {
     [Disposition.HOSTILE]: Faction[];
     [Disposition.FRIENDLY]: Faction[];
