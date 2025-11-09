@@ -2,10 +2,11 @@ import { DialogueKey } from '@/dialogueManager/types.ts';
 import {
   Disposition,
   Faction,
-  GameObjectAttributes,
+  GameObjectProps,
   GameObjectImagesKeys,
 } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
+import { DamageType } from '@/types.ts';
 
 enum SpriteType {
   FIELD = 'field',
@@ -31,7 +32,7 @@ interface GameObjectSprite extends GameSprite {
   imagesKeys: GameObjectImagesKeys;
   canOccupiedFields: boolean;
   isInteractive: boolean;
-  itemsAttributes?: GameObjectAttributes[];
+  itemsProps?: GameObjectProps[];
   dialogueKey?: DialogueKey | null;
   sizeX?: number;
   sizeY?: number;
@@ -46,7 +47,8 @@ interface EntitySprite extends Omit<GameObjectSprite, 'spriteType'> {
   speed: number;
   faction: Faction;
   hp: number;
-  defaultAttackValue: number;
+  defaultDamageValue: number;
+  defaultDamageType: DamageType;
   dispositionToFactions: {
     [Disposition.HOSTILE]: Faction[];
     [Disposition.FRIENDLY]: Faction[];

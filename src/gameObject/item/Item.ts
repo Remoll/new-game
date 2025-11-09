@@ -1,5 +1,5 @@
 import GameObject from '@/gameObject/GameObject.ts';
-import { GameObjectAttributes } from '@/gameObject/types.ts';
+import { GameObjectProps } from '@/gameObject/types.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
 import { Coordinates } from '@/types.ts';
 import itemFactory from './itemFactory.ts';
@@ -8,8 +8,8 @@ class Item extends GameObject {
   private equippedBy: GameObject | null = null;
   protected isConsumables: boolean = false;
 
-  constructor(attributes: GameObjectAttributes) {
-    super(attributes, itemFactory);
+  constructor(props: GameObjectProps) {
+    super(props, itemFactory);
   }
 
   setEquippedBy(gameObject: GameObject): void {

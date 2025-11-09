@@ -15,9 +15,9 @@ import {
   GameObjectSprite,
   SpriteType,
 } from './types.ts';
-import { EntityAttributes, GameObjectAttributes } from '@/gameObject/types.ts';
+import { EntityProps, GameObjectProps } from '@/gameObject/types.ts';
 import { GameInstanceData } from '@/gameInstance/types.ts';
-import { FieldAttributes } from '@/gameMap/types.ts';
+import { FieldProps } from '@/gameMap/types.ts';
 
 class MapCreator {
   private static singleton: MapCreator | null = null;
@@ -185,11 +185,8 @@ class MapCreator {
         | Record<string, ItemsSprite[]>
         | Record<string, BlockSprite[]>
         | Record<string, FieldSprite>
-    ): EntityAttributes[] | GameObjectAttributes[] | FieldAttributes[] => {
-      const targetArray:
-        | EntityAttributes[]
-        | GameObjectAttributes[]
-        | FieldAttributes[] = [];
+    ): EntityProps[] | GameObjectProps[] | FieldProps[] => {
+      const targetArray: EntityProps[] | GameObjectProps[] | FieldProps[] = [];
 
       Object.entries(mapGameObjects).forEach(
         ([coordinatesKey, gameObjects]) => {
@@ -213,25 +210,25 @@ class MapCreator {
       return targetArray;
     };
 
-    const fields: FieldAttributes[] = parseSpritesObjectToArray(
+    const fields: FieldProps[] = parseSpritesObjectToArray(
       this.mapFields
-    ) as FieldAttributes[];
+    ) as FieldProps[];
 
-    const npcs: EntityAttributes[] = parseSpritesObjectToArray(
+    const npcs: EntityProps[] = parseSpritesObjectToArray(
       this.mapEntities
-    ) as EntityAttributes[];
+    ) as EntityProps[];
 
-    const blocks: GameObjectAttributes[] = parseSpritesObjectToArray(
+    const blocks: GameObjectProps[] = parseSpritesObjectToArray(
       this.mapBlocks
-    ) as GameObjectAttributes[];
+    ) as GameObjectProps[];
 
-    const gameObjects: GameObjectAttributes[] = parseSpritesObjectToArray(
+    const gameObjects: GameObjectProps[] = parseSpritesObjectToArray(
       this.mapGameObjects
-    ) as GameObjectAttributes[];
+    ) as GameObjectProps[];
 
-    const items: GameObjectAttributes[] = parseSpritesObjectToArray(
+    const items: GameObjectProps[] = parseSpritesObjectToArray(
       this.mapItems
-    ) as GameObjectAttributes[];
+    ) as GameObjectProps[];
 
     const instanceData: GameInstanceData = {
       mapSize: this.mapSize,

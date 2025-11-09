@@ -1,11 +1,11 @@
 import Player from '../entity/player/Player.ts';
 import GameObject from '../GameObject.ts';
 import itemFactory from '../item/itemFactory.ts';
-import { GameObjectAttributes } from '../types.ts';
+import { GameObjectProps } from '../types.ts';
 
 class Chest extends GameObject {
-  constructor(attributes: GameObjectAttributes) {
-    super(attributes, itemFactory);
+  constructor(props: GameObjectProps) {
+    super(props, itemFactory);
   }
 
   handleInteract(gameObject: GameObject): void {

@@ -1,10 +1,10 @@
 import GameObject from '../GameObject.ts';
 import itemFactory from '../item/itemFactory.ts';
-import { GameObjectAttributes } from '../types.ts';
+import { GameObjectProps } from '../types.ts';
 
 class Workshop extends GameObject {
-  constructor(attributes: GameObjectAttributes) {
-    super(attributes, itemFactory);
+  constructor(props: GameObjectProps) {
+    super(props, itemFactory);
   }
 }
 

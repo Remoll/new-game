@@ -1,10 +1,10 @@
 import { ImageKey } from '@/imageManager/types.ts';
 
-interface FieldAttributes {
+interface FieldProps {
   x: number;
   y: number;
   imageKey: ImageKey;
   crossable?: boolean;
 }
 
-export { FieldAttributes };
+export { FieldProps };

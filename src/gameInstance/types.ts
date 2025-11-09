@@ -1,23 +1,23 @@
 import { BuildingCoordinates } from '@/gameMap/building/types.ts';
-import { FieldAttributes } from '@/gameMap/types.ts';
+import { FieldProps } from '@/gameMap/types.ts';
 import {
-  EntityAttributes,
-  GameObjectAttributes,
-  GatewayAttributes,
+  EntityProps,
+  GameObjectProps,
+  GatewayProps,
 } from '@/gameObject/types.ts';
 import { Coordinates } from '@/types.ts';
 
 interface GameInstanceData {
   mapSize: Coordinates;
-  blocks?: GameObjectAttributes[];
+  blocks?: GameObjectProps[];
   buildingsCoordinates?: BuildingCoordinates[];
-  fields?: FieldAttributes[];
-  npcs: EntityAttributes[];
-  items: GameObjectAttributes[];
-  gateways: GatewayAttributes[];
-  workshops?: GameObjectAttributes[];
-  chests?: GameObjectAttributes[];
-  gameObjects?: GameObjectAttributes[];
+  fields?: FieldProps[];
+  npcs: EntityProps[];
+  items: GameObjectProps[];
+  gateways: GatewayProps[];
+  workshops?: GameObjectProps[];
+  chests?: GameObjectProps[];
+  gameObjects?: GameObjectProps[];
 }
 
 enum GameInstanceKey {

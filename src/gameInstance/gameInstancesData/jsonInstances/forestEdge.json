@@ -2014,8 +2014,8 @@
         "dead": "bearDead"
       },
       "hp": 400,
-      "defaultAttackValue": 100,
-      "itemsAttributes": [],
+      "defaultDamageValue": 100,
+      "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
         "hostile": ["player_faction"],
@@ -2035,8 +2035,8 @@
         "dead": "boarDead"
       },
       "hp": 200,
-      "defaultAttackValue": 40,
-      "itemsAttributes": [],
+      "defaultDamageValue": 40,
+      "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
         "hostile": ["player_faction"],
@@ -2056,9 +2056,9 @@
         "dead": "boarDead"
       },
       "hp": 200,
-      "itemsAttributes": [],
+      "itemsProps": [],
       "faction": "enemy_faction",
-      "defaultAttackValue": 40,
+      "defaultDamageValue": 40,
       "dispositionToFactions": {
         "hostile": ["player_faction"],
         "friendly": ["enemy_faction"],
@@ -2077,9 +2077,9 @@
         "dead": "boarDead"
       },
       "hp": 200,
-      "itemsAttributes": [],
+      "itemsProps": [],
       "faction": "enemy_faction",
-      "defaultAttackValue": 40,
+      "defaultDamageValue": 40,
       "dispositionToFactions": {
         "hostile": ["player_faction"],
         "friendly": ["enemy_faction"],
@@ -2098,8 +2098,8 @@
         "dead": "demonicOrb"
       },
       "hp": 100,
-      "defaultAttackValue": 20,
-      "itemsAttributes": [],
+      "defaultDamageValue": 20,
+      "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
         "hostile": ["player_faction"],
@@ -2119,8 +2119,8 @@
         "dead": "demonicOrb"
       },
       "hp": 100,
-      "defaultAttackValue": 20,
-      "itemsAttributes": [],
+      "defaultDamageValue": 20,
+      "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
         "hostile": ["player_faction"],
@@ -2140,8 +2140,8 @@
         "dead": "demonicOrb"
       },
       "hp": 100,
-      "defaultAttackValue": 20,
-      "itemsAttributes": [],
+      "defaultDamageValue": 20,
+      "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
         "hostile": ["player_faction"],
@@ -2161,8 +2161,8 @@
         "dead": "demonicOrb"
       },
       "hp": 100,
-      "defaultAttackValue": 20,
-      "itemsAttributes": [],
+      "defaultDamageValue": 20,
+      "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
         "hostile": ["player_faction"],
@@ -2182,7 +2182,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 9,
@@ -2194,7 +2194,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -2206,7 +2206,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -2218,7 +2218,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -2230,7 +2230,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -2242,7 +2242,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 2,
@@ -2254,7 +2254,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 13,
@@ -2266,7 +2266,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -2278,7 +2278,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -2290,7 +2290,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -2302,7 +2302,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -2314,7 +2314,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 11,
@@ -2326,7 +2326,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
@@ -2338,7 +2338,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -2350,7 +2350,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 10,
@@ -2362,7 +2362,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
@@ -2374,7 +2374,7 @@
         "default": "grave",
         "dead": "grave"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 2,
@@ -2386,7 +2386,7 @@
         "default": "boulder",
         "dead": "boulder"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 11,
@@ -2400,7 +2400,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 9,
@@ -2412,7 +2412,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
@@ -2424,7 +2424,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
@@ -2436,7 +2436,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
@@ -2448,7 +2448,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
@@ -2460,7 +2460,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
@@ -2472,7 +2472,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
@@ -2484,7 +2484,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 13,
@@ -2496,7 +2496,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 13,
@@ -2508,7 +2508,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
@@ -2520,7 +2520,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -2532,7 +2532,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -2544,7 +2544,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -2556,7 +2556,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -2568,7 +2568,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 16,
@@ -2580,7 +2580,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -2592,7 +2592,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -2604,7 +2604,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -2616,7 +2616,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 18,
@@ -2628,7 +2628,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
@@ -2640,7 +2640,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
@@ -2652,7 +2652,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
@@ -2664,7 +2664,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
@@ -2676,7 +2676,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
@@ -2688,7 +2688,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
@@ -2700,7 +2700,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
@@ -2712,7 +2712,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 18,
@@ -2724,7 +2724,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -2736,7 +2736,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -2748,7 +2748,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -2760,7 +2760,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -2772,7 +2772,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -2784,7 +2784,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 1,
@@ -2796,7 +2796,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 2,
@@ -2808,7 +2808,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 3,
@@ -2820,7 +2820,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
@@ -2832,7 +2832,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 5,
@@ -2844,7 +2844,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -2856,7 +2856,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -2868,7 +2868,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -2880,7 +2880,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -2892,7 +2892,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -2904,7 +2904,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 3,
@@ -2916,7 +2916,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
@@ -2928,7 +2928,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 5,
@@ -2940,7 +2940,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -2952,7 +2952,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 1,
@@ -2964,7 +2964,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 2,
@@ -2976,7 +2976,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 3,
@@ -2988,7 +2988,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3000,7 +3000,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3012,7 +3012,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3024,7 +3024,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3036,7 +3036,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3048,7 +3048,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3060,7 +3060,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3072,7 +3072,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3084,7 +3084,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 1,
@@ -3096,7 +3096,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 2,
@@ -3108,7 +3108,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 3,
@@ -3120,7 +3120,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
@@ -3132,7 +3132,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
@@ -3144,7 +3144,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 5,
@@ -3156,7 +3156,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -3168,7 +3168,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -3180,7 +3180,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -3192,7 +3192,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -3204,7 +3204,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -3216,7 +3216,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -3228,7 +3228,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -3240,7 +3240,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 7,
@@ -3252,7 +3252,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -3264,7 +3264,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -3276,7 +3276,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -3288,7 +3288,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -3300,7 +3300,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 7,
@@ -3312,7 +3312,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 7,
@@ -3324,7 +3324,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 7,
@@ -3336,7 +3336,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 5,
@@ -3348,7 +3348,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 5,
@@ -3360,7 +3360,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -3372,7 +3372,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 7,
@@ -3384,7 +3384,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -3396,7 +3396,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 9,
@@ -3408,7 +3408,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 10,
@@ -3420,7 +3420,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 11,
@@ -3432,7 +3432,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -3444,7 +3444,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 13,
@@ -3456,7 +3456,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 14,
@@ -3468,7 +3468,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -3480,7 +3480,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -3492,7 +3492,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -3504,7 +3504,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -3516,7 +3516,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -3528,7 +3528,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
@@ -3540,7 +3540,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
@@ -3552,7 +3552,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3564,7 +3564,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 1,
@@ -3576,7 +3576,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 2,
@@ -3588,7 +3588,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 3,
@@ -3600,7 +3600,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3612,7 +3612,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3624,7 +3624,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -3636,7 +3636,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 7,
@@ -3648,7 +3648,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -3660,7 +3660,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 9,
@@ -3672,7 +3672,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 10,
@@ -3684,7 +3684,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 11,
@@ -3696,7 +3696,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -3708,7 +3708,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 13,
@@ -3720,7 +3720,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 13,
@@ -3732,7 +3732,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 13,
@@ -3744,7 +3744,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -3756,7 +3756,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -3768,7 +3768,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -3780,7 +3780,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 11,
@@ -3792,7 +3792,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 11,
@@ -3804,7 +3804,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 11,
@@ -3816,7 +3816,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -3828,7 +3828,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 13,
@@ -3840,7 +3840,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -3852,7 +3852,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -3864,7 +3864,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -3876,7 +3876,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -3888,7 +3888,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 16,
@@ -3900,7 +3900,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -3912,7 +3912,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 18,
@@ -3924,7 +3924,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
@@ -3936,7 +3936,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 18,
@@ -3948,7 +3948,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 19,
@@ -3960,7 +3960,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -3972,7 +3972,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 18,
@@ -3984,7 +3984,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 17,
@@ -3996,7 +3996,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 18,
@@ -4008,7 +4008,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 15,
@@ -4020,7 +4020,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 16,
@@ -4032,7 +4032,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
@@ -4044,7 +4044,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 3,
@@ -4056,7 +4056,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 2,
@@ -4068,7 +4068,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 1,
@@ -4080,7 +4080,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 1,
@@ -4092,7 +4092,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 8,
@@ -4104,7 +4104,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 10,
@@ -4116,7 +4116,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 12,
@@ -4128,7 +4128,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 10,
@@ -4140,7 +4140,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 0,
@@ -4152,7 +4152,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 1,
@@ -4164,7 +4164,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 2,
@@ -4176,7 +4176,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 3,
@@ -4188,7 +4188,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 4,
@@ -4200,7 +4200,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 5,
@@ -4212,7 +4212,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 6,
@@ -4224,7 +4224,7 @@
         "default": "tree",
         "dead": "tree"
       },
-      "itemsAttributes": [],
+      "itemsProps": [],
       "canOccupiedFields": true,
       "isInteractive": false,
       "x": 7,

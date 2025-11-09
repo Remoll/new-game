@@ -1,14 +1,14 @@
-import { GameObjectAttributes } from '@/gameObject/types.ts';
+import { GameObjectProps } from '@/gameObject/types.ts';
 import Projectile from '../Projectile.ts';
-import { Coordinates } from '@/types.ts';
+import { Coordinates, DamageType } from '@/types.ts';
 import Entity from '@/gameObject/entity/Entity.ts';
 import { emitAnimateEffect } from '@/gameEvents/emiter/emittedActions.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import GameState from '@/gameState/GameState.ts';
 
 class FireWand extends Projectile {
-  constructor(attributes: GameObjectAttributes) {
-    super(attributes);
+  constructor(props: GameObjectProps) {
+    super(props);
     this.isConsumables = false;
   }
 
@@ -54,7 +54,7 @@ class FireWand extends Projectile {
     const gameObjectThatOccupiedField = field?.getGameObjectThatOccupiedField();
     if (gameObjectThatOccupiedField instanceof Entity) {
       gameObjectThatOccupiedField.takeDamage(
-        50,
+        { damageValue: 100, damageType: DamageType.FIRE },
         this.getEquippedBy() as Entity
       );
     }

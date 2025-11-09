@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'vitest';
 import GameObject from './GameObject.ts';
-import { Direction, GameObjectAttributes } from './types.ts';
+import { Direction, GameObjectProps } from './types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import itemFactory from './item/itemFactory.ts';
 
-const ganeObjectAttributes: GameObjectAttributes = {
+const gameObjectProps: GameObjectProps = {
   type: 'gameObject',
   x: 0,
   y: 0,
@@ -13,10 +13,7 @@ const ganeObjectAttributes: GameObjectAttributes = {
   imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG },
 };
 
-const gameObject: GameObject = new GameObject(
-  ganeObjectAttributes,
-  itemFactory
-);
+const gameObject: GameObject = new GameObject(gameObjectProps, itemFactory);
 
 describe('findNewCoordinatesFromDirection', () => {
   test('direction up', () => {

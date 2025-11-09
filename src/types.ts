@@ -3,4 +3,11 @@ interface Coordinates {
   y: number;
 }
 
-export { Coordinates };
+enum DamageType {
+  SLASHING = 'slashing',
+  PIERCING = 'piercing',
+  BLUNT = 'blunt',
+  FIRE = 'fire',
+}
+
+export { Coordinates, DamageType };

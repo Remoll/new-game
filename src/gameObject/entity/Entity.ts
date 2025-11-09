@@ -3,6 +3,7 @@ import {
   Disposition,
   DispositionToFactions,
   EntityAttributes,
+  EntityProps,
   Faction,
 } from '@/gameObject/types.ts';
 import {
@@ -14,11 +15,12 @@ import {
 import { GameObjectSelector } from '@/gameEvents/types.ts';
 import GameObject from '@/gameObject/GameObject.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
-import { Coordinates } from '@/types.ts';
+import { Coordinates, DamageType } from '@/types.ts';
 import GameState from '@/gameState/GameState.ts';
 import itemFactory from '../item/itemFactory.ts';
 import { EquipmentSlot } from '../item/equipment/types.ts';
 import Equipment from '../item/equipment/Equipment.ts';
+import Weapon from '../item/equipment/weapon/Weapon.ts';
 
 class Entity extends GameObject {
   private initialHp: number;
@@ -32,29 +34,47 @@ class Entity extends GameObject {
   private equipments: Record<EquipmentSlot, Equipment> = {
     [EquipmentSlot.MAIN_HAND]: null,
   };
-  private defaultAttackValue: number;
+  private defaultDamageValue: number;
+  private defaultDamageType: DamageType;
+  private defaultArmorValue: number;
+  private attributes: EntityAttributes;
 
-  constructor(attributes: EntityAttributes) {
+  constructor(props: EntityProps) {
     const {
       hp,
       faction,
       dispositionToFactions,
-      defaultAttackValue,
-      ...gameObjectAttributes
-    } = attributes;
+      speed,
+      defaultDamageValue,
+      defaultDamageType,
+      defaultArmorValue,
+      attributes,
+      ...gameObjectProps
+    } = props;
 
-    super(gameObjectAttributes, itemFactory);
+    super(gameObjectProps, itemFactory);
 
     this.initialHp = hp;
     this.hp = hp;
     this.faction = faction;
     this.dispositionToFactions = dispositionToFactions;
-    this.speed = attributes.speed;
-    this.defaultAttackValue = defaultAttackValue;
+    this.speed = speed;
+    this.defaultDamageValue = defaultDamageValue;
+    this.defaultDamageType = defaultDamageType;
+    this.defaultArmorValue = defaultArmorValue;
+    this.attributes = attributes;
   }
 
-  getDefaultAttackValue(): number {
-    return this.defaultAttackValue;
+  getDefaultDamageValue(): number {
+    return this.defaultDamageValue;
+  }
+
+  getDefaultDamageType(): DamageType {
+    return this.defaultDamageType;
+  }
+
+  getDefaultArmorValue(): number {
+    return this.defaultArmorValue;
   }
 
   equipItem(equipment: Equipment) {
@@ -159,8 +179,12 @@ class Entity extends GameObject {
     this.visibleEnemies = entities;
   }
 
-  takeDamage(value: number, sender: Entity) {
-    this.hp -= value;
+  takeDamage(
+    value: { damageValue: number; damageType: DamageType },
+    sender: Entity
+  ) {
+    // TODO: minus armor value and resistances
+    this.hp -= value.damageValue;
     if (!this.getFocusedEnemy()) {
       this.setFocusedEnemy(sender);
     }
@@ -229,10 +253,21 @@ class Entity extends GameObject {
       return;
     }
 
-    const attackValue = this.getEquipmentBySlot(EquipmentSlot.MAIN_HAND)
-      ? 50
-      : this.getDefaultAttackValue();
-    emitAttack(this, { id: [entity.id] }, attackValue);
+    const weapon = this.getEquipmentBySlot(EquipmentSlot.MAIN_HAND);
+
+    let damageValue: number;
+    let damageType: DamageType;
+
+    if (!weapon || !(weapon instanceof Weapon)) {
+      damageValue = this.getDefaultDamageValue();
+      damageType = this.getDefaultDamageType();
+    } else {
+      damageValue = weapon.getDamageValue();
+      damageType = weapon.getDamageType();
+    }
+
+    // TODO: value based on raw attack and strength
+    emitAttack(this, { id: [entity.id] }, { damageValue, damageType });
   }
 
   protected move(newX: number, newY: number) {

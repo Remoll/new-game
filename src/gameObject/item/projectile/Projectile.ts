@@ -1,10 +1,10 @@
-import { GameObjectAttributes } from '@/gameObject/types.ts';
+import { GameObjectProps } from '@/gameObject/types.ts';
 import Item from '@/gameObject/item/Item.ts';
 import { Coordinates } from '@/types.ts';
 
 class Projectile extends Item {
-  constructor(attributes: GameObjectAttributes) {
-    super(attributes);
+  constructor(props: GameObjectProps) {
+    super(props);
   }
 
   executeEffect(

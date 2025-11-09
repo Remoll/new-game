@@ -1,10 +1,10 @@
-import { Direction, GameObjectAttributes } from '@/gameObject/types.ts';
+import { Direction, GameObjectProps } from '@/gameObject/types.ts';
 import Item from '@/gameObject/item/Item.ts';
 import Entity from '@/gameObject/entity/Entity.ts';
 
 class Touchable extends Item {
-  constructor(attributes: GameObjectAttributes) {
-    super(attributes);
+  constructor(props: GameObjectProps) {
+    super(props);
   }
 
   executeEffect(direction: Direction, userEntity: Entity): void {

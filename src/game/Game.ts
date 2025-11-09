@@ -10,7 +10,7 @@ import instance03 from '@/gameInstance/gameInstancesData/instance03.ts';
 import inn from '@/gameInstance/gameInstancesData/inn.ts';
 import forestEdge from '@/gameInstance/gameInstancesData/forestEdge.ts';
 import GameState from '../gameState/GameState.ts';
-import { Coordinates } from '@/types.ts';
+import { Coordinates, DamageType } from '@/types.ts';
 import { GameInstanceData, GameInstanceKey } from '@/gameInstance/types.ts';
 import { QuestManager } from '@/questManager/QuestManager.ts';
 import { QuestKey } from '@/questManager/types.ts';
@@ -57,15 +57,26 @@ class Game {
   private initGame() {
     if (this.ctx) {
       const player = new Player({
-        itemsAttributes: [],
+        itemsProps: [],
+        // TODO: based on agility
         speed: 2,
         type: 'player',
         x: 1,
         y: 2,
         imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD },
         faction: Faction.PLAYER,
+        // TODO: based on endurance
         hp: 100,
-        defaultAttackValue: 10,
+        defaultDamageValue: 10,
+        defaultDamageType: DamageType.BLUNT,
+        defaultArmorValue: 10,
+        attributes: {
+          strength: 10,
+          dexterity: 10,
+          agility: 10,
+          intelligence: 10,
+          endurance: 10,
+        },
         dispositionToFactions: {
           [Disposition.HOSTILE]: [Faction.ENEMY],
           [Disposition.FRIENDLY]: [Faction.PLAYER],

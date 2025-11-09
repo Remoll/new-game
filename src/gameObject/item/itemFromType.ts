@@ -2,11 +2,12 @@
 import Item from '@/gameObject/item/Item.ts';
 import ReanimatePotion from './touchable/reanimatePotion/ReanimatePotion.ts';
 import FireWand from './projectile/fireWand/FireWand.ts';
-import Sword from './equipment/sword/Sword.ts';
 import { ImageKey } from '@/imageManager/types.ts';
+import Weapon from './equipment/weapon/Weapon.ts';
+import { DamageType } from '@/types.ts';
 
 const itemFromType = (itemType: string): Item => {
-  const itemAttributes = {
+  const itemProps = {
     type: itemType,
     x: null,
     y: null,
@@ -17,25 +18,30 @@ const itemFromType = (itemType: string): Item => {
 
   switch (itemType) {
     case 'reanimatePotion':
-      itemAttributes.imagesKeys = {
+      itemProps.imagesKeys = {
         default: ImageKey.POTION,
         dead: ImageKey.POTION,
       };
-      return new ReanimatePotion(itemAttributes);
+      return new ReanimatePotion(itemProps);
     case 'fireWand':
-      itemAttributes.imagesKeys = {
+      itemProps.imagesKeys = {
         default: ImageKey.WAND,
         dead: ImageKey.WAND,
       };
-      return new FireWand(itemAttributes);
-    case 'sword':
-      itemAttributes.imagesKeys = {
+      return new FireWand(itemProps);
+    case 'weapon':
+      itemProps.imagesKeys = {
         default: ImageKey.SWORD,
         dead: ImageKey.SWORD_EQUIPED,
       };
-      return new Sword(itemAttributes);
+      return new Weapon({
+        ...itemProps,
+        damageType: DamageType.SLASHING,
+        damageValue: 50,
+        attackSpeedMultiplier: 1.2,
+      });
     default:
-      return new Item(itemAttributes);
+      return new Item(itemProps);
   }
 };
 

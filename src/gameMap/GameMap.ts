@@ -1,20 +1,18 @@
 import GameState from '@/gameState/GameState.ts';
 import Field from '@/gameMap/field/Field.ts';
 import { ImageKey } from '@/imageManager/types.ts';
-import { FieldAttributes } from './types.ts';
+import { FieldProps } from './types.ts';
 
 class GameMap {
   private fields: Field[];
 
-  constructor(fieldsAttributes?: FieldAttributes[]) {
-    this.fields = this.generateFields(fieldsAttributes);
+  constructor(fieldProps?: FieldProps[]) {
+    this.fields = this.generateFields(fieldProps);
   }
 
-  private generateFields(fieldsAttributes: FieldAttributes[]) {
-    if (fieldsAttributes) {
-      return fieldsAttributes.map(
-        (fieldAttributes) => new Field(fieldAttributes)
-      );
+  private generateFields(fieldProps: FieldProps[]) {
+    if (fieldProps) {
+      return fieldProps.map((fieldProps) => new Field(fieldProps));
     }
 
     const gameMapWidth: number = GameState.getGameMapWidth();

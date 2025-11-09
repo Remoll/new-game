@@ -1,11 +1,11 @@
 import { GameObjectSelector } from '@/gameEvents/types.ts';
-import { Disposition, EntityAttributes } from '@/gameObject/types.ts';
+import { Disposition, EntityProps } from '@/gameObject/types.ts';
 import Entity from '@/gameObject/entity/Entity.ts';
 import GameObject from '@/gameObject/GameObject.ts';
 
 class Npc extends Entity {
-  constructor(attributes: EntityAttributes) {
-    super(attributes);
+  constructor(props: EntityProps) {
+    super(props);
   }
 
   private findAndCharge(target: GameObjectSelector) {

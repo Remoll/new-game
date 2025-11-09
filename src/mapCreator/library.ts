@@ -43,13 +43,13 @@ const fieldsLibrary: FieldSprite[] = [
   },
 ];
 
-const getGameObjectsAttributes = (): {
-  itemsAttributes: [];
+const getGameObjectsProps = (): {
+  itemsProps: [];
   spriteType: SpriteType.GAME_OBJECT;
   canOccupiedFields: boolean;
   isInteractive: boolean;
 } => ({
-  itemsAttributes: [],
+  itemsProps: [],
   spriteType: SpriteType.GAME_OBJECT,
   canOccupiedFields: true,
   isInteractive: false,
@@ -59,41 +59,41 @@ const gameObjectsLibrary: GameObjectSprite[] = [
   {
     type: 'boulder',
     imagesKeys: { default: ImageKey.BOULDER, dead: ImageKey.BOULDER },
-    ...getGameObjectsAttributes(),
+    ...getGameObjectsProps(),
   },
   {
     type: 'chest',
     imagesKeys: { default: ImageKey.CHEST, dead: ImageKey.CHEST },
-    ...getGameObjectsAttributes(),
+    ...getGameObjectsProps(),
   },
   {
     type: 'barrel',
     imagesKeys: { default: ImageKey.BARREL, dead: ImageKey.BARREL },
-    ...getGameObjectsAttributes(),
+    ...getGameObjectsProps(),
   },
   {
     type: 'laboratory',
     imagesKeys: { default: ImageKey.LABORATORY, dead: ImageKey.LABORATORY },
-    ...getGameObjectsAttributes(),
+    ...getGameObjectsProps(),
   },
   {
     type: 'stool',
     imagesKeys: { default: ImageKey.STOOL, dead: ImageKey.STOOL },
-    ...getGameObjectsAttributes(),
+    ...getGameObjectsProps(),
   },
   {
     type: 'wagon',
     imagesKeys: { default: ImageKey.WAGON, dead: ImageKey.WAGON },
     sizeX: 2,
     sizeY: 2,
-    ...getGameObjectsAttributes(),
+    ...getGameObjectsProps(),
   },
   {
     type: 'table',
     imagesKeys: { default: ImageKey.TABLE, dead: ImageKey.TABLE },
     sizeX: 2,
     sizeY: 2,
-    ...getGameObjectsAttributes(),
+    ...getGameObjectsProps(),
   },
 
   {
@@ -102,17 +102,17 @@ const gameObjectsLibrary: GameObjectSprite[] = [
       default: ImageKey.WOODEN_PALISADE,
       dead: ImageKey.WOODEN_PALISADE,
     },
-    ...getGameObjectsAttributes(),
+    ...getGameObjectsProps(),
   },
 ];
 
-const getItemsAttributes = (): {
-  itemsAttributes: [];
+const getItemsProps = (): {
+  itemsProps: [];
   spriteType: SpriteType.ITEMS;
   canOccupiedFields: boolean;
   isInteractive: boolean;
 } => ({
-  itemsAttributes: [],
+  itemsProps: [],
   spriteType: SpriteType.ITEMS,
   canOccupiedFields: false,
   isInteractive: true,
@@ -120,24 +120,24 @@ const getItemsAttributes = (): {
 
 const itemsLibrary: ItemsSprite[] = [
   {
-    type: 'sword',
+    type: 'weapon',
     imagesKeys: { default: ImageKey.SWORD, dead: ImageKey.SWORD_EQUIPED },
-    ...getItemsAttributes(),
+    ...getItemsProps(),
   },
   {
     type: 'fireWand',
     imagesKeys: { default: ImageKey.WAND, dead: ImageKey.WAND },
-    ...getItemsAttributes(),
+    ...getItemsProps(),
   },
   {
     type: 'reanimatePotion',
     imagesKeys: { default: ImageKey.POTION, dead: ImageKey.POTION },
-    ...getItemsAttributes(),
+    ...getItemsProps(),
   },
 ];
 
-const getEntitiesConstantAttributes = (): {
-  itemsAttributes: [];
+const getEntitiesConstantProps = (): {
+  itemsProps: [];
   spriteType: SpriteType.ENTITY;
   faction: Faction;
   dispositionToFactions: {
@@ -148,7 +148,7 @@ const getEntitiesConstantAttributes = (): {
   canOccupiedFields: boolean;
   isInteractive: boolean;
 } => ({
-  itemsAttributes: [],
+  itemsProps: [],
   spriteType: SpriteType.ENTITY,
   faction: Faction.ENEMY,
   dispositionToFactions: {
@@ -166,32 +166,32 @@ const entitiesLibrary: EntitySprite[] = [
     type: 'dog',
     imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG_DEAD },
     hp: 150,
-    defaultAttackValue: 20,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 20,
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 4,
     type: 'imp',
     imagesKeys: { default: ImageKey.IMP, dead: ImageKey.DEMONIC_ORB },
     hp: 100,
-    defaultAttackValue: 20,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 20,
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 3,
     type: 'boar',
     imagesKeys: { default: ImageKey.BOAR, dead: ImageKey.BOAR_DEAD },
     hp: 200,
-    defaultAttackValue: 40,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 40,
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 1,
     type: 'skeleton',
-    defaultAttackValue: 15,
+    defaultDamageValue: 15,
     imagesKeys: { default: ImageKey.SKELETON, dead: ImageKey.BONES },
     hp: 300,
-    ...getEntitiesConstantAttributes(),
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 4,
@@ -201,66 +201,66 @@ const entitiesLibrary: EntitySprite[] = [
       dead: ImageKey.PILE_OF_DUST,
     },
     hp: 400,
-    defaultAttackValue: 40,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 40,
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 1,
     type: 'beggar',
     imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
     hp: 100,
-    defaultAttackValue: 10,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 10,
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 1,
     type: 'villager',
     imagesKeys: { default: ImageKey.VILLAGER, dead: ImageKey.VILLAGER_DEAD },
     hp: 100,
-    defaultAttackValue: 10,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 10,
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 2,
     type: 'wizard',
     imagesKeys: { default: ImageKey.WIZARD, dead: ImageKey.WIZARD_DEAD },
     hp: 200,
-    defaultAttackValue: 10,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 10,
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 3,
     type: 'wolf',
     imagesKeys: { default: ImageKey.WOLF, dead: ImageKey.WOLF_DEAD },
     hp: 200,
-    defaultAttackValue: 25,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 25,
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 2,
     type: 'innkeeper',
     imagesKeys: { default: ImageKey.INNKEEPER, dead: ImageKey.INNKEEPER },
     hp: 200,
-    defaultAttackValue: 10,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 10,
+    ...getEntitiesConstantProps(),
   },
   {
     speed: 3,
     type: 'bear',
     imagesKeys: { default: ImageKey.BEAR, dead: ImageKey.BEAR_DEAD },
     hp: 400,
-    defaultAttackValue: 100,
-    ...getEntitiesConstantAttributes(),
+    defaultDamageValue: 100,
+    ...getEntitiesConstantProps(),
   },
 ];
 
-const getBlocksConstantAttributes = (): {
-  itemsAttributes: [];
+const getBlocksConstantProps = (): {
+  itemsProps: [];
   spriteType: SpriteType.BLOCK;
   canOccupiedFields: boolean;
   isInteractive: boolean;
 } => ({
-  itemsAttributes: [],
+  itemsProps: [],
   spriteType: SpriteType.BLOCK,
   canOccupiedFields: true,
   isInteractive: false,
@@ -273,7 +273,7 @@ const blocksLibrary: BlockSprite[] = [
       default: ImageKey.STONE_BLOCK_LIGHT,
       dead: ImageKey.STONE_BLOCK_LIGHT,
     },
-    ...getBlocksConstantAttributes(),
+    ...getBlocksConstantProps(),
   },
   {
     type: 'stoneBlockDark',
@@ -281,7 +281,7 @@ const blocksLibrary: BlockSprite[] = [
       default: ImageKey.STONE_BLICK_DARK,
       dead: ImageKey.STONE_BLICK_DARK,
     },
-    ...getBlocksConstantAttributes(),
+    ...getBlocksConstantProps(),
   },
   {
     type: 'tree',
@@ -289,7 +289,7 @@ const blocksLibrary: BlockSprite[] = [
       default: ImageKey.TREE,
       dead: ImageKey.TREE,
     },
-    ...getBlocksConstantAttributes(),
+    ...getBlocksConstantProps(),
   },
   {
     type: 'woodenBlock',
@@ -297,7 +297,7 @@ const blocksLibrary: BlockSprite[] = [
       default: ImageKey.WOODEN_BLOCK,
       dead: ImageKey.WOODEN_BLOCK,
     },
-    ...getBlocksConstantAttributes(),
+    ...getBlocksConstantProps(),
   },
 ];
 

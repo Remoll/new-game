@@ -2,7 +2,7 @@ import GameObject from '@/gameObject/GameObject.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { Coordinates } from '@/types.ts';
-import { FieldAttributes } from '../types.ts';
+import { FieldProps } from '../types.ts';
 
 class Field {
   private x: number;
@@ -11,8 +11,8 @@ class Field {
   private gameObjectsOnField: GameObject[] = [];
   private crossable: boolean = true;
 
-  constructor(fieldAttributes: FieldAttributes) {
-    const { x, y, imageKey, crossable } = fieldAttributes;
+  constructor(fieldProps: FieldProps) {
+    const { x, y, imageKey, crossable } = fieldProps;
     this.x = x;
     this.y = y;
     this.imageKey = imageKey;

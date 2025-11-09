@@ -82,7 +82,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.INNKEEPER, dead: ImageKey.INNKEEPER },
       faction: Faction.NEUTRAL,
       hp: 100,
-      defaultAttackValue: 10,
+      defaultDamageValue: 10,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -100,7 +100,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.NEUTRAL,
       hp: 100,
-      defaultAttackValue: 10,
+      defaultDamageValue: 10,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -117,7 +117,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.VILLAGER, dead: ImageKey.VILLAGER_DEAD },
       faction: Faction.NEUTRAL,
       hp: 100,
-      defaultAttackValue: 10,
+      defaultDamageValue: 10,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -134,7 +134,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.NEUTRAL,
       hp: 100,
-      defaultAttackValue: 10,
+      defaultDamageValue: 10,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -151,7 +151,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.VILLAGER, dead: ImageKey.VILLAGER_DEAD },
       faction: Faction.NEUTRAL,
       hp: 100,
-      defaultAttackValue: 10,
+      defaultDamageValue: 10,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -168,7 +168,7 @@ const gameInstanceData: GameInstanceData = {
       imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG_DEAD },
       faction: Faction.NEUTRAL,
       hp: 150,
-      defaultAttackValue: 20,
+      defaultDamageValue: 20,
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -194,7 +194,7 @@ const gameInstanceData: GameInstanceData = {
   workshops: [],
   chests: [
     {
-      itemsAttributes: [
+      itemsProps: [
         {
           type: 'fireWand',
           x: null,

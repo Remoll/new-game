@@ -1,11 +1,11 @@
-import { Direction, GameObjectAttributes } from '@/gameObject/types.ts';
+import { Direction, GameObjectProps } from '@/gameObject/types.ts';
 import Entity from '@/gameObject/entity/Entity.ts';
 import Reanimate from '@/effect/reanimate/Reanimate.ts';
 import Touchable from '../Touchable.ts';
 
 class ReanimatePotion extends Touchable {
-  constructor(attributes: GameObjectAttributes) {
-    super(attributes);
+  constructor(props: GameObjectProps) {
+    super(props);
     this.isConsumables = true;
   }
 

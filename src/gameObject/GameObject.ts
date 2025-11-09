@@ -2,7 +2,7 @@ import Field from '@/gameMap/field/Field.ts';
 import type Item from '@/gameObject/item/Item.ts';
 import {
   Direction,
-  GameObjectAttributes,
+  GameObjectProps,
   GameObjectImagesKeys,
   ItemFactory,
 } from './types.ts';
@@ -26,7 +26,7 @@ class GameObject {
   private dialogueKey: DialogueKey | null;
 
   // use itemFactory to avoid circular dependency issues for GameObject and Items
-  constructor(attributes: GameObjectAttributes, itemFactory: ItemFactory) {
+  constructor(props: GameObjectProps, itemFactory: ItemFactory) {
     const {
       type,
       x,
@@ -34,11 +34,11 @@ class GameObject {
       canOccupiedFields,
       isInteractive,
       imagesKeys,
-      itemsAttributes,
+      itemsProps,
       dialogueKey,
       sizeX,
       sizeY,
-    } = attributes;
+    } = props;
 
     this.type = type;
     this.x = x;
@@ -49,7 +49,7 @@ class GameObject {
     this.dialogueKey = dialogueKey || null;
     this.sizeX = sizeX || 1;
     this.sizeY = sizeY || 1;
-    this.items = itemsAttributes?.map(itemFactory) || [];
+    this.items = itemsProps?.map(itemFactory) || [];
     this.items.forEach((item) => {
       item.setEquippedBy(this);
     });

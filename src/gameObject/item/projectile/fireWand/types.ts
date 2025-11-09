@@ -1,8 +1,8 @@
 import { ImageKey } from '@/imageManager/types.ts';
 
-interface ProjectileEffectAttributes {
+interface ProjectileEffectProps {
   imageKey: ImageKey;
   effectPath: [number, number][];
 }
 
-export { ProjectileEffectAttributes };
+export { ProjectileEffectProps };

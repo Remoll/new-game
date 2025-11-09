@@ -1,6 +1,6 @@
 import { GameInstanceKey } from '@/gameInstance/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
-import { Coordinates } from '@/types.ts';
+import { Coordinates, DamageType } from '@/types.ts';
 import type Item from './item/Item.ts';
 import { DialogueKey } from '@/dialogueManager/types.ts';
 
@@ -32,42 +32,54 @@ interface GameObjectImagesKeys {
   dead: ImageKey;
 }
 
-interface GameObjectAttributes {
+interface GameObjectProps {
   type: string;
   x: number;
   y: number;
   imagesKeys: GameObjectImagesKeys;
   canOccupiedFields: boolean;
   isInteractive: boolean;
-  itemsAttributes?: GameObjectAttributes[];
+  itemsProps?: GameObjectProps[];
   dialogueKey?: DialogueKey | null;
   sizeX?: number;
   sizeY?: number;
 }
 
-interface EntityAttributes extends GameObjectAttributes {
+interface EntityAttributes {
+  strength: number;
+  dexterity: number;
+  agility: number;
+  intelligence: number;
+  endurance: number;
+}
+
+interface EntityProps extends GameObjectProps {
   hp: number;
   faction: Faction;
   dispositionToFactions: DispositionToFactions;
   speed: number;
-  defaultAttackValue: number;
+  defaultDamageValue: number;
+  defaultDamageType: DamageType;
+  defaultArmorValue: number;
+  attributes: EntityAttributes;
 }
 
-interface GatewayAttributes extends GameObjectAttributes {
+interface GatewayProps extends GameObjectProps {
   targetGameInstanceKey: GameInstanceKey;
   targetPlayerCoordinates: Coordinates;
 }
 
-type ItemFactory = (itemAttributes: GameObjectAttributes) => Item;
+type ItemFactory = (itemProps: GameObjectProps) => Item;
 
 export {
-  GameObjectAttributes,
-  EntityAttributes,
-  GatewayAttributes,
+  GameObjectProps,
+  EntityProps,
+  GatewayProps,
   Direction,
   Disposition,
   Faction,
   DispositionToFactions,
   GameObjectImagesKeys,
   ItemFactory,
+  EntityAttributes,
 };

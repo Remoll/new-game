@@ -22,7 +22,7 @@ Skeletons? Don’t jest with me, traveler. You’ve had too much of that rotgut,
 
 ::sidequest_complete_2
 (takes a deep breath, uneasy) Gods help us… Maybe there’s truth in the old tales after all. Here, take this. My sword’s seen better days, but it’s sharper than your tongue, I reckon. If you’re bound to wander near cursed ground, you’ll need it more than I do.
-* [Thanks, it will come in handy] { actions: completeQuest findLostBarrel && takeItem lostBarrel 1 && giveItem sword 1 } -> start
+* [Thanks, it will come in handy] { actions: completeQuest findLostBarrel && takeItem lostBarrel 1 && giveItem weapon 1 } -> start
 
 ::gossip
 Ha! You must be lost. There’s naught here but miners, mud, and my ale. The forest keeps the city folk away — wolves, bandits, spirits, who knows. We send ore down the road, and once a month the merchants brave the wilds to fetch it. Till then, it’s just us and the wind howlin’ through the trees.

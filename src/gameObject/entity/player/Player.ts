@@ -1,4 +1,4 @@
-import { Direction, EntityAttributes } from '@/gameObject/types.ts';
+import { Direction, EntityProps } from '@/gameObject/types.ts';
 import { emitPlayerMakeTurn } from '@/gameEvents/emiter/emittedActions.ts';
 import Entity from '@/gameObject/entity/Entity.ts';
 import Inventory from '@/ui/inventory/Inventory.ts';
@@ -22,8 +22,8 @@ class Player extends Entity {
   private itemToUse: Item | null = null;
   private inventory: Inventory = new Inventory();
 
-  constructor(attributes: EntityAttributes) {
-    super(attributes);
+  constructor(props: EntityProps) {
+    super(props);
     this.addMoveListener();
 
     this.setInitialHotkey();
@@ -273,7 +273,7 @@ class Player extends Entity {
           case '0':
             this.inventory.setHotkey(0);
             return;
-          case 'q':
+          case 'i':
             this.inventory.toggle(this.getItems());
             return;
           default:
@@ -354,7 +354,7 @@ class Player extends Entity {
           case 'e':
             this.setIsInteracting(!this.isInteracting);
             return;
-          case 'q':
+          case 'i':
             this.inventory.toggle(this.getItems());
             this.isInteracting = false;
             this.isUsingItemTouchable = false;
