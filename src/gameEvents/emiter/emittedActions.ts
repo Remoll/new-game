@@ -2,7 +2,6 @@ import { GameEventType, GameObjectSelector } from '@/gameEvents/types.ts';
 import GameObject from '@/gameObject/GameObject.ts';
 import GameEventEmitter from '@/gameEvents/emiter/GameEventEmitter.ts';
 import { ProjectileEffectProps } from '@/gameObject/item/projectile/fireWand/types.ts';
-import { DamageType } from '@/types.ts';
 
 const emitMove = (sender: GameObject, target: GameObjectSelector) => {
   const { x, y } = sender.getPosition();
@@ -16,7 +15,7 @@ const emitDead = (sender: GameObject, target: GameObjectSelector) => {
 const emitAttack = (
   sender: GameObject,
   target: GameObjectSelector,
-  value: { damageValue: number; damageType: DamageType }
+  value: number
 ) => {
   GameEventEmitter.emit(GameEventType.ATTACK, sender, target, value);
 };

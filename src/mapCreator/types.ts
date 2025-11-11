@@ -4,6 +4,7 @@ import {
   Faction,
   GameObjectProps,
   GameObjectImagesKeys,
+  EntityAttributes,
 } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { DamageType } from '@/types.ts';
@@ -49,6 +50,8 @@ interface EntitySprite extends Omit<GameObjectSprite, 'spriteType'> {
   hp: number;
   defaultDamageValue: number;
   defaultDamageType: DamageType;
+  defaultArmorValue: number;
+  attributes: EntityAttributes;
   dispositionToFactions: {
     [Disposition.HOSTILE]: Faction[];
     [Disposition.FRIENDLY]: Faction[];

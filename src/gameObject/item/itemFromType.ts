@@ -39,6 +39,7 @@ const itemFromType = (itemType: string): Item => {
         damageType: DamageType.SLASHING,
         damageValue: 50,
         attackSpeedMultiplier: 1.2,
+        strengthMultiplier: 0.02,
       });
     default:
       return new Item(itemProps);

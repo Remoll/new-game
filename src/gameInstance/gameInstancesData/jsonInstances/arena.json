@@ -1,0 +1,3732 @@
+{
+  "mapSize": {
+    "x": 20,
+    "y": 20
+  },
+  "fields": [
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 0,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 1,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 2,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 3,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 4,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 5,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 6,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 7,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 8,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 9,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 10,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 11,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 12,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 13,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 14,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 15,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 16,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 17,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 18,
+      "y": 19
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 0
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 1
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 2
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 3
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 4
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 5
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 6
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 7
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 8
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 9
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 10
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 11
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 12
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 13
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 14
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 15
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 16
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 17
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 18
+    },
+    {
+      "imageKey": "groundTexture",
+      "x": 19,
+      "y": 19
+    }
+  ],
+  "npcs": [
+    {
+      "speed": 1,
+      "type": "skeleton",
+      "defaultDamageValue": 15,
+      "defaultDamageType": "blunt",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "agility": 5,
+        "intelligence": 2,
+        "endurance": 30
+      },
+      "imagesKeys": {
+        "default": "skeleton",
+        "dead": "bones"
+      },
+      "hp": 300,
+      "itemsProps": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 4
+    },
+    {
+      "speed": 4,
+      "type": "fireElemental",
+      "imagesKeys": {
+        "default": "fireElemental",
+        "dead": "pileOfDust"
+      },
+      "hp": 400,
+      "defaultDamageValue": 40,
+      "defaultDamageType": "fire",
+      "defaultArmorValue": 30,
+      "attributes": {
+        "strength": 15,
+        "dexterity": 20,
+        "agility": 20,
+        "intelligence": 5,
+        "endurance": 40
+      },
+      "itemsProps": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 2
+    },
+    {
+      "speed": 3,
+      "type": "bear",
+      "imagesKeys": {
+        "default": "bear",
+        "dead": "bearDead"
+      },
+      "hp": 400,
+      "defaultDamageValue": 30,
+      "defaultDamageType": "piercing",
+      "defaultArmorValue": 30,
+      "attributes": {
+        "strength": 50,
+        "dexterity": 20,
+        "agility": 20,
+        "intelligence": 2,
+        "endurance": 40
+      },
+      "itemsProps": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 1
+    },
+    {
+      "speed": 4,
+      "type": "imp",
+      "imagesKeys": {
+        "default": "imp",
+        "dead": "demonicOrb"
+      },
+      "hp": 100,
+      "defaultDamageValue": 20,
+      "defaultDamageType": "slashing",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 5,
+        "dexterity": 20,
+        "agility": 30,
+        "intelligence": 5,
+        "endurance": 5
+      },
+      "itemsProps": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 4
+    },
+    {
+      "speed": 3,
+      "type": "boar",
+      "imagesKeys": {
+        "default": "boar",
+        "dead": "boarDead"
+      },
+      "hp": 200,
+      "defaultDamageValue": 30,
+      "defaultDamageType": "piercing",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 20,
+        "dexterity": 15,
+        "agility": 25,
+        "intelligence": 2,
+        "endurance": 30
+      },
+      "itemsProps": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 7
+    },
+    {
+      "speed": 3,
+      "type": "wolf",
+      "imagesKeys": {
+        "default": "wolf",
+        "dead": "wolfDead"
+      },
+      "hp": 200,
+      "defaultDamageValue": 25,
+      "defaultDamageType": "piercing",
+      "defaultArmorValue": 10,
+      "attributes": {
+        "strength": 20,
+        "dexterity": 10,
+        "agility": 20,
+        "intelligence": 2,
+        "endurance": 20
+      },
+      "itemsProps": [],
+      "faction": "enemy_faction",
+      "dispositionToFactions": {
+        "hostile": [
+          "player_faction"
+        ],
+        "friendly": [
+          "enemy_faction"
+        ],
+        "neutral": [
+          "neutral_faction"
+        ]
+      },
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 9
+    }
+  ],
+  "gameObjects": [],
+  "blocks": [
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 4
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 6
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 8
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 9
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 10
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 11
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 12
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 13
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 14
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 15
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 16
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 17
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 18
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 0,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 0
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 4
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 6
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 8
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 9
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 10
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 11
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 12
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 13
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 14
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 15
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 16
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 17
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 18
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 19,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 12,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 14,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 19
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 4
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 1,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 2,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 3,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 4,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 5,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 6,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 7,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 4
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 8,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 9,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 10,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 11,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 1
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 2
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 3
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 5
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 6
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 8
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 8
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 8
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 8
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 13,
+      "y": 4
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 4
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 7
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 10
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 9
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 15,
+      "y": 11
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 16,
+      "y": 11
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 17,
+      "y": 11
+    },
+    {
+      "type": "stoneBlockLight",
+      "imagesKeys": {
+        "default": "stoneBlockLight",
+        "dead": "stoneBlockLight"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": true,
+      "isInteractive": false,
+      "x": 18,
+      "y": 11
+    }
+  ],
+  "items": [
+    {
+      "type": "weapon",
+      "imagesKeys": {
+        "default": "sword",
+        "dead": "swordEquiped"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": false,
+      "isInteractive": true,
+      "x": 1,
+      "y": 1
+    },
+    {
+      "type": "fireWand",
+      "imagesKeys": {
+        "default": "wand",
+        "dead": "wand"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": false,
+      "isInteractive": true,
+      "x": 2,
+      "y": 1
+    },
+    {
+      "type": "reanimatePotion",
+      "imagesKeys": {
+        "default": "potion",
+        "dead": "potion"
+      },
+      "itemsProps": [],
+      "canOccupiedFields": false,
+      "isInteractive": true,
+      "x": 3,
+      "y": 1
+    }
+  ],
+  "gateways": []
+}

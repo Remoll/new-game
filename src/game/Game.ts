@@ -9,6 +9,7 @@ import instance02 from '@/gameInstance/gameInstancesData/instance02.ts';
 import instance03 from '@/gameInstance/gameInstancesData/instance03.ts';
 import inn from '@/gameInstance/gameInstancesData/inn.ts';
 import forestEdge from '@/gameInstance/gameInstancesData/forestEdge.ts';
+import arena from '@/gameInstance/gameInstancesData/arena.ts';
 import GameState from '../gameState/GameState.ts';
 import { Coordinates, DamageType } from '@/types.ts';
 import { GameInstanceData, GameInstanceKey } from '@/gameInstance/types.ts';
@@ -49,6 +50,8 @@ class Game {
         return forestEdge;
       case GameInstanceKey.ROAD_TO_THE_FOREST:
         return roadToTheForest;
+      case GameInstanceKey.ARENA:
+        return arena;
       default:
         return instance01;
     }

@@ -10,4 +10,16 @@ enum DamageType {
   FIRE = 'fire',
 }
 
-export { Coordinates, DamageType };
+enum ArmorType {
+  NONE = 'none',
+  LIGHT = 'light',
+  MEDIUM = 'medium',
+  HEAVY = 'heavy',
+}
+
+enum ResistanceType {
+  PHYSICAL = 'physical',
+  FIRE = 'fire',
+}
+
+export { Coordinates, DamageType, ArmorType, ResistanceType };

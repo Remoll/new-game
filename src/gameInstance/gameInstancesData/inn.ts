@@ -190,6 +190,16 @@ const gameInstanceData: GameInstanceData = {
       canOccupiedFields: true,
       isInteractive: true,
     },
+    {
+      targetGameInstanceKey: GameInstanceKey.ARENA,
+      type: 'gateway',
+      x: 1,
+      y: 5,
+      targetPlayerCoordinates: { x: 2, y: 2 },
+      imagesKeys: { default: ImageKey.DOOR_STONE, dead: ImageKey.DOOR_STONE },
+      canOccupiedFields: true,
+      isInteractive: true,
+    },
   ],
   workshops: [],
   chests: [

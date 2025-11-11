@@ -1265,6 +1265,15 @@
       },
       "hp": 300,
       "defaultDamageValue": 15,
+      "defaultDamageType": "blunt",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "agility": 5,
+        "intelligence": 2,
+        "endurance": 30
+      },
       "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
@@ -1288,6 +1297,15 @@
       "itemsProps": [],
       "faction": "enemy_faction",
       "defaultDamageValue": 15,
+      "defaultDamageType": "blunt",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "agility": 5,
+        "intelligence": 2,
+        "endurance": 30
+      },
       "dispositionToFactions": {
         "hostile": ["player_faction"],
         "friendly": ["enemy_faction"],
@@ -1309,6 +1327,15 @@
       "itemsProps": [],
       "faction": "enemy_faction",
       "defaultDamageValue": 15,
+      "defaultDamageType": "blunt",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "agility": 5,
+        "intelligence": 2,
+        "endurance": 30
+      },
       "dispositionToFactions": {
         "hostile": ["player_faction"],
         "friendly": ["enemy_faction"],
@@ -1330,6 +1357,15 @@
       "itemsProps": [],
       "faction": "enemy_faction",
       "defaultDamageValue": 15,
+      "defaultDamageType": "blunt",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "agility": 5,
+        "intelligence": 2,
+        "endurance": 30
+      },
       "dispositionToFactions": {
         "hostile": ["player_faction"],
         "friendly": ["enemy_faction"],
@@ -1351,6 +1387,15 @@
       "itemsProps": [],
       "faction": "enemy_faction",
       "defaultDamageValue": 15,
+      "defaultDamageType": "blunt",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "agility": 5,
+        "intelligence": 2,
+        "endurance": 30
+      },
       "dispositionToFactions": {
         "hostile": ["player_faction"],
         "friendly": ["enemy_faction"],

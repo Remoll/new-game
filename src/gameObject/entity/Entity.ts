@@ -15,7 +15,7 @@ import {
 import { GameObjectSelector } from '@/gameEvents/types.ts';
 import GameObject from '@/gameObject/GameObject.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
-import { Coordinates, DamageType } from '@/types.ts';
+import { ArmorType, Coordinates, DamageType } from '@/types.ts';
 import GameState from '@/gameState/GameState.ts';
 import itemFactory from '../item/itemFactory.ts';
 import { EquipmentSlot } from '../item/equipment/types.ts';
@@ -63,6 +63,14 @@ class Entity extends GameObject {
     this.defaultDamageType = defaultDamageType;
     this.defaultArmorValue = defaultArmorValue;
     this.attributes = attributes;
+  }
+
+  private getAttributes(): EntityAttributes {
+    return this.attributes;
+  }
+
+  private getAttributeByName(name: keyof EntityAttributes): number {
+    return this.getAttributes()[name];
   }
 
   getDefaultDamageValue(): number {
@@ -179,12 +187,8 @@ class Entity extends GameObject {
     this.visibleEnemies = entities;
   }
 
-  takeDamage(
-    value: { damageValue: number; damageType: DamageType },
-    sender: Entity
-  ) {
-    // TODO: minus armor value and resistances
-    this.hp -= value.damageValue;
+  takeDamage(value: number, sender: Entity) {
+    this.hp -= value;
     if (!this.getFocusedEnemy()) {
       this.setFocusedEnemy(sender);
     }
@@ -244,6 +248,21 @@ class Entity extends GameObject {
     return !field.getIsOccupied() && field.getIsCrossable();
   }
 
+  private calculateDamageValue(
+    weaponDamageValue: number,
+    weaponStrengthMultiplier: number
+  ): number {
+    const strengthMultiplier =
+      1 + this.getAttributeByName('strength') * weaponStrengthMultiplier;
+
+    const variance = 0.9 + Math.random() * 0.2; // 0.9–1.1
+
+    const damageValue: number =
+      weaponDamageValue * strengthMultiplier * variance;
+
+    return Math.round(damageValue);
+  }
+
   private attackEntity(entity: Entity) {
     const isEntityEnemy = this.dispositionToFactions.hostile.includes(
       entity.getFaction()
@@ -255,19 +274,37 @@ class Entity extends GameObject {
 
     const weapon = this.getEquipmentBySlot(EquipmentSlot.MAIN_HAND);
 
-    let damageValue: number;
-    let damageType: DamageType;
+    let weaponDamageValue: number;
+    let weaponDamageType: DamageType;
+    let weaponStrengthMultiplier: number;
 
     if (!weapon || !(weapon instanceof Weapon)) {
-      damageValue = this.getDefaultDamageValue();
-      damageType = this.getDefaultDamageType();
+      weaponDamageValue = this.getDefaultDamageValue();
+      weaponDamageType = this.getDefaultDamageType();
+      weaponStrengthMultiplier = 0.05;
     } else {
-      damageValue = weapon.getDamageValue();
-      damageType = weapon.getDamageType();
+      weaponDamageValue = weapon.getDamageValue();
+      weaponDamageType = weapon.getDamageType();
+      weaponStrengthMultiplier = weapon.getStrengthMultiplier();
     }
 
-    // TODO: value based on raw attack and strength
-    emitAttack(this, { id: [entity.id] }, { damageValue, damageType });
+    const damageValue = this.calculateDamageValue(
+      weaponDamageValue,
+      weaponStrengthMultiplier
+    );
+
+    const armorValue = entity.getDefaultArmorValue();
+
+    console.log(
+      `${this.getType()} attacks ${entity.getType()} for ${damageValue} - ${armorValue} = ${damageValue - armorValue} damage`
+    );
+    console.log('---');
+
+    emitAttack(
+      this,
+      { id: [entity.id] },
+      Math.max(0, damageValue - armorValue)
+    );
   }
 
   protected move(newX: number, newY: number) {

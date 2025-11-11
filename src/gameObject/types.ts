@@ -47,8 +47,8 @@ interface GameObjectProps {
 
 interface EntityAttributes {
   strength: number;
-  dexterity: number;
-  agility: number;
+  dexterity: number; //wpływa głównie na attack speed i accuracy.
+  agility: number; //wpływa głównie na movement speed, evasion, inicjatywę.
   intelligence: number;
   endurance: number;
 }

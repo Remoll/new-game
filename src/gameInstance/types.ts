@@ -27,6 +27,7 @@ enum GameInstanceKey {
   INN = 'inn',
   FOREST_EDGE = 'forestEdge',
   ROAD_TO_THE_FOREST = 'roadToTheForest',
+  ARENA = 'arena',
 }
 
 export { type GameInstanceData, GameInstanceKey };

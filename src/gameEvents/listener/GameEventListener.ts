@@ -2,7 +2,6 @@ import { GameEvent, GameEventType } from '@/gameEvents/types.ts';
 import GameObject from '@/gameObject/GameObject.ts';
 import GameLoop from '@/gameLoop/GameLoop.ts';
 import Entity from '@/gameObject/entity/Entity.ts';
-import { DamageType } from '@/types.ts';
 
 class GameEventListener {
   private static singleton: GameEventListener | null = null;
@@ -41,11 +40,7 @@ class GameEventListener {
     this.gameLoop.playerStartTurn(value);
   }
 
-  private handleAttack(
-    targetEntity: Entity,
-    value: { damageValue: number; damageType: DamageType },
-    sender: Entity
-  ) {
+  private handleAttack(targetEntity: Entity, value: number, sender: Entity) {
     targetEntity.takeDamage(value, sender);
   }
 
@@ -99,16 +94,11 @@ class GameEventListener {
             console.error('Sender is not instanceof of Entity');
             return;
           }
-          if (
-            typeof value === 'object' &&
-            'damageValue' in value &&
-            typeof value.damageValue === 'number' &&
-            'damageType' in value &&
-            Object.values(DamageType).includes(value.damageType as DamageType)
-          ) {
-            this.handleAttack(gameObject, value, sender);
+          if (typeof value !== 'number') {
+            console.error('Value is not of correct type');
+            return;
           }
-
+          this.handleAttack(gameObject, value as number, sender);
           return;
 
         case GameEventType.MOVED:

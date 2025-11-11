@@ -9,6 +9,7 @@ interface WeaponProps extends GameObjectProps {
   damageValue: number;
   damageType: DamageType;
   attackSpeedMultiplier: number;
+  strengthMultiplier: number;
 }
 
 export { EquipmentSlot, WeaponProps };
