@@ -1257,13 +1257,11 @@
   ],
   "npcs": [
     {
-      "speed": 1,
       "type": "skeleton",
       "imagesKeys": {
         "default": "skeleton",
         "dead": "bones"
       },
-      "hp": 300,
       "defaultDamageValue": 15,
       "defaultDamageType": "blunt",
       "defaultArmorValue": 20,
@@ -1287,13 +1285,11 @@
       "y": 5
     },
     {
-      "speed": 1,
       "type": "skeleton",
       "imagesKeys": {
         "default": "skeleton",
         "dead": "bones"
       },
-      "hp": 300,
       "itemsProps": [],
       "faction": "enemy_faction",
       "defaultDamageValue": 15,
@@ -1317,13 +1313,11 @@
       "y": 3
     },
     {
-      "speed": 1,
       "type": "skeleton",
       "imagesKeys": {
         "default": "skeleton",
         "dead": "bones"
       },
-      "hp": 300,
       "itemsProps": [],
       "faction": "enemy_faction",
       "defaultDamageValue": 15,
@@ -1347,13 +1341,11 @@
       "y": 4
     },
     {
-      "speed": 1,
       "type": "skeleton",
       "imagesKeys": {
         "default": "skeleton",
         "dead": "bones"
       },
-      "hp": 300,
       "itemsProps": [],
       "faction": "enemy_faction",
       "defaultDamageValue": 15,
@@ -1377,13 +1369,11 @@
       "y": 3
     },
     {
-      "speed": 1,
       "type": "skeleton",
       "imagesKeys": {
         "default": "skeleton",
         "dead": "bones"
       },
-      "hp": 300,
       "itemsProps": [],
       "faction": "enemy_faction",
       "defaultDamageValue": 15,

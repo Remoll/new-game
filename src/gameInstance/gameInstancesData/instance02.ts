@@ -1,6 +1,7 @@
 import { Disposition, Faction } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { GameInstanceData, GameInstanceKey } from '../types.ts';
+import { DamageType } from '@/types.ts';
 
 const gameInstanceData: GameInstanceData = {
   mapSize: {
@@ -68,7 +69,6 @@ const gameInstanceData: GameInstanceData = {
   ],
   npcs: [
     {
-      speed: 4,
       type: 'enemy',
       x: 12,
       y: 1,
@@ -77,8 +77,16 @@ const gameInstanceData: GameInstanceData = {
         dead: ImageKey.PILE_OF_DUST,
       },
       faction: Faction.ENEMY,
-      hp: 300,
       defaultDamageValue: 40,
+      defaultDamageType: DamageType.FIRE,
+      defaultArmorValue: 30,
+      attributes: {
+        strength: 15,
+        dexterity: 20,
+        agility: 20,
+        intelligence: 5,
+        endurance: 40,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],

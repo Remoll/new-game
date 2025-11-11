@@ -54,10 +54,8 @@ interface EntityAttributes {
 }
 
 interface EntityProps extends GameObjectProps {
-  hp: number;
   faction: Faction;
   dispositionToFactions: DispositionToFactions;
-  speed: number;
   defaultDamageValue: number;
   defaultDamageType: DamageType;
   defaultArmorValue: number;

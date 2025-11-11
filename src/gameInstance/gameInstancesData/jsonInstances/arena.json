@@ -2007,7 +2007,6 @@
   ],
   "npcs": [
     {
-      "speed": 1,
       "type": "skeleton",
       "defaultDamageValue": 15,
       "defaultDamageType": "blunt",
@@ -2043,7 +2042,6 @@
       "y": 4
     },
     {
-      "speed": 4,
       "type": "fireElemental",
       "imagesKeys": {
         "default": "fireElemental",
@@ -2079,7 +2077,6 @@
       "y": 2
     },
     {
-      "speed": 3,
       "type": "bear",
       "imagesKeys": {
         "default": "bear",
@@ -2115,7 +2112,6 @@
       "y": 1
     },
     {
-      "speed": 4,
       "type": "imp",
       "imagesKeys": {
         "default": "imp",
@@ -2151,7 +2147,6 @@
       "y": 4
     },
     {
-      "speed": 3,
       "type": "boar",
       "imagesKeys": {
         "default": "boar",
@@ -2187,7 +2182,6 @@
       "y": 7
     },
     {
-      "speed": 3,
       "type": "wolf",
       "imagesKeys": {
         "default": "wolf",

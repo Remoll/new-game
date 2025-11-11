@@ -163,10 +163,8 @@ const getEntitiesConstantProps = (): {
 
 const entitiesLibrary: EntitySprite[] = [
   {
-    speed: 3,
     type: 'dog',
     imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG_DEAD },
-    hp: 150,
     defaultDamageValue: 20,
     defaultDamageType: DamageType.PIERCING,
     defaultArmorValue: 10,
@@ -180,10 +178,8 @@ const entitiesLibrary: EntitySprite[] = [
     ...getEntitiesConstantProps(),
   },
   {
-    speed: 4,
     type: 'imp',
     imagesKeys: { default: ImageKey.IMP, dead: ImageKey.DEMONIC_ORB },
-    hp: 100,
     defaultDamageValue: 20,
     defaultDamageType: DamageType.SLASHING,
     defaultArmorValue: 20,
@@ -197,10 +193,8 @@ const entitiesLibrary: EntitySprite[] = [
     ...getEntitiesConstantProps(),
   },
   {
-    speed: 3,
     type: 'boar',
     imagesKeys: { default: ImageKey.BOAR, dead: ImageKey.BOAR_DEAD },
-    hp: 200,
     defaultDamageValue: 30,
     defaultDamageType: DamageType.PIERCING,
     defaultArmorValue: 20,
@@ -214,7 +208,6 @@ const entitiesLibrary: EntitySprite[] = [
     ...getEntitiesConstantProps(),
   },
   {
-    speed: 1,
     type: 'skeleton',
     defaultDamageValue: 15,
     defaultDamageType: DamageType.BLUNT,
@@ -227,17 +220,14 @@ const entitiesLibrary: EntitySprite[] = [
       endurance: 30,
     },
     imagesKeys: { default: ImageKey.SKELETON, dead: ImageKey.BONES },
-    hp: 300,
     ...getEntitiesConstantProps(),
   },
   {
-    speed: 4,
     type: 'fireElemental',
     imagesKeys: {
       default: ImageKey.FIRE_ELEMENTAL,
       dead: ImageKey.PILE_OF_DUST,
     },
-    hp: 400,
     defaultDamageValue: 40,
     defaultDamageType: DamageType.FIRE,
     defaultArmorValue: 30,
@@ -275,10 +265,8 @@ const entitiesLibrary: EntitySprite[] = [
   //   ...getEntitiesConstantProps(),
   // },
   {
-    speed: 3,
     type: 'wolf',
     imagesKeys: { default: ImageKey.WOLF, dead: ImageKey.WOLF_DEAD },
-    hp: 200,
     defaultDamageValue: 25,
     defaultDamageType: DamageType.PIERCING,
     defaultArmorValue: 10,
@@ -300,10 +288,8 @@ const entitiesLibrary: EntitySprite[] = [
   //   ...getEntitiesConstantProps(),
   // },
   {
-    speed: 3,
     type: 'bear',
     imagesKeys: { default: ImageKey.BEAR, dead: ImageKey.BEAR_DEAD },
-    hp: 400,
     defaultDamageValue: 30,
     defaultDamageType: DamageType.PIERCING,
     defaultArmorValue: 30,

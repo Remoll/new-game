@@ -61,15 +61,11 @@ class Game {
     if (this.ctx) {
       const player = new Player({
         itemsProps: [],
-        // TODO: based on agility
-        speed: 2,
         type: 'player',
         x: 1,
         y: 2,
         imagesKeys: { default: ImageKey.PLAYER, dead: ImageKey.PLAYER_DEAD },
         faction: Faction.PLAYER,
-        // TODO: based on endurance
-        hp: 100,
         defaultDamageValue: 10,
         defaultDamageType: DamageType.BLUNT,
         defaultArmorValue: 10,

@@ -1,6 +1,7 @@
 import { Disposition, Faction } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { GameInstanceData, GameInstanceKey } from '../types.ts';
+import { DamageType } from '@/types.ts';
 
 const gameInstanceData: GameInstanceData = {
   mapSize: {
@@ -30,14 +31,21 @@ const gameInstanceData: GameInstanceData = {
   ],
   npcs: [
     {
-      speed: 3,
       type: 'dog',
       x: 5,
       y: 5,
       imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG_DEAD },
       faction: Faction.ENEMY,
-      hp: 150,
       defaultDamageValue: 20,
+      defaultDamageType: DamageType.PIERCING,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 15,
+        dexterity: 10,
+        agility: 20,
+        intelligence: 2,
+        endurance: 15,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],
@@ -47,14 +55,21 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
     {
-      speed: 1,
       type: 'enemy',
       x: 7,
       y: 7,
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.ENEMY,
-      hp: 100,
       defaultDamageValue: 10,
+      defaultDamageType: DamageType.BLUNT,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 10,
+        dexterity: 10,
+        agility: 10,
+        intelligence: 10,
+        endurance: 10,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],
@@ -64,14 +79,21 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
     {
-      speed: 1,
       type: 'enemy',
       x: 10,
       y: 5,
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.ENEMY,
-      hp: 100,
       defaultDamageValue: 10,
+      defaultDamageType: DamageType.BLUNT,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 10,
+        dexterity: 10,
+        agility: 10,
+        intelligence: 10,
+        endurance: 10,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],
@@ -81,14 +103,21 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
     {
-      speed: 1,
       type: 'enemy',
       x: 5,
       y: 1,
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.ENEMY,
-      hp: 100,
       defaultDamageValue: 10,
+      defaultDamageType: DamageType.BLUNT,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 10,
+        dexterity: 10,
+        agility: 10,
+        intelligence: 10,
+        endurance: 10,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],
@@ -98,14 +127,21 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
     {
-      speed: 1,
       type: 'enemy',
       x: 18,
       y: 18,
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.ENEMY,
-      hp: 100,
       defaultDamageValue: 10,
+      defaultDamageType: DamageType.BLUNT,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 10,
+        dexterity: 10,
+        agility: 10,
+        intelligence: 10,
+        endurance: 10,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.PLAYER],
         [Disposition.FRIENDLY]: [Faction.ENEMY],

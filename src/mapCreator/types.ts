@@ -45,9 +45,7 @@ interface ItemsSprite extends Omit<GameObjectSprite, 'spriteType'> {
 
 interface EntitySprite extends Omit<GameObjectSprite, 'spriteType'> {
   spriteType: SpriteType.ENTITY;
-  speed: number;
   faction: Faction;
-  hp: number;
   defaultDamageValue: number;
   defaultDamageType: DamageType;
   defaultArmorValue: number;

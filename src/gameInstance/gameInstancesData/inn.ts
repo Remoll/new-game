@@ -2,7 +2,7 @@ import { Disposition, Faction } from '@/gameObject/types.ts';
 import { ImageKey } from '@/imageManager/types.ts';
 import { GameInstanceData, GameInstanceKey } from '../types.ts';
 import { DialogueKey } from '@/dialogueManager/types.ts';
-import { Coordinates } from '@/types.ts';
+import { Coordinates, DamageType } from '@/types.ts';
 
 const fieldsCoordinates = () => {
   const coordinates: Coordinates[] = [];
@@ -75,14 +75,21 @@ const gameInstanceData: GameInstanceData = {
   ],
   npcs: [
     {
-      speed: 1,
       type: 'innkeeper',
       x: 2,
       y: 2,
       imagesKeys: { default: ImageKey.INNKEEPER, dead: ImageKey.INNKEEPER },
       faction: Faction.NEUTRAL,
-      hp: 100,
       defaultDamageValue: 10,
+      defaultDamageType: DamageType.BLUNT,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 10,
+        dexterity: 10,
+        agility: 10,
+        intelligence: 10,
+        endurance: 10,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -93,14 +100,21 @@ const gameInstanceData: GameInstanceData = {
       dialogueKey: DialogueKey.INNKEEPER,
     },
     {
-      speed: 1,
       type: 'npc',
       x: 16,
       y: 2,
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.NEUTRAL,
-      hp: 100,
       defaultDamageValue: 10,
+      defaultDamageType: DamageType.BLUNT,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 10,
+        dexterity: 10,
+        agility: 10,
+        intelligence: 10,
+        endurance: 10,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -110,14 +124,21 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
     {
-      speed: 1,
       type: 'npc',
       x: 12,
       y: 3,
       imagesKeys: { default: ImageKey.VILLAGER, dead: ImageKey.VILLAGER_DEAD },
       faction: Faction.NEUTRAL,
-      hp: 100,
       defaultDamageValue: 10,
+      defaultDamageType: DamageType.BLUNT,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 10,
+        dexterity: 10,
+        agility: 10,
+        intelligence: 10,
+        endurance: 10,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -127,14 +148,21 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
     {
-      speed: 1,
       type: 'npc',
       x: 7,
       y: 1,
       imagesKeys: { default: ImageKey.ENEMY, dead: ImageKey.ENEMY_DEAD },
       faction: Faction.NEUTRAL,
-      hp: 100,
       defaultDamageValue: 10,
+      defaultDamageType: DamageType.BLUNT,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 10,
+        dexterity: 10,
+        agility: 10,
+        intelligence: 10,
+        endurance: 10,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -144,14 +172,21 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
     {
-      speed: 1,
       type: 'npc',
       x: 9,
       y: 4,
       imagesKeys: { default: ImageKey.VILLAGER, dead: ImageKey.VILLAGER_DEAD },
       faction: Faction.NEUTRAL,
-      hp: 100,
       defaultDamageValue: 10,
+      defaultDamageType: DamageType.BLUNT,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 10,
+        dexterity: 10,
+        agility: 10,
+        intelligence: 10,
+        endurance: 10,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],
@@ -161,14 +196,21 @@ const gameInstanceData: GameInstanceData = {
       isInteractive: false,
     },
     {
-      speed: 3,
       type: 'dog',
       x: 18,
       y: 2,
       imagesKeys: { default: ImageKey.DOG, dead: ImageKey.DOG_DEAD },
       faction: Faction.NEUTRAL,
-      hp: 150,
       defaultDamageValue: 20,
+      defaultDamageType: DamageType.PIERCING,
+      defaultArmorValue: 10,
+      attributes: {
+        strength: 15,
+        dexterity: 10,
+        agility: 20,
+        intelligence: 2,
+        endurance: 15,
+      },
       dispositionToFactions: {
         [Disposition.HOSTILE]: [Faction.ENEMY],
         [Disposition.FRIENDLY]: [Faction.NEUTRAL],

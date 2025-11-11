@@ -23,7 +23,7 @@ import Equipment from '../item/equipment/Equipment.ts';
 import Weapon from '../item/equipment/weapon/Weapon.ts';
 
 class Entity extends GameObject {
-  private initialHp: number;
+  private maxHp: number;
   private hp: number;
   private faction: Faction;
   private dispositionToFactions: DispositionToFactions;
@@ -41,10 +41,8 @@ class Entity extends GameObject {
 
   constructor(props: EntityProps) {
     const {
-      hp,
       faction,
       dispositionToFactions,
-      speed,
       defaultDamageValue,
       defaultDamageType,
       defaultArmorValue,
@@ -54,11 +52,11 @@ class Entity extends GameObject {
 
     super(gameObjectProps, itemFactory);
 
-    this.initialHp = hp;
-    this.hp = hp;
+    this.maxHp = attributes.endurance * 10;
+    this.hp = attributes.endurance * 10;
     this.faction = faction;
     this.dispositionToFactions = dispositionToFactions;
-    this.speed = speed;
+    this.speed = Math.max(1, Math.round(attributes.agility / 5));
     this.defaultDamageValue = defaultDamageValue;
     this.defaultDamageType = defaultDamageType;
     this.defaultArmorValue = defaultArmorValue;
@@ -102,8 +100,8 @@ class Entity extends GameObject {
     return this.speed;
   }
 
-  getInitialHp(): number {
-    return this.initialHp;
+  getMaxHp(): number {
+    return this.maxHp;
   }
 
   getHp(): number {

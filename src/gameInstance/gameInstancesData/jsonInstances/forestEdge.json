@@ -2007,14 +2007,21 @@
   ],
   "npcs": [
     {
-      "speed": 3,
       "type": "bear",
       "imagesKeys": {
         "default": "bear",
         "dead": "bearDead"
       },
-      "hp": 400,
-      "defaultDamageValue": 100,
+      "defaultDamageValue": 30,
+      "defaultDamageType": "piercing",
+      "defaultArmorValue": 30,
+      "attributes": {
+        "strength": 50,
+        "dexterity": 20,
+        "agility": 20,
+        "intelligence": 2,
+        "endurance": 40
+      },
       "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
@@ -2028,14 +2035,21 @@
       "y": 11
     },
     {
-      "speed": 3,
       "type": "boar",
       "imagesKeys": {
         "default": "boar",
         "dead": "boarDead"
       },
-      "hp": 200,
-      "defaultDamageValue": 40,
+      "defaultDamageValue": 30,
+      "defaultDamageType": "piercing",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 20,
+        "dexterity": 15,
+        "agility": 25,
+        "intelligence": 2,
+        "endurance": 30
+      },
       "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
@@ -2049,16 +2063,23 @@
       "y": 9
     },
     {
-      "speed": 3,
       "type": "boar",
       "imagesKeys": {
         "default": "boar",
         "dead": "boarDead"
       },
-      "hp": 200,
+      "defaultDamageValue": 30,
+      "defaultDamageType": "piercing",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 20,
+        "dexterity": 15,
+        "agility": 25,
+        "intelligence": 2,
+        "endurance": 30
+      },
       "itemsProps": [],
       "faction": "enemy_faction",
-      "defaultDamageValue": 40,
       "dispositionToFactions": {
         "hostile": ["player_faction"],
         "friendly": ["enemy_faction"],
@@ -2070,16 +2091,23 @@
       "y": 10
     },
     {
-      "speed": 3,
       "type": "boar",
       "imagesKeys": {
         "default": "boar",
         "dead": "boarDead"
       },
-      "hp": 200,
+      "defaultDamageValue": 30,
+      "defaultDamageType": "piercing",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 20,
+        "dexterity": 15,
+        "agility": 25,
+        "intelligence": 2,
+        "endurance": 30
+      },
       "itemsProps": [],
       "faction": "enemy_faction",
-      "defaultDamageValue": 40,
       "dispositionToFactions": {
         "hostile": ["player_faction"],
         "friendly": ["enemy_faction"],
@@ -2091,14 +2119,21 @@
       "y": 11
     },
     {
-      "speed": 4,
       "type": "imp",
       "imagesKeys": {
         "default": "imp",
         "dead": "demonicOrb"
       },
-      "hp": 100,
       "defaultDamageValue": 20,
+      "defaultDamageType": "slashing",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 5,
+        "dexterity": 20,
+        "agility": 30,
+        "intelligence": 5,
+        "endurance": 5
+      },
       "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
@@ -2112,14 +2147,21 @@
       "y": 17
     },
     {
-      "speed": 4,
       "type": "imp",
       "imagesKeys": {
         "default": "imp",
         "dead": "demonicOrb"
       },
-      "hp": 100,
       "defaultDamageValue": 20,
+      "defaultDamageType": "slashing",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 5,
+        "dexterity": 20,
+        "agility": 30,
+        "intelligence": 5,
+        "endurance": 5
+      },
       "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
@@ -2133,14 +2175,21 @@
       "y": 17
     },
     {
-      "speed": 4,
       "type": "imp",
       "imagesKeys": {
         "default": "imp",
         "dead": "demonicOrb"
       },
-      "hp": 100,
       "defaultDamageValue": 20,
+      "defaultDamageType": "slashing",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 5,
+        "dexterity": 20,
+        "agility": 30,
+        "intelligence": 5,
+        "endurance": 5
+      },
       "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
@@ -2154,14 +2203,21 @@
       "y": 18
     },
     {
-      "speed": 4,
       "type": "imp",
       "imagesKeys": {
         "default": "imp",
         "dead": "demonicOrb"
       },
-      "hp": 100,
       "defaultDamageValue": 20,
+      "defaultDamageType": "slashing",
+      "defaultArmorValue": 20,
+      "attributes": {
+        "strength": 5,
+        "dexterity": 20,
+        "agility": 30,
+        "intelligence": 5,
+        "endurance": 5
+      },
       "itemsProps": [],
       "faction": "enemy_faction",
       "dispositionToFactions": {
