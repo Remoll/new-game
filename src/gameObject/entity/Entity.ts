@@ -3,6 +3,7 @@ import {
   Disposition,
   DispositionToFactions,
   EntityAttributes,
+  EntityDerivedStats,
   EntityProps,
   Faction,
 } from '@/gameObject/types.ts';
@@ -23,11 +24,9 @@ import Equipment from '../item/equipment/Equipment.ts';
 import Weapon from '../item/equipment/weapon/Weapon.ts';
 
 class Entity extends GameObject {
-  private maxHp: number;
   private hp: number;
   private faction: Faction;
   private dispositionToFactions: DispositionToFactions;
-  private speed: number;
   private isReanimate: boolean = false;
   private visibleEnemies: Entity[] = [];
   private focusedEnemy: Entity | null = null;
@@ -38,6 +37,7 @@ class Entity extends GameObject {
   private defaultDamageType: DamageType;
   private defaultArmorValue: number;
   private attributes: EntityAttributes;
+  private derivedStats: EntityDerivedStats;
 
   constructor(props: EntityProps) {
     const {
@@ -52,15 +52,33 @@ class Entity extends GameObject {
 
     super(gameObjectProps, itemFactory);
 
-    this.maxHp = attributes.endurance * 10;
-    this.hp = attributes.endurance * 10;
+    this.attributes = attributes;
+    this.updateDerivedStats();
+    this.hp = this.getMaxHp();
     this.faction = faction;
     this.dispositionToFactions = dispositionToFactions;
-    this.speed = Math.max(1, Math.round(attributes.agility / 5));
     this.defaultDamageValue = defaultDamageValue;
     this.defaultDamageType = defaultDamageType;
     this.defaultArmorValue = defaultArmorValue;
-    this.attributes = attributes;
+  }
+
+  private calculateHp(): number {
+    return this.attributes.endurance * 10;
+  }
+
+  private calculateSpeed(): number {
+    return Math.max(1, Math.round(this.attributes.agility / 5));
+  }
+
+  private calculateDerivedStats(): EntityDerivedStats {
+    return {
+      maxHp: this.calculateHp(),
+      speed: this.calculateSpeed(),
+    };
+  }
+
+  private updateDerivedStats(): void {
+    this.derivedStats = this.calculateDerivedStats();
   }
 
   private getAttributes(): EntityAttributes {
@@ -97,11 +115,11 @@ class Entity extends GameObject {
   }
 
   getSpeed(): number {
-    return this.speed;
+    return this.derivedStats.speed;
   }
 
   getMaxHp(): number {
-    return this.maxHp;
+    return this.derivedStats.maxHp;
   }
 
   getHp(): number {

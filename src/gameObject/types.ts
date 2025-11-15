@@ -53,6 +53,11 @@ interface EntityAttributes {
   endurance: number;
 }
 
+interface EntityDerivedStats {
+  maxHp: number;
+  speed: number;
+}
+
 interface EntityProps extends GameObjectProps {
   faction: Faction;
   dispositionToFactions: DispositionToFactions;
@@ -80,4 +85,5 @@ export {
   GameObjectImagesKeys,
   ItemFactory,
   EntityAttributes,
+  EntityDerivedStats,
 };
