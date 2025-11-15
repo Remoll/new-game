@@ -108,10 +108,12 @@ class GameLoop {
   private generateTurnLine(): Entity[] {
     const aliveEntities: Entity[] = this.getAliveEntitiesFromGameObjects();
 
-    const remainingEntitiesSpeed = aliveEntities.map((entity) => ({
-      id: entity.getId(),
-      remainingSpeed: entity.getSpeed(),
-    }));
+    const remainingEntitiesSpeed = aliveEntities.map((entity) => {
+      return {
+        id: entity.getId(),
+        remainingSpeed: entity.getDerivedStatByName('speed'),
+      };
+    });
 
     let heightestSpeed = remainingEntitiesSpeed.reduce(
       (max, entity) =>

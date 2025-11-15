@@ -5,22 +5,21 @@ import { DamageType } from '@/types.ts';
 class Weapon extends Equipment {
   private damageValue: number;
   private damageType: DamageType;
-  private attackSpeedMultiplier: number;
+  private speedMultiplier: number;
   private strengthMultiplier: number;
 
   constructor(props: WeaponProps) {
     const {
       damageValue,
       damageType,
-      attackSpeedMultiplier,
+      speedMultiplier,
       strengthMultiplier,
       ...gameObjectProps
     } = props;
     super(gameObjectProps, EquipmentSlot.MAIN_HAND);
     this.damageValue = damageValue;
     this.damageType = damageType;
-    // TODO: minus this from speed on turn
-    this.attackSpeedMultiplier = attackSpeedMultiplier;
+    this.speedMultiplier = speedMultiplier;
     this.strengthMultiplier = strengthMultiplier;
   }
 
@@ -32,8 +31,8 @@ class Weapon extends Equipment {
     return this.damageType;
   }
 
-  getAttackSpeedMultiplier(): number {
-    return this.attackSpeedMultiplier;
+  getSpeedMultiplier(): number {
+    return this.speedMultiplier;
   }
 
   getStrengthMultiplier(): number {

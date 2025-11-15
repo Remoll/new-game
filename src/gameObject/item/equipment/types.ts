@@ -8,7 +8,7 @@ enum EquipmentSlot {
 interface WeaponProps extends GameObjectProps {
   damageValue: number;
   damageType: DamageType;
-  attackSpeedMultiplier: number;
+  speedMultiplier: number;
   strengthMultiplier: number;
 }
 

@@ -16,7 +16,7 @@ const itemFactory = (itemProps: GameObjectProps): Item => {
         ...itemProps,
         damageType: DamageType.SLASHING,
         damageValue: 50,
-        attackSpeedMultiplier: 1.2,
+        speedMultiplier: 1.2,
         strengthMultiplier: 0.02,
       });
     default:

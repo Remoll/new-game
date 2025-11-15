@@ -54,7 +54,7 @@ class Entity extends GameObject {
 
     this.attributes = attributes;
     this.updateDerivedStats();
-    this.hp = this.getMaxHp();
+    this.hp = this.getDerivedStatByName('maxHp');
     this.faction = faction;
     this.dispositionToFactions = dispositionToFactions;
     this.defaultDamageValue = defaultDamageValue;
@@ -63,11 +63,25 @@ class Entity extends GameObject {
   }
 
   private calculateHp(): number {
-    return this.attributes.endurance * 10;
+    return this.getAttributeByName('endurance') * 10;
   }
 
   private calculateSpeed(): number {
-    return Math.max(1, Math.round(this.attributes.agility / 5));
+    const weapon = this.getEquipmentBySlot(EquipmentSlot.MAIN_HAND);
+
+    const speedMultiplier =
+      weapon && weapon instanceof Weapon ? weapon.getSpeedMultiplier() : 1;
+
+    return Math.max(
+      1,
+      Math.round(
+        ((this.getAttributeByName('agility') +
+          this.getAttributeByName('dexterity')) /
+          2 /
+          5) *
+          speedMultiplier
+      )
+    );
   }
 
   private calculateDerivedStats(): EntityDerivedStats {
@@ -104,6 +118,7 @@ class Entity extends GameObject {
   equipItem(equipment: Equipment) {
     const equipmentSlot = equipment.getSlot();
     this.equipments[equipmentSlot] = equipment;
+    this.updateDerivedStats();
   }
 
   getEquipments(): Record<EquipmentSlot, Equipment> {
@@ -114,12 +129,12 @@ class Entity extends GameObject {
     return this.getEquipments()[slot];
   }
 
-  getSpeed(): number {
-    return this.derivedStats.speed;
+  getDerivedStats(): EntityDerivedStats {
+    return this.derivedStats;
   }
 
-  getMaxHp(): number {
-    return this.derivedStats.maxHp;
+  getDerivedStatByName(name: keyof EntityDerivedStats): number {
+    return this.getDerivedStats()[name];
   }
 
   getHp(): number {
