@@ -9,7 +9,7 @@ class Reanimate extends Effect {
     targetEntity.setFaction(userFaction);
     targetEntity.setDispositionToFactions(userFactionDisposition);
     targetEntity.setCanOccupiedFields(true);
-    targetEntity.setHp(targetEntity.getInitialHp());
+    targetEntity.setHp(targetEntity.getDerivedStatByName('maxHp'));
     targetEntity.setIsReanimate(true);
   }
 }

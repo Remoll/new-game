@@ -1,5 +1,5 @@
 import { GameObjectSelector } from '@/gameEvents/types.ts';
-import { Disposition, EntityProps } from '@/gameObject/types.ts';
+import { Disposition, EntityProps, Faction } from '@/gameObject/types.ts';
 import Entity from '@/gameObject/entity/Entity.ts';
 import GameObject from '@/gameObject/GameObject.ts';
 
@@ -82,6 +82,9 @@ class Npc extends Entity {
     }
 
     if (this.getVisibleEnemies().length < 1) {
+      if (this.getDispositionToFactions().friendly.includes(Faction.PLAYER)) {
+        this.findAndCharge({ type: 'player' });
+      }
       this.findVisibleEnemies();
       return;
     }
