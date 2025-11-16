@@ -84,10 +84,20 @@ class Entity extends GameObject {
     );
   }
 
+  private calculateAccuracy(): number {
+    return this.getAttributeByName('dexterity');
+  }
+
+  private calculateEvasion(): number {
+    return this.getAttributeByName('agility');
+  }
+
   private calculateDerivedStats(): EntityDerivedStats {
     return {
       maxHp: this.calculateHp(),
       speed: this.calculateSpeed(),
+      accuracy: this.calculateAccuracy(),
+      evasion: this.calculateEvasion(),
     };
   }
 
@@ -294,6 +304,27 @@ class Entity extends GameObject {
     return Math.round(damageValue);
   }
 
+  private checkDoesTargetEvade(target: Entity): boolean {
+    const BASE_HIT_CHANCE = 0.5;
+    const PER_POINT = 0.04;
+    const MIN_HIT = 0.05;
+    const MAX_HIT = 0.95;
+
+    const targetEvasion = target.getDerivedStatByName('evasion');
+    const attackerAccuracy = this.getDerivedStatByName('accuracy');
+
+    const rawDiff = attackerAccuracy - targetEvasion;
+
+    const hitChanceRaw = BASE_HIT_CHANCE + rawDiff * PER_POINT;
+
+    const hitChance = Math.max(MIN_HIT, Math.min(MAX_HIT, hitChanceRaw));
+
+    const roll = Math.random();
+    const isHit = roll < hitChance;
+
+    return !isHit;
+  }
+
   private attackEntity(entity: Entity) {
     const isEntityEnemy = this.dispositionToFactions.hostile.includes(
       entity.getFaction()
@@ -317,6 +348,14 @@ class Entity extends GameObject {
       weaponDamageValue = weapon.getDamageValue();
       weaponDamageType = weapon.getDamageType();
       weaponStrengthMultiplier = weapon.getStrengthMultiplier();
+    }
+
+    const doesTargetEvade = this.checkDoesTargetEvade(entity);
+
+    if (doesTargetEvade) {
+      console.log(`${this.getType()} missesd ${entity.getType()}`);
+      console.log('---');
+      return;
     }
 
     const damageValue = this.calculateDamageValue(

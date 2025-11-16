@@ -56,6 +56,8 @@ interface EntityAttributes {
 interface EntityDerivedStats {
   maxHp: number;
   speed: number;
+  accuracy: number;
+  evasion: number;
 }
 
 interface EntityProps extends GameObjectProps {
