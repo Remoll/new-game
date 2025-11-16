@@ -9,7 +9,7 @@ import GameState from '@/gameState/GameState.ts';
 class FireWand extends Projectile {
   constructor(props: GameObjectProps) {
     super(props);
-    this.isConsumables = false;
+    this.isConsumables = true;
   }
 
   executeEffect(
