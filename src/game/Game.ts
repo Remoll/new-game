@@ -70,11 +70,11 @@ class Game {
         defaultDamageType: DamageType.BLUNT,
         defaultArmorValue: 10,
         attributes: {
-          strength: 10,
-          dexterity: 10,
-          agility: 10,
-          intelligence: 10,
-          endurance: 10,
+          strength: 20,
+          dexterity: 20,
+          agility: 20,
+          intelligence: 20,
+          endurance: 20,
         },
         dispositionToFactions: {
           [Disposition.HOSTILE]: [Faction.ENEMY],
