@@ -54,7 +54,7 @@ class FireWand extends Projectile {
     const gameObjectThatOccupiedField = field?.getGameObjectThatOccupiedField();
     if (gameObjectThatOccupiedField instanceof Entity) {
       gameObjectThatOccupiedField.takeDamage(
-        { damageValue: 100, damageType: DamageType.FIRE },
+        100,
         this.getEquippedBy() as Entity
       );
     }
