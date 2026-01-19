@@ -392,21 +392,51 @@ class Entity extends GameObject {
     emitMove(this, { type: 'enemy' });
   }
 
+  private switchPlacesWithEntity(entity: Entity) {
+    const { x: entityX, y: entityY } = entity.getPosition();
+    const { x: thisX, y: thisY } = this.getPosition();
+
+    this.move(entityX, entityY);
+    entity.move(thisX, thisY);
+  }
+
   protected takeAction(direction: Direction) {
     const { x: newX, y: newY } =
       this.findNewCoordinatesFromDirection(direction);
 
-    let entityToAttack: GameObject | undefined = undefined;
+    let entityOnTargetField: GameObject | undefined = undefined;
 
     const field = this.getFieldFromCoordinates(newX, newY);
 
     if (field) {
-      entityToAttack = field.getGameObjectThatOccupiedField();
+      entityOnTargetField = field.getGameObjectThatOccupiedField();
     }
 
-    if (entityToAttack && entityToAttack instanceof Entity) {
-      this.attackEntity(entityToAttack);
-      return;
+    if (entityOnTargetField && entityOnTargetField instanceof Entity) {
+      const entityOnTargetFieldFaction = entityOnTargetField.getFaction();
+      const isEntityEnemy = this.dispositionToFactions.hostile.includes(
+        entityOnTargetFieldFaction
+      );
+
+      if (isEntityEnemy) {
+        this.attackEntity(entityOnTargetField);
+        return;
+      }
+
+      const isEntityPlayer = this.getType() === 'player';
+
+      if (!isEntityPlayer) {
+        return;
+      }
+
+      const isEntityAlly = this.dispositionToFactions.friendly.includes(
+        entityOnTargetFieldFaction
+      );
+
+      if (isEntityAlly) {
+        this.switchPlacesWithEntity(entityOnTargetField);
+        return;
+      }
     }
 
     if (!this.checkIsFieldAvailable(newX, newY)) {
