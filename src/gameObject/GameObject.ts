@@ -10,7 +10,7 @@ import { Coordinates } from '@/types.ts';
 import ImageManager from '@/imageManager/ImageManager.ts';
 import GameState from '@/gameState/GameState.ts';
 import { DialogueKey } from '@/dialogueManager/types.ts';
-import Player from './entity/player/Player.ts';
+import Player from '@/gameObject/entity/player/Player.ts';
 
 class GameObject {
   protected type: string;

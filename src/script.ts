@@ -19,17 +19,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   const path = window.location.pathname;
   await ImageManager.getSingleton().preloadImages();
 
-  if (path === '/' || path === '/index.html') {
+  if (path.includes('map-creator')) {
+    MapCreator.getSingleton(ctx, { x: 20, y: 20 });
+  } else {
     await DialogueManager.getSingleton().preloadDialogues();
 
     ctx.font = '24px Arial';
     const hotkeysBar = document.getElementById('bar');
     hotkeysBar.style.display = 'block';
     Game.getSingleton(ctx);
-  } else if (path === '/map-creator') {
-    MapCreator.getSingleton(ctx, { x: 20, y: 20 });
-  } else {
-    document.body.innerHTML = '<h1>404 - Wrong URL</h1>';
   }
 });
 
